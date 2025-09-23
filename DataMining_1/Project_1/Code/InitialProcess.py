@@ -12,6 +12,7 @@ script_dir = os.path.dirname(__file__)
 # Construct the full path to the file
 file_path = os.path.join(script_dir, 'DataSet', 'train.csv')
 
+# Load dataframe for file manipulation
 dataframe = panda_object.read_csv(file_path)
 total_rows = len(dataframe)
 rows_per_file = total_rows // 3
