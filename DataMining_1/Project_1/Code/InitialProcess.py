@@ -15,12 +15,14 @@ file_path = os.path.join(script_dir, 'DataSet', 'train.csv')
 # Load dataframe for file manipulation
 dataframe = panda_object.read_csv(file_path)
 total_rows = len(dataframe)
-rows_per_file = total_rows // 3
+split_75_size = int(total_rows * 0.75)
+split_15_size = int(total_rows * 0.15)
+split_10_size = total_rows - split_75_size - split_15_size
 
 # Split into three DataFrames
-dataframe1 = dataframe.iloc[:rows_per_file]
-dataframe2 = dataframe.iloc[rows_per_file:2*rows_per_file]
-dataframe3 = dataframe.iloc[2*rows_per_file:]
+dataframe1 = dataframe.iloc[:split_75_size]
+dataframe2 = dataframe.iloc[split_75_size:split_75_size + split_15_size]
+dataframe3 = dataframe.iloc[split_75_size + split_15_size:]
 
 # Save each DataFrame to a new CSV file
 file_path = os.path.join(script_dir, 'DataSet', 'TrainingSet.csv')
