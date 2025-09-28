@@ -5,7 +5,6 @@
 
 import os
 import pandas as panda_object
-import numpy as numpy_object
 import matplotlib.pyplot as plot_object
 import seaborn as graphics_object
 
@@ -18,6 +17,29 @@ def load_data(file_path):
     return panda_object.read_csv(file_path)
 
 
+def initialize_script():
+    """
+    Sets up script
+    Returns:
+        A dataframe from the passed in data set.
+        A folder path
+    """
+    # Get the directory of the current script
+    script_dir = os.path.dirname(__file__)
+
+    # Construct the full path to the file
+    file_path = os.path.join(script_dir, 'DataSet','train.csv')
+    
+    # Set the style for the plots
+    graphics_object.set_style("whitegrid")    
+    
+    # Prepare files structure to be used and load data to memory
+    data = load_data(file_path)
+    folder_path = os.path.join(script_dir, 'DataSet', 'EDA_Results')
+    os.makedirs(folder_path, exist_ok=True)
+    return data, folder_path
+
+
 def describe_with_interpretation(dataframe):
     """
     Performs a dataframe.describe() and prints an interpretation of the key statistics.
@@ -28,6 +50,7 @@ def describe_with_interpretation(dataframe):
         if panda_object.api.types.is_numeric_dtype(dataframe[column]):
             desc = dataframe[column].describe()
             column_stats = {
+                'Column Name': column,
                 'Count': int(desc['count']),
                 'Mean': desc['mean'],
                 'Std Dev': desc['std'],
@@ -41,6 +64,7 @@ def describe_with_interpretation(dataframe):
         else:
             # Handle non-numeric columns
             non_numeric_stats = {
+                'Column Name': column,
                 'Count': dataframe[column].count(),
                 'Mean': 'N/A',
                 'Std Dev': 'N/A',
@@ -53,6 +77,15 @@ def describe_with_interpretation(dataframe):
             stats_dataframe = panda_object.concat([stats_dataframe, panda_object.DataFrame(non_numeric_stats, index=[column])])
 
     return stats_dataframe
+
+def save_correlation_to_csv(dataframe, file_path):
+    """
+    Calculates the correlation matrix of a DataFrame and saves it as a CSV file.
+    """
+    # Calculate the correlation matrix
+    correlation_matrix = dataframe.corr()
+    # Save the correlation matrix to a CSV file
+    correlation_matrix.to_csv(file_path)
 
 
 def plot_numerical_distributions(dataframe, file_path):
@@ -213,63 +246,75 @@ def plot_correlation_by_feature_heatmap(dataframe, file_path):
         file_path = os.path.join(og_file_path, f'{prop}_heatmap.png')
         plot_object.savefig(file_path)
         plot_object.close()
-
-
-
+     
+def handle_eda(folder_path, data):
+    # Start EDA process
+    file_path = os.path.join(folder_path,'data_describe_results.csv')
+    descriptive_summary = describe_with_interpretation(data)
+    descriptive_summary.to_csv(file_path, index=False)
+    
+def handle_whole_correlation(folder_path,data):
+    # Correlation of whole population set
+    file_path = os.path.join(folder_path,'data_correlation_results.csv')
+    save_correlation_to_csv(data, file_path)
+    
+def handle_distributions_visualization(folder_path, data):
+    # Distributions
+    file_path = os.path.join(folder_path, 'numerical_distributions.png')
+    plot_numerical_distributions(data,file_path)
+    
+def handle_boxplots_visualization_for_sets(folder_path, data):
+    # Boxplots
+    folder_path_enhanced = os.path.join(folder_path, 'Boxplots')
+    os.makedirs(folder_path_enhanced, exist_ok=True)
+    file_path = os.path.join(folder_path)
+    
+    first_cols = data.iloc[:, 0:1]
+    plot_box(first_cols, file_path)
+    
+    target_cols = data.iloc[ :, [-1]]
+    plot_box(target_cols, file_path)
+    
+    dataframe_subset = data.iloc[:, 1:-1]
+    plot_box(dataframe_subset, file_path)
+    
+def handle_heatmap_visualization_for_sets(folder_path, data):
+    # Heatmaps of sets
+    folder_path_enhanced = os.path.join(folder_path, 'Heatmaps')
+    os.makedirs(folder_path_enhanced, exist_ok=True)
+    file_path = os.path.join(folder_path)
+    plot_correlation_by_feature_heatmap(data, file_path)    
+    
+def handle_default(action):
+    return f"Unknown {action}, please see available handle_ functions."
+    
+def handle_script_actions(action, **kwargs):
+    """
+    A switch-like function using a dictionary to map strings to functions.
+    """
+    script_actions = {
+        'eda': lambda: handle_eda(kwargs.get('folder_path'),kwargs.get('dataframe')),
+        'correlations': lambda: handle_whole_correlation(kwargs.get('folder_path'),kwargs.get('dataframe')),
+        'ditributions': lambda: handle_distributions_visualization(kwargs.get('folder_path'),kwargs.get('dataframe')),
+        'boxplots': lambda: handle_boxplots_visualization_for_sets(kwargs.get('folder_path'),kwargs.get('dataframe')),
+        'heatmaps': lambda: handle_heatmap_visualization_for_sets(kwargs.get('folder_path'),kwargs.get('dataframe'))
+    }
+    action = script_actions.get(action, lambda: handle_default(action))
+    return action()
 
 # Main Function of Script
 if __name__ == "__main__":
     '''
-    GETTO: clean up call and make this more modular
-    GETTO: Initialize the script with a function
-    GETTO: Only used what its needed for a run, running all at once is slow.
+    Running all actions at a time is a slow drag.
+    available handle_ actions:
+        [
+            'eda','correlations',
+            'ditributions','boxplots','heatmaps'
+        ]
     '''
     try:
-        # Get the directory of the current script
-        script_dir = os.path.dirname(__file__)
-
-        # Construct the full path to the file
-        file_path = os.path.join(script_dir, 'DataSet','train.csv')
-        
-        # Set the style for the plots
-        graphics_object.set_style("whitegrid")    
-        
-        
-        data = load_data(file_path)
-        folder_path = os.path.join(script_dir, 'DataSet', 'EDA_Results')
-        os.makedirs(folder_path, exist_ok=True)
-        '''
-        # Start EDA process
-        file_path = os.path.join(folder_path,'data_describe_results.csv')
-        descriptive_summary = describe_with_interpretation(data)
-        descriptive_summary.to_csv(file_path, index=False)
-        '''
-
-        # Distributions
-        file_path = os.path.join(folder_path, 'numerical_distributions.png')
-        plot_numerical_distributions(data,file_path)
-        '''
-        
-        # Boxplots
-        folder_path = os.path.join(script_dir, 'DataSet', 'EDA_Results', 'Boxplots')
-        os.makedirs(folder_path, exist_ok=True)
-        file_path = os.path.join(folder_path)
-        
-        first_cols = data.iloc[:, 0:1]
-        plot_box(first_cols, file_path)
-       
-        target_cols = data.iloc[ :, [-1]]
-        plot_box(target_cols, file_path)
-        
-        dataframe_subset = data.iloc[:, 1:-1]
-        plot_box(dataframe_subset, file_path)
-        
-        # Heatmaps
-        folder_path = os.path.join(script_dir, 'DataSet', 'EDA_Results', 'Heatmaps')
-        os.makedirs(folder_path, exist_ok=True)
-        file_path = os.path.join(folder_path)
-        plot_correlation_by_feature_heatmap(data, file_path)
-        '''
+        data, folder_path = initialize_script()
+        handle_script_actions('correlations', folder_path = folder_path, dataframe = data)
 
     except FileNotFoundError:
-        print(f"Error: The file '{file_path}' was not found.")
+        print(f"Error: The file '{folder_path}' was not found.")
