@@ -5,8 +5,10 @@
 
 import os
 import pandas as panda_object
+import numpy as numpy_object
 import matplotlib.pyplot as plot_object
 import seaborn as graphics_object
+from scipy import stats
 
 def load_data(file_path):
     """
@@ -314,7 +316,14 @@ if __name__ == "__main__":
     '''
     try:
         data, folder_path = initialize_script()
-        handle_script_actions('correlations', folder_path = folder_path, dataframe = data)
+        boxcot, lam = stats.boxcox(data['critical_temp'])
+        transformed_target = panda_object.DataFrame({
+            'critical_temp': data['critical_temp'],
+            'critical_temp_log': numpy_object.log(data['critical_temp']),
+            'critical_temp_sqrt': numpy_object.sqrt(data['critical_temp']),
+            'critical_temp_boxcot': boxcot
+        })
+        handle_script_actions('ditributions', folder_path = folder_path, dataframe = transformed_target)
 
     except FileNotFoundError:
         print(f"Error: The file '{folder_path}' was not found.")
