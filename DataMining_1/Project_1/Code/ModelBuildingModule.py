@@ -189,7 +189,7 @@ def fit_mlr_model(X, y, folder_path):
     '''
     # Create and fit the OLS model or Gaussian distribution
     X_train_const = stats_model_api.add_constant(X)
-    mlr = stats_model_api.GLM(y_train, X_train_const, 
+    mlr = stats_model_api.GLM(y, X_train_const, 
                                     family=stats_model_api.families.Gaussian())
     mlr_model = mlr.fit()
 
@@ -282,7 +282,7 @@ if __name__ == "__main__":
         normalized_training_data = normalize_data_set(training_data, scaler)
         X_train, y_train = split_into_features_and_target(normalized_training_data)
         
-        #using same scaler with the training_data nomalize scale
+        #using same scaler with the training_data normalize scale
         validation_data = get_dataset_as_dataframe('ValidationSet.csv')
         normalized_validation_data = normalize_data_set(validation_data, scaler)
         X_validation, y_validation = split_into_features_and_target(normalized_validation_data)

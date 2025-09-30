@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  20 SEP 2025 19:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  29 SEP 2025 20:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,7 +316,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 9
-1.
+2.
 (C:\Program Files\LaTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
@@ -327,18 +327,18 @@ Files/LaTeX/fonts/enc/dvips/base/8r.enc}
 
 ]
 
-<fig1.png, id=13, 249.3315pt x 189.22694pt>
+<fig1.png, id=14, 249.3315pt x 189.22694pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 196.
+Package pdftex.def Info: fig1.png  used on input line 197.
 (pdftex.def)             Requested size: 249.33087pt x 189.22647pt.
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2
-07.
+08.
 (C:\Program Files\LaTeX\tex/latex/psnfss\omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 207.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
 
 
 [2]
@@ -363,25 +363,27 @@ L3 programming layer <2025-08-13>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4275 strings out of 468133
- 65721 string characters out of 5441260
+ 4273 strings out of 468133
+ 65777 string characters out of 5441260
  488566 words of memory out of 5000000
- 32842 multiletter control sequences out of 15000+600000
- 671925 words of font info for 125 fonts, out of 8000000 for 9000
+ 32841 multiletter control sequences out of 15000+600000
+ 670299 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,597b,306s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
- Files/LaTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/LaTeX/f
-onts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/LaTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
-/Program Files/LaTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/LaTeX
-/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times
-/utmbi8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Progr
-am Files/LaTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Project_Assignment_1.pdf (3 pages, 154943 bytes).
+ Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/LaTeX/f
+onts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/LaTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/c
+m/cmr6.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
+Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
+/LaTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/LaTeX/fonts/t
+ype1/urw/courier/ucrr8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmb8
+a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
+es/LaTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/LaTeX/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on Project_Assignment_1.pdf (3 pages, 171035 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
