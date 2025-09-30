@@ -10,8 +10,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{An Analysis on Superconducting Critical Temperature For A Superconductor’s
-	Chemical Formula}
+\title{General Linear Regression of Superconducting Critical Temperature on Superconductor Materials}
 
 \author{\IEEEauthorblockN{Gabriel Guillen}
 \IEEEauthorblockA{\textit{dept. of Statistics \& Data Science} \\
@@ -23,71 +22,52 @@ ga013701@ucf.edu}}
 \maketitle
 
 \begin{abstract}
-This paper analyzes the relationship between various material properties and the critical temperature ($T_c$) of superconductors. The main objective is to determine if a minimal set of these properties can be used to predict $T_c$ through various general linear models. We will explore several derived metrics and use general linear regression to identify the most significant factors. The findings will demonstrate how these metrics are linearly related to the critical temperature. \\
+This paper analyzes the relationship between various material properties and the critical temperature ($T_c$) of superconducting materials. The main objective is to determine if a minimal set of these properties can be used to predict $T_c$ through various general linear models. We will explore several derived metrics and use general linear regression to identify the most significant factors. The findings will demonstrate how these metrics are linearly related to the critical temperature. \\
 \end{abstract}
 
 \begin{IEEEkeywords}
 Superconductors,
 Critical Temperature,
-General Linear Model (GLM),
+General Linear Model,
 Gaussian, Gamma, Tweedie, Predictive Modeling
 \end{IEEEkeywords}
 
-\section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. For more information about how to become an IEEE Conference author or how to write your paper, please visit   IEEE Conference Author Center website: https://conferences.ieeeauthorcenter.ieee.org/.
+\section{\textbf{Introduction}}
+This study investigates the linear relationship between a set of predictive metrics and the critical temperature ($T_c$) of various materials. We aim to determine if a linear model can effectively predict $T_c$ and, if so, to identify the most suitable statistical distribution family for this relationship. The data, including several highly correlated derived metrics, will be analyzed to answer these questions. \\
+\indent We will begin by detailing the characteristics of the dataset and address any data anomalies. This will be followed by an explanation of the preprocessing methods used to prepare the data for our Generalized Linear Models (GLM). The analysis will incorporate insights from both the training and validation datasets to build and evaluate the predictive models.\\
+\indent Finally, we will present which GLM distribution family provides the best fit, as determined by its lowest error rate, for predicting the critical temperature of the materials under consideration.
 
-\subsection{Maintaining the Integrity of the Specifications}
+\section{\textbf{Analysis}}
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+\subsection{\textbf{Data}}
 
-\section{Prepare Your Paper Before Styling}
-Before you begin to format your paper, first write and save the content as a 
-separate text file. Complete all content and organizational editing before 
-formatting. Please note sections \ref{AA} to \ref{FAT} below for more information on 
-proofreading, spelling and grammar.
+This study utilizes a dataset on superconducting materials, sourced from reference [1]. The dataset contains information about the chemical composition and critical temperature ($T_c$) for various materials. \\
 
-Keep your text and graphic files separate until after the text has been 
-formatted and styled. Do not number text heads---{\LaTeX} will do that 
-for you.
+\subsubsection{\textbf{Data Structure and Features}}
 
-\subsection{Abbreviations and Acronyms}\label{AA}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have been defined in the abstract. Abbreviations such as 
-IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
-abbreviations in the title or heads unless they are unavoidable.
-
-\subsection{Units}
+The dataset includes \textbf{eight derived chemical features} for each material's chemical formula:
 \begin{itemize}
-\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
-\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
-\item Do not mix complete spellings and abbreviations of units: ``Wb/m\textsuperscript{2}'' or ``webers per square meter'', not ``webers/m\textsuperscript{2}''. Spell out units when they appear in text: ``. . . a few henries'', not ``. . . a few H''.
-\item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm\textsuperscript{3}'', not ``cc''.)
+\item Atomic Mass
+\item Atomic Radius
+\item Density, Electron Affinity
+\item First Ionization Energy (FIE)
+\item Fusion Heat
+\item Thermal Conductivity
+\item Valence
 \end{itemize}
 
-\subsection{Equations}
-Number equations consecutively. To make your 
-equations more compact, you may use the solidus (~/~), the exp function, or 
-appropriate exponents. Italicize Roman symbols for quantities and variables, 
-but not Greek symbols. Use a long dash rather than a hyphen for a minus 
-sign. Punctuate equations with commas or periods when they are part of a 
-sentence, as in:
-\begin{equation}
-a+b=\gamma\label{eq}
-\end{equation}
+\indent These eight features are summarized across \textbf{ten statistical metrics}: \texttt{mean}, weighted mean (\texttt{wtd\_mean}), geometric mean (\texttt{gmean}), weighted geometric mean (\texttt{wtd\_gmean}), \texttt{entropy}, weighted entropy (\texttt{wtd\_entropy}), \texttt{range}, weighted range (\texttt{wtd\_range}), standard deviation (\texttt{std}), and weighted standard deviation (\texttt{wtd\_std}). This results in a total of 80 potential features (8 features × 10 statistical metrics).\\
+\indent Additionally, the dataset includes as an additional feature the \textbf{Number of Elements} (\texttt{number\_of\_elements}) in each material's chemical formula. \\
 
-Be sure that the 
-symbols in your equation have been defined before or immediately following 
-the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
-the beginning of a sentence: ``Equation \eqref{eq} is . . .''
+\subsubsection{\textbf{Data Handling}}
 
-\subsection{\LaTeX-Specific Advice}
+The units of measurement were not provided with the dataset, so all features were treated as \textbf{dimensionless numerical values}. A key characteristic of this data is the \textbf{high correlation} among many of the features, particularly between a feature and its weighted counterpart (e.g. \texttt{mean} and \texttt{wtd\_mean}), which is a known aspect of this type of materials science data.
+
+\subsection{\textbf{Methods}}
+
+\subsection{\textbf{Analysis}}
+
+\subsection{\textbf{Results}}
 
 Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
 of ``hard'' references (e.g., \verb|(1)|). That will make it possible
@@ -124,7 +104,7 @@ will not stop equation numbers inside \verb|{array}| (there won't be
 any anyway) and it might stop a wanted equation number in the
 surrounding equation.
 
-\subsection{Some Common Mistakes}\label{SCM}
+\section{\textbf{Conclusion(s)}}
 \begin{itemize}
 \item The word ``data'' is plural, not singular.
 \item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
@@ -209,15 +189,15 @@ with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization
 quantities and units. For example, write ``Temperature (K)'', not 
 ``Temperature/K''.
 
-\section*{Acknowledgment}
+\section*{\textbf{Acknowledgment}}
 
 The preferred spelling of the word ``acknowledgment'' in America is without 
 an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
 G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
 acknowledgments in the unnumbered footnote on the first page.
 
-\section*{References}
-
+\section*{\textbf{Appendix}}
+	
 Please number citations consecutively within brackets \cite{b1}. The 
 sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
 number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
@@ -252,7 +232,5 @@ citation first, followed by the original foreign-language citation \cite{b6}.
 \end{thebibliography}
 
 \vspace{12pt}
-\color{red}
-IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
 
 \end{document}
