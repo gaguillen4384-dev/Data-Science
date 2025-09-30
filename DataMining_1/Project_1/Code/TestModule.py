@@ -40,9 +40,9 @@ if __name__ == "__main__":
         workhorse.predict_with_mlr_model(mlr_model, X_test, y_test, folder_path)
         '''
         '''
-        glm_gamma_model = workhorse.fit_glm_gamma_model(X_train, y_train, folder_path)
-        workhorse.predict_with_glm_gamma_model(X_test, y_test,
-                                     glm_gamma_model, folder_path)
+        glm_poisson_model = workhorse.fit_glm_poisson_model(X_train, y_train, folder_path)
+        workhorse.predict_with_glm_poisson_model(X_test, y_test,
+                                     glm_poisson_model, folder_path)
         '''
         '''
         glm_tweedie_model= workhorse.fit_glm_tweedie_model(X_train, y_train, folder_path)

@@ -170,7 +170,8 @@ def plot_residual_plots(y_actual, y_pred, folder_path, file_name):
     plot_object.scatter(y_pred, residuals, alpha=0.7)
     plot_object.axhline(y=0, color='r', linestyle='--', lw=2)
     
-    plot_object.title('Residuals Plot')
+    model_name = file_name.replace('.png', '')
+    plot_object.title(f'{model_name}')
     plot_object.xlabel('Predicted Values')
     plot_object.ylabel('Residuals (Actual - Predicted)')
     plot_object.grid(True)
@@ -208,35 +209,35 @@ def predict_with_mlr_model(mlr_model, X_validation, y_validation, folder_path):
     plot_residual_plots(y_validation, y_pred, folder_path,'mlr_residual_plot.png')
 
 
-def fit_glm_gamma_model(X_train, y_train, folder_path):    
+def fit_glm_poisson_model(X_train, y_train, folder_path):    
     '''
-    Fits a split dataset into dataframes with a GLM gamma model
+    Fits a split dataset into dataframes with a GLM poisson model
     Return:
         A fitted model
     '''
     X_train_const = stats_model_api.add_constant(X_train)
-    glm_gamma = stats_model_api.GLM(y_train, X_train_const, 
-                                    family=stats_model_api.families.Gamma())
-    glm_gamma_model = glm_gamma.fit()
+    glm_poisson = stats_model_api.GLM(y_train, X_train_const, 
+                                    family=stats_model_api.families.Poisson())
+    glm_poisson_model = glm_poisson.fit()
 
-    save_to_csv(folder_path,'glm_gamma_coefficients.csv', glm_gamma_model.summary2().tables[1])
-    return glm_gamma_model
+    save_to_csv(folder_path,'glm_poisson_coefficients.csv', glm_poisson_model.summary2().tables[1])
+    return glm_poisson_model
 
 
-def predict_with_glm_gamma_model(X_validation, y_validation, glm_gamma_model, folder_path):
+def predict_with_glm_poisson_model(X_validation, y_validation, glm_poisson_model, folder_path):
     '''
     Predicts and outputs a set of metrics
     '''
     X_validation_const = stats_model_api.add_constant(X_validation)
-    y_pred = glm_gamma_model.predict(X_validation_const)
-    calculate_models_stats(y_validation, y_pred, glm_gamma_model,
-                           folder_path, 'glm_gamma')
-    plot_residual_plots(y_validation, y_pred, folder_path, 'glm_gamma_residual_plot.png')
+    y_pred = glm_poisson_model.predict(X_validation_const)
+    calculate_models_stats(y_validation, y_pred, glm_poisson_model,
+                           folder_path, 'glm_poisson')
+    plot_residual_plots(y_validation, y_pred, folder_path, 'glm_poisson_residual_plot.png')
 
 
 def fit_glm_tweedie_model(X_train, y_train, folder_path):    
     '''
-    Fits a split dataset into dataframes with a GLM gamma model
+    Fits a split dataset into dataframes with a GLM tweedie model
     Return:
         A fitted model
     '''
@@ -292,9 +293,9 @@ if __name__ == "__main__":
         predict_with_mlr_model(mlr_model, X_validation, y_validation, folder_path)
         '''
         '''
-        glm_gamma_model = fit_glm_gamma_model(X_train, y_train, folder_path)
-        predict_with_glm_gamma_model(X_validation, y_validation,
-                                     glm_gamma_model, folder_path)
+        glm_poisson_model = fit_glm_poisson_model(X_train, y_train, folder_path)
+        predict_with_glm_poisson_model(X_validation, y_validation,
+                                     glm_poisson_model, folder_path)
         '''
         '''
         glm_tweedie_model= fit_glm_tweedie_model(X_train, y_train, folder_path)
