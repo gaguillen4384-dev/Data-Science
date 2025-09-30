@@ -72,17 +72,12 @@ The initial dataset underwent several preprocessing and engineering steps to pre
 \indent A preliminary analysis of the $T_c$ distribution suggested that a transformation could potentially move it closer to a \textbf{Gaussian distribution}. However, due to concerns regarding the added complexity this transformation would introduce to the overall modeling process, the target variable was retained in its \textbf{original form} for all subsequent analyses.\\
 \subsubsection{\textbf{Model Selection and Specification}}
 
-The selection of models was strategically guided by the observed \textbf{Poisson-like distribution} of the target variable, $T_c$. A variety of models approached, all within the GLM framework, were employed to establish a robust baseline and explore distributional assumptions best suited to the target's non-negative and right-skewed characteristics.\\
-\indent The GLM framework was utilized to allow for the flexible specification of the target variable's error distribution, departing from the restrictive assumptions of standard linear regression.\\
+Based on the target variable, $t_c$'s, Poisson-like, non-negative, and right-skewed distribution, we selected a variety of GLMs. This framework established a robust baseline and allowed for flexible specification of the error distribution, moving beyond the restrictive assumptions of standard linear regression.
 \begin{enumerate}
 	\item \textbf{Primary Model}: \textbf{Poisson GLM} given that $T_c$ is \textbf{ non-negative} and exhibits significant  \textbf{right-skewness}, the GLM with a \textbf{Poisson Family distribution} was selected as the primary and most theoretically aligned choice. While traditionally used for count data, the Poisson distribution's family structure is well-suited for modeling the mean of positive and skewed data, leveraging the logarithmic link function.
-	\item \textbf{Advanced Model}: \textbf{Tweedie GLM} To generalize the error structure and potentially achieve a more accurate fit, an advanced GLM using the \textbf{Tweedie Family distribution} was specified. The Tweedie distribution serves as a flexible compound distribution that includes several common distributions as special cases. Specifically, the \textbf{power parameter (p) was set to 1.5}. This setting specifies a \textbf{Compound Poisson-Gamma distribution}, which is ideal for modeling data that has characteristics intermediate between the pure Poisson (\textbf{p=1}) and the Gamma (\textbf{p=2}) distributions, like $T_c$ seems to have.\\
+	\item \textbf{Advanced Model}: \textbf{Tweedie GLM} To generalize the error structure and potentially achieve a more accurate fit, an advanced GLM using the \textbf{Tweedie Family distribution} was specified. The Tweedie distribution serves as a flexible compound distribution that includes several common distributions as special cases. Specifically, the \textbf{power parameter (p) was set to 1.5}. This setting specifies a \textbf{Compound Poisson-Gamma distribution}, which is ideal for modeling data that has characteristics intermediate between the pure Poisson (\textbf{p=1}) and the Gamma (\textbf{p=2}) distributions, like $T_c$ seems to have.
+	\item \textbf{Baseline Model}: \textbf{Multiple Linear Regression (MLR)} This model was formally implemented as a GLM with Gaussian Family distribution. Although the target variable ($T_c$) does not follow a true Gaussian (\textbf{Normal}) distribution, the MLR provides most basic and readily interpretable baseline against which the performance gains achieved by the more sophisticated Poisson and Tweedie GLM specifications could be rigorously assessed.\\
 \end{enumerate}
-
-A \textbf{baseline model} was established using a simpler, standard approach, even though its distributional assumptions were violated by the target data:
-\begin{itemize}
-	\item Multiple Linear Regression (\textbf{MLR}): This model was formally implemented as a GLM with Gaussian Family distribution. Although the target variable ($T_c$) does not follow a true Gaussian (\textbf{Normal}) distribution, the MLR provides most basic and readily interpretable baseline against which the performance gains achieved by the more sophisticated Poisson and Tweedie GLM specifications could be rigorously assessed.\\
-\end{itemize}
 
 \subsubsection{\textbf{Validation Metrics}}
 To determine the utility and statistical significance of predictor variables, the following metrics were employed:
@@ -95,7 +90,7 @@ To compare and select the best functional form among candidate models, metrics b
 \begin{itemize}
 	\item \textbf{Deviance (Null and Residual)}: The \textbf{Null Deviance} and \textbf{Residual Deviance} were examined to gauge the relative fit of the model to the data. The significant reduction from the Null Deviance (the fit of the model with only an intercept) to the Residual Deviance (the fit of the final model) indicated the improvement provided by the added predictors.
 	\item \textbf{Log-Likelihood (logL)}: This metric was used to quantify how well the data fits the model. A higher logL indicates that the model is more likely to have generated the observed data.
-	\item \textbf{Information Criteria (AIC and BIC)}: The \textbf{Akaike Information Criterion (AIC)} and \textbf{Bayesian Information Criterion (BIC)} were used for model selection by balancing \textbf{model fit} (logL) against \textbf{model complexity} (number of parameters). Models with lower AIC and BIC values were preferred as they provided a superior trade-off between explanatory power and parsimony.\\
+	\item \textbf{Information Criteria (AIC and BIC)}: The \textbf{Akaike Information Criterion (AIC)} and \textbf{Bayesian Information Criterion (BIC)} were used for model selection by balancing \textbf{model fit} (logL) against \textbf{model complexity} (number of parameters). Models with lower AIC and BIC values were preferred as they provided a superior trade-off between explanatory power and simplicity.\\
 \end{itemize}
 
 The final model's predictive accuracy was quantified using the following error metrics:
@@ -140,7 +135,7 @@ Correlation analysis was performed on the derived chemical features to identify 
 		\textbf{Features} & \textbf{critical\_temp} \\
 		\hline
 		\texttt{critical\_temp} & 1 \\
-		\texttt{wtd\_std\_ThermalConductivit} & 0.7212710792 \\
+		\texttt{wtd\_std\_ThermalConductivity} & 0.7212710792 \\
 		\texttt{range\_ThermalConductivity} & 0.6876539119 \\
 		\texttt{range\_atomic\_radius} & 0.6537590446 \\
 		\texttt{std\_ThermalConductivity} & 0.6536319815 \\
@@ -290,13 +285,13 @@ This study successfully investigated the relationship between derived material p
 The primary finding of this analysis is the development of a robust predictive framework for $T_c$ using a GLM.
 \begin{itemize}
 	\item \textbf{Optimal Model Selection}: The \textbf{Tweedie GLM} with a Compound Poisson-Gamma distribution was identified as the best predictive model. This choice was driven by the observation that the $T_c$ distribution exhibited characteristics closely aligned with the Poisson family, which the more flexible Tweedie distribution was able to accommodate better than a standard Poisson model.
-	\item \textbf{Feature Simplification}: The feature set was significantly streamlined, reducing the number of predictive variables from 81 to 18 features, as detailed in ``Table~\ref{WhlCorr}''. This simplification maintains a high level of predictive power while substantially improving model parsimony.
+	\item \textbf{Feature Simplification}: The feature set was significantly streamlined, reducing the number of predictive variables from 81 to 18 features, as detailed in ``Table~\ref{WhlCorr}''. This simplification maintains a high level of predictive power while substantially improving model simplicity.
 	\item \textbf{Predictive Validation}: The low MSE achieved by the Tweedie GLM provides strong evidence that $T_c$ can be accurately predicted using a linear model based on a select, meaningful subset of the initial derived chemical features. The core focus of this work was validating the suitability of a linear model for this prediction task, which the results strongly support.\\
 \end{itemize}
 
 While the study confirmed a strong linear relationship, future research can build upon these findings:
 \begin{itemize}
-	\item \textbf{Model Complexity}: Explore non-linear models or more advanced Machine Learning algorithms (e.g., gradient boosting or neural networks) to potentially capture complex interactions and further improve predictive accuracy beyond the scope of a linear assumption.
+	\item \textbf{Model Complexity}: Explore non-linear models or more advanced Machine Learning algorithms (e.g. gradient boosting or neural networks) to potentially capture complex interactions and further improve predictive accuracy beyond the scope of a linear assumption.
 	\item \textbf{Feature Refinement}: Conduct additional feature engineering by investigating potential methods to combine or transform the statistically insignificant features identified in the model. This could enhance the final feature set, reduce any residual redundancy, and potentially lead to a simpler, yet more powerful, predictive model.
 	\item \textbf{Target Variable Transformation}: A key area for future investigation is exploring the effect of transforming the target variable $T_c$. Applying a mathematical transformation could potentially normalize the distribution, stabilize the variance, and further enhance the performance of a linear model.
 \end{itemize}

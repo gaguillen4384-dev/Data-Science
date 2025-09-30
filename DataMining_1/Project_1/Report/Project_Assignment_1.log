@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  30 SEP 2025 15:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  30 SEP 2025 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -377,32 +377,8 @@ Files/LaTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1394) in paragraph at lines 75--78
-\OT1/ptm/m/n/10 to es-tab-lish a ro-bust base-line and ex-plore dis-tri-bu-tion
-al
- []
-
-
-Underfull \hbox (badness 4013) in paragraph at lines 75--78
-\OT1/ptm/m/n/10 spec-i-fi-ca-tion of the tar-get vari-able's er-ror dis-tri-bu-
-tion,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--78
-
- []
-
-
-Underfull \hbox (badness 3792) in paragraph at lines 79--80
-[]\OT1/ptm/b/n/10 Advanced Model\OT1/ptm/m/n/10 : \OT1/ptm/b/n/10 Tweedie GLM \
-OT1/ptm/m/n/10 To gen-er-al-ize
- []
-
-
-Underfull \hbox (badness 4279) in paragraph at lines 79--80
-\OT1/ptm/b/n/10 Fam-ily dis-tri-bu-tion \OT1/ptm/m/n/10 was spec-i-fied. The Tw
-eedie
+Underfull \hbox (badness 1975) in paragraph at lines 79--80
+\OT1/ptm/m/n/10 gains achieved by the more so-phis-ti-cated Pois-son
  []
 
 
@@ -411,58 +387,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--80
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 84--85
-\OT1/ptm/m/n/10 dis-tri-bu-tion. Al-though the tar-get vari-able ($\OML/cmm/m/i
-t/10 T[]$\OT1/ptm/m/n/10 ) does
- []
-
-
-Underfull \hbox (badness 1496) in paragraph at lines 84--85
-\OT1/ptm/m/n/10 MLR pro-vides most ba-sic and read-ily in-ter-pretable
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
-
- []
-
-
-
-
-Underfull \hbox (badness 3000) in paragraph at lines 91--92
+Underfull \hbox (badness 3000) in paragraph at lines 86--87
 \OT1/ptm/b/n/10 co-ef-fi-cient (r) \OT1/ptm/m/n/10 was used to mea-sure the str
 ength
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 []\OT1/ptm/b/n/10 Information Cri-te-ria (AIC and BIC)\OT1/ptm/m/n/10 : The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 <t_c_distritbution.png, id=15, 288.3272pt x 213.04594pt>
 File: t_c_distritbution.png Graphic file (type png)
 <use t_c_distritbution.png>
-Package pdftex.def Info: t_c_distritbution.png  used on input line 114.
+Package pdftex.def Info: t_c_distritbution.png  used on input line 109.
 (pdftex.def)             Requested size: 201.82765pt x 149.13113pt.
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
@@ -470,14 +430,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
 File: ThermalConductivity_heatmap.png Graphic file (type png)
 <use ThermalConductivity_heatmap.png>
 Package pdftex.def Info: ThermalConductivity_heatmap.png  used on input line 12
-7.
+2.
 (pdftex.def)             Requested size: 231.2599pt x 202.3524pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
+
+
 
 
 
@@ -486,66 +449,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--168
 File: residual_plots_mlr_vs_tweedie_test.png Graphic file (type png)
 <use residual_plots_mlr_vs_tweedie_test.png>
 Package pdftex.def Info: residual_plots_mlr_vs_tweedie_test.png  used on input 
-line 213.
+line 208.
 (pdftex.def)             Requested size: 261.37187pt x 98.46613pt.
 
-Underfull \hbox (badness 2582) in paragraph at lines 222--223
+Underfull \hbox (badness 2582) in paragraph at lines 217--218
 []\OT1/ptm/b/n/10 Poisson GLM Model\OT1/ptm/m/n/10 : The Pois-son GLM model,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 []\OT1/ptm/b/n/10 Insignificant Fea-tures\OT1/ptm/m/n/10 : The fol-low-ing fea-
 tures
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 \OT1/ptm/m/n/10 were found to be sta-tis-ti-cally in-signif-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 \OT1/ptm/m/n/10 cant, \OT1/pcr/m/n/10 std_ThermalConductivity \OT1/ptm/m/n/10 a
 nd
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 259--260
+Underfull \hbox (badness 3815) in paragraph at lines 254--255
 \OT1/pcr/m/n/10 entropy_FusionHeat\OT1/ptm/m/n/10 . These fea-tures could be
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
 
 
 [4 <./residual_plots_mlr_vs_tweedie_test.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 294--295
+Underfull \hbox (badness 10000) in paragraph at lines 289--290
 
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 308--309
+Underfull \hbox (badness 3668) in paragraph at lines 303--304
 []\OT1/ptm/m/n/10 The source code, data, and de-tailed im-ple-men-ta-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 \OT1/ptm/m/n/10 scripts for this project are avail-able on GitHub
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 \OT1/ptm/m/n/10 (URL: https://github.com/gaguillen4384-dev/Data-
  []
 
@@ -577,7 +543,7 @@ Here is how much of TeX's memory you used:
  32850 multiletter control sequences out of 15000+600000
  670709 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,9n,65p,729b,268s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,9n,65p,727b,268s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
  Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/LaTeX/f
 onts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/LaTeX/fonts/type1/pub
@@ -589,7 +555,7 @@ es/LaTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/LaTeX/fonts
 b8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program F
 iles/LaTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/LaTeX/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on Project_Assignment_1.pdf (5 pages, 628665 bytes).
+Output written on Project_Assignment_1.pdf (5 pages, 628779 bytes).
 PDF statistics:
  91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
