@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  30 SEP 2025 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  30 SEP 2025 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,6 +462,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--218
  []
 
 
+Overfull \hbox (24.48004pt too wide) in paragraph at lines 225--249
+ [][] 
+ []
+
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
@@ -539,7 +544,7 @@ L3 programming layer <2025-08-13>
 Here is how much of TeX's memory you used:
  4284 strings out of 468133
  66531 string characters out of 5441260
- 492476 words of memory out of 5000000
+ 490476 words of memory out of 5000000
  32850 multiletter control sequences out of 15000+600000
  670709 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -555,7 +560,7 @@ es/LaTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/LaTeX/fonts
 b8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program F
 iles/LaTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/LaTeX/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on Project_Assignment_1.pdf (5 pages, 628779 bytes).
+Output written on Project_Assignment_1.pdf (5 pages, 627863 bytes).
 PDF statistics:
  91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

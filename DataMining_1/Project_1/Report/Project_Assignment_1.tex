@@ -66,13 +66,13 @@ The units of measurement were not provided with the dataset, so all features wer
 \subsection{\textbf{Methods}}
 
 \subsubsection{\textbf{Data Preprocessing and Engineering}}
-The initial dataset underwent several preprocessing and engineering steps to prepare it for model training and evaluation. These steps were executed using \textbf{Python}, with the analysis code fully documented and available in Appendix A, Section \ref{app:code}.\\
+The initial dataset underwent several preprocessing and engineering steps to prepare it for model training and evaluation. These steps were executed using \textbf{Python}, with the analysis code fully documented and available in Appendix A.\\
 \indent The complete dataset was partitioned into three distinct sets to facilitate model development and assessment: \textbf{training}, \textbf{validation}, and \textbf{test}. The split ratios were \textbf{75\%} for training, \textbf{15\%} for validation, and \textbf{10\%} for testing.\\
 \indent To ensure consistent scaling across all feature values, \textbf{Min-Max normalization} was applied using the  \texttt{MinMaxScaler} function from the  \texttt{sklearn.preprocessing} module. This normalization step was critically performed \textit{after} the dataset had been split to prevent \textbf{data leakage}. Specifically, the scaler was \textbf{fitted} exclusively to the \textbf{training set} data, and this same fitted scaler was then used to \textbf{transform} the validation and test sets.\\
 \indent A preliminary analysis of the $T_c$ distribution suggested that a transformation could potentially move it closer to a \textbf{Gaussian distribution}. However, due to concerns regarding the added complexity this transformation would introduce to the overall modeling process, the target variable was retained in its \textbf{original form} for all subsequent analyses.\\
 \subsubsection{\textbf{Model Selection and Specification}}
 
-Based on the target variable, $t_c$'s, Poisson-like, non-negative, and right-skewed distribution, we selected a variety of GLMs. This framework established a robust baseline and allowed for flexible specification of the error distribution, moving beyond the restrictive assumptions of standard linear regression.
+Based on the target variable, $T_c$'s, Poisson-like, non-negative, and right-skewed distribution, we selected a variety of GLMs. This framework established a robust baseline and allowed for flexible specification of the error distribution, moving beyond the restrictive assumptions of standard linear regression.
 \begin{enumerate}
 	\item \textbf{Primary Model}: \textbf{Poisson GLM} given that $T_c$ is \textbf{ non-negative} and exhibits significant  \textbf{right-skewness}, the GLM with a \textbf{Poisson Family distribution} was selected as the primary and most theoretically aligned choice. While traditionally used for count data, the Poisson distribution's family structure is well-suited for modeling the mean of positive and skewed data, leveraging the logarithmic link function.
 	\item \textbf{Advanced Model}: \textbf{Tweedie GLM} To generalize the error structure and potentially achieve a more accurate fit, an advanced GLM using the \textbf{Tweedie Family distribution} was specified. The Tweedie distribution serves as a flexible compound distribution that includes several common distributions as special cases. Specifically, the \textbf{power parameter (p) was set to 1.5}. This setting specifies a \textbf{Compound Poisson-Gamma distribution}, which is ideal for modeling data that has characteristics intermediate between the pure Poisson (\textbf{p=1}) and the Gamma (\textbf{p=2}) distributions, like $T_c$ seems to have.
@@ -226,24 +226,24 @@ The final predictive capabilities of the models were further examined through re
 		\hline
 		\textbf{Feature} & \textbf{Coef.} & \textbf{z} & \textbf{P$>|z|$} \\
 		\hline
-		number\_of\_elements & -0.463 & -2.348 & 0.019 \\
-		wtd\_entropy\_atomic\_mass & 2.583 & 23.674 & 6.64975E-124 \\
-		range\_fie & 5.726 & 18.253 & 1.96093E-74 \\
-		wtd\_entropy\_atomic\_radius & -1.1479 & -7.507 & 6.00491E-14 \\
-		range\_atomic\_radius & 1.699 & 9.153 & 5.55089E-20 \\
-		wtd\_std\_atomic\_radius & 0.761 & 5.775 & 7.71026E-09 \\
-		range\_ThermalConductivity & 1.005 & 4.727 & 2.269324E-06 \\
-		std\_ThermalConductivity & -0.204 & -0.879 & 0.379 \\
-		wtd\_std\_ThermalConductivity & 0.993 & 13.2758 & 3.20268E-40 \\
-		entropy\_Valence & 2.713 & 8.888 & 6.19435E-19 \\
-		wtd\_std\_fie & -1.499 & -12.1831 & 3.81256E-34 \\
-		entropy\_fie & 1.985 & 2.002 & 0.045 \\
-		wtd\_entropy\_FusionHeat & -0.157 & -1.922 & 0.0547 \\
-		wtd\_std\_atomic\_radius & -1.357 & -5.959 & 2.53186E-09 \\
-		entropy\_atomic\_radius & -2.371 & -2.517 & 0.012 \\
-		entropy\_FusionHeat & 0.0686 & 0.601 & 0.5478 \\
-		entropy\_atomic\_mass & -3.613 & -22.206 & 3.00824E-109 \\
-		std\_fie & -4.019 & -13.407 & 5.48687E-41 \\
+		\texttt{number\_of\_elements} & -0.463 & -2.348 & 0.019 \\
+		\texttt{wtd\_entropy\_atomic\_mass} & 2.583 & 23.674 & 6.64975E-124 \\
+		\texttt{range\_fie} & 5.726 & 18.253 & 1.96093E-74 \\
+		\texttt{wtd\_entropy\_atomic\_radius} & -1.1479 & -7.507 & 6.00491E-14 \\
+		\texttt{range\_atomic\_radius} & 1.699 & 9.153 & 5.55089E-20 \\
+		\texttt{wtd\_std\_atomic\_radius} & 0.761 & 5.775 & 7.71026E-09 \\
+		\texttt{range\_ThermalConductivity} & 1.005 & 4.727 & 2.269324E-06 \\
+		\texttt{std\_ThermalConductivity} & -0.204 & -0.879 & 0.379 \\
+		\texttt{wtd\_std\_ThermalConductivity} & 0.993 & 13.2758 & 3.20268E-40 \\
+		\texttt{entropy\_Valence} & 2.713 & 8.888 & 6.19435E-19 \\
+		\texttt{wtd\_std\_fie} & -1.499 & -12.1831 & 3.81256E-34 \\
+		\texttt{entropy\_fie} & 1.985 & 2.002 & 0.045 \\
+		\texttt{wtd\_entropy\_FusionHeat} & -0.157 & -1.922 & 0.0547 \\
+		\texttt{wtd\_std\_atomic\_radius} & -1.357 & -5.959 & 2.53186E-09 \\
+		\texttt{entropy\_atomic\_radius} & -2.371 & -2.517 & 0.012 \\
+		\texttt{entropy\_FusionHeat} & 0.0686 & 0.601 & 0.5478 \\
+		\texttt{entropy\_atomic\_mass} & -3.613 & -22.206 & 3.00824E-109 \\
+		\texttt{std\_fie} & -4.019 & -13.407 & 5.48687E-41 \\
 		\hline
 	\end{tabular}
 \end{table}
