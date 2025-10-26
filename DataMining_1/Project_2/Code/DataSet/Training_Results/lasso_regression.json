@@ -1,0 +1,25 @@
+[
+  {
+    "TrainingTimeSeconds":1214.3244609833,
+    "MSEValue":11.2774855015,
+    "RMSEValue":3.3581967634,
+    "MAEValue":2.6288866824,
+    "Q_2Value":0.1568226154,
+    "NumberOfZeroCoefs":7308,
+    "NumberOfNonZeroCoefs":82,
+    "OptimalAlpha":0.1,
+    "Hyperparameters":[
+      [
+        0.001,
+        0.0031622777,
+        0.01,
+        0.0316227766,
+        0.1,
+        0.316227766,
+        1.0,
+        3.1622776602,
+        10.0
+      ]
+    ]
+  }
+]

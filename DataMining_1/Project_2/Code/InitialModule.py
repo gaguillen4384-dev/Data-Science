@@ -10,17 +10,20 @@ from sklearn.model_selection import train_test_split
 # Get the directory of the current script
 script_dir = os.path.dirname(__file__)
 
-# Construct the full path to the file
+# Construct the full path to the files
 file_path = os.path.join(script_dir, 'DataSet', 'maize.sas7bdat')
 
 # Load dataframe for file manipulation
 dataframe = panda_object.read_sas(file_path)
-columns_to_drop = ['Entry', 'Geno_Code','DtoA']
-X = dataframe.drop(columns_to_drop, axis=1) # Features (columns to retain)
-y = dataframe['DtoA']             # Target variable
+df_dropped_rows = dataframe.dropna()
 
+# Preprocessing: Removing unwanted rows
+columns_to_drop = ['Entry', 'Geno_Code','DtoA']
+X = df_dropped_rows.drop(columns_to_drop, axis=1) # Features (columns to retain)
+y = df_dropped_rows['DtoA']             # Target variable
 X_data = X.values
 y_data = y.values
+
 
 # 1. Split: 90% (Train/Val) and 10% (Test)
 X_train_val, X_test, y_train_val, y_test = train_test_split(
@@ -38,6 +41,7 @@ X_train, X_val, y_train, y_val = train_test_split(
     test_size=val_size_ratio,  # ~16.67% of the remaining data (90% * 0.1667 = 15%)
     random_state=42
 )
+
 
 # Create DataFrames for each split, preserving original column names
 train_dataframe = panda_object.DataFrame(X_train, columns=X.columns)

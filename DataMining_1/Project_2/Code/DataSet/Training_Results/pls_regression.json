@@ -1,0 +1,25 @@
+[
+  {
+    "TrainingTimeSeconds":2927.6639144421,
+    "MSEValue":13.2931098024,
+    "RMSEValue":3.6459717227,
+    "MAEValue":2.8645725314,
+    "Q_2Value":0.0061215726,
+    "OptiomalKcomps":10,
+    "Hyperparameters":[
+      {
+        "pls__n_components":[
+          1,
+          5,
+          10,
+          50,
+          100,
+          200,
+          300,
+          400,
+          500
+        ]
+      }
+    ]
+  }
+]
