@@ -6,7 +6,6 @@ import os
 import time
 import numpy as numpy_object
 import pandas as panda_object
-import matplotlib.pyplot as plot_object
 import statsmodels.api as stats_model_api
 from sklearn.linear_model import Ridge, Lasso, ElasticNet, LinearRegression
 from sklearn.model_selection import KFold, GridSearchCV
@@ -566,12 +565,12 @@ if __name__ == "__main__":
         mse_to_json_for_penalized_training(folder_path,"lasso_regression",y_validation, predicted_y_validation, dataframe_results,model)
         '''
         
-        '''
+        
         # Predict with a forward stepwise BIC 
         model, dataframe_results = perform_stepwise_forward_with_bic_fit(scaled_X_training, y_training)
         predicted_y_validation = predict_with_stepwise(model, dataframe_results, scaled_X_validation)
         mse_to_json_for_stepwise_training(folder_path,"stepwise_BIC_regression",y_validation, predicted_y_validation, dataframe_results,model)
-        '''
+        
         
         
         
