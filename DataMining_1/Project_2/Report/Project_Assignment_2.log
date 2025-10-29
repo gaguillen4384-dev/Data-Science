@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  24 OCT 2025 14:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  28 OCT 2025 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -302,71 +302,81 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\LaTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+LaTeX Font Info:    Calculating math sizes for size <24> on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
 
 
 (C:\Program Files\LaTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
 
 
 (C:\Program Files\LaTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
+Underfull \hbox (badness 10000) in paragraph at lines 29--32
+\OT1/ptm/m/n/10 method-olo-gies against a high-dimensionality ge-nomic
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
-9.
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
+4.
 (C:\Program Files\LaTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 5
-9.
-
-(C:\Program Files\LaTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Underfull \hbox (badness 1400) in paragraph at lines 59--61
-\OT1/ptm/b/n/10 met-rics\OT1/ptm/m/n/10 : \OT1/pcr/m/n/10 mean\OT1/ptm/m/n/10 ,
- weighted mean (\OT1/pcr/m/n/10 wtd_mean\OT1/ptm/m/n/10 ), ge-o-met-ric
- []
-
-
-Underfull \hbox (badness 3039) in paragraph at lines 59--61
-\OT1/pcr/m/n/10 entropy\OT1/ptm/m/n/10 , weighted en-tropy (\OT1/pcr/m/n/10 wtd
-_entropy\OT1/ptm/m/n/10 ), \OT1/pcr/m/n/10 range\OT1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 69--73
- \OT1/ptm/m/it/10 1) \OT1/ptm/b/it/10 Data Pre-pro-cess-ing and En-gi-neer-ing\
-OT1/ptm/m/it/10 : [][] \OT1/ptm/m/n/10 The ini-tial
+Underfull \hbox (badness 4634) in paragraph at lines 41--44
+ \OT1/ptm/m/it/10 1) \OT1/ptm/b/it/10 Pre-pro-cess-ing\OT1/ptm/m/it/10 : [][] \
+OT1/ptm/m/n/10 Ini-tial data clean-ing in-volved the
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 69--73
-\OT1/ptm/m/n/10 dataset un-der-went sev-eral pre-pro-cess-ing and en-gi-neer-in
-g
+Underfull \hbox (badness 3884) in paragraph at lines 41--44
+[]\OT1/ptm/m/n/10 The re-sult-ing data loss, ap-prox-i-mately $\OT1/cmr/m/n/10 
+10%$ \OT1/ptm/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 1412) in paragraph at lines 69--73
-\OT1/ptm/m/n/10 func-tion from the \OT1/pcr/m/n/10 sklearn.preprocessing \OT1/p
-tm/m/n/10 mod-ule.
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--73
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 45--47
+ \OT1/ptm/m/it/10 2) \OT1/ptm/b/it/10 Stan-dard-iza-tion\OT1/ptm/m/it/10 : [][]
+ \OT1/ptm/m/n/10 To pre-pare the data for mod-els
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
+\OT1/ptm/m/n/10 de-signed to han-dle high-dimensionality, all fea-tures
+ []
+
+
+Underfull \hbox (badness 2165) in paragraph at lines 45--47
+\OT1/ptm/m/n/10 were sub-jected to \OT1/ptm/m/it/10 stan-dard-iza-tion\OT1/ptm/
+m/n/10 , of-ten re-ferred to as
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 45--47
+\OML/cmm/m/it/10 Z$\OT1/ptm/m/n/10 -score nor-mal-iza-tion. This crit-i-cal pre
+-pro-cess-ing step
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
 
  []
 
@@ -377,122 +387,183 @@ Files/LaTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1975) in paragraph at lines 79--80
-\OT1/ptm/m/n/10 gains achieved by the more so-phis-ti-cated Pois-son
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 4726) in paragraph at lines 56--57
+[]\OT1/ptm/b/n/10 Partial Least Squares Re-gres-sion (PLS)\OT1/ptm/m/n/10 : PLS
 
  []
 
 
-Underfull \hbox (badness 3000) in paragraph at lines 86--87
-\OT1/ptm/b/n/10 co-ef-fi-cient (r) \OT1/ptm/m/n/10 was used to mea-sure the str
-ength
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
 
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
-[]\OT1/ptm/b/n/10 Information Cri-te-ria (AIC and BIC)\OT1/ptm/m/n/10 : The
+Underfull \hbox (badness 2547) in paragraph at lines 61--64
+\OT1/ptm/m/n/10 and \OT1/ptm/b/n/10 PLS\OT1/ptm/m/n/10 , un-der-went hy-per-pa-
+ram-e-ter op-ti-miza-tion us-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
+[]\OT1/ptm/m/n/10 For PCR and PLS, the op-ti-mal num-ber of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
+\OT1/ptm/m/n/10 com-po-nents ($\OML/cmm/m/it/10 k$\OT1/ptm/m/n/10 ) was searche
+d across the grid
+ []
+
+
+Underfull \hbox (badness 3323) in paragraph at lines 61--64
+\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10\OML/cm
+m/m/it/10 ; \OT1/cmr/m/n/10 50\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 100\OML/cmm/m/
+it/10 ; \OT1/cmr/m/n/10 200\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 300\OML/cmm/m/it/
+10 ; \OT1/cmr/m/n/10 400\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 500\OMS/cmsy/m/n/10 
+g$ \OT1/ptm/m/n/10 us-ing $\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 = 5$ \OT1/ptm/m/n
+/10 folds.
+ []
+
+
+Overfull \hbox (35.17357pt too wide) in paragraph at lines 97--109
+ [][] 
+ []
+
+
+
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
+11.
+(C:\Program Files\LaTeX\tex/latex/psnfss\omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
+
+ []
+
+<test_q2_vs_rmse_barchart.png, id=17, 578.16pt x 433.62pt>
+File: test_q2_vs_rmse_barchart.png Graphic file (type png)
+<use test_q2_vs_rmse_barchart.png>
+Package pdftex.def Info: test_q2_vs_rmse_barchart.png  used on input line 123.
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
+
+Underfull \hbox (badness 1490) in paragraph at lines 121--129
+\OT1/ptm/m/n/10 in Fig-ure 1[], con-firms that the \OT1/ptm/b/n/10 Lasso \OT1/p
+tm/m/n/10 and \OT1/ptm/b/n/10 Elas-tic Net
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 4229) in paragraph at lines 121--129
+ []\OT1/ptm/m/n/10 Conversely, the \OT1/ptm/b/n/10 PLS \OT1/ptm/m/n/10 model pe
+r-formed the worst,
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 121--129
+\OT1/ptm/m/n/10 record-ing the high-est $[]$ ($\OMS/cmsy/m/n/10 ^^Y \OT1/cmr/m/
+n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 68$\OT1/ptm/m/n/10 ) and the low-est
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
 
  []
 
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+<test_rmse_mae_ratio_barchart.png, id=26, 578.16pt x 433.62pt>
+File: test_rmse_mae_ratio_barchart.png Graphic file (type png)
+<use test_rmse_mae_ratio_barchart.png>
+Package pdftex.def Info: test_rmse_mae_ratio_barchart.png  used on input line 1
+33.
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
-
- []
-
-
-
-
-
-[3]
-Underfull \hbox (badness 2582) in paragraph at lines 217--218
-[]\OT1/ptm/b/n/10 Poisson GLM Model\OT1/ptm/m/n/10 : The Pois-son GLM model,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
-
- []
-
-
-Overfull \hbox (24.48004pt too wide) in paragraph at lines 225--249
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-[]\OT1/ptm/b/n/10 Insignificant Fea-tures\OT1/ptm/m/n/10 : The fol-low-ing fea-
-tures
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-\OT1/ptm/m/n/10 were found to be sta-tis-ti-cally in-signif-i-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-\OT1/ptm/m/n/10 cant, \OT1/pcr/m/n/10 std_ThermalConductivity \OT1/ptm/m/n/10 a
-nd
- []
-
-
-Underfull \hbox (badness 3815) in paragraph at lines 254--255
-\OT1/pcr/m/n/10 entropy_FusionHeat\OT1/ptm/m/n/10 . These fea-tures could be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
 
  []
 
 
 
+<rmse_and_time_scatterplot.png, id=27, 578.16pt x 433.62pt>
+File: rmse_and_time_scatterplot.png Graphic file (type png)
+<use rmse_and_time_scatterplot.png>
+Package pdftex.def Info: rmse_and_time_scatterplot.png  used on input line 144.
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+(pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
+
+Underfull \hbox (badness 3219) in paragraph at lines 149--153
+[]\OT1/ptm/m/n/10 The \OT1/ptm/b/n/10 Step-wise Re-gres-sion \OT1/ptm/m/n/10 mo
+del pro-vided the most
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--153
+\OT1/ptm/m/n/10 bal-anced so-lu-tion, achiev-ing near-best ac-cu-racy with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--153
 
  []
 
 
 
-[4]
-Underfull \hbox (badness 3668) in paragraph at lines 303--304
+[3 <./test_q2_vs_rmse_barchart.png> <./test_rmse_mae_ratio_barchart.png> <./rms
+e_and_time_scatterplot.png>]
+Underfull \hbox (badness 3668) in paragraph at lines 165--166
 []\OT1/ptm/m/n/10 The source code, data, and de-tailed im-ple-men-ta-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 \OT1/ptm/m/n/10 scripts for this project are avail-able on GitHub
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 \OT1/ptm/m/n/10 (URL: https://github.com/gaguillen4384-dev/Data-
  []
 
@@ -511,7 +582,7 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[5
+[4
 
 ] (Project_Assignment_2.aux)
  ***********
@@ -520,27 +591,30 @@ L3 programming layer <2025-08-13>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4263 strings out of 468133
- 65757 string characters out of 5441260
- 493476 words of memory out of 5000000
- 32829 multiletter control sequences out of 15000+600000
- 670709 words of font info for 126 fonts, out of 8000000 for 9000
+ 4323 strings out of 468133
+ 66994 string characters out of 5441260
+ 495435 words of memory out of 5000000
+ 32880 multiletter control sequences out of 15000+600000
+ 678992 words of font info for 152 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,9n,65p,727b,268s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
- Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/LaTeX/f
-onts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/LaTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/c
-m/cmmi9.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fil
-es/LaTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/LaTeX/fonts
-/type1/urw/courier/ucrr8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utm
-b8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program F
-iles/LaTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/LaTeX/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on Project_Assignment_2.pdf (5 pages, 172161 bytes).
+ 57i,13n,65p,648b,296s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
+ Files/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/LaTeX/
+fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/LaTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts
+/cm/cmmi9.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+<C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Fil
+es/LaTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/LaTeX/fonts/
+type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/LaTeX/fonts/type1/public/am
+sfonts/cm/cmr9.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Prog
+ram Files/LaTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/LaTeX/font
+s/type1/urw/times/utmb8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmb
+i8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
+les/LaTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Project_Assignment_2.pdf (4 pages, 399009 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 108 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

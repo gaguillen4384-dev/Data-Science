@@ -10,7 +10,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{General Linear Regression of Superconducting Critical Temperature on Superconductor Materials}
+\title{Addressing the $p \gg n$ Problem: A Study of Model Efficacy using Maize Flowering Time Prediction}
 
 \author{\IEEEauthorblockN{Gabriel Guillen}
 \IEEEauthorblockA{\textit{dept. of Statistics \& Data Science} \\
@@ -22,293 +22,164 @@ ga013701@ucf.edu}}
 \maketitle
 
 \begin{abstract}
-This paper analyzes the relationship between various material properties and the critical temperature ($T_c$) of superconducting materials. The main objective is to determine if a minimal set of these properties can be used to predict $T_c$ through various general linear models. We will explore several derived metrics and use general linear regression to identify the most significant factors. The findings will demonstrate how these metrics are linearly related to the critical temperature. \\
+This study aims to evaluate and compare $p \gg n$-compatible statistical models for predicting Maize Flowering Time within a high-dimensional setting. The objective is to identify the modeling method that delivers the optimal trade-off among predictive accuracy, model robustness against overfitting, and practical computational efficiency in handling large-scale data. This analysis will inform the selection of robust and efficient methods for a high-dimensional problem.\\
 \end{abstract}
 
-\begin{IEEEkeywords}
-Superconductors,
-Critical Temperature,
-General Linear Model,
-Gaussian, Poisson, Tweedie, Predictive Modeling
-\end{IEEEkeywords}
-
 \section{\textbf{Introduction}}
-This study investigates the linear relationship between a set of predictive metrics and the critical temperature ($T_c$) of various materials. We aim to determine if a linear model can effectively predict $T_c$ and, if so, to identify the most suitable statistical distribution family for this relationship. The data, including several highly correlated derived metrics, will be analyzed to answer these questions. \\
-\indent We will begin by detailing the characteristics of the dataset and address any data anomalies. This will be followed by an explanation of the preprocessing methods used to prepare the data for our Generalized Linear Models (GLM). The analysis will incorporate insights from both the training and validation datasets to build and evaluate the predictive models.\\
-\indent Finally, we will present which GLM distribution family provides the best fit, as determined by its lowest error rate, for predicting the critical temperature of the materials under consideration.
+\indent This report evaluates the efficacy of specialized statistical methodologies against a high-dimensionality genomic dataset for the prediction of Maize Flowering Time (dtoa). Traditional statistical approaches are inherently unsuitable for this problem setting, defined by the \textbf{$p \gg n$} regime where the number of predictors ($p$) vastly outnumbers the observations ($n$).\\
+\indent A key consequence of high dimensionality is the instability of variance, which compromises the reliability and confidence of model performance due to an elevated risk of overfitting. Therefore, the chosen models must incorporate regularization and feature selection to stabilize estimates and identify true signals. \\
+\indent The core objective of this analysis is to determine which modeling method provides the optimal balance of predictive accuracy and robustness given compute time when faced with this complex, high-dimensional structure. \\
 
-\section{\textbf{Main Analysis}}
+\subsection{\textbf{Dataset Structure}}
+\indent The dataset \cite{buckler2009} consists of $4,981$ observations ($n$) and $7,390$ variables ($p$), including some amount of missing data. The dependent variable is Time to Male Flowering (\texttt{dtoa}). The independent variables are predominantly $7,389$ Single Nucleotide Polymorphism (SNP) markers ($m_1-m_{7389}$), supplemented by $25$ (1-25) categorical variables representing the genetic crosses or families (\texttt{pop}). \\
 
-\subsection{\textbf{Data}}
+\section{\textbf{Methods}}
 
-This study utilizes a dataset on superconducting materials, sourced from \cite{hamidieh2018}. The dataset contains information about the chemical composition and critical temperature ($T_c$) for various materials. \\
+\subsection{\textbf{Data Preparation}}
 
-\subsubsection{\textbf{Data Structure and Features}}
+\subsubsection{\textbf{Preprocessing}}
+\indent Initial data cleaning involved the \textit{removal of incomplete observations}; specifically, any row containing one or more missing values was excluded from the effective dataset. This procedure reduced the total number of records from $4,981$ to $4,494$. \\
+\indent The resulting data loss, approximately $10\%$  of the original sample, was deemed acceptable given the scope and objectives of this analysis. Following this cleaning step, the $4,494$ retained observations were \textit{randomly partitioned} into three distinct subsets for model development and evaluation. \\
+\indent The subsets were allocated as follows: $75\%$ ($\approx 3,371$ records) for the \textit{training set}, $15\%$ ($\approx 674$ records) for the \textit{validation set}, and the remaining $10\%$ ($\approx 449$ records) for the final, unbiased \textit{test set}. This division ensures a rigorous assessment of model performance and generalization capabilities. \\
+\subsubsection{\textbf{Standardization}}
+\indent To prepare the data for models designed to handle high-dimensionality, all features were subjected to \textit{standardization}, often referred to as $Z$-score normalization. This critical preprocessing step transformed each feature such that its distribution had a mean of zero ($\mu=0$) and a standard deviation of one ($\sigma=1$). Mathematically, this transformation is defined as $z = (x - \mu) / \sigma$. \\
+\indent This procedure ensures that all features are centered around zero and scaled to unit variance, a step essential for promoting \textit{equitable contribution} from every feature during the model's learning process. \\
 
-The dataset includes \textbf{eight derived chemical features} for each material's chemical formula:
-\begin{itemize}
-\item Atomic Mass
-\item Atomic Radius
-\item Density, Electron Affinity
-\item First Ionization Energy (FIE)
-\item Fusion Heat
-\item Thermal Conductivity
-\item Valence
-\end{itemize}
+\subsection{\textbf{High-Dimensionality Regression Models Used}}
 
-\indent These eight features are summarized across \textbf{ten statistical metrics}: \texttt{mean}, weighted mean (\texttt{wtd\_mean}), geometric mean (\texttt{gmean}), weighted geometric mean (\texttt{wtd\_gmean}), \texttt{entropy}, weighted entropy (\texttt{wtd\_entropy}), \texttt{range}, weighted range (\texttt{wtd\_range}), standard deviation (\texttt{std}), and weighted standard deviation (\texttt{wtd\_std}). This results in a total of 80 potential features (8 features × 10 statistical metrics).\\
-\indent Additionally, the dataset includes as an additional feature the \textbf{Number of Elements} (\texttt{number\_of\_elements}) in each material's chemical formula. \\
-
-\subsubsection{\textbf{Data Handling}}
-
-The units of measurement were not provided with the dataset, so all features were treated as \textbf{dimensionless numerical values}. A key characteristic of this data is the \textbf{high correlation} among many of the features, particularly between a feature and its weighted counterpart (e.g. \texttt{mean} and \texttt{wtd\_mean}), which is a known aspect of this type of materials science data.
-
-\subsection{\textbf{Methods}}
-
-\subsubsection{\textbf{Data Preprocessing and Engineering}}
-The initial dataset underwent several preprocessing and engineering steps to prepare it for model training and evaluation. These steps were executed using \textbf{Python}, with the analysis code fully documented and available in Appendix A.\\
-\indent The complete dataset was partitioned into three distinct sets to facilitate model development and assessment: \textbf{training}, \textbf{validation}, and \textbf{test}. The split ratios were \textbf{75\%} for training, \textbf{15\%} for validation, and \textbf{10\%} for testing.\\
-\indent To ensure consistent scaling across all feature values, \textbf{Min-Max normalization} was applied using the  \texttt{MinMaxScaler} function from the  \texttt{sklearn.preprocessing} module. This normalization step was critically performed \textit{after} the dataset had been split to prevent \textbf{data leakage}. Specifically, the scaler was \textbf{fitted} exclusively to the \textbf{training set} data, and this same fitted scaler was then used to \textbf{transform} the validation and test sets.\\
-\indent A preliminary analysis of the $T_c$ distribution suggested that a transformation could potentially move it closer to a \textbf{Gaussian distribution}. However, due to concerns regarding the added complexity this transformation would introduce to the overall modeling process, the target variable was retained in its \textbf{original form} for all subsequent analyses.\\
-\subsubsection{\textbf{Model Selection and Specification}}
-
-Based on the target variable, $T_c$'s, Poisson-like, non-negative, and right-skewed distribution, we selected a variety of GLMs. This framework established a robust baseline and allowed for flexible specification of the error distribution, moving beyond the restrictive assumptions of standard linear regression.
 \begin{enumerate}
-	\item \textbf{Primary Model}: \textbf{Poisson GLM} given that $T_c$ is \textbf{ non-negative} and exhibits significant  \textbf{right-skewness}, the GLM with a \textbf{Poisson Family distribution} was selected as the primary and most theoretically aligned choice. While traditionally used for count data, the Poisson distribution's family structure is well-suited for modeling the mean of positive and skewed data, leveraging the logarithmic link function.
-	\item \textbf{Advanced Model}: \textbf{Tweedie GLM} To generalize the error structure and potentially achieve a more accurate fit, an advanced GLM using the \textbf{Tweedie Family distribution} was specified. The Tweedie distribution serves as a flexible compound distribution that includes several common distributions as special cases. Specifically, the \textbf{power parameter (p) was set to 1.5}. This setting specifies a \textbf{Compound Poisson-Gamma distribution}, which is ideal for modeling data that has characteristics intermediate between the pure Poisson (\textbf{p=1}) and the Gamma (\textbf{p=2}) distributions, like $T_c$ seems to have.
-	\item \textbf{Baseline Model}: \textbf{Multiple Linear Regression (MLR)} This model was formally implemented as a GLM with Gaussian Family distribution. Although the target variable ($T_c$) does not follow a true Gaussian (\textbf{Normal}) distribution, the MLR provides most basic and readily interpretable baseline against which the performance gains achieved by the more sophisticated Poisson and Tweedie GLM specifications could be rigorously assessed.\\
+	\item \textbf{Stepwise Regression}: In particular the forward algorithm, this technique builds a model by iteratively adding or removing predictors based on a statistical metric, retaining only the most significant features. It works in $p \gg n$ scenarios by drastically reducing the effective number of predictors, thus avoiding the computational and statistical pitfalls of a full model.
+	\item \textbf{Lasso Regression}: Lasso adds an $\ell_1$ penalty (absolute value of coefficients) to the model, which forces the coefficients of less important features to become exactly zero. This automatically performs crucial feature selection, making it excellent for $p \gg n$ by providing a sparse, interpretable model.
+	\item \textbf{Ridge Regression}: Ridge adds an $\ell_2$ penalty (squared value of coefficients) to the model, which shrinks all coefficients towards zero but never sets them to exactly zero. This effectively stabilizes the model and mitigates the high variance and multicollinearity issues common in $p \gg n$ datasets.
+	\item \textbf{Elastic Net Regression}: Elastic Net combines both the $\ell_1$ (Lasso) and $\ell_2$ (Ridge) penalties in its objective function. It leverages the feature selection ability of Lasso while maintaining the stability of Ridge, making it robust for complex high-dimensional data with highly correlated predictors.
+	\item \textbf{Principal Component Regression (PCR)}: PCR first uses Principal Component Analysis (PCA) to transform the original $p$ features into a smaller set of uncorrelated latent components (composite variables). It then runs an ordinary linear regression on these few components, completely solving the $p \gg n$ problem by moving to a much lower-dimensional space.
+	\item \textbf{Partial Least Squares Regression (PLS)}: PLS constructs new latent variables that not only explain the variance in the predictors but also maximize their correlation with the response variable ($\mathbf{Y}$) or \texttt{dtoa} in this case. This method is effective in $p \gg n$ because its dimension reduction is supervised and specifically optimized for predictive power.\\
 \end{enumerate}
 
-\subsubsection{\textbf{Validation Metrics}}
-To determine the utility and statistical significance of predictor variables, the following metrics were employed:
-\begin{itemize}
-	\item \textbf{Z-Statistic and p-values}: These were used in tandem to assess the \textbf{statistical significance} of individual features. The \textbf{Z-statistic} quantified the distance of a feature's coefficient from zero (i.e., no effect) in units of standard error, while the \textbf{p-value} determined the probability of observing that effect by chance, guiding the decision to retain or exclude the feature.
-	\item \textbf{Correlation (r with $T_c$)}: The \textbf{Pearson correlation coefficient (r)} was used to measure the strength and direction of the linear relationship between each individual feature and the target variable ($T_c$). This helped in initial screening to ensure the inclusion of only highly relevant predictors.\\
-\end{itemize}
+\subsection{\textbf{Tuning and Selection}}
 
-To compare and select the best functional form among candidate models, metrics based on model fit and complexity were utilized:
-\begin{itemize}
-	\item \textbf{Deviance (Null and Residual)}: The \textbf{Null Deviance} and \textbf{Residual Deviance} were examined to gauge the relative fit of the model to the data. The significant reduction from the Null Deviance (the fit of the model with only an intercept) to the Residual Deviance (the fit of the final model) indicated the improvement provided by the added predictors.
-	\item \textbf{Log-Likelihood (logL)}: This metric was used to quantify how well the data fits the model. A higher logL indicates that the model is more likely to have generated the observed data.
-	\item \textbf{Information Criteria (AIC and BIC)}: The \textbf{Akaike Information Criterion (AIC)} and \textbf{Bayesian Information Criterion (BIC)} were used for model selection by balancing \textbf{model fit} (logL) against \textbf{model complexity} (number of parameters). Models with lower AIC and BIC values were preferred as they provided a superior trade-off between explanatory power and simplicity.\\
-\end{itemize}
-
-The final model's predictive accuracy was quantified using the following error metrics:
-\begin{itemize}
-	\item \textbf{Mean Squared Error (MSE)}: Used to quantify the average squared difference between the actual and predicted values.
-	\item \textbf{Root Mean Squared Error (RMSE)}: Used to better interpret the magnitude of the model's error. The RMSE takes the square root of the MSE, returning the error to the original units of the target variable.
-	\item \textbf{Mean Absolute Error (MAE)}: Provided a simpler average magnitude of error difference.
-	\item \textbf{Mean Absolute Percentage Error (MAPE)}: Employed as a \textbf{scale-independent} measure to express error in percentage terms. However, its utility was limited due to the presence of multiple near-zero values or outliers in the dataset, which led to disproportionately large error values.\\
-\end{itemize}
-
-\subsection{\textbf{Analysis}}
-
-\subsubsection{\textbf{Exploratory Data Analysis (EDA)}}
-The distribution of target variable, $T_c$, was analyzed to inform subsequent modeling choices.
-\begin{figure}[htbp]
-	\centerline{}
-	\caption{$T_c$ distribution.}
-	\label{TcDist}
-\end{figure}
-
-\begin{itemize}
-	\item As visually displayed in ``Fig.~\ref{TcDist}'', the distribution exhibits a right-skewed (positive skew) shape, superficially resembling a Poisson distribution.
-	\item However, the distribution is characterized by a high concentration of near-zero observations and a sharp peak, which deviates from a true Poisson process. Crucially, no negative values were observed, consistent with the physical nature of thermal conductivity.
-	\item the trending line is the Kernel Density Estimate (KDE) showing the general density of the distribution.\\
-\end{itemize}
-
-Correlation analysis was performed on the derived chemical features to identify predictors strongly associated with the target variable.
-\begin{figure}[htbp]
-	\centerline{}
-	\caption{Thermal Conductivity Correlation within its own set.}
-	\label{ThcCorr}
-\end{figure}
-\begin{itemize}
-	\item Initially, multiple heatmaps, such as the example shown in ``Fig.~\ref{ThcCorr}'' for the Thermal Conductivity set, were generated to examine the correlation structure among various feature subsets, focusing on their linear relationship with $T_c$ and the feature \texttt{number\_of\_elements}.
-\end{itemize}
-\begin{table}[h]
-	\centering
-	\caption{Features Correlated with Critical Temperature}
-	\label{WhlCorr}
-	\begin{tabular}{|l|r|}
-		\hline
-		\textbf{Features} & \textbf{critical\_temp} \\
-		\hline
-		\texttt{critical\_temp} & 1 \\
-		\texttt{wtd\_std\_ThermalConductivity} & 0.7212710792 \\
-		\texttt{range\_ThermalConductivity} & 0.6876539119 \\
-		\texttt{range\_atomic\_radius} & 0.6537590446 \\
-		\texttt{std\_ThermalConductivity} & 0.6536319815 \\
-		\texttt{wtd\_entropy\_atomic\_mass} & 0.6269304017 \\
-		\texttt{wtd\_entropy\_atomic\_radius} & 0.6034939833 \\
-		\texttt{number\_of\_elements} & 0.601068571 \\
-		\texttt{range\_fie} & 0.6007903801 \\
-		\texttt{wtd\_std\_atomic\_radius} & 0.5991986591 \\
-		\texttt{entropy\_Valence} & 0.5985909069 \\
-		\texttt{wtd\_entropy\_Valence} & 0.5896637026 \\
-		\texttt{wtd\_std\_fie} & 0.5820132554 \\
-		\texttt{entropy\_fie} & 0.5678169385 \\
-		\texttt{wtd\_entropy\_FusionHeat} & 0.5632442681 \\
-		\texttt{std\_atomic\_radius} & 0.559628574 \\
-		\texttt{entropy\_atomic\_radius} & 0.5589374384 \\
-		\texttt{entropy\_FusionHeat} & 0.5527087052 \\
-		\texttt{entropy\_atomic\_mass} & 0.5436194092 \\
-		\texttt{std\_fie} & 0.5418038102 \\
-		\hline
-	\end{tabular}
-\end{table}
-\begin{itemize}
-	\item To consolidate this analysis and focus on the most influential predictors, a comprehensive correlation matrix was computed across the entire feature population. Feature selection was then performed by retaining only those features demonstrating a strong linear correlation with $T_c$.
-	\item Specifically, only features with a Pearson correlation coefficient (r) greater than 0.53 were selected for model building. The final set of selected features is presented in ``Table~\ref{WhlCorr}''. This threshold ensured that only the features exhibiting the highest degree of linear association with $T_c$ were carried forward.\\
-\end{itemize}
-
-
-
-\subsubsection{\textbf{Model Fitting and Evaluation}}
-
-In the process of model fitting and evaluation, the three different models were fitted against the \textbf{training set} and subsequently tuned by predicting on the \textbf{validation set}. The performance metrics for all models are summarized in a comparative table ``Table~\ref{model_comparison_basic}''.
+\indent All models, specifically \textbf{Lasso}, \textbf{Ridge}, \textbf{Elastic Net}, \textbf{PCR}, and \textbf{PLS}, underwent hyperparameter optimization using \textit{$k$-fold cross-validation} applied exclusively to the \textit{training set}.\\
+\indent For PCR and PLS, the optimal number of components ($k$) was searched across the grid $\{5, 10, 50, 100, 200, 300, 400, 500\}$ using $k=5$ folds. In contrast, the \textbf{Stepwise Regression} model utilized the Bayesian Information Criterion (BIC) as its selection metric due to BIC's stringent penalty on model complexity. \\
+\indent The optimal hyperparameters for the \textbf{Lasso}, \textbf{Ridge}, and \textbf{Elastic Net} models can be observed in Table \ref{tab:hyperparameters}.
 
 \begin{table}[h]
 	\centering
-	\caption{Performance Metrics for Poisson, Tweedie, and MLR Models}
-	\label{model_comparison_basic}
-	\begin{tabular}{|l|c|c|c|}
+	\caption{Hyperparameter Grid for Regularized Regression Models}
+	\label{tab:hyperparameters}
+	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{Metrics} & \textbf{Poisson} & \textbf{Tweedie} & \textbf{MLR} \\
+		\textbf{Grid Index} & \textbf{Lasso ($\alpha$)} & \textbf{Ridge ($\alpha$)} & \textbf{Elastic Net ($\alpha$, $l\_ratio$)} \\
 		\hline
-		Null Deviance    & 3750.86 & 8453.64 & 980.19 \\
+		1 & $0.001$ & $0.0001$ & $0.001, (0.1, 0.5, 1.0)$ \\
+		2 & $0.0031622777$ & $0.001$ & $.01, (0.1, 0.5, 1.0)$ \\
+		3 & $0.01$ & $0.01$ & $0.1, (0.1, 0.5, 1.0)$ \\
+		4 & $0.0316227766$ & $0.1$ & $1.0, (0.1, 0.5, 1.0)$ \\
+		5 & $0.1$ & $1.0$ & $10.0, (0.1, 0.5, 1.0)$ \\
+		6 & $0.316227766$ & $10.0$ & \texttt{n/a} \\
+		7 & $1.0$ & $100.0$ & \texttt{n/a} \\
+		8 & $3.1622776602$ & $1000.0$ & \texttt{n/a}\\
+		9 & $10.0$ & $10000.0$ & \texttt{n/a} \\
 		\hline
-		Deviance         & 1131.13 & 2831.21 & 383.79 \\
+	\end{tabular}
+	\begin{flushleft}
+		\small Note: $\alpha$ is the regularization strength; $l\_ratio$ (L1 ratio) is the mixing parameter, where $0 < l\_ratio \leq 1$.
+	\end{flushleft}
+\end{table}
+
+\section{\textbf{Results}}
+
+Analysis of the tuned models yielded distinct optimal configurations, as detailed in Table \ref{tab:performance}.
+
+\begin{table}[h]
+	\centering
+	\caption{Performance and Compute Time}
+	\label{tab:performance}
+	\begin{tabular}{|l|c|c|c|c|}
 		\hline
-		AIC              & 15563.65 & -27070.60 & -14139.73 \\
+		\textbf{Method} & \textbf{RMSE (CV)} & \textbf{RMSE (Test)} & \textbf{\# Feats / Comps} & \textbf{Time (s)} \\
 		\hline
-		BIC              & -153004.54 & -151304.46 & -15751.88 \\
-		\hline
-		Log-Likelihoods  & -7762.83 & 13554.30 & 7088.87 \\
+		Ridge  & 3.526 & 3.533 & 7390 & 136.914\\
+		Lasso & 3.358 & 3.387 & 82 & 1214.324\\
+		Elastic Net & 3.347 & 3.389 & 309 & 2026.851\\
+		Stepwise (BIC) & 3.372 & 3.404 & 17 & 431.755\\
+		PCR ($k$ comps) & 3.542 & 3.593 & 50 & 141.986\\
+		PLS ($k$ comps) & 3.645 & 3.670 & 10 & 2927.664\\
 		\hline
 	\end{tabular}
 \end{table}
 
-Based on the statistical criteria, the \textbf{Tweedie GLM} emerged as the statistically preferred choice.
-\begin{itemize}
-	\item \textbf{Information Criteria (AIC and BIC)}: The Tweedie model exhibited the lowest (most negative) AIC and BIC values, indicating a superior balance between model fit and model complexity.
-	\item \textbf{Log-Likelihood (logL)}: Consistent with the information criteria, the Tweedie model also demonstrated the highest logL, suggesting the better-fitting model. The substantial magnitude of the difference in AIC/BIC compared to the other models is noteworthy, implying a significantly better fit or effective regularization specific to the Tweedie distribution assumptions on this dataset.
-\end{itemize}
+ \indent For \textbf{Stepwise Regression}, the final model included $17$ features, selected in forward order: \{\texttt{pop}, \texttt{m439}, \texttt{m6493}, \texttt{m2419}, \texttt{m5808}, \texttt{m1652}, \texttt{m772}, \texttt{m290}, \texttt{m2548}, \texttt{m4940}, \texttt{m2969}, \texttt{m2865}, \texttt{m4772}, \texttt{m2162}, \texttt{m2276}, \texttt{m2358}, \texttt{m6665}\}. \\
+ \indent The regularized models achieved maximum performance with the following hyperparameters: \textbf{Ridge} utilized a strong penalty of $\alpha=10000.0$; \textbf{Lasso} achieved optimal results at $\alpha=0.1$, resulting in a sparse model with $82$ non-zero coefficients; and \textbf{Elastic Net} also optimized at $\alpha=0.1$ with an $\ell_1$ ratio of $0.5$ (leading to $309$ non-zero coefficients). \\
+ \indent Among the dimension reduction techniques, \textbf{PLS} performed best with $10$ components, while \textbf{PCR} achieved its optimal fit using $50$ components. \\
+ 
+ \indent Across all models evaluated, the observed \textbf{Root Mean Square Error (RMSE)} from the cross-validation (CV) set was consistently lower than that of the independent test set, confirming expected model behavior and indicating a degree of generalization error common in predictive modeling. \\ \indent While the time component reported in Table \ref{tab:performance} is machine-dependent and thus serves primarily as a reference, the training times for the more complex models were substantial, often extending into the $40$-minute range given the computational resources employed.
 
-While the Tweedie model was statistically favored, a closer look at the deviance revealed a minor conflict with the fit metrics:
+\section{\textbf{Discussion}}
 
-\begin{itemize}
-	\item \textbf{Deviance}: The Multiple Linear Regression (MLR) model achieved the lowest residual deviance (Deviance=383.79). Deviance, which measures the unexplained variation, suggests that the MLR model provided the best fit in terms of minimizing the error sum of squares relative to the null model.
-	\item \textbf{Trade-off}: This discrepancy highlights the core difference between raw fit (Deviance) and penalized fit (AIC/BIC). Although the MLR model achieves the minimal residual deviation, the AIC and BIC values indicate that when the trade-off with the number of model parameters is considered, the \textbf{Tweedie model provides a statistically more robust and generalizable solution}.
-\end{itemize}
+\subsection{Models Performance}
 
-\subsection{\textbf{Results}}
-This section presents the final predictive performance of the selected models on the held-out \textbf{test set}, analyzes the diagnostic plots for the preferred model, and interprets the final coefficients and metrics.
+ \indent A comparison of predictive metrics, visually represented in Figure \ref{Tc_q2_rmse}, confirms that the \textbf{Lasso} and \textbf{Elastic Net} models achieved the superior performance, exhibiting the lowest prediction error, as indicated by a $\text{RMSE}$ value of approximately $3.40$, and the highest predictive power, with $\text{Q}^2$ values near $0.145$. \\ \\
 \begin{figure}[htbp]
-	\centerline{}
-	\caption{Residual Plots Tweedie GLM vs MLR Test Set}
-	\label{test_residual_plot}
+	\centerline{\includegraphics[scale=0.45]{test_q2_vs_rmse_barchart.png}}
+	\caption{Comparing $\text{Q}^2$ against $\text{RMSE}$}
+	\label{Tc_q2_rmse}
+\end{figure}
+ \indent Conversely, the \textbf{PLS} model performed the worst, recording the highest $\text{RMSE}$ ($\approx 3.68$) and the lowest predictive power ($\text{Q}^2 < 0.00$). \\ \\ \\ \\ \\ \\ \\ \\
+ \indent While the range of $\text{RMSE}$ values across all models was narrow ($3.40$ to $3.68$), the $\text{Q}^2$ metric clearly distinguished the superior predictive ability of the sparse regularization techniques (Lasso and Elastic Net). \\
+
+ \indent As illustrated in Figure \ref{Tc_rmse_mae}, revealed that although the $\text{RMSE}$ and \textbf{Mean Absolute Error ($\text{MAE}$)} values were numerically close across all six models ($\text{RMSE}$ clustered between $3.4$ and $3.7$; $\text{MAE}$ between $2.6$ and $2.9$), their ratio provided a key distinction.
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.45]{test_rmse_mae_ratio_barchart.png}}
+	\caption{Comparison of Regression Model Error and Ratio}
+	\label{Tc_rmse_mae}
 \end{figure}
 
-The final predictive capabilities of the models were further examined through residual analysis, as illustrated in ``Fig.~\ref{test_residual_plot}''.
-\begin{itemize}
-	\item \textbf{Tweedie Model}: The residual plot for the Tweedie GLM model displays a distinct fanning-out pattern (heteroscedasticity). While this indicates the model's predictive variance increases with the magnitude of the predicted value, it is a common characteristic of models fit to count or positive, skewed data (like the target variable).
-	\item \textbf{MLR Model}: The Multiple Linear Regression (MLR) model shows a clear negative trend in its residuals, which is to be expected as the distribution of Tc violates its assumptions.
-	\item \textbf{Poisson GLM Model}: The Poisson GLM model, though not shown, has a similar and more compacted, fanning-out pattern compared to the Tweedie model.\\
-\end{itemize}
+ \indent \textbf{$\text{RMSE}/\text{MAE}$ ratio} demonstrated a clear decreasing trend, ranging from $\approx 1.295$ for the \textbf{PCR} model down to $\approx 1.275$ for the \textbf{PLS} model. \\
+ \indent This lower ratio for \textbf{PLS} suggests that, relative to the other models, the \textbf{PLS} approach minimized the influence of large outlier errors, indicating a more robust and uniform error distribution.\\
 
-\begin{table}[h!]
-	\centering
-	\caption{Tweedie GLM Model Regression Coefficients and Statistics}
-	\footnotesize
-	\label{tab:regression_results}
-	\begin{tabular}{l r r r}
-		\hline
-		\textbf{Feature} & \textbf{Coef.} & \textbf{z} & \textbf{P$>|z|$} \\
-		\hline
-		\texttt{number\_of\_elements} & -0.463 & -2.348 & 0.019 \\
-		\texttt{wtd\_entropy\_atomic\_mass} & 2.583 & 23.674 & 6.64975E-124 \\
-		\texttt{range\_fie} & 5.726 & 18.253 & 1.96093E-74 \\
-		\texttt{wtd\_entropy\_atomic\_radius} & -1.1479 & -7.507 & 6.00491E-14 \\
-		\texttt{range\_atomic\_radius} & 1.699 & 9.153 & 5.55089E-20 \\
-		\texttt{wtd\_std\_atomic\_radius} & 0.761 & 5.775 & 7.71026E-09 \\
-		\texttt{range\_ThermalConductivity} & 1.005 & 4.727 & 2.269324E-06 \\
-		\texttt{std\_ThermalConductivity} & -0.204 & -0.879 & 0.379 \\
-		\texttt{wtd\_std\_ThermalConductivity} & 0.993 & 13.2758 & 3.20268E-40 \\
-		\texttt{entropy\_Valence} & 2.713 & 8.888 & 6.19435E-19 \\
-		\texttt{wtd\_std\_fie} & -1.499 & -12.1831 & 3.81256E-34 \\
-		\texttt{entropy\_fie} & 1.985 & 2.002 & 0.045 \\
-		\texttt{wtd\_entropy\_FusionHeat} & -0.157 & -1.922 & 0.0547 \\
-		\texttt{wtd\_std\_atomic\_radius} & -1.357 & -5.959 & 2.53186E-09 \\
-		\texttt{entropy\_atomic\_radius} & -2.371 & -2.517 & 0.012 \\
-		\texttt{entropy\_FusionHeat} & 0.0686 & 0.601 & 0.5478 \\
-		\texttt{entropy\_atomic\_mass} & -3.613 & -22.206 & 3.00824E-109 \\
-		\texttt{std\_fie} & -4.019 & -13.407 & 5.48687E-41 \\
-		\hline
-	\end{tabular}
-\end{table}
+\subsection{Accuracy-Time-Interpretability Tradeoff}
 
-The final p-values associated with the Tweedie GLM model's coefficients provided a clear understanding of the features' statistical relevance:
-\begin{itemize}
-	\item \textbf{Statistically Significant Features}: The majority of the included features were confirmed to be \textbf{highly statistically significant} predictors of $T_c$ in the final model(i.e. p $\leq$ 0.05).
-	\item \textbf{Insignificant Features}: The following features were found to be statistically insignificant, \texttt{std\_ThermalConductivity} and \texttt{entropy\_FusionHeat}. These features could be considered for \textbf{removal} in a future model refinement step to simplify the final structure without a significant loss in overall predictive power, thus further enhancing the model's interpretability.\\
-\end{itemize}
-\begin{table}[h!]
-	\centering
-	\caption{Models Regression Fit}
-	\footnotesize
-	\label{tab:regression_fit_results}
-	\begin{tabular}{|l|c|c|c|}
-		\hline
-		\textbf{Metrics} & \textbf{Poisson} & \textbf{Tweedie} & \textbf{MLR} \\
-		\hline
-		MSE & 0.010422 & 0.010417 & 0.020016 \\
-		\hline
-		RMSE & 0.102087 & 0.102064 & 0.141478 \\
-		\hline
-		MAE & 0.071183 & 0.072239 & 0.106225 \\
-		\hline
-		MAPE & 269.64 & 302.48 & 447.73 \\
-		\hline
-	\end{tabular}
-\end{table}
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.45]{rmse_and_time_scatterplot.png}}
+	\caption{Model Efficiency-Accuracy Trade-Off}
+	\label{Tc_time_rmse}
+\end{figure}
 
-\indent The models were assessed on the unseen test set, and the predictive metrics remained largely consistent with the trends established during the validation stage. The Tweedie regression model continued to be the preferred choice.\\
-\indent While the Tweedie model's performance metrics on the test set barely underperformed in comparison to the Poisson model (e.g., slightly higher RMSE), this marginal difference was observed on a significantly smaller test set.\\
-\indent Given the Tweedie model's superior performance across the AIC and BIC—which indicated its overall robustness, better fit-to-complexity trade-off, and stability during the more extensive validation stage—we still selected the Tweedie model as the best GLM for the prediction of $T_c$.\\
-\indent This decision prioritizes the model's proven stability and statistical rigor over a minor, potentially artifactual, difference on the smaller test subset.
+ \indent An analysis of the predictive accuracy versus training time, visualized in Figure \ref{Tc_time_rmse}, suggests a strong connection between model sparsity and overall performance.\\
+ \indent The \textbf{Stepwise Regression} model provided the most balanced solution, achieving near-best accuracy with relatively low training time, making it the most efficient choice.\\
+ \indent While the \textbf{Lasso} and \textbf{Elastic Net} models yielded the highest accuracy (lowest test $\text{RMSE} \approx 3.35-3.40$), they incurred the second and third longest training times, respectively. Conversely, \textbf{Ridge} and \textbf{PCR} demonstrated the fastest training times but were not competitively accurate. \\
+ \indent The \textbf{PLS} model performed the worst overall, exhibiting both the longest training duration and the lowest predictive performance.\\
 
 \section{\textbf{Conclusion(s)}}
 
-This study successfully investigated the relationship between derived material properties and the critical temperature $T_c$ of superconducting materials, aiming to determine if a statistically viable linear predictive model could be established.
-
-The primary finding of this analysis is the development of a robust predictive framework for $T_c$ using a GLM.
-\begin{itemize}
-	\item \textbf{Optimal Model Selection}: The \textbf{Tweedie GLM} with a Compound Poisson-Gamma distribution was identified as the best predictive model. This choice was driven by the observation that the $T_c$ distribution exhibited characteristics closely aligned with the Poisson family, which the more flexible Tweedie distribution was able to accommodate better than a standard Poisson model.
-	\item \textbf{Feature Simplification}: The feature set was significantly streamlined, reducing the number of predictive variables from 81 to 18 features, as detailed in ``Table~\ref{WhlCorr}''. This simplification maintains a high level of predictive power while substantially improving model simplicity.
-	\item \textbf{Predictive Validation}: The low MSE achieved by the Tweedie GLM provides strong evidence that $T_c$ can be accurately predicted using a linear model based on a select, meaningful subset of the initial derived chemical features. The core focus of this work was validating the suitability of a linear model for this prediction task, which the results strongly support.\\
-\end{itemize}
-
-While the study confirmed a strong linear relationship, future research can build upon these findings:
-\begin{itemize}
-	\item \textbf{Model Complexity}: Explore non-linear models or more advanced Machine Learning algorithms (e.g. gradient boosting or neural networks) to potentially capture complex interactions and further improve predictive accuracy beyond the scope of a linear assumption.
-	\item \textbf{Feature Refinement}: Conduct additional feature engineering by investigating potential methods to combine or transform the statistically insignificant features identified in the model. This could enhance the final feature set, reduce any residual redundancy, and potentially lead to a simpler, yet more powerful, predictive model.
-	\item \textbf{Target Variable Transformation}: A key area for future investigation is exploring the effect of transforming the target variable $T_c$. Applying a mathematical transformation could potentially normalize the distribution, stabilize the variance, and further enhance the performance of a linear model.
-\end{itemize}
+\indent This study concludes that the \textbf{Lasso} and \textbf{Elastic Net} models provide the optimal trade-off between \textbf{predictive accuracy} and \textbf{computational efficiency}. These methods successfully generated \textbf{sparse and effective} models.\\
+\indent While \textbf{Stepwise selection} is relatively fast (efficient training), it consistently yielded slightly lower accuracy than the top-performing Lasso and Elastic Net.\\
+\indent The \textbf{dimension reduction} techniques, Partial Least Squares (PLS) and Principal Component Regression (PCR), were generally less competitive. Contrary to typical assumptions, \textbf{PCR} demonstrated superior performance over \textbf{PLS} in both accuracy and training speed. The \textbf{Ridge} model offered intermediate performance and was not deemed useful in this context.\\
+\indent In summary, \textbf{Lasso or Elastic Net} are the recommended models for robust predictive performance. \textbf{Stepwise selection} should only be favored when \textbf{training time is the absolute critical constraint}.
 
 \section*{\textbf{Appendix}}
 	
 \section*{Appendix A: Supplementary Materials and Software Usage}
 \subsection*{Source Code Repository \label{app:code}}
-The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: https://github.com/gaguillen4384-dev/Data-Science/tree/main/DataMining\_1/Project\_1).
+The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: https://github.com/gaguillen4384-dev/Data-Science/tree/main/DataMining\_1/Project\_2).
 
 \subsection*{Software Usage Acknowledgment}
 The text and documentation were edited and refined using Google Gemini.
 
 \begin{thebibliography}{9} % '9' is for formatting the numbering (up to 9 items)
 	
-	\bibitem{hamidieh2018}
-	Hamidieh, Kam. ``A data-driven statistical model for predicting the critical temperature of a superconductor.'' \textit{Computational Materials Science} 154 (2018): 346--354. DOI: 10.1016/j.commatsci.2018.07.052.
+\bibitem{buckler2009}
+Buckler et al. (2009). Science 325, 714--718. (Original maize flowering time study)
+
+\bibitem{waldmann2013}
+Waldmann, P., Mészáros, G., Gredler, B., Fuerst, C., \& Sölkner, J. (2013).
+Evaluation of the lasso and the elastic net in genome-wide association studies.
+\textit{Frontiers in Genetics}, 4, 270.
+
+\bibitem{hastie2009}
+Hastie, T., Tibshirani, R., \& Friedman, J. (2009/2017).
+\textit{The Elements of Statistical Learning} (PCR/PLS chapters).
 	
 \end{thebibliography}
 
