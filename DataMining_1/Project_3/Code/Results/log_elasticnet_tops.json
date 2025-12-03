@@ -1,0 +1,26 @@
+{
+    "positive_results": [
+        "Feature: **gender_Female** | Class: Gestational | Value: **3.7099**",
+        "Feature: **glucose_postprandial** | Class: Type 2 | Value: **2.2146**",
+        "Feature: **family_history_diabetes** | Class: Type 2 | Value: **0.7402**",
+        "Feature: **physical_activity_minutes_per_week** | Class: No Diabetes | Value: **0.2505**",
+        "Feature: **age** | Class: Type 2 | Value: **0.2186**",
+        "Feature: **hdl_cholesterol** | Class: Type 1 | Value: **0.2055**",
+        "Feature: **gender_Other** | Class: Type 2 | Value: **0.2037**",
+        "Feature: **hypertension_history** | Class: Type 1 | Value: **0.1982**",
+        "Feature: **ldl_cholesterol** | Class: Type 1 | Value: **0.1386**",
+        "Feature: **glucose_postprandial** | Class: Gestational | Value: **0.1195**"
+    ],
+    "negative_results": [
+        "Feature: **gender_Male** | Class: Gestational | Value: **-5.4887**",
+        "Feature: **gender_Other** | Class: Gestational | Value: **-2.466**",
+        "Feature: **glucose_postprandial** | Class: No Diabetes | Value: **-2.4413**",
+        "Feature: **employment_status_Student** | Class: Type 1 | Value: **-1.63**",
+        "Feature: **smoking_status_Former** | Class: Gestational | Value: **-1.523**",
+        "Feature: **family_history_diabetes** | Class: No Diabetes | Value: **-1.4744**",
+        "Feature: **age** | Class: Type 1 | Value: **-1.4689**",
+        "Feature: **employment_status_Retired** | Class: Gestational | Value: **-1.4324**",
+        "Feature: **smoking_status_Never** | Class: Gestational | Value: **-1.3907**",
+        "Feature: **smoking_status_Current** | Class: Gestational | Value: **-1.3193**"
+    ]
+}

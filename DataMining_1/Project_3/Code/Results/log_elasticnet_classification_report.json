@@ -1,0 +1,362 @@
+{
+    "best_cv_f1_weighted": 0.6995216225316858,
+    "f1_weighted_score": 0.7039321937548398,
+    "overall_test_accuracy": 0.72788,
+    "overall_error_rate": 0.27212000000000003,
+    "total_training_tuning_time_seconds": 634.3157622814178,
+    "elasticnet_selected_features_count": 44,
+    "elasticnet_selected_features_list": [
+        {
+            "Feature": "gender_Female",
+            "Coeff_Class_Gestational": 3.70987905322067,
+            "Coeff_Class_No Diabetes": -0.635370229605281,
+            "Coeff_Class_Pre-Diabetes": -0.06754430090374573,
+            "Coeff_Class_Type 1": -1.2707621783833267,
+            "Coeff_Class_Type 2": 0.026025446015426026
+        },
+        {
+            "Feature": "gender_Male",
+            "Coeff_Class_Gestational": -5.488650730398889,
+            "Coeff_Class_No Diabetes": -0.6244605958867294,
+            "Coeff_Class_Pre-Diabetes": -0.03939784402437967,
+            "Coeff_Class_Type 1": -1.1478294393874904,
+            "Coeff_Class_Type 2": 0.03045312000617156
+        },
+        {
+            "Feature": "gender_Other",
+            "Coeff_Class_Gestational": -2.465985569150436,
+            "Coeff_Class_No Diabetes": -0.3624719207901614,
+            "Coeff_Class_Pre-Diabetes": -0.2656021409136573,
+            "Coeff_Class_Type 1": -0.7435408387212785,
+            "Coeff_Class_Type 2": 0.2036618805638034
+        },
+        {
+            "Feature": "ethnicity_Asian",
+            "Coeff_Class_Gestational": -0.9852707057527857,
+            "Coeff_Class_No Diabetes": -0.3354409266287945,
+            "Coeff_Class_Pre-Diabetes": -0.07369439891622631,
+            "Coeff_Class_Type 1": -1.1969320457408263,
+            "Coeff_Class_Type 2": 0.062389388378991086
+        },
+        {
+            "Feature": "ethnicity_Black",
+            "Coeff_Class_Gestational": -0.9375881613168738,
+            "Coeff_Class_No Diabetes": -0.3117840814808193,
+            "Coeff_Class_Pre-Diabetes": -0.06975068459272916,
+            "Coeff_Class_Type 1": -0.4184788770460196,
+            "Coeff_Class_Type 2": 0.0221941178844456
+        },
+        {
+            "Feature": "ethnicity_Hispanic",
+            "Coeff_Class_Gestational": -1.0322054407744172,
+            "Coeff_Class_No Diabetes": -0.353549543236519,
+            "Coeff_Class_Pre-Diabetes": -0.06998098568618044,
+            "Coeff_Class_Type 1": -0.6678069795440784,
+            "Coeff_Class_Type 2": 0.06771531972480892
+        },
+        {
+            "Feature": "ethnicity_Other",
+            "Coeff_Class_Gestational": -0.5753748599691395,
+            "Coeff_Class_No Diabetes": -0.3004493894319683,
+            "Coeff_Class_Pre-Diabetes": -0.10984568896187445,
+            "Coeff_Class_Type 1": -0.31587077488914417,
+            "Coeff_Class_Type 2": 0.07997499926420251
+        },
+        {
+            "Feature": "ethnicity_White",
+            "Coeff_Class_Gestational": -0.6909134276894363,
+            "Coeff_Class_No Diabetes": -0.3209004102076511,
+            "Coeff_Class_Pre-Diabetes": -0.049068734199659014,
+            "Coeff_Class_Type 1": -0.5618813691970059,
+            "Coeff_Class_Type 2": 0.02769288720492112
+        },
+        {
+            "Feature": "education_level_Graduate",
+            "Coeff_Class_Gestational": -1.0424565810257809,
+            "Coeff_Class_No Diabetes": -0.4198048775529753,
+            "Coeff_Class_Pre-Diabetes": -0.1195623189610907,
+            "Coeff_Class_Type 1": -1.0662709222814308,
+            "Coeff_Class_Type 2": 0.09625646603120887
+        },
+        {
+            "Feature": "education_level_Highschool",
+            "Coeff_Class_Gestational": -1.0520047311726541,
+            "Coeff_Class_No Diabetes": -0.3791946642652109,
+            "Coeff_Class_Pre-Diabetes": -0.10064739976500175,
+            "Coeff_Class_Type 1": -0.7194004767890345,
+            "Coeff_Class_Type 2": 0.06199365234351106
+        },
+        {
+            "Feature": "education_level_No formal",
+            "Coeff_Class_Gestational": -1.233190589920459,
+            "Coeff_Class_No Diabetes": -0.40712707242647034,
+            "Coeff_Class_Pre-Diabetes": -0.1138664921416994,
+            "Coeff_Class_Type 1": -0.7418190140868857,
+            "Coeff_Class_Type 2": 0.09700777451673982
+        },
+        {
+            "Feature": "education_level_Postgraduate",
+            "Coeff_Class_Gestational": -0.8995530229725972,
+            "Coeff_Class_No Diabetes": -0.4160858358486906,
+            "Coeff_Class_Pre-Diabetes": -0.03836402464056829,
+            "Coeff_Class_Type 1": -0.6340608378699174,
+            "Coeff_Class_Type 2": 0.004802509076215772
+        },
+        {
+            "Feature": "income_level_High",
+            "Coeff_Class_Gestational": -0.8088010268134327,
+            "Coeff_Class_No Diabetes": -0.2746190928145929,
+            "Coeff_Class_Pre-Diabetes": -0.13385615662679948,
+            "Coeff_Class_Type 1": -0.5903817405801101,
+            "Coeff_Class_Type 2": 0.10548514184741495
+        },
+        {
+            "Feature": "income_level_Low",
+            "Coeff_Class_Gestational": -0.8158432705330457,
+            "Coeff_Class_No Diabetes": -0.26659556717638694,
+            "Coeff_Class_Pre-Diabetes": -0.050691461334376964,
+            "Coeff_Class_Type 1": -0.8731382089335984,
+            "Coeff_Class_Type 2": 0.0143871221804704
+        },
+        {
+            "Feature": "income_level_Lower-Middle",
+            "Coeff_Class_Gestational": -0.9205973592038149,
+            "Coeff_Class_No Diabetes": -0.3562536834377997,
+            "Coeff_Class_Pre-Diabetes": -0.06883231526592595,
+            "Coeff_Class_Type 1": -1.125850815302106,
+            "Coeff_Class_Type 2": 0.0589678243612183
+        },
+        {
+            "Feature": "income_level_Middle",
+            "Coeff_Class_Gestational": -0.8581887248364893,
+            "Coeff_Class_No Diabetes": -0.29645557024367747,
+            "Coeff_Class_Pre-Diabetes": -0.07711167037380295,
+            "Coeff_Class_Type 1": -0.09760489247402623,
+            "Coeff_Class_Type 2": 0.03555601540235219
+        },
+        {
+            "Feature": "income_level_Upper-Middle",
+            "Coeff_Class_Gestational": -0.8179222140691401,
+            "Coeff_Class_No Diabetes": -0.42820045571545823,
+            "Coeff_Class_Pre-Diabetes": -0.04185189361377937,
+            "Coeff_Class_Type 1": -0.4739943890482459,
+            "Coeff_Class_Type 2": 0.045572598245562805
+        },
+        {
+            "Feature": "employment_status_Employed",
+            "Coeff_Class_Gestational": -0.9776861479166075,
+            "Coeff_Class_No Diabetes": -0.4356252613473671,
+            "Coeff_Class_Pre-Diabetes": -0.08440519238613226,
+            "Coeff_Class_Type 1": -0.6045381130552507,
+            "Coeff_Class_Type 2": 0.0632899632741545
+        },
+        {
+            "Feature": "employment_status_Retired",
+            "Coeff_Class_Gestational": -1.4324144492529918,
+            "Coeff_Class_No Diabetes": -0.4132688641575482,
+            "Coeff_Class_Pre-Diabetes": -0.05143619974625087,
+            "Coeff_Class_Type 1": -0.7483286255871424,
+            "Coeff_Class_Type 2": 0.03283992973212486
+        },
+        {
+            "Feature": "employment_status_Student",
+            "Coeff_Class_Gestational": -0.7973880273191252,
+            "Coeff_Class_No Diabetes": -0.3683811274141122,
+            "Coeff_Class_Pre-Diabetes": -0.12931815415116119,
+            "Coeff_Class_Type 1": -1.6300395666314793,
+            "Coeff_Class_Type 2": 0.07683145720170012
+        },
+        {
+            "Feature": "employment_status_Unemployed",
+            "Coeff_Class_Gestational": -1.0197163003258534,
+            "Coeff_Class_No Diabetes": -0.4049371968606857,
+            "Coeff_Class_Pre-Diabetes": -0.10727777749501759,
+            "Coeff_Class_Type 1": -0.17864494543932508,
+            "Coeff_Class_Type 2": 0.0870816110441478
+        },
+        {
+            "Feature": "smoking_status_Current",
+            "Coeff_Class_Gestational": -1.319318543846876,
+            "Coeff_Class_No Diabetes": -0.5360822134714924,
+            "Coeff_Class_Pre-Diabetes": -0.13419895954190156,
+            "Coeff_Class_Type 1": -1.2171129112075867,
+            "Coeff_Class_Type 2": 0.09719465098001652
+        },
+        {
+            "Feature": "smoking_status_Former",
+            "Coeff_Class_Gestational": -1.5230384149827036,
+            "Coeff_Class_No Diabetes": -0.5494235197047521,
+            "Coeff_Class_Pre-Diabetes": -0.1234725752090195,
+            "Coeff_Class_Type 1": -0.9221203961571615,
+            "Coeff_Class_Type 2": 0.09170444900194973
+        },
+        {
+            "Feature": "smoking_status_Never",
+            "Coeff_Class_Gestational": -1.3907002960950816,
+            "Coeff_Class_No Diabetes": -0.5367948197056749,
+            "Coeff_Class_Pre-Diabetes": -0.11486582713388337,
+            "Coeff_Class_Type 1": -1.0228991485006562,
+            "Coeff_Class_Type 2": 0.07122734430127632
+        },
+        {
+            "Feature": "age",
+            "Coeff_Class_Gestational": -1.0930154412961208,
+            "Coeff_Class_No Diabetes": -0.3372686391649587,
+            "Coeff_Class_Pre-Diabetes": -0.05196732120829308,
+            "Coeff_Class_Type 1": -1.46887337534451,
+            "Coeff_Class_Type 2": 0.21859125723694378
+        },
+        {
+            "Feature": "alcohol_consumption_per_week",
+            "Coeff_Class_Gestational": 0.009771417765285721,
+            "Coeff_Class_No Diabetes": -0.0024984619336719765,
+            "Coeff_Class_Pre-Diabetes": 0.008140695989791438,
+            "Coeff_Class_Type 1": 0.00644455979286426,
+            "Coeff_Class_Type 2": -0.006092201740328524
+        },
+        {
+            "Feature": "physical_activity_minutes_per_week",
+            "Coeff_Class_Gestational": -0.007792543731842534,
+            "Coeff_Class_No Diabetes": 0.25046800570714434,
+            "Coeff_Class_Pre-Diabetes": 0.03585237698019697,
+            "Coeff_Class_Type 1": -0.05873890308287307,
+            "Coeff_Class_Type 2": -0.1526670937172415
+        },
+        {
+            "Feature": "diet_score",
+            "Coeff_Class_Gestational": 0.029111767265270642,
+            "Coeff_Class_No Diabetes": 0.059160959106748,
+            "Coeff_Class_Pre-Diabetes": 0.014880771724998238,
+            "Coeff_Class_Type 1": 0.028225418975918452,
+            "Coeff_Class_Type 2": -0.04127553920312356
+        },
+        {
+            "Feature": "sleep_hours_per_day",
+            "Coeff_Class_Gestational": 0.047262308031002155,
+            "Coeff_Class_No Diabetes": 0.004937680363871203,
+            "Coeff_Class_Pre-Diabetes": -0.0035055331500970233,
+            "Coeff_Class_Type 1": 0.017942461828395775,
+            "Coeff_Class_Type 2": 0.003037252955410822
+        },
+        {
+            "Feature": "screen_time_hours_per_day",
+            "Coeff_Class_Gestational": 0.018535948580168996,
+            "Coeff_Class_No Diabetes": -0.071348136161268,
+            "Coeff_Class_Pre-Diabetes": 0.0053443368750100825,
+            "Coeff_Class_Type 1": 0.07745404461494593,
+            "Coeff_Class_Type 2": 0.01598557866004615
+        },
+        {
+            "Feature": "bmi",
+            "Coeff_Class_Gestational": -0.1830273319101883,
+            "Coeff_Class_No Diabetes": -0.09942479626644359,
+            "Coeff_Class_Pre-Diabetes": -0.02586512199156814,
+            "Coeff_Class_Type 1": 0.05475976020816962,
+            "Coeff_Class_Type 2": 0.0669325033631736
+        },
+        {
+            "Feature": "waist_to_hip_ratio",
+            "Coeff_Class_Gestational": 0.06060144394537058,
+            "Coeff_Class_No Diabetes": -0.03626504140124167,
+            "Coeff_Class_Pre-Diabetes": -0.006146873946638801,
+            "Coeff_Class_Type 1": -0.05850979924562597,
+            "Coeff_Class_Type 2": 0.029310832643438263
+        },
+        {
+            "Feature": "systolic_bp",
+            "Coeff_Class_Gestational": -0.04941145710780993,
+            "Coeff_Class_No Diabetes": 0.031144403200337144,
+            "Coeff_Class_Pre-Diabetes": -0.016730074759389847,
+            "Coeff_Class_Type 1": -0.17759413540726773,
+            "Coeff_Class_Type 2": 0.012443380083824928
+        },
+        {
+            "Feature": "diastolic_bp",
+            "Coeff_Class_Gestational": -0.13786940968049588,
+            "Coeff_Class_No Diabetes": -0.017530193307581553,
+            "Coeff_Class_Pre-Diabetes": 0.015952837612504676,
+            "Coeff_Class_Type 1": 0.04688601580537889,
+            "Coeff_Class_Type 2": -0.015174483912154901
+        },
+        {
+            "Feature": "heart_rate",
+            "Coeff_Class_Gestational": -0.034552936713059534,
+            "Coeff_Class_No Diabetes": 0.0011854156742749544,
+            "Coeff_Class_Pre-Diabetes": 0.009393256991455181,
+            "Coeff_Class_Type 1": -0.143212943751734,
+            "Coeff_Class_Type 2": -0.006131003950675473
+        },
+        {
+            "Feature": "cholesterol_total",
+            "Coeff_Class_Gestational": 0.01775124985358064,
+            "Coeff_Class_No Diabetes": -0.003986827212888811,
+            "Coeff_Class_Pre-Diabetes": 0.019685991099026766,
+            "Coeff_Class_Type 1": -0.2050453821663327,
+            "Coeff_Class_Type 2": -0.003686183093303398
+        },
+        {
+            "Feature": "hdl_cholesterol",
+            "Coeff_Class_Gestational": 0.0015083820636970135,
+            "Coeff_Class_No Diabetes": 0.09252572202141825,
+            "Coeff_Class_Pre-Diabetes": 0.012600240010006215,
+            "Coeff_Class_Type 1": 0.2054717432227588,
+            "Coeff_Class_Type 2": -0.04998819788747483
+        },
+        {
+            "Feature": "ldl_cholesterol",
+            "Coeff_Class_Gestational": -0.03313988244609219,
+            "Coeff_Class_No Diabetes": -0.013679030344806237,
+            "Coeff_Class_Pre-Diabetes": -0.01882201531346783,
+            "Coeff_Class_Type 1": 0.13855291682401635,
+            "Coeff_Class_Type 2": 0.013583182089678502
+        },
+        {
+            "Feature": "triglycerides",
+            "Coeff_Class_Gestational": 0.10525206071639848,
+            "Coeff_Class_No Diabetes": -0.058148950709734935,
+            "Coeff_Class_Pre-Diabetes": -0.007770414320471235,
+            "Coeff_Class_Type 1": -0.0401052427131244,
+            "Coeff_Class_Type 2": 0.03377716159727657
+        },
+        {
+            "Feature": "glucose_postprandial",
+            "Coeff_Class_Gestational": 0.11953567554802702,
+            "Coeff_Class_No Diabetes": -2.4412951500010096,
+            "Coeff_Class_Pre-Diabetes": -1.0154204677995318,
+            "Coeff_Class_Type 1": -0.06974500047372746,
+            "Coeff_Class_Type 2": 2.214613044888971
+        },
+        {
+            "Feature": "insulin_level",
+            "Coeff_Class_Gestational": -0.022417037240214672,
+            "Coeff_Class_No Diabetes": -0.031518441511386726,
+            "Coeff_Class_Pre-Diabetes": -0.0020350159366382807,
+            "Coeff_Class_Type 1": 0.10401036897962589,
+            "Coeff_Class_Type 2": 0.011825448857660492
+        },
+        {
+            "Feature": "family_history_diabetes",
+            "Coeff_Class_Gestational": -0.17296390491314273,
+            "Coeff_Class_No Diabetes": -1.474401702956427,
+            "Coeff_Class_Pre-Diabetes": -0.3944455098982153,
+            "Coeff_Class_Type 1": 0.0010024503862804928,
+            "Coeff_Class_Type 2": 0.740154520344207
+        },
+        {
+            "Feature": "hypertension_history",
+            "Coeff_Class_Gestational": -0.05219090806404011,
+            "Coeff_Class_No Diabetes": 0.005923842382929171,
+            "Coeff_Class_Pre-Diabetes": -0.01046910380457688,
+            "Coeff_Class_Type 1": 0.19823466894142552,
+            "Coeff_Class_Type 2": -0.00686414455174371
+        },
+        {
+            "Feature": "cardiovascular_history",
+            "Coeff_Class_Gestational": -0.573175655046999,
+            "Coeff_Class_No Diabetes": -0.023347289210526177,
+            "Coeff_Class_Pre-Diabetes": -0.008590213190750328,
+            "Coeff_Class_Type 1": -0.34457227125665846,
+            "Coeff_Class_Type 2": 0.02981022093341579
+        }
+    ]
+}
