@@ -41,7 +41,7 @@ This study addresses the challenge of multiclass classification in diabetes stag
 	\item Type 2 Diabetes
 	\item Gestational Diabetes
 \end{itemize}
-The dataset exhibited significant \textbf{class imbalance}. Specifically, two classes dominated the distribution: Type 2 Diabetes accounted for $60\%$ of the instances, and Pre-Diabetes accounted for $32\%$.
+\indent The dataset exhibited significant \textbf{class imbalance}. Specifically, two classes dominated the distribution: Type 2 Diabetes accounted for $60\%$ of the instances, and Pre-Diabetes accounted for $32\%$.
 
 \section{\textbf{Methods}}
 
@@ -56,7 +56,7 @@ The dataset exhibited significant \textbf{class imbalance}. Specifically, two cl
 \subsection{\textbf{Classification Models Used}}
 
 \begin{enumerate}
-	\item \textbf{K-Nearest Neighbors (KNN)}: algorithm naturally extends to multiclass problems without requiring structural modification. Given an unlabeled data point, the algorithm calculates its distance to all points in the training set and identifies the $K$ closest neighbors. The data point is then assigned the class label that is most frequent among these $K$ neighbors—this is known as the \textbf{majority voting} rule. The only significant consideration for multiclass KNN is the balance of class labels in the dataset; if the classes are highly imbalanced, the majority vote may disproportionately favor the larger classes, regardless of true proximity.
+	\item \textbf{K-Nearest Neighbors (KNN)}: algorithm naturally extends to multiclass problems without requiring structural modification. Given an unlabeled data point, the algorithm calculates its distance to all points in the training set and identifies the $K$ closest neighbors. The data point is then assigned the class label that is most frequent among these $K$ neighbors—this is known as the \textbf{majority voting} rule.
 	\item \textbf{Logistic Regression}: While intrinsically designed as a binary classifier, Logistic Regression is effectively adapted for multiclass problems through the \textbf{One-vs-Rest (OvR)} strategy. This method constructs $N$ independent binary models, where each model is specifically trained to differentiate one target class from the aggregate of all remaining classes.
 \end{enumerate}
 
@@ -88,7 +88,7 @@ The optimal number of neighbors ($K$) for the KNN classifier was determined thro
 \indent The evaluation metric used for hyperparameter optimization was the \textbf{weighted $F_1$ score}, which is particularly suitable for multiclass and imbalanced datasets as it accounts for the precision and recall of each class.\\
 \indent The results of the grid search, detailed in Table \ref{tab:knn_tuning}, indicated that the highest performance was achieved with an optimal neighbor count of $K=20$. \\
 
-\indent Feature selection for \textbf{K-Nearest Neighbors (KNN)} was implemented using the \textbf{Least Absolute Shrinkage and Selection Operator (Lasso)} regularization, which automatically selects features by driving insignificant coefficients to zero. This methodology is particularly valuable in high-dimensional datasets as it enhances model interpretability and reduces the risk of overfitting by producing a sparser model.\\
+\indent Feature selection for \textbf{KNN} was implemented using the \textbf{Least Absolute Shrinkage and Selection Operator (Lasso)} regularization, which automatically selects features by driving insignificant coefficients to zero. This methodology is particularly valuable in high-dimensional datasets as it enhances model interpretability and reduces the risk of overfitting by producing a sparser model.\\
 
 \begin{table}[htbp]
 	\centering
@@ -122,16 +122,16 @@ The optimal number of neighbors ($K$) for the KNN classifier was determined thro
 \indent The resulting subset of features in Table \ref{tab:knn_selected_features}, identified by non-zero coefficients, was then used as the input space for the KNN algorithm, leading to a more robust and computationally efficient classifier.\\
 
 \subsubsection{\textbf{Logistic Regression Tuning}}
-For the Logistic Regression models, a comprehensive regularization comparison was performed using three penalties across separate models: \text{L1} (Lasso), \text{L2} (Ridge), and ElasticNet, to evaluate their impact on generalization and feature parsimony for the multiclass problem.\\
+For the Logistic Regression models, a comprehensive regularization comparison was performed using three penalties across separate models: \textbf{\text{$\text{L}_1$} (Lasso)}, \textbf{\text{$\text{L}_2$} (Ridge)}, and \textbf{ElasticNet}, to evaluate their impact on generalization and feature parsimony for the multiclass problem.\\
 \indent \textbf{Logistic/$\text{L}_1$ Model}: \textbf{Logistic Regression} combined with a \textbf{Lasso ($\text{L}_1$)} penalization yielded the most aggressive feature selection result. This approach retained only a single feature: \texttt{glucose\_postprandial}. \\
-\indent The optimal value for the inverse Lasso tuning parameter ($C$) was determined through a 5-fold cross-validation procedure, testing values in the set $\{0.001, 0.01, 1\}$. The best-performing parameter was $C = 0.01$, chosen by optimizing the \textbf{weighted F1-score} as the primary scoring metric.\\
+\indent The optimal value for the inverse Lasso tuning parameter ($C$) was determined through a 5-fold cross-validation procedure, testing values in the set $\{0.001, 0.01, 1\}$. The best-performing parameter was $C = 0.01$, chosen by optimizing the \textbf{weighted  $F_1$-score} as the primary scoring metric.\\
 \indent \textbf{Logistic/$\text{L}_2$ Model}: The application of \textbf{Logistic Regression} with a \textbf{Ridge ($\text{L}_2$)} penalization resulted in a less aggressive form of regularization compared to other approaches. The optimal value for the inverse of the regularization strength ($\mathbf{C}$) was determined via a 5-fold cross-validation procedure. The search space for $C$ included ten logarithmically spaced values, specifically:
 $$
 C \in \{10^{-4}, 7.74 \cdot 10^{-4}, 5.99 \cdot 10^{-3}, 4.64 \cdot 10^{-2},$$
 $$ 3.59 \cdot 10^{-1}, 2.78, 21.54, 166.81, 1291.55, 10000\}
 $$
-The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen by optimizing the \textbf{weighted F1-score} as the primary scoring metric.\\
-\indent \textbf{Logistic/ElasticNet Model}: The application of \textbf{Logistic Regression} with \textbf{Elastic Net} penalization adopted a tuning strategy similar to the $\text{L}_2$ (Ridge) approach, but required the optimization of two hyperparameters. The best-performing parameters were found to be $\mathbf{C = 1291.54}$ (the inverse of regularization strength) and an $\mathbf{\ell_1 \text{ ratio} = 0.34}$. This $\ell_1$ ratio specifies the balance between the $\text{L}_1$ (Lasso) and $\text{L}_2$ (Ridge) components of the penalty, indicating a mix of $34\%$ $\text{L}_1$ and $66\%$ $\text{L}_2$ regularization.\\
+\indent The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen by optimizing the \textbf{weighted  $F_1$-score} as the primary scoring metric.\\
+\indent \textbf{Logistic/ElasticNet Model}: The application of \textbf{Logistic Regression} with \textbf{Elastic Net} penalization adopted a tuning strategy similar to the $\text{L}_2$ (Ridge) approach, but required the optimization of two hyperparameters. The best-performing parameters were found to be $\mathbf{C = 1291.54}$ (the inverse of regularization strength) and an $\mathbf{\ell_1 \text{ ratio} = 0.34}$. This $\ell_1$ ratio specifies the balance between the $\text{L}_1$ (Lasso) and $\text{L}_2$ components of the penalty, indicating a mix of $34\%$ $\text{L}_1$ and $66\%$ $\text{L}_2$ regularization.\\
 
 \section{\textbf{Results}}
  
@@ -172,7 +172,7 @@ The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen b
 \end{figure}
 
 
-\subsubsection{Logistic/$\text{L}_1$ ROC Curve} In Figure \ref{lasso_confusion_matrix} the classification model demonstrates highly varied performance across the different diabetes classes based on the ROC analysis. The \textbf{No Diabetes} class, represented by the dark blue curve, achieves an \textbf{Excellent AUC of $0.93$}, indicating high effectiveness in distinguishing it from other classes. This is followed closely by \textbf{Type 2} (yellow curve) with a \textbf{Very Good AUC of $0.89$}. Performance remains \textbf{Good/Acceptable} for \textbf{Pre-Diabetes} (teal/medium blue curve) with an \textbf{AUC of $0.79$}. However, the model performs \textbf{Poorly/Near Chance} for \textbf{Type 1} (light green curve), with an AUC of only $0.51$, suggesting a significant struggle. Performance is even worse for \textbf{Gestational} (purple/black curve) with an \textbf{AUC of $0.49$}, which is considered worse than random guessing, implying systematic prediction errors for this specific class.\\
+\subsubsection{Logistic/$\text{L}_1$ ROC Curve} In Figure \ref{lasso_confusion_matrix} the classification model demonstrates highly varied performance across the different diabetes classes based on the ROC analysis. The \textbf{No Diabetes} class, represented by the dark blue curve, achieves an \textbf{Excellent AUC of $0.93$}, indicating high effectiveness in distinguishing it from other classes.\\ \indent This is followed closely by \textbf{Type 2} (yellow curve) with a \textbf{Very Good AUC of $0.89$}. Performance remains \textbf{Good/Acceptable} for \textbf{Pre-Diabetes} (teal/medium blue curve) with an \textbf{AUC of $0.79$}. However, the model performs \textbf{Poorly/Near Chance} for \textbf{Type 1} (light green curve), with an AUC of only $0.51$, suggesting a significant struggle. Performance is even worse for \textbf{Gestational} (purple/black curve) with an \textbf{AUC of $0.49$}, which is considered worse than random guessing, implying systematic prediction errors for this specific class.\\
 
 \subsection{\textbf{Logistic Regression with  $\text{L}_2$ Results}}
 
@@ -214,7 +214,8 @@ The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen b
 \end{figure}
 
 \subsubsection{Logistic/ElasticNet ROC Curve} Figure \ref{elasticnet_roc_curve} evaluates the performance of a multi-class classification model, likely a \textbf{Logistic Regression} with \textbf{Elastic Net} regularization, across five distinct diabetes status classes by calculating the \textbf{Area Under the Curve (AUC)} for each class in a \textbf{one-vs-rest} manner. Identical to Figure \ref{ridge_roc_curve}.\\
-\indent Overall, the model demonstrates strong diagnostic capability, with all classes yielding AUC values significantly above the $0.50$ chance level. Specifically, the model performs \textbf{excellently} in identifying the \textbf{No Diabetes} class ($\text{AUC} = 0.94$), followed closely by \textbf{Type 2} ($\text{AUC} = 0.90$) and \textbf{Gestational} ($\text{AUC} = 0.88$), indicating a very high effectiveness in separating these groups from the rest. The performance is still \textbf{good} for \textbf{Type 1} ($\text{AUC} = 0.85$), but the model shows its lowest performance for the \textbf{Pre-Diabetes} class ($\text{AUC} = 0.82$), suggesting this class presents the greatest classification difficulty compared to the others.
+\indent Overall, the model demonstrates strong diagnostic capability, with all classes yielding AUC values significantly above the $0.50$ chance level. Specifically, the model performs \textbf{excellently} in identifying the \textbf{No Diabetes} class ($\text{AUC} = 0.94$), followed closely by \textbf{Type 2} ($\text{AUC} = 0.90$) and \textbf{Gestational} ($\text{AUC} = 0.88$), indicating a very high effectiveness in separating these groups from the rest.\\
+\indent The performance is still \textbf{good} for \textbf{Type 1} ($\text{AUC} = 0.85$), but the model shows its lowest performance for the \textbf{Pre-Diabetes} class ($\text{AUC} = 0.82$), suggesting this class presents the greatest classification difficulty compared to the others.
 
 \section{\textbf{Discussion}}
 
@@ -228,9 +229,9 @@ The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen b
 		\hline
 		\textbf{Metric} & \textbf{Logistic/$\text{L}_1$} & \textbf{Logistic/$\text{L}_2$} \\
 		\hline
-		\textbf{Best CV F1 Weighted} & 0.7139 & 0.6995 \\
+		\textbf{Best CV  $F_1$ Weighted} & 0.7139 & 0.6995 \\
 		\hline
-		\textbf{Test F1 Weighted Score} & 0.7146 & 0.7039 \\
+		\textbf{Test $F_1$ Weighted Score} & 0.7146 & 0.7039 \\
 		\hline
 		\textbf{Overall Test Accuracy} & 0.7398 & 0.7279 \\
 		\hline
@@ -247,9 +248,9 @@ The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen b
 		\hline
 		\textbf{Metric} & \textbf{Logistic/ElasticNet} & \textbf{KNN} \\
 		\hline
-		\textbf{Best CV F1 Weighted} & 0.6996 & 0.7475 \\
+		\textbf{Best CV $F_1$ Weighted} & 0.6996 & 0.7475 \\
 		\hline
-		\textbf{Test F1 Weighted Score} & 0.7039 & 0.7483 \\
+		\textbf{Test $F_1$ Weighted Score} & 0.7039 & 0.7483 \\
 		\hline
 		\textbf{Overall Test Accuracy} & 0.7279 & 0.7492 \\
 		\hline
@@ -258,16 +259,16 @@ The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen b
 	\end{tabular}
 \end{table}
 
-\indent The tables \ref{tab:logreg_l1_l2_performance} and \ref{tab:elasticnet_knn_performance}  show that the \textbf{KNN} model is the best overall performer, achieving the highest scores across all metrics. KNN recorded the superior Test $\mathbf{\text{F}_1}$ \textbf{Weighted Score} ($\mathbf{0.7483}$) and the highest \textbf{Overall Test Accuracy} ($\mathbf{0.7492}$), demonstrating the greatest predictive power and the lowest \textbf{Overall Error Rate} ($\mathbf{0.2508}$) on the unseen test data. The closeness between its Best Cross-Validation ($\text{CV}$) $\text{F}_1$ score ($\mathbf{0.7475}$) and Test $\text{F}_1$ score ($\mathbf{0.7483}$) suggests that the model is well-tuned and generalizing effectively without significant overfitting.\\
-\indent The multi-class classification models---including \textbf{KNN}, and \textbf{Logistic Regression} with \textbf{LASSO}, \textbf{Ridge}, and \textbf{Elastic Net} regularization---all exhibit a common and significant challenge: a systematic bias toward the most prevalent class, \textbf{Type 2 Diabetes}, resulting in poor performance on minority classes.\\
-\indent This pattern is characterized by over-prediction of Type 2 and a noticeable failure to accurately distinguish less frequent conditions like Gestational and Type 1 Diabetes.\\
-\indent Specifically, the LASSO-regularized model suffers the most severe outcome, simplifying the complex five-class problem into a functionally poor binary classifier with zero accuracy for three of the classes due to aggressive feature elimination. The KNN model, while successful with Type 2 and Pre-Diabetes, completely fails to classify Gestational and Type 1 Diabetes, suggesting data scarcity or the unsuitability of the $K$-Nearest Neighbors algorithm for these specific, fine-grained distinctions.
+\indent The \textbf{KNN} model is the superior performer, achieving the highest \textbf{Overall Test Accuracy} ($\mathbf{0.7492}$) and the lowest \textbf{Overall Error Rate} ($\mathbf{0.2508}$) on unseen data, as shown in Tables \ref{tab:logreg_l1_l2_performance} and \ref{tab:elasticnet_knn_performance}. Its \textbf{Test $F_1$ Weighted Score} is also the highest, and its close \textbf{CV $F_1$ Weighted Score} score suggests effective generalization.\\
+\indent The closeness between its Best Cross-Validation ($\text{CV}$) $F_1$ score ($\mathbf{0.7475}$) and Test $F_1$ score ($\mathbf{0.7483}$) suggests that the model is well-tuned and avoiding significant overfitting.\\
+\indent The multi-class classification models---including \textbf{KNN}, and \textbf{Logistic/$\text{L}_1$}, \textbf{Logistic/$\text{L}_2$}, and \textbf{Logistic/ElasticNet} regularization---all exhibit a common and significant challenge: a systematic bias toward the most prevalent classes, \textbf{Type 2 Diabetes} and \textbf{Pre-Diabetes}, resulting in poor performance on minority classes.\\
+\indent This results in poor performance, particularly for minority classes like Gestational and Type 1 Diabetes. Specifically, \textbf{KNN} completely fails to classify Gestational and Type 1 Diabetes, while the \textbf{Logistic/$\text{L}_1$} model is the worst, functioning as a poor binary classifier with zero accuracy for three classes due to aggressive feature elimination.
 
 \subsection{Features Importance}
 
 \subsubsection{The Difference between Logistic/$\text{L}_2$ and Logistic/ElasticNet}
 
-\indent The tables \ref{tab:ridge_positive_coefficients}, \ref{tab:elasticnet_positive_coefficients}, \ref{tab:ridge_negative_coefficients} and \ref{tab:ridge_negative_coefficients} of the \textbf{Ridge} and \textbf{ElasticNet} models consistently shows that being female is the strongest positive predictor for \textbf{Gestational diabetes}, while high postprandial glucose is the most significant positive predictor for \textbf{Type 2 diabetes}.\\
+\indent The tables \ref{tab:ridge_positive_coefficients}, \ref{tab:elasticnet_positive_coefficients}, \ref{tab:ridge_negative_coefficients} and \ref{tab:ridge_negative_coefficients} of the \textbf{Logistic/$\text{L}_2$} and \textbf{Logistic/ElasticNet} models consistently shows that being female is the strongest positive predictor for \textbf{Gestational diabetes}, while high postprandial glucose is the most significant positive predictor for \textbf{Type 2 diabetes}.\\
 \indent Conversely, being male serves as a strong negative predictor (or a strong argument against) a Gestational diabetes diagnosis, and high postprandial glucose is a powerful indicator against classification in the \textbf{No Diabetes} group.\\
 \indent The agreement between both regularization models on the direction and magnitude of these key features confirms that these predictive relationships are robust and reliable.\\
 \indent Both models showed identical AUC, ROC, and metrics, attributable to ElasticNet tuning to $66\%$ $\text{L}_2$ regularization.\\
@@ -357,13 +358,14 @@ The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen b
 \end{table}
 
 \subsubsection{Glucose Postprandial Dominance}
-The \texttt{glucose\_postprandial} feature was universally dominant across all models. While Ridge and ElasticNet provided a more detailed view of its application, both $\text{KNN}$ and $\text{Lasso}$ also utilized it extensively, with $\text{Lasso}$ relying on it as the sole feature for its predictions due to its aggressive feature selection.
+The \texttt{glucose\_postprandial} feature was universally dominant across all models. While \textbf{Logistic/$\text{L}_2$} and \textbf{Logistic/ElasticNet} provided a more detailed view of its application, both \textbf{KNN} and \textbf{Logistic/$\text{L}_1$} also utilized it extensively, with \textbf{Logistic/$\text{L}_1$} relying on it as the sole feature for its predictions due to its aggressive feature selection.
 
 
 \section{\textbf{Conclusion(s)}}
 
 \indent Despite testing various models (\textbf{Logistic Regression} with LASSO, ElasticNet, and Ridge regularization, and \textbf{$K$-Nearest Neighbors (KNN)}) on this complex, imbalanced multiclass dataset \cite{rakesh_kolipaka_ranjith_kumar_digutla_2025}, none of the models demonstrated sufficient robustness, as they consistently failed to accurately classify the least frequently observed classes, specifically Gestational and Type 1 stage diabetes.\\
-\indent \textbf{The overall performance for all models was poor, with approximately one out of every four classifications being incorrect}. While regularization techniques like ElasticNet and Ridge yielded superior \textbf{AUC} scores (indicating better discriminatory power), the best overall test accuracy was achieved by $k$-Nearest Neighbors ($\mathbf{0.7492}$), closely followed by LASSO ($\mathbf{0.7398}$), a finding consistent with the weighted $F_1$ metric.\\
+\indent \textbf{The overall performance for all models was poor, with approximately one out of every four classifications being incorrect}.\\
+\indent While Logistic Regression like \textbf{Logistic/ElasticNet} and \textbf{Logistic/$\text{L}_2$} yielded superior \textbf{AUC} scores (indicating better discriminatory power), the best overall test accuracy was achieved by \textbf{KNN} ($\mathbf{0.7492}$), closely followed by \textbf{Logistic/$\text{L}_1$} ($\mathbf{0.7398}$), a finding consistent with the weighted $F_1$ metric.\\
 \indent The feature \texttt{glucose\_postprandial} was identified as the most effective single predictor across all models for classification.\\
 \indent Based solely on the performance metrics presented, \textbf{the KNN model is the most recommendable choice} as its superior accuracy and weighted $F_1$ score outweigh the higher interpretability offered by the Logistic Regression models. Suggesting it has the best performance in the final classification task.
 

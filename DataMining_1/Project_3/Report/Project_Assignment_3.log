@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  3 DEC 2025 22:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  4 DEC 2025 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,45 +391,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--90
  []
 
 
-Underfull \hbox (badness 5446) in paragraph at lines 91--92
-[]\OT1/ptm/m/n/10 Feature se-lec-tion for \OT1/ptm/b/n/10 K-Nearest Neigh-bors 
-(KNN)
+Underfull \hbox (badness 6032) in paragraph at lines 91--92
+\OT1/ptm/m/n/10 reg-u-lar-iza-tion, which au-to-mat-i-cally se-lects fea-tures 
+by
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 91--92
-\OT1/ptm/m/n/10 was im-ple-mented us-ing the \OT1/ptm/b/n/10 Least Ab-so-lute S
-hrink-age
- []
-
-
-Underfull \hbox (badness 3078) in paragraph at lines 91--92
-\OT1/ptm/b/n/10 and Se-lec-tion Op-er-a-tor (Lasso) \OT1/ptm/m/n/10 reg-u-lar-i
-za-tion, which
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-\OT1/ptm/m/n/10 au-to-mat-i-cally se-lects fea-tures by driv-ing in-signif-i-ca
-nt
- []
-
-
-Underfull \hbox (badness 5548) in paragraph at lines 91--92
-\OT1/ptm/m/n/10 co-ef-fi-cients to zero. This method-ol-ogy is par-tic-u-larly
+Underfull \hbox (badness 1496) in paragraph at lines 91--92
+\OT1/ptm/m/n/10 en-hances model in-ter-pretabil-ity and re-duces the risk of
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
-
-
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
+
+
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 132--135
@@ -439,20 +421,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
 
 [2]
-<knn_multiclass_confusion_matrix.png, id=23, 578.16pt x 578.16pt>
+<knn_multiclass_confusion_matrix.png, id=24, 578.16pt x 578.16pt>
 File: knn_multiclass_confusion_matrix.png Graphic file (type png)
 <use knn_multiclass_confusion_matrix.png>
 Package pdftex.def Info: knn_multiclass_confusion_matrix.png  used on input lin
 e 141.
 (pdftex.def)             Requested size: 260.16959pt x 260.16959pt.
-<knn_roc_curve.png, id=25, 722.7pt x 578.16pt>
+<knn_roc_curve.png, id=26, 722.7pt x 578.16pt>
 File: knn_roc_curve.png Graphic file (type png)
 <use knn_roc_curve.png>
 Package pdftex.def Info: knn_roc_curve.png  used on input line 149.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
 
-<log_lasso_confusion_matrix.png, id=26, 578.16pt x 578.16pt>
+<log_lasso_confusion_matrix.png, id=27, 578.16pt x 578.16pt>
 File: log_lasso_confusion_matrix.png Graphic file (type png)
 <use log_lasso_confusion_matrix.png>
 Package pdftex.def Info: log_lasso_confusion_matrix.png  used on input line 160
@@ -468,9 +450,15 @@ File: log_lasso_roc_curve.png Graphic file (type png)
 Package pdftex.def Info: log_lasso_roc_curve.png  used on input line 169.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Underfull \hbox (badness 1478) in paragraph at lines 175--176
-\OT1/ptm/m/n/10 closely by \OT1/ptm/b/n/10 Type 2 \OT1/ptm/m/n/10 (yel-low curv
-e) with a \OT1/ptm/b/n/10 Very Good
+Underfull \hbox (badness 2142) in paragraph at lines 175--176
+[]\OT1/ptm/m/n/10 This is fol-lowed closely by \OT1/ptm/b/n/10 Type 2 \OT1/ptm/
+m/n/10 (yel-low curve)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+\OT1/ptm/b/n/10 Good/Acceptable \OT1/ptm/m/n/10 for \OT1/ptm/b/n/10 Pre-Diabete
+s \OT1/ptm/m/n/10 (teal/medium blue
  []
 
 
@@ -485,9 +473,6 @@ Package pdftex.def Info: log_ridge_confusion_matrix.png  used on input line 180
 .
 (pdftex.def)             Requested size: 260.16959pt x 260.16959pt.
 
-Underfull \vbox (badness 3965) has occurred while \output is active []
-
-
 
 <log_ridge_roc_curve.png, id=36, 722.7pt x 578.16pt>
 File: log_ridge_roc_curve.png Graphic file (type png)
@@ -498,6 +483,9 @@ Package pdftex.def Info: log_ridge_roc_curve.png  used on input line 189.
 Underfull \hbox (badness 10000) in paragraph at lines 194--196
 
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -519,45 +507,71 @@ Package pdftex.def Info: log_elasticnet_roc_curve.png  used on input line 211.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 1546) in paragraph at lines 262--266
+[]\OT1/ptm/m/n/10 The multi-class clas-si-fi-ca-tion models---including \OT1/pt
+m/b/n/10 KNN\OT1/ptm/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--266
+\OT1/ptm/m/n/10 and \OT1/ptm/b/n/10 Logistic/$[][]$\OT1/ptm/m/n/10 , \OT1/ptm/b
+/n/10 Logistic/$[][]$\OT1/ptm/m/n/10 , and \OT1/ptm/b/n/10 Lo-gis-tic/ElasticNe
+t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--266
+\OT1/ptm/m/n/10 regularization---all ex-hibit a com-mon and sig-nif-i-cant
+ []
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 262--266
+\OT1/ptm/m/n/10 chal-lenge: a sys-tem-atic bias to-ward the most preva-lent
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 262--266
+\OT1/ptm/b/n/10 KNN \OT1/ptm/m/n/10 com-pletely fails to clas-sify Ges-ta-tiona
+l and Type
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 262--266
+\OT1/ptm/m/n/10 1 Di-a-betes, while the \OT1/ptm/b/n/10 Logistic/$[][]$ \OT1/pt
+m/m/n/10 model is the worst,
+ []
 
 
 
 [5 <./log_ridge_roc_curve.png> <./log_elasticnet_confusion_matrix.png> <./log_e
 lasticnet_roc_curve.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 270--274
+Underfull \hbox (badness 10000) in paragraph at lines 271--275
  \OT1/ptm/m/it/10 1) The Dif-fer-ence be-tween Logistic/$[][]$ and
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 270--274
+Underfull \hbox (badness 1596) in paragraph at lines 271--275
 \OT1/ptm/m/it/10 Lo-gis-tic/ElasticNet: [][] \OT1/ptm/m/n/10 The ta-bles V[], V
 I[], VII[] and VII[] of
  []
 
 
-Underfull \hbox (badness 5403) in paragraph at lines 270--274
-\OT1/ptm/m/n/10 the \OT1/ptm/b/n/10 Ridge \OT1/ptm/m/n/10 and \OT1/ptm/b/n/10 E
-las-tic-Net \OT1/ptm/m/n/10 mod-els con-sis-tently shows
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 270--274
+Underfull \hbox (badness 3128) in paragraph at lines 271--275
 []\OT1/ptm/m/n/10 Conversely, be-ing male serves as a strong neg-a-tive
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 270--274
+Underfull \hbox (badness 2600) in paragraph at lines 271--275
 \OT1/ptm/m/n/10 pre-dic-tor (or a strong ar-gu-ment against) a Ges-ta-tional
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 270--274
+Underfull \hbox (badness 2600) in paragraph at lines 271--275
 \OT1/ptm/m/n/10 di-a-betes di-ag-no-sis, and high post-pran-dial glu-cose is a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--274
+Underfull \hbox (badness 10000) in paragraph at lines 271--275
 
  []
 
@@ -574,15 +588,27 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
  \OT1/ptm/m/it/10 2) Glu-cose Post-pran-dial Dom-i-nance: [][] \OT1/ptm/m/n/10 
 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 \OT1/pcr/m/n/10 glucose_postprandial \OT1/ptm/m/n/10 fea-ture was uni-ver-sally
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
+\OT1/ptm/m/n/10 dom-i-nant across all mod-els. While \OT1/ptm/b/n/10 Logistic/$
+[][]$ \OT1/ptm/m/n/10 and
+ []
+
+
+Underfull \hbox (badness 4036) in paragraph at lines 361--362
+\OT1/ptm/b/n/10 Lo-gis-tic/ElasticNet \OT1/ptm/m/n/10 pro-vided a more de-taile
+d view of
  []
 
 
@@ -590,28 +616,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 374--379
+Underfull \hbox (badness 10000) in paragraph at lines 376--381
 \OT1/ptm/m/n/10 (URL: \OT1/pcr/m/n/10 https://github.com/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--379
+Underfull \hbox (badness 10000) in paragraph at lines 376--381
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--388
+Underfull \hbox (badness 10000) in paragraph at lines 387--390
 []\OT1/ptm/m/n/8 Kolipaka, Rakesh, & Digutla, Ran-jith Ku-mar. (2025).
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--388
+Underfull \hbox (badness 10000) in paragraph at lines 387--390
 \OT1/ptm/b/n/8 Di-a-betes Health In-di-ca-tors Dataset\OT1/ptm/m/n/8 . Kag-gle.
  Avail-able
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--388
+Underfull \hbox (badness 10000) in paragraph at lines 387--390
 \OT1/ptm/m/n/8 at: \OT1/pcr/m/n/8 https://www.kaggle.com/dsv/13128284\OT1/ptm/m
 /n/8 . DOI:
  []
@@ -642,11 +668,11 @@ L3 programming layer <2025-08-13>
 Here is how much of TeX's memory you used:
  4312 strings out of 468133
  67781 string characters out of 5441260
- 515674 words of memory out of 5000000
+ 514674 words of memory out of 5000000
  32878 multiletter control sequences out of 15000+600000
  672618 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,12n,65p,1079b,286s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,12n,65p,1089b,286s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
  Files/LaTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/LaTeX/f
 onts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/LaTeX/fonts/type1/pu
@@ -660,7 +686,7 @@ fonts/cm/cmsy10.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy
 les/LaTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/LaTeX/fonts/type1/
 urw/times/utmbi8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmr8a.pfb>
 <C:/Program Files/LaTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Project_Assignment_3.pdf (7 pages, 1790600 bytes).
+Output written on Project_Assignment_3.pdf (7 pages, 1790346 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
