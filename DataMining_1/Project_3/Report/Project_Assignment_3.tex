@@ -10,7 +10,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Addressing the $p \gg n$ Problem: A Study of Model Efficacy using Maize Flowering Time Prediction}
+\title{Taming Complexity in Diabetes Stage Multiclass Classification: Benchmarking the Efficacy of K-Nearest Neighbors Against Optimized Regularized Logistic Regression}
 
 \author{\IEEEauthorblockN{Gabriel Guillen}
 \IEEEauthorblockA{\textit{dept. of Statistics \& Data Science} \\
@@ -22,164 +22,369 @@ ga013701@ucf.edu}}
 \maketitle
 
 \begin{abstract}
-This study aims to evaluate and compare $p \gg n$-compatible statistical models for predicting Maize Flowering Time within a high-dimensional setting. The objective is to identify the modeling method that delivers the optimal trade-off among predictive accuracy, model robustness against overfitting, and practical computational efficiency in handling large-scale data. This analysis will inform the selection of robust and efficient methods for a high-dimensional problem.\\
+This study addresses the challenge of multiclass classification in diabetes stages by benchmarking the predictive efficacy of $K$-Nearest Neighbors (KNN) against Regularized Logistic Regression. While investigating which of these contrasting modeling approaches is more competitive in simultaneously predicting a suite of diabetes-related predictors. The report details the performance of various regularization techniques (LASSO, ElasticNet, and Ridge) and evaluates model robustness, ultimately identifying the most recommendable model based on accuracy and $F_1$ score.\\
 \end{abstract}
 
 \section{\textbf{Introduction}}
-\indent This report evaluates the efficacy of specialized statistical methodologies against a high-dimensionality genomic dataset for the prediction of Maize Flowering Time (dtoa). Traditional statistical approaches are inherently unsuitable for this problem setting, defined by the \textbf{$p \gg n$} regime where the number of predictors ($p$) vastly outnumbers the observations ($n$).\\
-\indent A key consequence of high dimensionality is the instability of variance, which compromises the reliability and confidence of model performance due to an elevated risk of overfitting. Therefore, the chosen models must incorporate regularization and feature selection to stabilize estimates and identify true signals. \\
-\indent The core objective of this analysis is to determine which modeling method provides the optimal balance of predictive accuracy and robustness given compute time when faced with this complex, high-dimensional structure. \\
+\indent This study compares two fundamental classification models, \textbf{K-Nearest Neighbors} (KNN) and \textbf{Logistic Regression}, for classifying diabetes stages. Using a large dataset of over one hundred thousand observations and twenty-plus predictors, the primary goal is to determine the most effective modeling approach for complex diabetes stages classification.\\
+\indent The comparison focuses specifically on evaluating the impact of different penalization techniques (such as ($\text{L}_1$) and ($\text{L}_2$) regularization) on Logistic Regression performance. Model efficacy was assessed using accuracy rates and the weighted $F_1$ metric.\\
+\indent A secondary but crucial focus of this work was also on feature selection and importance. Aimed to identify the feature subset that consistently proves most influential across the compared models for accurate diabetes stage classification. \\
+\indent This analysis provides an evidence-based recommendation for selecting the optimal model given the trade-off between predictive accuracy and feature interpretability. \\
 
 \subsection{\textbf{Dataset Structure}}
-\indent The dataset \cite{buckler2009} consists of $4,981$ observations ($n$) and $7,390$ variables ($p$), including some amount of missing data. The dependent variable is Time to Male Flowering (\texttt{dtoa}). The independent variables are predominantly $7,389$ Single Nucleotide Polymorphism (SNP) markers ($m_1-m_{7389}$), supplemented by $25$ (1-25) categorical variables representing the genetic crosses or families (\texttt{pop}). \\
+\indent The dataset \cite{rakesh_kolipaka_ranjith_kumar_digutla_2025} used in this analysis comprises $100,000$ \textbf{unique patient records} ensuring privacy preservation designed for diabetes risk prediction but adapted here for classification. It features over $35$ columns encompassing diverse data types, including numeric measurements (e.g. age, BMI, glucose, HbA1c) and categorical indicators (e.g. gender, family history, smoking status).\\
+\indent The target variable for this multiclass (where $N > 2$ classes exist) analysis was \textbf{diabetes stage} (disease severity), defined by the following five classes:
+\begin{itemize}
+	\item No Diabetes
+	\item Pre-Diabetes
+	\item Type 1 Diabetes
+	\item Type 2 Diabetes
+	\item Gestational Diabetes
+\end{itemize}
+The dataset exhibited significant \textbf{class imbalance}. Specifically, two classes dominated the distribution: Type 2 Diabetes accounted for $60\%$ of the instances, and Pre-Diabetes accounted for $32\%$.
 
 \section{\textbf{Methods}}
 
 \subsection{\textbf{Data Preparation}}
 
-\subsubsection{\textbf{Preprocessing}}
-\indent Initial data cleaning involved the \textit{removal of incomplete observations}; specifically, any row containing one or more missing values was excluded from the effective dataset. This procedure reduced the total number of records from $4,981$ to $4,494$. \\
-\indent The resulting data loss, approximately $10\%$  of the original sample, was deemed acceptable given the scope and objectives of this analysis. Following this cleaning step, the $4,494$ retained observations were \textit{randomly partitioned} into three distinct subsets for model development and evaluation. \\
-\indent The subsets were allocated as follows: $75\%$ ($\approx 3,371$ records) for the \textit{training set}, $15\%$ ($\approx 674$ records) for the \textit{validation set}, and the remaining $10\%$ ($\approx 449$ records) for the final, unbiased \textit{test set}. This division ensures a rigorous assessment of model performance and generalization capabilities. \\
-\subsubsection{\textbf{Standardization}}
-\indent To prepare the data for models designed to handle high-dimensionality, all features were subjected to \textit{standardization}, often referred to as $Z$-score normalization. This critical preprocessing step transformed each feature such that its distribution had a mean of zero ($\mu=0$) and a standard deviation of one ($\sigma=1$). Mathematically, this transformation is defined as $z = (x - \mu) / \sigma$. \\
-\indent This procedure ensures that all features are centered around zero and scaled to unit variance, a step essential for promoting \textit{equitable contribution} from every feature during the model's learning process. \\
+\indent The initial dataset of 100,000 observations was preprocessed for the multiclass analysis, which targeted the \textbf{diabetes stage} (disease severity). Features that were not primary classification predictors, including \texttt{glucose\_fasting}, \texttt{hba1c}, \texttt{diabetes\_risk\_score}, \texttt{diagnosed\_diabetes}, \texttt{hypertension\_history}, and \texttt{cardiovascular\_history}, were excluded from the analysis.
 
-\subsection{\textbf{High-Dimensionality Regression Models Used}}
+\indent Numeric features were standardized using \textbf{Standard Scaling} to achieve a zero mean ($\mu=0$) and unit variance ($\sigma=1$). $$z = \frac{x - \mu}{\sigma}$$  This method ensures that all features contribute equally to the modeling process.\\
+\indent Categorical variables (\texttt{gender}, \texttt{ethnicity}, \texttt{education level}, \texttt{income level}, \texttt{employment status}, and \texttt{smoking status}) were converted into a binary numerical format using \textbf{One-Hot Encoding} (OHE), avoiding assumptions of ordinality.\\
+\indent The fully processed dataset was split into training and testing partitions using a 75\% / 25\% ratio to guarantee consistent and unbiased evaluation across all experimental models.\\
+
+\subsection{\textbf{Classification Models Used}}
 
 \begin{enumerate}
-	\item \textbf{Stepwise Regression}: In particular the forward algorithm, this technique builds a model by iteratively adding or removing predictors based on a statistical metric, retaining only the most significant features. It works in $p \gg n$ scenarios by drastically reducing the effective number of predictors, thus avoiding the computational and statistical pitfalls of a full model.
-	\item \textbf{Lasso Regression}: Lasso adds an $\ell_1$ penalty (absolute value of coefficients) to the model, which forces the coefficients of less important features to become exactly zero. This automatically performs crucial feature selection, making it excellent for $p \gg n$ by providing a sparse, interpretable model.
-	\item \textbf{Ridge Regression}: Ridge adds an $\ell_2$ penalty (squared value of coefficients) to the model, which shrinks all coefficients towards zero but never sets them to exactly zero. This effectively stabilizes the model and mitigates the high variance and multicollinearity issues common in $p \gg n$ datasets.
-	\item \textbf{Elastic Net Regression}: Elastic Net combines both the $\ell_1$ (Lasso) and $\ell_2$ (Ridge) penalties in its objective function. It leverages the feature selection ability of Lasso while maintaining the stability of Ridge, making it robust for complex high-dimensional data with highly correlated predictors.
-	\item \textbf{Principal Component Regression (PCR)}: PCR first uses Principal Component Analysis (PCA) to transform the original $p$ features into a smaller set of uncorrelated latent components (composite variables). It then runs an ordinary linear regression on these few components, completely solving the $p \gg n$ problem by moving to a much lower-dimensional space.
-	\item \textbf{Partial Least Squares Regression (PLS)}: PLS constructs new latent variables that not only explain the variance in the predictors but also maximize their correlation with the response variable ($\mathbf{Y}$) or \texttt{dtoa} in this case. This method is effective in $p \gg n$ because its dimension reduction is supervised and specifically optimized for predictive power.\\
+	\item \textbf{K-Nearest Neighbors (KNN)}: algorithm naturally extends to multiclass problems without requiring structural modification. Given an unlabeled data point, the algorithm calculates its distance to all points in the training set and identifies the $K$ closest neighbors. The data point is then assigned the class label that is most frequent among these $K$ neighbors—this is known as the \textbf{majority voting} rule. The only significant consideration for multiclass KNN is the balance of class labels in the dataset; if the classes are highly imbalanced, the majority vote may disproportionately favor the larger classes, regardless of true proximity.
+	\item \textbf{Logistic Regression}: While intrinsically designed as a binary classifier, Logistic Regression is effectively adapted for multiclass problems through the \textbf{One-vs-Rest (OvR)} strategy. This method constructs $N$ independent binary models, where each model is specifically trained to differentiate one target class from the aggregate of all remaining classes.
 \end{enumerate}
 
-\subsection{\textbf{Tuning and Selection}}
+\subsection{\textbf{Tuning}}
 
-\indent All models, specifically \textbf{Lasso}, \textbf{Ridge}, \textbf{Elastic Net}, \textbf{PCR}, and \textbf{PLS}, underwent hyperparameter optimization using \textit{$k$-fold cross-validation} applied exclusively to the \textit{training set}.\\
-\indent For PCR and PLS, the optimal number of components ($k$) was searched across the grid $\{5, 10, 50, 100, 200, 300, 400, 500\}$ using $k=5$ folds. In contrast, the \textbf{Stepwise Regression} model utilized the Bayesian Information Criterion (BIC) as its selection metric due to BIC's stringent penalty on model complexity. \\
-\indent The optimal hyperparameters for the \textbf{Lasso}, \textbf{Ridge}, and \textbf{Elastic Net} models can be observed in Table \ref{tab:hyperparameters}.
+\indent Due to computational constraints on the large dataset, resource-intensive methods like stepwise selection were omitted. \\
+
+\subsubsection{\textbf{KNN Tuning and Feature Selection}} 
+
+The optimal number of neighbors ($K$) for the KNN classifier was determined through a robust 5-fold cross-validation process.
 
 \begin{table}[h]
 	\centering
-	\caption{Hyperparameter Grid for Regularized Regression Models}
-	\label{tab:hyperparameters}
-	\begin{tabular}{|c|c|c|c|}
+	\caption{Cross-Validation Performance for K-Nearest Neighbors (KNN)}
+	\label{tab:knn_tuning}
+	\begin{tabular}{| c | c |} % Using basic 'c' alignment and vertical lines
+		\hline % Using \hline instead of \toprule
+		$K$ (Tried Neighbors) & Cross-Validation weighted $F_1$  \\
+		\hline % Using \hline instead of \midrule
+		7 & 0.725712081 \\
+		8 & 0.726563779 \\
+		11 & 0.736917977 \\
+		15 & 0.744016863 \\
+		20 & 0.747460871 \\
+		\hline % Using \hline instead of \bottomrule
+	\end{tabular}
+\end{table}
+
+\indent The evaluation metric used for hyperparameter optimization was the \textbf{weighted $F_1$ score}, which is particularly suitable for multiclass and imbalanced datasets as it accounts for the precision and recall of each class.\\
+\indent The results of the grid search, detailed in Table \ref{tab:knn_tuning}, indicated that the highest performance was achieved with an optimal neighbor count of $K=20$. \\
+
+\indent Feature selection for \textbf{K-Nearest Neighbors (KNN)} was implemented using the \textbf{Least Absolute Shrinkage and Selection Operator (Lasso)} regularization, which automatically selects features by driving insignificant coefficients to zero. This methodology is particularly valuable in high-dimensional datasets as it enhances model interpretability and reduces the risk of overfitting by producing a sparser model.\\
+
+\begin{table}[htbp]
+	\centering
+	\caption{Features Selected by Lasso Regularization (Total $N=9$)}
+	\label{tab:knn_selected_features}
+	\begin{tabular}{| l |}
 		\hline
-		\textbf{Grid Index} & \textbf{Lasso ($\alpha$)} & \textbf{Ridge ($\alpha$)} & \textbf{Elastic Net ($\alpha$, $l\_ratio$)} \\
+		\textbf{Selected Feature Name} \\
 		\hline
-		1 & $0.001$ & $0.0001$ & $0.001, (0.1, 0.5, 1.0)$ \\
-		2 & $0.0031622777$ & $0.001$ & $.01, (0.1, 0.5, 1.0)$ \\
-		3 & $0.01$ & $0.01$ & $0.1, (0.1, 0.5, 1.0)$ \\
-		4 & $0.0316227766$ & $0.1$ & $1.0, (0.1, 0.5, 1.0)$ \\
-		5 & $0.1$ & $1.0$ & $10.0, (0.1, 0.5, 1.0)$ \\
-		6 & $0.316227766$ & $10.0$ & \texttt{n/a} \\
-		7 & $1.0$ & $100.0$ & \texttt{n/a} \\
-		8 & $3.1622776602$ & $1000.0$ & \texttt{n/a}\\
-		9 & $10.0$ & $10000.0$ & \texttt{n/a} \\
+		\multicolumn{1}{|c|}{\textbf{Categorical Features}} \\ % Section Header
+		\hline
+		gender\_Female \\
+		gender\_Male \\
+		gender\_Other \\
+		ethnicity\_Asian \\
+		income\_level\_Lower-Middle \\
+		employment\_status\_Student \\
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Binary Features}} \\ % New Section Header
+		\hline
+		family\_history\_diabetes \\
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Numerical Features}} \\ % Section Header
+		\hline
+		age \\
+		glucose\_postprandial \\
 		\hline
 	\end{tabular}
-	\begin{flushleft}
-		\small Note: $\alpha$ is the regularization strength; $l\_ratio$ (L1 ratio) is the mixing parameter, where $0 < l\_ratio \leq 1$.
-	\end{flushleft}
 \end{table}
+
+\indent The resulting subset of features in Table \ref{tab:knn_selected_features}, identified by non-zero coefficients, was then used as the input space for the KNN algorithm, leading to a more robust and computationally efficient classifier.\\
+
+\subsubsection{\textbf{Logistic Regression Tuning}}
+For the Logistic Regression models, a comprehensive regularization comparison was performed using three penalties across separate models: \text{L1} (Lasso), \text{L2} (Ridge), and ElasticNet, to evaluate their impact on generalization and feature parsimony for the multiclass problem.\\
+\indent \textbf{Logistic/$\text{L}_1$ Model}: \textbf{Logistic Regression} combined with a \textbf{Lasso ($\text{L}_1$)} penalization yielded the most aggressive feature selection result. This approach retained only a single feature: \texttt{glucose\_postprandial}. \\
+\indent The optimal value for the inverse Lasso tuning parameter ($C$) was determined through a 5-fold cross-validation procedure, testing values in the set $\{0.001, 0.01, 1\}$. The best-performing parameter was $C = 0.01$, chosen by optimizing the \textbf{weighted F1-score} as the primary scoring metric.\\
+\indent \textbf{Logistic/$\text{L}_2$ Model}: The application of \textbf{Logistic Regression} with a \textbf{Ridge ($\text{L}_2$)} penalization resulted in a less aggressive form of regularization compared to other approaches. The optimal value for the inverse of the regularization strength ($\mathbf{C}$) was determined via a 5-fold cross-validation procedure. The search space for $C$ included ten logarithmically spaced values, specifically:
+$$
+C \in \{10^{-4}, 7.74 \cdot 10^{-4}, 5.99 \cdot 10^{-3}, 4.64 \cdot 10^{-2},$$
+$$ 3.59 \cdot 10^{-1}, 2.78, 21.54, 166.81, 1291.55, 10000\}
+$$
+The winning parameter was identified as $\mathbf{C = 21.54}$, which was chosen by optimizing the \textbf{weighted F1-score} as the primary scoring metric.\\
+\indent \textbf{Logistic/ElasticNet Model}: The application of \textbf{Logistic Regression} with \textbf{Elastic Net} penalization adopted a tuning strategy similar to the $\text{L}_2$ (Ridge) approach, but required the optimization of two hyperparameters. The best-performing parameters were found to be $\mathbf{C = 1291.54}$ (the inverse of regularization strength) and an $\mathbf{\ell_1 \text{ ratio} = 0.34}$. This $\ell_1$ ratio specifies the balance between the $\text{L}_1$ (Lasso) and $\text{L}_2$ (Ridge) components of the penalty, indicating a mix of $34\%$ $\text{L}_1$ and $66\%$ $\text{L}_2$ regularization.\\
 
 \section{\textbf{Results}}
-
-Analysis of the tuned models yielded distinct optimal configurations, as detailed in Table \ref{tab:performance}.
-
-\begin{table}[h]
-	\centering
-	\caption{Performance and Compute Time}
-	\label{tab:performance}
-	\begin{tabular}{|l|c|c|c|c|}
-		\hline
-		\textbf{Method} & \textbf{RMSE (CV)} & \textbf{RMSE (Test)} & \textbf{\# Feats / Comps} & \textbf{Time (s)} \\
-		\hline
-		Ridge  & 3.526 & 3.533 & 7390 & 136.914\\
-		Lasso & 3.358 & 3.387 & 82 & 1214.324\\
-		Elastic Net & 3.347 & 3.389 & 309 & 2026.851\\
-		Stepwise (BIC) & 3.372 & 3.404 & 17 & 431.755\\
-		PCR ($k$ comps) & 3.542 & 3.593 & 50 & 141.986\\
-		PLS ($k$ comps) & 3.645 & 3.670 & 10 & 2927.664\\
-		\hline
-	\end{tabular}
-\end{table}
-
- \indent For \textbf{Stepwise Regression}, the final model included $17$ features, selected in forward order: \{\texttt{pop}, \texttt{m439}, \texttt{m6493}, \texttt{m2419}, \texttt{m5808}, \texttt{m1652}, \texttt{m772}, \texttt{m290}, \texttt{m2548}, \texttt{m4940}, \texttt{m2969}, \texttt{m2865}, \texttt{m4772}, \texttt{m2162}, \texttt{m2276}, \texttt{m2358}, \texttt{m6665}\}. \\
- \indent The regularized models achieved maximum performance with the following hyperparameters: \textbf{Ridge} utilized a strong penalty of $\alpha=10000.0$; \textbf{Lasso} achieved optimal results at $\alpha=0.1$, resulting in a sparse model with $82$ non-zero coefficients; and \textbf{Elastic Net} also optimized at $\alpha=0.1$ with an $\ell_1$ ratio of $0.5$ (leading to $309$ non-zero coefficients). \\
- \indent Among the dimension reduction techniques, \textbf{PLS} performed best with $10$ components, while \textbf{PCR} achieved its optimal fit using $50$ components. \\
  
- \indent Across all models evaluated, the observed \textbf{Root Mean Square Error (RMSE)} from the cross-validation (CV) set was consistently lower than that of the independent test set, confirming expected model behavior and indicating a degree of generalization error common in predictive modeling. \\ \indent While the time component reported in Table \ref{tab:performance} is machine-dependent and thus serves primarily as a reference, the training times for the more complex models were substantial, often extending into the $40$-minute range given the computational resources employed.
+\subsection{\textbf{KNN Results}}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.45]{knn_multiclass_confusion_matrix.png}}
+	\caption{\textbf{KNN} Confusion Matrix}
+	\label{knn_confusion_matrix}
+\end{figure}
+\subsubsection{KNN Confusion Matrix}  As shown in Figure \ref{knn_confusion_matrix}, the overall performance of the model reveals significant misclassification patterns across several classes. Most notably, \textbf{Gestational Diabetes} ($\mathbf{69}$ true cases) and \textbf{Type 1 Diabetes} ($\mathbf{31}$ true cases) were \textbf{completely misclassified}, with the majority of these cases being incorrectly labeled as \textbf{Type 2 Diabetes} ($41$ and $17$ cases, respectively), suggesting these rarer classes are severely underrepresented or highly confused with the dominant Type 2 group.\\
+\indent Furthermore, the model exhibited large errors between the major classes: $\mathbf{1,064}$ true \textbf{No Diabetes} cases were misclassified as \textbf{Pre-Diabetes} (a significant Type I error), while $\mathbf{2,008}$ true \textbf{Pre-Diabetes} cases were misclassified as \textbf{Type 2} (suggesting an over-eagerness to assign the 'Type 2' label). 
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.35]{knn_roc_curve.png}}
+	\caption{\textbf{KNN} ROC Curve}
+	\label{knn_roc_curve}
+\end{figure}
+
+\subsubsection{KNN ROC Curve} The \textbf{Receiver Operating Characteristic (ROC) curves} Figure \ref{knn_roc_curve} for the \textbf{KNN} model echo the patterns observed in the confusion matrix. The model demonstrates \textbf{excellent to very good} discriminative performance for the two most prevalent classes, achieving an \textbf{Area Under the Curve (AUC)} of $0.92$ for the \textbf{No Diabetes} class---indicating it is best at distinguishing this class---and an \textbf{AUC of $0.89$} for the \textbf{Type 2 Diabetes} class.\\ 
+\indent Performance remains \textbf{solid} for the \textbf{Pre-Diabetes} class with an \textbf{AUC of $0.83$}. However, the model exhibits \textbf{poor to very poor} performance for the rarer classes, with the \textbf{Gestational Diabetes} class yielding an \textbf{AUC of $0.59$} (barely above random chance) and the \textbf{Type 1 Diabetes} class showing the weakest result with an \textbf{AUC of $0.55$}, signifying a significant struggle to correctly classify these specific distinctions.
+
+\subsection{\textbf{Logistic Regression with  $\text{L}_1$ Results}}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.45]{log_lasso_confusion_matrix.png}}
+	\caption{\textbf{Logistic/$\text{L}_1$ } Confusion Matrix}
+	\label{lasso_confusion_matrix}
+\end{figure}
+
+\subsubsection{Logistic/$\text{L}_1$ Confusion Matrix} The model demonstrates a significant bias in Figure \ref{lasso_confusion_matrix} , performing well only on the \textbf{Type 2} class ($\mathbf{12,398}$ true positives) while being heavily skewed toward predicting either Pre-Diabetes or Type 2, entirely missing the Gestational, No Diabetes, and Type 1 categories, which are never correctly predicted. Specifically, all $\mathbf{69}$ actual \textbf{Gestational} cases were misclassified ($41$ as Type 2, $28$ as Pre-Diabetes), and none of the $\mathbf{31}$ actual \textbf{Type 1} cases were correctly identified ($19$ predicted as Type 2, $12$ as Pre-Diabetes). \\
+\indent Furthermore, the model showed a critical failure in distinguishing non-diabetic individuals, as almost all $\mathbf{1,937}$ actual \textbf{No Diabetes} cases were incorrectly labeled as Pre-Diabetes ($\mathbf{1,930}$). While \textbf{Pre-Diabetes} had the second-highest accuracy ($\mathbf{6,097}$ true positives), there is significant confusion between the two predicted classes, with $\mathbf{2,008}$ actual Pre-Diabetes cases mistakenly called Type 2, and $\mathbf{2,460}$ actual Type 2 cases mistakenly called Pre-Diabetes. 
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.35]{log_lasso_roc_curve.png}}
+	\caption{\textbf{Logistic/$\text{L}_1$ } ROC Curve}
+	\label{lasso_roc_curve}
+\end{figure}
+
+
+\subsubsection{Logistic/$\text{L}_1$ ROC Curve} In Figure \ref{lasso_confusion_matrix} the classification model demonstrates highly varied performance across the different diabetes classes based on the ROC analysis. The \textbf{No Diabetes} class, represented by the dark blue curve, achieves an \textbf{Excellent AUC of $0.93$}, indicating high effectiveness in distinguishing it from other classes. This is followed closely by \textbf{Type 2} (yellow curve) with a \textbf{Very Good AUC of $0.89$}. Performance remains \textbf{Good/Acceptable} for \textbf{Pre-Diabetes} (teal/medium blue curve) with an \textbf{AUC of $0.79$}. However, the model performs \textbf{Poorly/Near Chance} for \textbf{Type 1} (light green curve), with an AUC of only $0.51$, suggesting a significant struggle. Performance is even worse for \textbf{Gestational} (purple/black curve) with an \textbf{AUC of $0.49$}, which is considered worse than random guessing, implying systematic prediction errors for this specific class.\\
+
+\subsection{\textbf{Logistic Regression with  $\text{L}_2$ Results}}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.45]{log_ridge_confusion_matrix.png}}
+	\caption{\textbf{Logistic/$\text{L}_2$ } Confusion Matrix}
+	\label{ridge_confusion_matrix}
+\end{figure}
+
+\subsubsection{Logistic/$\text{L}_2$ Confusion Matrix} \indent The model demonstrates exceptional accuracy in identifying \textbf{Type 2 diabetes}, correctly classifying $\mathbf{13,411}$ out of $\mathbf{14,858}$ true cases as shown in Figure \ref{ridge_confusion_matrix}. However, it struggles significantly with other categories due in part to severe class imbalance, with Type 2 ($\mathbf{14,858}$ samples) and Pre-Diabetes ($\mathbf{8,105}$ samples) being dominant, while Gestational ($\mathbf{69}$) and Type 1 ($\mathbf{31}$) have very few samples.This imbalance likely contributes to the model's inability to correctly classify Gestational and Type 1 diabetes, resulting in \textbf{zero correct predictions} for both.\\
+\indent Furthermore, high misclassification rates are observed because the model has two major "attractors": it frequently misclassifies other true classes as \textbf{Pre-Diabetes}, notably $\mathbf{1,640}$ cases of No Diabetes and $\mathbf{1,403}$ cases of Type 2, and it also frequently misclassifies other true classes as \textbf{Type 2}, especially $\mathbf{3,508}$ cases of Pre-Diabetes.
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.35]{log_ridge_roc_curve.png}}
+	\caption{\textbf{Logistic/$\text{L}_2$ } ROC Curve}
+	\label{ridge_roc_curve}
+\end{figure}
+
+\subsubsection{Logistic/$\text{L}_2$ ROC Curve} In Figure \ref{ridge_roc_curve} The classification model demonstrated varied but generally strong performance across the five categories. The \textbf{No Diabetes} class (Dark Blue curve, $\text{AUC} = 0.94$) showed the highest performance, indicating the model is excellent at distinguishing this group from the others. Following closely, the \textbf{Type 2} class (Yellow curve, $\text{AUC} = 0.90$) also exhibited very good performance.\\
+\indent The classification of \textbf{Gestational} diabetes (Purple curve, $\text{AUC} = 0.88$) and \textbf{Type 1} diabetes (Light Green curve, $\text{AUC} = 0.85$) both showed good, solid performance. The class the model had the most difficulty distinguishing was \textbf{Pre-Diabetes} (Green/Teal curve, $\text{AUC} = 0.82$), which, although still a strong $\text{AUC}$ value, was the lowest among the five classes.\\
+
+\subsection{\textbf{Logistic Regression with  ElasticNet Results}}
+
+\subsubsection{Logistic/ElasticNet Confusion Matrix} The model's classification performance shows significant variance across the classes: the interpretation for \textbf{Gestational diabetes} is \textbf{Very Poor}, as the model failed to correctly identify any cases, with the majority being classified as Type 2; similarly, for \textbf{Type 1} diabetes, performance is \textbf{Very Poor} because the model identified zero true cases, shown in Figure \ref{elasticnet_confusion_matrix}. 
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.45]{log_elasticnet_confusion_matrix.png}}
+	\caption{\textbf{Logistic/ElasticNet } Confusion Matrix}
+	\label{elasticnet_confusion_matrix}
+\end{figure}
+
+\indent Performance for \textbf{No Diabetes} is \textbf{Poor}, as most true ``No Diabetes'' instances were incorrectly labeled as ``Pre-Diabetes'' (a significant false positive rate). The performance for \textbf{Pre-Diabetes} is \textbf{Moderate}, as the model correctly identified a large number, but a significant portion were misclassified as the more severe Type 2.\\
+\indent Finally, for \textbf{Type 2} diabetes, the performance is \textbf{Strong}, indicating the model is highly accurate at identifying true Type 2 cases.
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.35]{log_elasticnet_roc_curve.png}}
+	\caption{\textbf{Logistic/ElasticNet } ROC Curve}
+	\label{elasticnet_roc_curve}
+\end{figure}
+
+\subsubsection{Logistic/ElasticNet ROC Curve} Figure \ref{elasticnet_roc_curve} evaluates the performance of a multi-class classification model, likely a \textbf{Logistic Regression} with \textbf{Elastic Net} regularization, across five distinct diabetes status classes by calculating the \textbf{Area Under the Curve (AUC)} for each class in a \textbf{one-vs-rest} manner. Identical to Figure \ref{ridge_roc_curve}.\\
+\indent Overall, the model demonstrates strong diagnostic capability, with all classes yielding AUC values significantly above the $0.50$ chance level. Specifically, the model performs \textbf{excellently} in identifying the \textbf{No Diabetes} class ($\text{AUC} = 0.94$), followed closely by \textbf{Type 2} ($\text{AUC} = 0.90$) and \textbf{Gestational} ($\text{AUC} = 0.88$), indicating a very high effectiveness in separating these groups from the rest. The performance is still \textbf{good} for \textbf{Type 1} ($\text{AUC} = 0.85$), but the model shows its lowest performance for the \textbf{Pre-Diabetes} class ($\text{AUC} = 0.82$), suggesting this class presents the greatest classification difficulty compared to the others.
 
 \section{\textbf{Discussion}}
 
 \subsection{Models Performance}
 
- \indent A comparison of predictive metrics, visually represented in Figure \ref{Tc_q2_rmse}, confirms that the \textbf{Lasso} and \textbf{Elastic Net} models achieved the superior performance, exhibiting the lowest prediction error, as indicated by a $\text{RMSE}$ value of approximately $3.40$, and the highest predictive power, with $\text{Q}^2$ values near $0.145$. \\ \\
-\begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.45]{test_q2_vs_rmse_barchart.png}}
-	\caption{Comparing $\text{Q}^2$ against $\text{RMSE}$}
-	\label{Tc_q2_rmse}
-\end{figure}
- \indent Conversely, the \textbf{PLS} model performed the worst, recording the highest $\text{RMSE}$ ($\approx 3.68$) and the lowest predictive power ($\text{Q}^2 < 0.00$). \\ \\ \\ \\ \\ \\ \\ \\
- \indent While the range of $\text{RMSE}$ values across all models was narrow ($3.40$ to $3.68$), the $\text{Q}^2$ metric clearly distinguished the superior predictive ability of the sparse regularization techniques (Lasso and Elastic Net). \\
+\begin{table}[h!]
+	\centering
+	\caption{Performance Metrics: Logistic Regression ($\text{L}_1$ and $\text{L}_2$)}
+	\label{tab:logreg_l1_l2_performance}
+	\begin{tabular}{|l|c|c|}
+		\hline
+		\textbf{Metric} & \textbf{Logistic/$\text{L}_1$} & \textbf{Logistic/$\text{L}_2$} \\
+		\hline
+		\textbf{Best CV F1 Weighted} & 0.7139 & 0.6995 \\
+		\hline
+		\textbf{Test F1 Weighted Score} & 0.7146 & 0.7039 \\
+		\hline
+		\textbf{Overall Test Accuracy} & 0.7398 & 0.7279 \\
+		\hline
+		\textbf{Overall Error Rate} & 0.2602 & 0.2721 \\
+		\hline
+	\end{tabular}
+\end{table}
 
- \indent As illustrated in Figure \ref{Tc_rmse_mae}, revealed that although the $\text{RMSE}$ and \textbf{Mean Absolute Error ($\text{MAE}$)} values were numerically close across all six models ($\text{RMSE}$ clustered between $3.4$ and $3.7$; $\text{MAE}$ between $2.6$ and $2.9$), their ratio provided a key distinction.
+\begin{table}[h!]
+	\centering
+	\caption{Performance Metrics: Logistic/ElasticNet and KNN}
+	\label{tab:elasticnet_knn_performance}
+	\begin{tabular}{|l|c|c|}
+		\hline
+		\textbf{Metric} & \textbf{Logistic/ElasticNet} & \textbf{KNN} \\
+		\hline
+		\textbf{Best CV F1 Weighted} & 0.6996 & 0.7475 \\
+		\hline
+		\textbf{Test F1 Weighted Score} & 0.7039 & 0.7483 \\
+		\hline
+		\textbf{Overall Test Accuracy} & 0.7279 & 0.7492 \\
+		\hline
+		\textbf{Overall Error Rate} & 0.2721 & 0.2508 \\
+		\hline
+	\end{tabular}
+\end{table}
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.45]{test_rmse_mae_ratio_barchart.png}}
-	\caption{Comparison of Regression Model Error and Ratio}
-	\label{Tc_rmse_mae}
-\end{figure}
+\indent The tables \ref{tab:logreg_l1_l2_performance} and \ref{tab:elasticnet_knn_performance}  show that the \textbf{KNN} model is the best overall performer, achieving the highest scores across all metrics. KNN recorded the superior Test $\mathbf{\text{F}_1}$ \textbf{Weighted Score} ($\mathbf{0.7483}$) and the highest \textbf{Overall Test Accuracy} ($\mathbf{0.7492}$), demonstrating the greatest predictive power and the lowest \textbf{Overall Error Rate} ($\mathbf{0.2508}$) on the unseen test data. The closeness between its Best Cross-Validation ($\text{CV}$) $\text{F}_1$ score ($\mathbf{0.7475}$) and Test $\text{F}_1$ score ($\mathbf{0.7483}$) suggests that the model is well-tuned and generalizing effectively without significant overfitting.\\
+\indent The multi-class classification models---including \textbf{KNN}, and \textbf{Logistic Regression} with \textbf{LASSO}, \textbf{Ridge}, and \textbf{Elastic Net} regularization---all exhibit a common and significant challenge: a systematic bias toward the most prevalent class, \textbf{Type 2 Diabetes}, resulting in poor performance on minority classes.\\
+\indent This pattern is characterized by over-prediction of Type 2 and a noticeable failure to accurately distinguish less frequent conditions like Gestational and Type 1 Diabetes.\\
+\indent Specifically, the LASSO-regularized model suffers the most severe outcome, simplifying the complex five-class problem into a functionally poor binary classifier with zero accuracy for three of the classes due to aggressive feature elimination. The KNN model, while successful with Type 2 and Pre-Diabetes, completely fails to classify Gestational and Type 1 Diabetes, suggesting data scarcity or the unsuitability of the $K$-Nearest Neighbors algorithm for these specific, fine-grained distinctions.
 
- \indent \textbf{$\text{RMSE}/\text{MAE}$ ratio} demonstrated a clear decreasing trend, ranging from $\approx 1.295$ for the \textbf{PCR} model down to $\approx 1.275$ for the \textbf{PLS} model. \\
- \indent This lower ratio for \textbf{PLS} suggests that, relative to the other models, the \textbf{PLS} approach minimized the influence of large outlier errors, indicating a more robust and uniform error distribution.\\
+\subsection{Features Importance}
 
-\subsection{Accuracy-Time-Interpretability Tradeoff}
+\subsubsection{The Difference between Logistic/$\text{L}_2$ and Logistic/ElasticNet}
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.45]{rmse_and_time_scatterplot.png}}
-	\caption{Model Efficiency-Accuracy Trade-Off}
-	\label{Tc_time_rmse}
-\end{figure}
+\indent The tables \ref{tab:ridge_positive_coefficients}, \ref{tab:elasticnet_positive_coefficients}, \ref{tab:ridge_negative_coefficients} and \ref{tab:ridge_negative_coefficients} of the \textbf{Ridge} and \textbf{ElasticNet} models consistently shows that being female is the strongest positive predictor for \textbf{Gestational diabetes}, while high postprandial glucose is the most significant positive predictor for \textbf{Type 2 diabetes}.\\
+\indent Conversely, being male serves as a strong negative predictor (or a strong argument against) a Gestational diabetes diagnosis, and high postprandial glucose is a powerful indicator against classification in the \textbf{No Diabetes} group.\\
+\indent The agreement between both regularization models on the direction and magnitude of these key features confirms that these predictive relationships are robust and reliable.\\
+\indent Both models showed identical AUC, ROC, and metrics, attributable to ElasticNet tuning to $66\%$ $\text{L}_2$ regularization.\\
 
- \indent An analysis of the predictive accuracy versus training time, visualized in Figure \ref{Tc_time_rmse}, suggests a strong connection between model sparsity and overall performance.\\
- \indent The \textbf{Stepwise Regression} model provided the most balanced solution, achieving near-best accuracy with relatively low training time, making it the most efficient choice.\\
- \indent While the \textbf{Lasso} and \textbf{Elastic Net} models yielded the highest accuracy (lowest test $\text{RMSE} \approx 3.35-3.40$), they incurred the second and third longest training times, respectively. Conversely, \textbf{Ridge} and \textbf{PCR} demonstrated the fastest training times but were not competitively accurate. \\
- \indent The \textbf{PLS} model performed the worst overall, exhibiting both the longest training duration and the lowest predictive performance.\\
+\begin{table}[h!]\centering
+	\caption{Top 10 Positive Coefficients for Logistic/$\text{L}_2$  Model}
+	\label{tab:ridge_positive_coefficients}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Rank} & \textbf{Feature} & \textbf{Class} & \textbf{Value} \\
+		\hline
+		1 & gender\_Female & Gestational & 2.5781 \\
+		2 & glucose\_postprandial & Type 2 & 2.2145 \\
+		3 & family\_history\_diabetes & Type 2 & 0.7400 \\
+		4 & physical\_activity\_minutes\_per\_week & No Diabetes & 0.2506 \\
+		5 & age & Type 2 & 0.2187 \\
+		6 & hdl\_cholesterol & Type 1 & 0.2048 \\
+		7 & gender\_Other & Type 2 & 0.2034 \\
+		8 & hypertension\_history & Type 1 & 0.1936 \\
+		9 & ldl\_cholesterol & Type 1 & 0.1369 \\
+		10 & glucose\_postprandial & Gestational & 0.1194 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h!]\centering
+	\caption{Top 10 Positive Coefficients for Logistic/ElasticNet Model}
+	\label{tab:elasticnet_positive_coefficients}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Rank} & \textbf{Feature} & \textbf{Class} & \textbf{Value} \\
+		\hline
+		1 & gender\_Female & Gestational & 3.7099 \\
+		2 & glucose\_postprandial & Type 2 & 2.2146 \\
+		3 & family\_history\_diabetes & Type 2 & 0.7402 \\
+		4 & physical\_activity\_minutes\_per\_week & No Diabetes & 0.2505 \\
+		5 & age & Type 2 & 0.2186 \\
+		6 & hdl\_cholesterol & Type 1 & 0.2055 \\
+		7 & gender\_Other & Type 2 & 0.2037 \\
+		8 & hypertension\_history & Type 1 & 0.1982 \\
+		9 & ldl\_cholesterol & Type 1 & 0.1386 \\
+		10 & glucose\_postprandial & Gestational & 0.1195 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h!]\centering
+	\caption{Top 10 Negative Coefficients for Logistic/$\text{L}_2$ Model}
+	\label{tab:ridge_negative_coefficients}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Rank} & \textbf{Feature} & \textbf{Class} & \textbf{Value} \\
+		\hline
+		1 & gender\_Male & Gestational & -4.3410 \\
+		2 & glucose\_postprandial & No Diabetes & -2.4411 \\
+		3 & gender\_Other & Gestational & -1.9866 \\
+		4 & employment\_status\_Student & Type 1 & -1.6044 \\
+		5 & family\_history\_diabetes & No Diabetes & -1.4740 \\
+		6 & age & Type 1 & -1.4634 \\
+		7 & smoking\_status\_Former & Gestational & -1.3612 \\
+		8 & employment\_status\_Retired & Gestational & -1.3124 \\
+		9 & gender\_Female & Type 1 & -1.2712 \\
+		10 & smoking\_status\_Never & Gestational & -1.2301 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h!]\centering
+	\caption{Top 10 Negative Coefficients for Logistic/ElasticNet Model}
+	\label{tab:elasticnet_negative_coefficients}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Rank} & \textbf{Feature} & \textbf{Class} & \textbf{Value} \\
+		\hline
+		1 & gender\_Male & Gestational & -5.4887 \\
+		2 & gender\_Other & Gestational & -2.4660 \\
+		3 & glucose\_postprandial & No Diabetes & -2.4413 \\
+		4 & employment\_status\_Student & Type 1 & -1.6300 \\
+		5 & smoking\_status\_Former & Gestational & -1.5230 \\
+		6 & family\_history\_diabetes & No Diabetes & -1.4744 \\
+		7 & age & Type 1 & -1.4689 \\
+		8 & employment\_status\_Retired & Gestational & -1.4324 \\
+		9 & smoking\_status\_Never & Gestational & -1.3907 \\
+		10 & smoking\_status\_Current & Gestational & -1.3193 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Glucose Postprandial Dominance}
+The \texttt{glucose\_postprandial} feature was universally dominant across all models. While Ridge and ElasticNet provided a more detailed view of its application, both $\text{KNN}$ and $\text{Lasso}$ also utilized it extensively, with $\text{Lasso}$ relying on it as the sole feature for its predictions due to its aggressive feature selection.
+
 
 \section{\textbf{Conclusion(s)}}
 
-\indent This study concludes that the \textbf{Lasso} and \textbf{Elastic Net} models provide the optimal trade-off between \textbf{predictive accuracy} and \textbf{computational efficiency}. These methods successfully generated \textbf{sparse and effective} models.\\
-\indent While \textbf{Stepwise selection} is relatively fast (efficient training), it consistently yielded slightly lower accuracy than the top-performing Lasso and Elastic Net.\\
-\indent The \textbf{dimension reduction} techniques, Partial Least Squares (PLS) and Principal Component Regression (PCR), were generally less competitive. Contrary to typical assumptions, \textbf{PCR} demonstrated superior performance over \textbf{PLS} in both accuracy and training speed. The \textbf{Ridge} model offered intermediate performance and was not deemed useful in this context.\\
-\indent In summary, \textbf{Lasso or Elastic Net} are the recommended models for robust predictive performance. \textbf{Stepwise selection} should only be favored when \textbf{training time is the absolute critical constraint}.
+\indent Despite testing various models (\textbf{Logistic Regression} with LASSO, ElasticNet, and Ridge regularization, and \textbf{$K$-Nearest Neighbors (KNN)}) on this complex, imbalanced multiclass dataset \cite{rakesh_kolipaka_ranjith_kumar_digutla_2025}, none of the models demonstrated sufficient robustness, as they consistently failed to accurately classify the least frequently observed classes, specifically Gestational and Type 1 stage diabetes.\\
+\indent \textbf{The overall performance for all models was poor, with approximately one out of every four classifications being incorrect}. While regularization techniques like ElasticNet and Ridge yielded superior \textbf{AUC} scores (indicating better discriminatory power), the best overall test accuracy was achieved by $k$-Nearest Neighbors ($\mathbf{0.7492}$), closely followed by LASSO ($\mathbf{0.7398}$), a finding consistent with the weighted $F_1$ metric.\\
+\indent The feature \texttt{glucose\_postprandial} was identified as the most effective single predictor across all models for classification.\\
+\indent Based solely on the performance metrics presented, \textbf{the KNN model is the most recommendable choice} as its superior accuracy and weighted $F_1$ score outweigh the higher interpretability offered by the Logistic Regression models. Suggesting it has the best performance in the final classification task.
 
 \section*{\textbf{Appendix}}
 	
 \section*{Appendix A: Supplementary Materials and Software Usage}
 \subsection*{Source Code Repository \label{app:code}}
-The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: https://github.com/gaguillen4384-dev/Data-Science/tree/main/DataMining\_1/Project\_2).
-
+The source code, data, and detailed implementation scripts for this project are available on GitHub \\
+(URL:\texttt{ https://github.com/}
+\texttt{gaguillen4384-dev/Data-Science/} \\
+\texttt{/DataMining\_1/Project\_3}).
+\\
 \subsection*{Software Usage Acknowledgment}
 The text and documentation were edited and refined using Google Gemini.
 
 \begin{thebibliography}{9} % '9' is for formatting the numbering (up to 9 items)
 	
-\bibitem{buckler2009}
-Buckler et al. (2009). Science 325, 714--718. (Original maize flowering time study)
-
-\bibitem{waldmann2013}
-Waldmann, P., Mészáros, G., Gredler, B., Fuerst, C., \& Sölkner, J. (2013).
-Evaluation of the lasso and the elastic net in genome-wide association studies.
-\textit{Frontiers in Genetics}, 4, 270.
-
-\bibitem{hastie2009}
-Hastie, T., Tibshirani, R., \& Friedman, J. (2009/2017).
-\textit{The Elements of Statistical Learning} (PCR/PLS chapters).
+\bibitem{rakesh_kolipaka_ranjith_kumar_digutla_2025}
+Kolipaka, Rakesh, \& Digutla, Ranjith Kumar. (2025). \textbf{Diabetes Health Indicators Dataset}. 
+Kaggle. Available at: \texttt{https://www.kaggle.com/dsv/13128284}. 
+DOI: \texttt{10.34740/KAGGLE/DSV/13128284}.
 	
 \end{thebibliography}
 

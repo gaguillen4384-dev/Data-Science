@@ -230,9 +230,14 @@ def get_cv_metrics(random_search, tunning_results, X_train):
 
     selected_features = get_elasticnet_coefficients(random_search,X_train)
     selected_features_jsonfy = store_non_zero_coefficients_to_json(selected_features)
+    
+    best_C = random_search.best_params_['classifier__estimator__C']
+    best_l1_ratio = random_search.best_params_['classifier__estimator__l1_ratio']
 
     cv_metrics ={
         'best_cv_f1_weighted': random_search.best_score_,
+        'best_C': best_C,
+        'best_l1_ratio': best_l1_ratio,
         'feature_names_processed': feature_names_processed,
         'selected_features': selected_features_jsonfy
     }
@@ -271,6 +276,8 @@ def run_log_multiclass_classification(X_train,y_train,X_test,y_test):
         "f1_weighted_score": f1_weighted,
         "overall_test_accuracy": test_accuracy,
         "overall_error_rate": 1-test_accuracy,
+        'best_C': cv_metrics['best_C'],
+        'best_l1_ratio': cv_metrics['best_l1_ratio'],
         "total_training_tuning_time_seconds": total_time,
         "elasticnet_selected_features_count": len(cv_metrics['selected_features']),
         "elasticnet_selected_features_list": cv_metrics['selected_features']

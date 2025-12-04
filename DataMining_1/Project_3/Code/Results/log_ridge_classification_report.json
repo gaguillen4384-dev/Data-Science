@@ -3,6 +3,7 @@
     "f1_weighted_score": 0.7039321937548398,
     "overall_test_accuracy": 0.72788,
     "overall_error_rate": 0.27212000000000003,
+    "best_C": 21.54434690031882,
     "total_training_tuning_time_seconds": 75.61362648010254,
     "ridge_selected_features_count": 44,
     "ridge_selected_features_list": [
