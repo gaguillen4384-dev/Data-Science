@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.19)  4 DEC 2025 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  6 DEC 2025 13:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./Project_Assignment_3.tex
 (Project_Assignment_3.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
 (IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -19,7 +19,7 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmptoksA=\toks17
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
 03.
-(C:\Program Files\LaTeX\tex/latex/psnfss\ot1ptm.fd
+(C:\Program Files (x86)\LaTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -115,29 +115,29 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen171
 \c@IEEEbiography=\count289
 \@IEEEtranrubishbin=\box54
-) (C:\Program Files\LaTeX\tex/latex/cite\cite.sty
+) (C:\Program Files (x86)\LaTeX\tex/latex/cite\cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(C:\Program Files\LaTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+(C:\Program Files (x86)\LaTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-(C:\Program Files\LaTeX\tex/latex/amsmath\amstext.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
 
-(C:\Program Files\LaTeX\tex/latex/amsmath\amsgen.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen172
 ))
-(C:\Program Files\LaTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen173
 )
-(C:\Program Files\LaTeX\tex/latex/amsmath\amsopn.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count290
@@ -185,13 +185,13 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip53
 \multlinetaggap=\skip54
 \mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 )
-(C:\Program Files\LaTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(C:\Program Files\LaTeX\tex/latex/amsfonts\amsfonts.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -199,13 +199,13 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Program Files\LaTeX\tex/latex/algorithms\algorithmic.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/algorithms\algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
-(C:\Program Files\LaTeX\tex/latex/base\ifthen.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-(C:\Program Files\LaTeX\tex/latex/graphics\keyval.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 )
@@ -216,38 +216,38 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \ALC@tlm=\skip55
 \algorithmicindent=\skip56
 )
-(C:\Program Files\LaTeX\tex/latex/graphics\graphicx.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Program Files\LaTeX\tex/latex/graphics\graphics.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Program Files\LaTeX\tex/latex/graphics\trig.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(C:\Program Files\LaTeX\tex/latex/graphics-cfg\graphics.cfg
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(C:\Program Files\LaTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen181
 \Gin@req@width=\dimen182
 )
-(C:\Program Files\LaTeX\tex/latex/base\textcomp.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
-(C:\Program Files\LaTeX\tex/latex/xcolor\xcolor.sty
+(C:\Program Files (x86)\LaTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
-(C:\Program Files\LaTeX\tex/latex/graphics-cfg\color.cfg
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
 
-(C:\Program Files\LaTeX\tex/latex/graphics\mathcolor.ltx)
+(C:\Program Files (x86)\LaTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -258,8 +258,8 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
-(C:\Program Files\LaTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+(C:\Program Files (x86)\LaTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
 )
 (Project_Assignment_3.aux)
@@ -281,7 +281,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 
 -- Lines per column: 56 (exact).
-(C:\Program Files\LaTeX\tex/context/base/mkii\supp-pdf.mkii
+(C:\Program Files (x86)\LaTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count307
 \scratchdimen=\dimen183
@@ -294,35 +294,33 @@ LaTeX Font Info:    ... okay on input line 11.
 \MPnumerator=\count311
 \makeMPintoPDFobject=\count312
 \everyMPtoPDFconversion=\toks25
-) (C:\Program Files\LaTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (C:\Program Files (x86)\LaTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Program Files\LaTeX\tex/latex/00miktex\epstopdf-sys.cfg
+(C:\Program Files (x86)\LaTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
 
 
-(C:\Program Files\LaTeX\tex/latex/amsfonts\umsa.fd
+(C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
 
 
-(C:\Program Files\LaTeX\tex/latex/amsfonts\umsb.fd
+(C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Underfull \hbox (badness 10000) in paragraph at lines 29--33
 
  []
 
-
-
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
 0.
-(C:\Program Files\LaTeX\tex/latex/psnfss\ot1pcr.fd
+(C:\Program Files (x86)\LaTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
@@ -369,10 +367,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--55
 
  []
 
-
-
-[1{C:/Users/gagui/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program 
-Files/LaTeX/fonts/enc/dvips/base/8r.enc}
+[1{C:/Users/Gabriel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Progra
+m Files (x86)/LaTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
@@ -412,13 +408,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
  []
 
 
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
-
-
 
 [2]
 <knn_multiclass_confusion_matrix.png, id=24, 578.16pt x 578.16pt>
@@ -432,18 +424,14 @@ File: knn_roc_curve.png Graphic file (type png)
 <use knn_roc_curve.png>
 Package pdftex.def Info: knn_roc_curve.png  used on input line 149.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-
-
 <log_lasso_confusion_matrix.png, id=27, 578.16pt x 578.16pt>
 File: log_lasso_confusion_matrix.png Graphic file (type png)
 <use log_lasso_confusion_matrix.png>
 Package pdftex.def Info: log_lasso_confusion_matrix.png  used on input line 160
 .
 (pdftex.def)             Requested size: 260.16959pt x 260.16959pt.
-
-
-[3 <./knn_multiclass_confusion_matrix.png> <./knn_roc_curve.png> <./log_lasso_c
-onfusion_matrix.png>]
+ [3 <./knn_multiclass_confusion_matrix.png> <./knn_roc_curve.png> <./log_lasso_
+confusion_matrix.png>]
 <log_lasso_roc_curve.png, id=34, 722.7pt x 578.16pt>
 File: log_lasso_roc_curve.png Graphic file (type png)
 <use log_lasso_roc_curve.png>
@@ -472,8 +460,6 @@ File: log_ridge_confusion_matrix.png Graphic file (type png)
 Package pdftex.def Info: log_ridge_confusion_matrix.png  used on input line 180
 .
 (pdftex.def)             Requested size: 260.16959pt x 260.16959pt.
-
-
 <log_ridge_roc_curve.png, id=36, 722.7pt x 578.16pt>
 File: log_ridge_roc_curve.png Graphic file (type png)
 <use log_ridge_roc_curve.png>
@@ -487,22 +473,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--196
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[4 <./log_lasso_roc_curve.png> <./log_ridge_confusion_matrix.png>]
+ [4 <./log_lasso_roc_curve.png> <./log_ridge_confusion_matrix.png>]
 <log_elasticnet_confusion_matrix.png, id=42, 578.16pt x 578.16pt>
 File: log_elasticnet_confusion_matrix.png Graphic file (type png)
 <use log_elasticnet_confusion_matrix.png>
 Package pdftex.def Info: log_elasticnet_confusion_matrix.png  used on input lin
 e 202.
 (pdftex.def)             Requested size: 260.16959pt x 260.16959pt.
-
-
 <log_elasticnet_roc_curve.png, id=43, 722.7pt x 578.16pt>
 File: log_elasticnet_roc_curve.png Graphic file (type png)
 <use log_elasticnet_roc_curve.png>
 Package pdftex.def Info: log_elasticnet_roc_curve.png  used on input line 211.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -540,8 +523,6 @@ Underfull \hbox (badness 1675) in paragraph at lines 262--266
 \OT1/ptm/m/n/10 1 Di-a-betes, while the \OT1/ptm/b/n/10 Logistic/$[][]$ \OT1/pt
 m/m/n/10 model is the worst,
  []
-
-
 
 [5 <./log_ridge_roc_curve.png> <./log_elasticnet_confusion_matrix.png> <./log_e
 lasticnet_roc_curve.png>]
@@ -611,10 +592,6 @@ Underfull \hbox (badness 4036) in paragraph at lines 361--362
 d view of
  []
 
-
-
-
-
 [6]
 Underfull \hbox (badness 10000) in paragraph at lines 376--381
 \OT1/ptm/m/n/10 (URL: \OT1/pcr/m/n/10 https://github.com/
@@ -653,39 +630,36 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-
-
-
-
 [7
 
 ] (Project_Assignment_3.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4312 strings out of 468133
- 67781 string characters out of 5441260
- 514674 words of memory out of 5000000
- 32878 multiletter control sequences out of 15000+600000
- 672618 words of font info for 132 fonts, out of 8000000 for 9000
+ 4320 strings out of 467871
+ 68270 string characters out of 5426032
+ 518293 words of memory out of 5000000
+ 33148 multiletter control sequences out of 15000+600000
+ 673514 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,12n,65p,1089b,286s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
- Files/LaTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/LaTeX/f
-onts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/LaTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/
-cm/cmmi9.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
-s/LaTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/LaTeX/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/LaTeX/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Program Files/LaTeX/fonts/type1/public/amsfonts/cm/cmsy
-7.pfb><C:/Program Files/LaTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Fi
-les/LaTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/LaTeX/fonts/type1/
-urw/times/utmbi8a.pfb><C:/Program Files/LaTeX/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Program Files/LaTeX/fonts/type1/urw/times/utmri8a.pfb>
+ 57i,12n,65p,1089b,294s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/P
+rogram Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program F
+iles (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x
+86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/LaTe
+X/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files (x86)/LaTeX/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/public/amsf
+onts/cm/cmr7.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/c
+mr8.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Pro
+gram Files (x86)/LaTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
+6)/LaTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/LaTeX/fonts/t
+ype1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/urw/times/
+utmr8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/urw/times/utmri8a.pfb>
 Output written on Project_Assignment_3.pdf (7 pages, 1790346 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
