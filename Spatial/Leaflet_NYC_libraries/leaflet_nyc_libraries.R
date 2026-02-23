@@ -1,0 +1,80 @@
+#Author: gaguillen4384-dev
+
+library(sf)
+library(leaflet)
+library(dplyr)
+library(tigris)
+options(tigris_use_cache = TRUE)
+
+geo_data <- st_read("NYC_LIBRARY_ZONES.geojson") %>%
+  st_make_valid()
+
+geo_data <- geo_data %>%
+  mutate(system = recode(system,
+                         "NYPL" = "New York Public Library",
+                         "BPL"  = "Brooklyn Public Library",
+                         "QPL"  = "Queens Public Library"))
+
+#tigris helps identifies the counties, cleaner cuts.
+nyc_boundary <- counties("NY", cb = TRUE) %>%
+  filter(NAME %in% c("New York", "Kings", "Queens", "Bronx", "Richmond")) %>%
+  st_transform(st_crs(geo_data)) %>%
+  st_union()
+
+#voronoi polygons help see stretch out polygons using "Nearest Neighbor" mathematical property
+voronoi_polygons <- st_voronoi(points_union, envelope = st_as_sfc(st_bbox(geo_data))) %>%
+  st_collection_extract("POLYGON") %>%
+  st_sf() %>%
+  st_intersection(nyc_boundary)
+
+
+library_polygons <- st_join(voronoi_polygons, geo_data)
+
+
+map <- leaflet(library_polygons) %>%
+  addProviderTiles(providers$CartoDB.DarkMatter) 
+
+
+pal <- colorFactor(
+  palette = c("#08E8DE", "#FF5F1F", "#CCFF00"), 
+  domain = library_polygons$system
+)
+
+
+library_polygons <- library_polygons %>%
+  mutate(label_text = paste0("<strong>Library: </strong>", name, "<br/>",
+                             "<strong>System: </strong>", system))
+
+systems <- unique(library_polygons$system)
+
+for (s in systems) {
+  system_data <- filter(library_polygons, system == s)
+  map <- map %>%
+    addPolygons(
+      data = system_data,
+      fillColor = ~pal(system),
+      weight = 1,
+      opacity = 1,
+      color = "white",
+      dashArray = "3",
+      fillOpacity = 0.6,
+      highlightOptions = highlightOptions(
+        weight = 5,             
+        color = "#FFF01F",         
+        opacity = 1,              
+        bringToFront = TRUE
+      ),
+      label = ~lapply(label_text, htmltools::HTML),
+      group = s
+    )
+}
+
+map <- map %>%
+  addLayersControl(
+    overlayGroups = systems,
+    options = layersControlOptions(collapsed = FALSE)
+  ) %>%
+  addLegend(pal = pal, values = ~system, title = "Library Network", position = "bottomright")
+
+
+map

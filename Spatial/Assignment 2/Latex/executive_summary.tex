@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry} % Narrower margins to guarantee one-page fit
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{\vspace{-1.0cm}\textbf{Executive Summary: NYC Population Density Analysis}}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	\vspace{-1.0cm}
+	
+	\section*{Overview}
+	This interactive spatial analysis provides a high-level visualization of New York City’s demographic landscape using Modified Zip Code Tabulation Areas (MODZCTA). By distilling complex geographic boundaries into intuitive, scaled point markers, the map transforms raw data into an actionable visual tool for understanding urban density.
+	
+	\section*{What This Map Tells Us}
+	The analysis reveals three critical patterns in how the city is populated:
+	
+	\begin{itemize}[nosep] % "nosep" removes extra vertical space between bullets
+		\item \textbf{Neighborhood Anchors:} Different sized circles instantly show major residential hubs, helping users distinguish between packed residential areas and quieter industrial or business districts, such as Lower Manhattan.
+		\item \textbf{Activity Hotspots:} A color scale from red to blue highlights areas of high activity, showing if crowded zones are isolated pockets or part of larger residential corridors across Queens and Brooklyn.
+		\item \textbf{Breathing Room:} Interactive filters allow users to isolate population extremes, revealing where the city is most stretched for resources versus where there is more space.
+	\end{itemize}
+	
+	\section*{Why This Data Matters}
+	Population density is the "heartbeat" of the city, showing how New York lives and grows:
+	
+	\begin{itemize}[nosep]
+		\item \textbf{Public Services:} The map identifies "heavy lifters"—neighborhoods requiring the most support for schools, hospitals, and transit. It ensures resources like emergency services and trash pickup reach the areas of highest need.
+		\item \textbf{Business Strategy:} For entrepreneurs opening new shops or services, the map identifies high-footfall residential hubs ready for local business expansion.
+		\item \textbf{Health and Equity:} By visualizing where New Yorkers are concentrated, community outreach and health programs can ensure no neighborhood is left behind and every borough gets fair support.
+	\end{itemize}
+	
+	\section*{Data Source}
+	The underlying geographic and demographic data used in this analysis was sourced from \textbf{NYC Open Data}: 
+	\href{https://data.cityofnewyork.us/Health/Modified-Zip-Code-Tabulation-Areas-MODZCTA-Map/5fzm-kpwv}{Modified Zip Code Tabulation Areas (MODZCTA) Map}.
+	
+\end{document}
