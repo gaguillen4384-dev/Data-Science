@@ -9,7 +9,7 @@ data_full <- read.csv("./Dataset/bank/bank-full.csv", stringsAsFactors = TRUE)
 target_col <- "target" 
 
 
-set.seed(42) # Sets a seed so your results are reproducible
+set.seed(42) # Sets a seed so your results are reproducible, randomized by createDataPartition
 train_index <- createDataPartition(data_full[[target_col]], p = 0.9, list = FALSE)
 
 
