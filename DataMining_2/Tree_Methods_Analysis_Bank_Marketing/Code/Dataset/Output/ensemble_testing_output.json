@@ -1,0 +1,22 @@
+{
+  "overall_accuracy": [0.9071],
+  "precision": [0.6324],
+  "recall": [0.4886],
+  "f1": [0.5513],
+  "confusion_matrix": [
+    {
+      "no": 3842,
+      "yes": 270,
+      "_row": "no"
+    },
+    {
+      "no": 150,
+      "yes": 258,
+      "_row": "yes"
+    }
+  ],
+  "model_agreement": {
+    "FALSE": [339],
+    "TRUE": [4181]
+  }
+}

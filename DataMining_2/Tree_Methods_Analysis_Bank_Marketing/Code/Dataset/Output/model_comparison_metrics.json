@@ -1,0 +1,11 @@
+[
+  {
+    "Model": "Decision Tree"
+  },
+  {
+    "Model": "XGBoost"
+  },
+  {
+    "Model": "Random Forest"
+  }
+]

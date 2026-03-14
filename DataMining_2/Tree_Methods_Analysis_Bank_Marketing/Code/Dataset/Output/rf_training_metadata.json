@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "target_column": ["target"],
+    "model_type": ["Random Forest"],
+    "date_trained": ["2026-03-13 22:49:08"],
+    "n_trees": [100]
+  },
+  "feature_importance": [
+    {
+      "no": 25.2942,
+      "yes": 5.461,
+      "MeanDecreaseAccuracy": 28.0372,
+      "MeanDecreaseGini": 739.607,
+      "Feature": "age",
+      "_row": "age"
+    },
+    {
+      "no": 17.5585,
+      "yes": -2.9808,
+      "MeanDecreaseAccuracy": 14.8825,
+      "MeanDecreaseGini": 559.9945,
+      "Feature": "job",
+      "_row": "job"
+    },
+    {
+      "no": 4.2873,
+      "yes": 7.0595,
+      "MeanDecreaseAccuracy": 7.7274,
+      "MeanDecreaseGini": 161.5502,
+      "Feature": "marital",
+      "_row": "marital"
+    },
+    {
+      "no": 9.3881,
+      "yes": -0.0377,
+      "MeanDecreaseAccuracy": 8.6948,
+      "MeanDecreaseGini": 211.2447,
+      "Feature": "education",
+      "_row": "education"
+    },
+    {
+      "no": -0.0943,
+      "yes": 3.5616,
+      "MeanDecreaseAccuracy": 1.471,
+      "MeanDecreaseGini": 12.9225,
+      "Feature": "default",
+      "_row": "default"
+    },
+    {
+      "no": 4.1338,
+      "yes": 4.3652,
+      "MeanDecreaseAccuracy": 6.0446,
+      "MeanDecreaseGini": 798.2892,
+      "Feature": "balance",
+      "_row": "balance"
+    },
+    {
+      "no": 22.8453,
+      "yes": 12.6997,
+      "MeanDecreaseAccuracy": 26.7554,
+      "MeanDecreaseGini": 157.9924,
+      "Feature": "housing",
+      "_row": "housing"
+    },
+    {
+      "no": 0.34,
+      "yes": 7.5016,
+      "MeanDecreaseAccuracy": 4.8002,
+      "MeanDecreaseGini": 66.0064,
+      "Feature": "loan",
+      "_row": "loan"
+    },
+    {
+      "no": 23.6755,
+      "yes": 3.7224,
+      "MeanDecreaseAccuracy": 24.8094,
+      "MeanDecreaseGini": 157.3961,
+      "Feature": "contact",
+      "_row": "contact"
+    },
+    {
+      "no": 30.516,
+      "yes": 0.5139,
+      "MeanDecreaseAccuracy": 30.5801,
+      "MeanDecreaseGini": 669.7448,
+      "Feature": "day",
+      "_row": "day"
+    },
+    {
+      "no": 44.8775,
+      "yes": 13.3194,
+      "MeanDecreaseAccuracy": 47.3143,
+      "MeanDecreaseGini": 995.4797,
+      "Feature": "month",
+      "_row": "month"
+    },
+    {
+      "no": 69.289,
+      "yes": 128.1396,
+      "MeanDecreaseAccuracy": 121.2733,
+      "MeanDecreaseGini": 2314.3925,
+      "Feature": "duration",
+      "_row": "duration"
+    },
+    {
+      "no": 11.27,
+      "yes": 3.2811,
+      "MeanDecreaseAccuracy": 11.4199,
+      "MeanDecreaseGini": 288.3724,
+      "Feature": "campaign",
+      "_row": "campaign"
+    },
+    {
+      "no": 11.9703,
+      "yes": 12.1464,
+      "MeanDecreaseAccuracy": 12.9873,
+      "MeanDecreaseGini": 358.941,
+      "Feature": "pdays",
+      "_row": "pdays"
+    },
+    {
+      "no": 6.3963,
+      "yes": 4.9786,
+      "MeanDecreaseAccuracy": 6.4575,
+      "MeanDecreaseGini": 162.5631,
+      "Feature": "previous",
+      "_row": "previous"
+    },
+    {
+      "no": 15.8653,
+      "yes": 7.174,
+      "MeanDecreaseAccuracy": 21.4621,
+      "MeanDecreaseGini": 537.9629,
+      "Feature": "poutcome",
+      "_row": "poutcome"
+    }
+  ]
+}
