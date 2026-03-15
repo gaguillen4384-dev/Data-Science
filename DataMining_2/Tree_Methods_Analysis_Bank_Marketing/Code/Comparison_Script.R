@@ -142,15 +142,29 @@ comparisons_model_perfomance <- function(){
               position = position_dodge(width = 0.9), 
               vjust = -0.5, size = 3)
   
+  ggsave("./Graphs/model_comparison_bar.png", p1, width = 5, height = 3.5, units = "in", dpi = 300)
+  
   # Graph 2: Faceted Plot for individual metric focus
-  p2 <- ggplot(metrics_long, aes(x = Model, y = Value, fill = Model)) +
-    geom_bar(stat = "identity") +
-    facet_wrap(~Metric, scales = "free_y") +
-    theme_light() +
-    labs(title = "Detailed Metric Breakdown by Model",
-         y = "Value") +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    guides(fill = "none")
+  unique_metrics <- unique(metrics_long$Metric)
+  for (m in unique_metrics) {
+    p_temp <- metrics_long %>%
+      filter(Metric == m) %>%
+      ggplot(aes(x = Model, y = Value, fill = Model)) +
+      geom_bar(stat = "identity") +
+      theme_light() +
+      labs(title = paste("Model Comparison:", m),
+           subtitle = paste("Individual performance for", m),
+           y = m,
+           x = "Model") +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      guides(fill = "none") +
+      # Adding text labels to individual bars
+      geom_text(aes(label = round(Value, 3)), vjust = -0.5)
+    
+    # Generate a clean filename (e.g., model_metric_accuracy.png)
+    file_path <- paste0("./Graphs/model_metric_", tolower(m), ".png")
+    ggsave(file_path, p_temp, width = 5, height = 4, dpi = 300)
+  }
   
   # Graph 3: Comparison of Precision vs. Recall (Trade-off visualization)
   p3 <- ggplot(metrics_df, aes(x = Recall, y = Precision, color = Model, label = Model)) +
@@ -161,8 +175,6 @@ comparisons_model_perfomance <- function(){
     labs(title = "Precision vs. Recall Comparison",
          subtitle = "Visualizing the performance trade-off")
   
-  ggsave("./Graphs/model_comparison_bar.png", p1, width = 5, height = 3.5, units = "in", dpi = 300)
-  ggsave("./Graphs/faceted_plot_individuals.png", p2, width = 5, height = 3.5, units = "in", dpi = 300)
   ggsave("./Graphs/precision_vs_Recall.png", p3, width = 5, height = 3.5, units = "in", dpi = 300)
   
   message("Plots saved to Output folder.")
