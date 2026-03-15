@@ -41,14 +41,14 @@ train_random_forest <- function(csv_path, target_var, model_output_path = "./Mod
 ### --- Testing Function ---
 load_and_test_rf <- function(test_data_path, target_var, model_filename = "./Models/rf_model.rds") {
   test_data <- read.csv(test_data_path, stringsAsFactors = TRUE)
-  actuals <- test_data[[target_var]]
+  test_data[[target_var]] <- as.factor(test_data[[target_var]])
   
   loaded_model <- readRDS(model_filename)
   
   test_preds <- predict(loaded_model, test_data)
   
-  conf_matrix <- confusionMatrix(test_preds, actuals)
-  
+  conf_matrix <- confusionMatrix(test_preds, test_data[[target_var]], positive = "yes")
+
   stats <- conf_matrix$byClass
   if (is.null(dim(stats))) {
     stats <- t(as.matrix(stats))
@@ -68,4 +68,4 @@ load_and_test_rf <- function(test_data_path, target_var, model_filename = "./Mod
 
 # --- Execution ---
 # train_random_forest("./Dataset/train_split_90.csv", "target")
-# load_and_test_rf("./Dataset/test_split_10.csv", "target")
+ # load_and_test_rf("./Dataset/test_split_10.csv", "target")

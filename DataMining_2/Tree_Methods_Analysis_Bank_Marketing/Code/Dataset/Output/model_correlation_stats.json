@@ -1,20 +1,20 @@
 [
   {
     "Decision_Tree": 1,
-    "Random_Forest": 0.7182,
-    "XGBoost": 0.6332,
+    "Random_Forest": 0.7094,
+    "Bagging": 0.6708,
     "_row": "Decision_Tree"
   },
   {
-    "Decision_Tree": 0.7182,
+    "Decision_Tree": 0.7094,
     "Random_Forest": 1,
-    "XGBoost": 0.7358,
+    "Bagging": 0.7905,
     "_row": "Random_Forest"
   },
   {
-    "Decision_Tree": 0.6332,
-    "Random_Forest": 0.7358,
-    "XGBoost": 1,
-    "_row": "XGBoost"
+    "Decision_Tree": 0.6708,
+    "Random_Forest": 0.7905,
+    "Bagging": 1,
+    "_row": "Bagging"
   }
 ]

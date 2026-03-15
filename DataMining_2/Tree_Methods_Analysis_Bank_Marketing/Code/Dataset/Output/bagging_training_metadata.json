@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "target_column": ["target"],
+    "model_type": ["Bagging (Bootstrap Aggregating)"],
+    "number_of_trees": [25],
+    "out_of_bag_error": [0.0991]
+  },
+  "feature_importance": [
+    {
+      "variable": "duration",
+      "score": 4285.3107
+    },
+    {
+      "variable": "month",
+      "score": 2977.3112
+    },
+    {
+      "variable": "age",
+      "score": 2662.7821
+    },
+    {
+      "variable": "balance",
+      "score": 2576.725
+    },
+    {
+      "variable": "job",
+      "score": 2139.5847
+    },
+    {
+      "variable": "day",
+      "score": 2101.8342
+    },
+    {
+      "variable": "poutcome",
+      "score": 1971.6531
+    },
+    {
+      "variable": "pdays",
+      "score": 1613.1248
+    },
+    {
+      "variable": "previous",
+      "score": 1014.7485
+    },
+    {
+      "variable": "campaign",
+      "score": 950.6115
+    },
+    {
+      "variable": "education",
+      "score": 938.6818
+    },
+    {
+      "variable": "marital",
+      "score": 787.221
+    },
+    {
+      "variable": "housing",
+      "score": 742.7261
+    },
+    {
+      "variable": "contact",
+      "score": 709.9158
+    },
+    {
+      "variable": "loan",
+      "score": 274.8432
+    },
+    {
+      "variable": "default",
+      "score": 66.4364
+    }
+  ]
+}

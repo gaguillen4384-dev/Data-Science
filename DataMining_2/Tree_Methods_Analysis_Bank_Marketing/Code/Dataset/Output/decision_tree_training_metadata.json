@@ -63,28 +63,28 @@
         "CP": 0.0256,
         "nsplit": 3,
         "rel error": 0.8885,
-        "xerror": 0.891,
+        "xerror": 0.8901,
         "xstd": 0.0129
       },
       {
         "CP": 0.0162,
         "nsplit": 4,
         "rel error": 0.8628,
-        "xerror": 0.8679,
+        "xerror": 0.8675,
         "xstd": 0.0128
       },
       {
         "CP": 0.0102,
         "nsplit": 5,
         "rel error": 0.8467,
-        "xerror": 0.8517,
+        "xerror": 0.8519,
         "xstd": 0.0127
       },
       {
         "CP": 0.01,
         "nsplit": 7,
         "rel error": 0.8263,
-        "xerror": 0.849,
+        "xerror": 0.8502,
         "xstd": 0.0127
       }
     ]

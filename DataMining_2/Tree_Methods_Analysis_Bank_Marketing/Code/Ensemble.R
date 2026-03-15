@@ -1,34 +1,32 @@
 # Load necessary libraries
 if (!require("pacman")) install.packages("pacman")
-# Swapping xgboost for randomForest
-pacman::p_load(randomForest, caret, jsonlite, dplyr)
+pacman::p_load(ipred, randomForest, caret, jsonlite, dplyr)
 
 ### --- Ensemble Testing Function (Majority Voting) ---
-load_and_test_rf <- function(test_data_path, target_var, model_dir = "./Models/") {
+load_and_test_bagging <- function(test_data_path, target_var, model_dir = "./Models/") {
   test_data <- read.csv(test_data_path, stringsAsFactors = TRUE)
   actuals <- test_data[[target_var]]
   
   # Load Models
   rf_mod <- readRDS(paste0(model_dir, "rf_model.rds"))
   dt_mod <- readRDS(paste0(model_dir, "dt_model.rds"))
-  xgb_mod <- readRDS(paste0(model_dir, "xgb_model.rds"))
+  bag_mod <- readRDS(paste0(model_dir, "bagging_model.rds")) # Previously xgb_model.rds
   
-  # Generate Predictions
-  # Random Forest
+  # 1. Random Forest
   rf_preds <- predict(rf_mod, test_data)
   
-  # Decision Tree
+  # 2. Decision Tree
   dt_preds <- predict(dt_mod, test_data, type = "class")
   
-  # XGBoost (requires matrix and thresholding)
-  test_x <- model.matrix(as.formula(paste(target_var, "~ .")), data = test_data)[, -1]
-  xgb_prob <- predict(xgb_mod, test_x)
-  xgb_preds <- factor(ifelse(xgb_prob > 0.5, levels(actuals)[2], levels(actuals)[1]), levels = levels(actuals))
+  # 3. Bagging Model
+  # ipred::bagging uses a standard predict method for factors
+  bag_preds <- predict(bag_mod, test_data)
   
+  # Combine for Voting
   voting_df <- data.frame(
     rf = as.character(rf_preds),
     dt = as.character(dt_preds),
-    xgb = as.character(xgb_preds),
+    bag = as.character(bag_preds),
     stringsAsFactors = FALSE
   )
   
@@ -37,6 +35,8 @@ load_and_test_rf <- function(test_data_path, target_var, model_dir = "./Models/"
     ux <- unique(x)
     ux[which.max(tabulate(match(x, ux)))]
   })
+  
+  # Ensure levels match the original data for metrics
   ensemble_final <- factor(ensemble_final, levels = levels(actuals))
   
   # Metrics
@@ -50,7 +50,7 @@ load_and_test_rf <- function(test_data_path, target_var, model_dir = "./Models/"
     recall = stats["Recall"],
     f1 = stats["F1"],
     confusion_matrix = clean_cm,
-    model_agreement = as.list(table(rf_preds == dt_preds & dt_preds == xgb_preds))
+    model_agreement = as.list(table(rf_preds == dt_preds & dt_preds == bag_preds))
   )
   
   write_json(testing_stats, "./Dataset/Output/ensemble_testing_output.json", pretty = TRUE)
@@ -58,4 +58,4 @@ load_and_test_rf <- function(test_data_path, target_var, model_dir = "./Models/"
 }
 
 # --- Execution ---
-load_and_test_rf("./Dataset/test_split_10.csv", "target")
+load_and_test_bagging("./Dataset/test_split_10.csv", "target")

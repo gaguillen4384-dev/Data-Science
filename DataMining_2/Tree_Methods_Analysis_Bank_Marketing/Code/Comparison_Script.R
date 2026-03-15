@@ -1,28 +1,43 @@
-pacman::p_load(jsonlite, ggplot2, ggcorrplot, dplyr, tidyr, tidyverse,rpart,randomForest,xgboost)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(jsonlite, ggplot2, ggcorrplot, dplyr, tidyr, tidyverse, rpart, randomForest, baggingoost)
 
 create_feature_importance_map <- function() {
   dt_json  <- fromJSON("./Dataset/Output/decision_tree_training_metadata.json")
-  xgb_json <- fromJSON("./Dataset/Output/xgb_training_metadata.json")
+  bagging_json <- fromJSON("./Dataset/Output/bagging_training_metadata.json")
   rf_json  <- fromJSON("./Dataset/Output/rf_training_metadata.json")
   
   normalize <- function(x) {
     if(max(x) - min(x) == 0) return(rep(1, length(x)))
     (x - min(x)) / (max(x) - min(x))
   }
-
-  combined_imp <- dt_json$feature_importance %>%
-    transmute(Feature = variable, DT = normalize(score)) %>%
-    full_join(transmute(xgb_json$feature_importance, Feature, XGB = normalize(Gain)), by = "Feature") %>%
-    full_join(transmute(rf_json$feature_importance, Feature, RF = normalize(MeanDecreaseAccuracy)), by = "Feature") %>%
+  
+  extract_importance <- function(df, model_label) {
+    # Find the first column that is character or factor (The Feature Name)
+    name_col <- names(df)[sapply(df, function(x) is.character(x) || is.factor(x))][1]
+    # Find the first column that is numeric (The Importance Score)
+    score_col <- names(df)[sapply(df, is.numeric)][1]
+    
+    df %>%
+      transmute(
+        Feature = .[[name_col]],
+        Value = normalize(.[[score_col]])
+      ) %>%
+      rename(!!model_label := Value)
+  }
+  
+  # Process and Join using the helper
+  combined_imp <- extract_importance(dt_json$feature_importance, "DT") %>%
+    full_join(extract_importance(bagging_json$feature_importance, "bagging"), by = "Feature") %>%
+    full_join(extract_importance(rf_json$feature_importance, "RF"), by = "Feature") %>%
     mutate(across(where(is.numeric), ~replace_na(., 0))) %>%
-    mutate(Consensus_Score = (DT + XGB + RF) / 3) %>%
+    mutate(Consensus_Score = (DT + bagging + RF) / 3) %>%
     arrange(desc(Consensus_Score)) %>%
     head(7)
   
   write_json(combined_imp, "./Dataset/Output/top_7_features.json", pretty = TRUE)
   
   plot_data <- combined_imp %>%
-    pivot_longer(cols = c(DT, XGB, RF), names_to = "Model", values_to = "Importance")
+    pivot_longer(cols = c(DT, bagging, RF), names_to = "Model", values_to = "Importance")
   
   heatmap_plot <- ggplot(plot_data, aes(x = Model, y = reorder(Feature, Consensus_Score))) +
     geom_tile(aes(fill = Importance), color = "white", linewidth = 0.8) +
@@ -42,37 +57,38 @@ create_feature_importance_map <- function() {
 }
 
 correlation_map_with_predicts <- function() {
+  # Load data
   test_data <- read.csv("./Dataset/test_split_10.csv", stringsAsFactors = TRUE)
-  
+
   features <- test_data[, !(names(test_data) %in% c("target"))]
-  test_matrix <- model.matrix(target ~ . , data = test_data)[, -1]
   
-  dt_model  <- readRDS("./Models/dt_model.rds")
-  rf_model  <- readRDS("./Models/rf_model.rds")
-  xgb_model <- readRDS("./Models/xgb_model.rds")
+  dt_model      <- readRDS("./Models/dt_model.rds")
+  rf_model      <- readRDS("./Models/rf_model.rds")
+  bagging_model <- readRDS("./Models/bagging_model.rds")
   
-  # Ensure all are numeric and standardized (e.g., class labels or probabilities)
+  # 1. Decision Tree
   dt_preds  <- as.numeric(predict(dt_model, features, type = "class"))
+  
+  # 2. Random Forest
   rf_preds  <- as.numeric(predict(rf_model, features, type = "response"))
-  xgb_preds <- as.numeric(predict(xgb_model, test_matrix))
   
-  # Standardize XGBoost if it's returning raw probabilities (> 0.5 = 2, else 1)
-  # to match the numeric 'class' output of DT/RF
-  if(max(xgb_preds) <= 1) {
-    xgb_preds <- ifelse(xgb_preds > 0.5, 2, 1)
-  }
+  # 3. Bagging 
+  bag_preds_raw <- predict(bagging_model, features)
+  bagging_preds  <- as.numeric(as.factor(bag_preds_raw))
   
+  # Create Data Frame for Correlation
   predictions_df <- data.frame(
     Decision_Tree = dt_preds,
     Random_Forest = rf_preds,
-    XGBoost       = xgb_preds
+    Bagging       = bagging_preds
   )
   
   model_corr <- cor(predictions_df, method = "pearson")
   
+  # Plotting
   corr_plot <- ggcorrplot(model_corr, 
-                          hc.order = FALSE, # Keep manual order for clarity
-                          type = "full",    # "full" creates a 3x3 grid which looks better for 3 models
+                          hc.order = FALSE, 
+                          type = "full", 
                           lab = TRUE, 
                           lab_size = 6, 
                           method = "square",
@@ -89,29 +105,24 @@ correlation_map_with_predicts <- function() {
 }
 
 comparisons_model_perfomance <- function(){
-  ensemble_data <- fromJSON("./Dataset/Output/ensemble_testing_output.json")
   dt_data <- fromJSON("./Dataset/Output/decision_tree_testing_output.json")
   rf_data <- fromJSON("./Dataset/Output/rf_testing_output.json")
-  xgb_data <- fromJSON("./Dataset/Output/xgb_testing_output.json")
+  bagging_data <- fromJSON("./Dataset/Output/bagging_testing_output.json")
   
   metrics_df <- data.frame(
-    Model = c("Ensemble", "Decision Tree", "Random Forest", "XGBoost"),
-    Accuracy = c(ensemble_data$overall_accuracy[1], 
-                 dt_data$overall_accuracy[1], 
+    Model = c("Decision Tree", "Random Forest", "Bagging"),
+    Accuracy = c(dt_data$overall_accuracy[1], 
                  rf_data$overall_accuracy[1], 
-                 xgb_data$overall_accuracy[1]),
-    Precision = c(ensemble_data$precision[1], 
-                  dt_data$precision[1], 
+                 bagging_data$overall_accuracy[1]),
+    Precision = c(dt_data$precision[1], 
                   rf_data$precision[1], 
-                  xgb_data$precision[1]),
-    Recall = c(ensemble_data$recall[1], 
-               dt_data$recall[1], 
+                  bagging_data$precision[1]),
+    Recall = c(dt_data$recall[1], 
                rf_data$recall[1], 
-               xgb_data$recall[1]),
-    F1_Score = c(ensemble_data$f1[1], 
-                 dt_data$f1[1], 
+               bagging_data$recall[1]),
+    F1_Score = c(dt_data$f1[1], 
                  rf_data$f1[1], 
-                 xgb_data$f1[1])
+                 bagging_data$f1[1])
   )
   
   # Convert to long format for ggplot2
