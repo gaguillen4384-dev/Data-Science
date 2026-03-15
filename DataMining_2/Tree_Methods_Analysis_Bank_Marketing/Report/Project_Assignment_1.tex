@@ -12,9 +12,10 @@
 
 \hypersetup{
 	colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,      
-	urlcolor=cyan,
+	linkcolor=black,
+	filecolor=black,      
+	urlcolor=black,
+	citecolor=black
 }
 \begin{document}
 
@@ -50,7 +51,7 @@ To mitigate this, ensemble models are employed to provide superior stability; by
 
 \subsubsection*{\textbf{Preprocessing}}
 The data required minimal preprocessing, preserving the raw feature distribution for model training. The dataset was partitioned into a 90/10 training-to-test split using a randomized stratification approach to ensure representative class distributions across both subsets.\\ 
-\indent The training set comprised 40,691 observations (35,930 ``No''; 4,761 ``Yes''), while the test set contained 4,520 observations (3,992 ``No''; 528 ``Yes'') .Given the absence of null values and the native capacity of the R-based implementations to handle categorical factors, the models were trained on the original feature space. This preserved the structural integrity of the variables and maintained model interpretability without the need for manual dummy-variable transformation.
+\indent The training set comprised 40,691 observations (35,930 ``No''; 4,761 ``Yes''), while the test set contained 4,520 observations (3,992 ``No''; 528 ``Yes''). Given the absence of null values and the native capacity of the R-based implementations to handle categorical factors, the models were trained on the original feature space. This preserved the structural integrity of the variables and maintained model interpretability without the need for manual dummy-variable transformation.
 
 \subsection{\textbf{Tree-Based Models Used}}
 
@@ -169,9 +170,9 @@ As illustrated in Figure \ref{Tc_top_7_features}, while \texttt{duration} remain
 	\label{Tc_top_7_features}
 \end{figure}
 
-Below these primary drivers, the models begin to stratify. While \texttt{month} and \texttt{poutcome} serve as a consistent secondary core, the ensemble methods exhibit a clear ``smoothing'' effect compared to the standalone Decision Tree. The \textbf{Decision Tree} column shows a sharp drop-off into lighter gradients for features such as \texttt{age}, \texttt{job}, and \texttt{balance}, confirming a ``greedy'' and polarized selection strategy that ignores weaker signals. 
+Below these primary drivers, the models begin to stratify. While \texttt{month} and \texttt{poutcome} serve as a consistent secondary core, the ensemble methods exhibit a clear ``smoothing'' effect compared to the standalone Decision Tree. The \textbf{Decision Tree} (DT) column shows a sharp drop-off into lighter gradients for features such as \texttt{age}, \texttt{job}, and \texttt{balance}, confirming a ``greedy'' and polarized selection strategy that ignores weaker signals. 
 
-In contrast, the \textbf{Bagging} and \textbf{Random Forest} columns retain deeper \textit{purple} and \textit{pink} intensities in these lower rows. This demonstrates their architectural ability to decorrelate trees and leverage secondary features to construct a more robust, distributed importance profile.\\ \\
+In contrast, the \textbf{Bagging} and \textbf{Random Forest} (RF) columns retain deeper \textit{purple} and \textit{pink} intensities in these lower rows. This demonstrates their architectural ability to decorrelate trees and leverage secondary features to construct a more robust, distributed importance profile.\\ \\
 
 \subsection{Model Correlation}
  \begin{figure}[htbp]
@@ -202,7 +203,7 @@ The precision-recall visualization of Figure  \ref{Tc_precision_vs_Recall} indic
 This study demonstrates that while tree-based models are effective for financial classification, ensemble methods are essential for addressing the inherent class imbalance of telemarketing data. While the baseline \textbf{Decision Tree} achieved a high overall accuracy of 90.38\%, its low \textbf{Recall (43.75\%)} confirmed the anticipated majority-class bias, failing to identify more than half of the potential subscribers.\\
 \indent In contrast, the \textbf{Random Forest} configuration proved to be the most robust predictive framework. By optimizing the feature space to achieve the highest \textbf{F1-Score (0.5765)} and \textbf{Recall (52.08\%)}, it stands as the superior model for improving bank subscription classification of this analysis.\\
 \indent  Ultimately, the transition from a single-tree model to ensemble models like \textbf{Bagging} and \textbf{Random Forest} provided the stability necessary to capture nuanced subscriber signatures. By reducing variance and mitigating noise from the majority ``No'' class, these models offer a more reliable tool for targeting high-propensity clients.\\
-\indent Future iterations of this framework could enhance minority-class detection by incorporating advanced sampling techniques or boosting algorithms to further refine predictive precision for the ``Yes'' class.
+\indent Future iterations of this analysis could enhance minority-class detection by incorporating advanced sampling techniques or boosting algorithms to further refine predictive precision for the ``Yes'' class.
 
 \section*{\textbf{Appendix}}
 	
