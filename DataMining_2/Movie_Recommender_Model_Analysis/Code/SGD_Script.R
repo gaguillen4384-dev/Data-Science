@@ -46,15 +46,19 @@ calculate_metrics <- function(user_ids, actual, predicted, k = 10, threshold = 3
       
       # NDCG Calculation
       ndcg = {
-        top_actusgd <- actual[unlist(top_k_indices)]
-        # DCG = sum((2^rel - 1) / log2(rank + 1))
-        dcg <- sum((2^top_actusgd - 1) / log2(seq_along(top_actusgd) + 1))
-        
-        # IDCG = Ideal DCG (if the user's actual ratings were perfectly sorted)
-        ideal_actusgd <- sort(actual, decreasing = TRUE)[1:min(n(), k)]
-        idcg <- sum((2^ideal_actusgd - 1) / log2(seq_along(ideal_actusgd) + 1))
-        
-        if(idcg > 0) dcg / idcg else 0
+        if (sum(actual > 0) < 2) {
+          NA 
+        } else {
+          rank_idx <- order(pred, decreasing = TRUE)[1:min(n(), k)]
+          top_actusgd <- actual[rank_idx]
+          
+          dcg <- sum(top_actusgd / log2(seq_along(top_actusgd) + 1))
+          
+          ideal_actusgd <- sort(actual, decreasing = TRUE)[1:min(n(), k)]
+          idcg <- sum(ideal_actusgd / log2(seq_along(ideal_actusgd) + 1))
+          
+          dcg / idcg
+        }
       }
     )
   

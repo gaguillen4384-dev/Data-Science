@@ -83,6 +83,8 @@ get_metrics <- function(results_df, k = 10, threshold = 3) {
     summarise(
       hits = sum(actual[1:min(n(), k)] >= threshold),
       total_rel = sum(actual >= threshold),
+      is_eligible = sum(actual > 0) >= 2,
+      # (Using a fixed k instead of min(n, k) for the discount log)
       dcg = sum(actual[1:min(n(), k)] / log2(2:(min(n(), k) + 1))),
       idcg = sum(sort(actual, decreasing = TRUE)[1:min(n(), k)] / 
                    log2(2:(min(n(), k) + 1)))
@@ -90,7 +92,7 @@ get_metrics <- function(results_df, k = 10, threshold = 3) {
     mutate(
       precision = hits / k,
       recall = ifelse(total_rel > 0, hits / total_rel, 0),
-      ndcg = ifelse(idcg > 0, dcg / idcg, 0)
+      ndcg = ifelse(is_eligible & idcg > 0, dcg / idcg, NA)
     )
   
   avg_prec <- mean(user_stats$precision, na.rm = TRUE)

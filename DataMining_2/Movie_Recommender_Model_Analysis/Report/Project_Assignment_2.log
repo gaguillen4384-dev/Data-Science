@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  19 APR 2026 00:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  19 APR 2026 01:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -442,13 +442,13 @@ Package hyperref Info: Link coloring ON on input line 20.
 \@outlinefile=\write3
 \openout3 = `Project_Assignment_2.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
 
 
 (C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
 
 
 (C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\umsb.fd
@@ -493,33 +493,33 @@ Package pdftex.def Info: ndcg_slope.pdf  used on input line 123.
 <pr_scatter.pdf, id=119, 361.35pt x 361.35pt>
 File: pr_scatter.pdf Graphic file (type pdf)
 <use pr_scatter.pdf>
-Package pdftex.def Info: pr_scatter.pdf  used on input line 140.
+Package pdftex.def Info: pr_scatter.pdf  used on input line 141.
 (pdftex.def)             Requested size: 289.0804pt x 289.0804pt.
  [3 <./ndcg_slope.pdf> <./pr_scatter.pdf>]
-Underfull \hbox (badness 4060) in paragraph at lines 159--162
+Underfull \hbox (badness 4060) in paragraph at lines 161--164
 []\OT1/ptm/m/n/10 For real-world sys-tems, where "top-$\OML/cmm/m/it/10 N$\OT1/
 ptm/m/n/10 " ac-cu-racy is
  []
 
 
-Underfull \hbox (badness 2941) in paragraph at lines 159--162
+Underfull \hbox (badness 2941) in paragraph at lines 161--164
 []\OT1/ptm/m/n/10 The su-pe-rior per-for-mance of \OT1/ptm/b/n/10 Sparse Cod-in
 g \OT1/ptm/m/n/10 across
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--175
+Underfull \hbox (badness 10000) in paragraph at lines 174--177
 []\OT1/ptm/m/n/8 Papers with Code. (2026).  Col-lab-o-ra-tive Fil-ter-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--175
+Underfull \hbox (badness 10000) in paragraph at lines 174--177
 \OT1/ptm/m/n/8 on Movie-Lens 100K.  [][]$https : / / paperswithcode . com / sot
 a /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 \OT1/ptm/m/n/8 Data-[]Science / tree / main / DataMining[]2 / Movie[]Recommende
 r[]Model[]
  []
@@ -540,15 +540,8 @@ Before submitting the final camera ready copy, remember to:
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-
-
-Package rerunfilecheck Warning: File `Project_Assignment_2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Project_Assignment_2.out':
-(rerunfilecheck)             Before: DA39D45F3B05071DE2067F35B89937D5;2071
-(rerunfilecheck)             After:  77F3910521D606B741762762A95EDB97;2050.
+Package rerunfilecheck Info: File `Project_Assignment_2.out' has not changed.
+(rerunfilecheck)             Checksum: 77F3910521D606B741762762A95EDB97;2050.
  ) 
 Here is how much of TeX's memory you used:
  11357 strings out of 467871
@@ -557,7 +550,7 @@ Here is how much of TeX's memory you used:
  40057 multiletter control sequences out of 15000+600000
  668014 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,667b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,644b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
 rogram Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
 Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x
@@ -570,7 +563,7 @@ fonts/cm/cmsy7.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/urw/courier/ucrr8a
  Files (x86)/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/La
 TeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on Project_Assignment_2.pdf (4 pages, 218344 bytes).
+Output written on Project_Assignment_2.pdf (4 pages, 217928 bytes).
 PDF statistics:
  223 PDF objects out of 1000 (max. 8388607)
  40 named destinations out of 1000 (max. 500000)

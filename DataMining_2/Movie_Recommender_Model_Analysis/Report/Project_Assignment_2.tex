@@ -31,12 +31,12 @@ ga013701@ucf.edu}}
 \maketitle
 \renewcommand{\abstractname}{Summary}
 \begin{abstract}
-	This study evaluates three matrix factorization models---\textbf{Funk Singular Value Decomposition (Funk SVD)}, \textbf{Latent Factor Models (LFM-SGD)}, and \textbf{Sparse Coding}---for movie recommendation. Models were validated using RMSE and other regression-based metrics to assess prediction accuracy, alongside ranking metrics to evaluate recommendation quality. Experimental results indicate that \textbf{Sparse Coding} consistently outperforms the alternative techniques across all metrics, demonstrating superior showing it is better at predicting ratings and works more reliably on new, unseen data.
+	This study evaluates three matrix factorization models---\textbf{Funk Singular Value Decomposition (Funk SVD)}, \textbf{Latent Factor Models (LFM-SGD)}, and \textbf{Sparse Coding}---for movie recommendation. Models were validated using RMSE and other regression-based metrics to assess prediction accuracy, alongside ranking metrics to evaluate recommendation quality. Experimental results indicate that \textbf{Sparse Coding} consistently outperforms the alternative techniques across all metrics, showing it is better at predicting ratings and works more reliably on new, unseen data.
 \end{abstract}
 
 \section{\textbf{Introduction}}\indent Matrix factorization is essential for mitigating missing data effects in recommendation systems. This study compares three models: \textbf{Funk Singular Value Decomposition (Funk SVD)}, \textbf{Latent Factor Models (LFM-SGD)}, and \textbf{Sparse Coding}.\\
 \indent The primary objective is to predict user ratings despite the extreme sparsity of interactions. We leverage dimensionality reduction to map users and items into a shared latent space, and handling the problem of missing information. Performance is evaluated via \textbf{RMSE}, \textbf{MAE}, \textbf{Precision}, \textbf{Recall}, and \textbf{NDCG}.\\
-\indent While SVD and LFM-SGD are benchmarks, we hypothesize that \textbf{Sparse Coding} is better suited for sparse data. By using an overcomplete dictionary and $L_1$ regularization, it Focuses on the most important data and ignores errors, capturing subtle preferences that traditional global-variance methods may overlook.
+\indent While SVD and LFM-SGD are benchmarks, we hypothesize that \textbf{Sparse Coding} is better suited for sparse data. By using an overcomplete dictionary and regularization, it focuses on the most important data and ignores errors, capturing subtle preferences that traditional global-variance methods may overlook.
 \indent While traditional methods provide a baseline, this study focuses on the comparative resilience of Sparse Coding when dealing with a dataset where 93.7\% of the ratings are missing.
 
 \subsection{\textbf{Dataset Structure}}
@@ -92,7 +92,7 @@ The experimental results as shown in Figure \ref{graph_radar_profile} indicate a
 
 \indent This divergence suggests that the model effectively captures relative preference hierarchies (ranking) despite high absolute error in point-wise rating prediction ($Norm\_Accuracy = 1 - RMSE_{test}$).
 
-Similarly, \textbf{LFM-SGD} and \textbf{Funk SVD} demonstrate robust ranking capabilities with \textbf{NDCG} values of \textbf{0.80} and \textbf{0.89} respectively, yet yield negligible \textbf{Norm\_Accuracy} scores ($\le 0.07$).\\
+Similarly, \textbf{LFM-SGD} and \textbf{Funk SVD} demonstrate robust ranking capabilities with \textbf{NDCG} values of \textbf{0.90} and \textbf{0.89} respectively, yet yield negligible \textbf{Norm\_Accuracy} scores ($\le 0.07$).\\
 \indent This gap shows that while models understand which movies a user likes more than others, they struggle to hit adequate \textbf{RMSE}.\\ 
 \indent Consequently, these models are highly effective for recommendation retrieval where item ordering is prioritized over exact rating accuracy.
 
@@ -113,7 +113,7 @@ The performance analysis in Figure \ref{graph_error_comparison} reveals a consis
 
 Sparse Coding demonstrates the highest efficiency, achieving the lowest MAE and RMSE values. Its superior training and test results indicate it is the most capable model for mapping user features to ratings.
 
-In contrast, \textbf{LFM-SGD} and textbf{Funk SVD} exhibit higher baseline error rates. While their training and test metrics are closely aligned, their higher values indicate less precision in predicting exact ratings compared to Sparse Coding.
+In contrast, \textbf{LFM-SGD} and \textbf{Funk SVD} exhibit higher baseline error rates. While their training and test metrics are closely aligned, their higher values indicate less precision in predicting exact ratings compared to \textbf{Sparse Coding}.
 
 \subsection{\textbf{Model Generalization}}
 
@@ -127,14 +127,15 @@ Observing the slope graph in Figure \ref{graph_ndcg_slope} \textbf{Sparse Coding
 
 \textbf{Funk SVD} exhibited a unique upward trend, with its \text{NDCG} rising from $0.88$ during training to $0.89$ in the testing phase. This slight improvement suggests the model is highly robust and effectively avoids overfitting.
 
-\textbf{LFM-SGD} proved to be the weakest model. Its \text{NDCG} dropped sharply from $0.86$ on the training set to below $0.80$ on the test set.\\
+\textbf{LFM-SGD} proved to be the weakest model in generalization. Its \text{NDCG} dropped sharply from $0.94$ on the training set to below $0.90$ on the test set.\\
 \indent This significant decline represents the largest generalization gap in the analysis, indicating substantial overfitting.
 
 \newpage
 
 \subsection{\textbf{Evaluating Model Recommendation Efficacy}}
 
-The visualization highlights shown in Figure \ref{graph_precision_vs_cecall} the trade-off between \textbf{Precision (the quality of recommendations)} and \textbf{Recall (the breadth of recommendations)}. \textbf{Sparse Coding} emerges as the superior model, occupying the top-right position with a \textbf{Precision} $\approx 0.90$ and \textbf{Recall} $\approx 0.54$, effectively maximizing relevance while minimizing noise.
+The visualization highlights shown in Figure \ref{graph_precision_vs_cecall} the trade-off between \textbf{Precision (the quality of recommendations)} and \textbf{Recall (the breadth of recommendations)}.\\
+\indent \textbf{Sparse Coding} emerges as the superior model, occupying the top-right position with a \textbf{Precision} $\approx 0.90$ and \textbf{Recall} $\approx 0.54$, effectively maximizing relevance while minimizing noise.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=.80]{pr_scatter.pdf}}
@@ -142,14 +143,15 @@ The visualization highlights shown in Figure \ref{graph_precision_vs_cecall} the
 	\label{graph_precision_vs_cecall}
 \end{figure}
 
-\textbf{LFM-SGD} occupies the middle tier, yielding a \textbf{Precision} $\approx 0.86$ and \textbf{Recall} $\approx 0.51$. Finally, \textbf{Funk SVD} is the least performant model, sitting at the base of the cluster with a \textbf{Precision} of 0.85 and the lowest \textbf{Recall} at 0.50, capturing the smallest portion of relevant items.
+\textbf{LFM-SGD} occupies the middle tier, yielding a \textbf{Precision} $\approx 0.86$ and \textbf{Recall} $\approx 0.51$.\\
+\indent Finally, \textbf{Funk SVD} is the least performant model, sitting at the base of the cluster with a \textbf{Precision} of 0.85 and the lowest \textbf{Recall} at 0.50, capturing the smallest portion of relevant items.
 
-\vspace{12mm}
+\vspace{10mm}
 
 \section{\textbf{Conclusion}}
 
 This study evaluated three matrix factorization models---\textbf{Funk SVD}, \textbf{LFM-SGD}, and \textbf{Sparse Coding}---on the MovieLens 100K dataset.\\
-\indent Despite the 93.7\% sparsity and high dimensionality, \textbf{Sparse Coding} emerged as the most robust framework, achieving superior precision and generalization.
+\indent Despite the 93.7\% sparsity and the complexity of the \textbf{latent factor space}, \textbf{Sparse Coding} emerged as the most robust framework, achieving superior precision and generalization.
 
 A critical finding is the divergence between error-based and ranking-based metrics. While \textbf{RMSE} measures point-wise prediction magnitude, it proved insufficient as a sole indicator of quality. Even as models reached a ``predictive floor'' in absolute accuracy, their ranking proficiency remained high.
 

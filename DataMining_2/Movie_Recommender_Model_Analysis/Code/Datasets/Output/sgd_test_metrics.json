@@ -5,5 +5,5 @@
   "Precision": 0.8641,
   "Recall": 0.5121,
   "F1_Score": 0.6431,
-  "NDCG": 0.7956
+  "NDCG": 0.9026
 }
