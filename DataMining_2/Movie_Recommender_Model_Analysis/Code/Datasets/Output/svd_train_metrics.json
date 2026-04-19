@@ -1,0 +1,9 @@
+{
+  "Model": "Funk SVD",
+  "RMSE": 0.8995,
+  "MAE": 0.7134,
+  "Precision": 0.9386,
+  "Recall": 0.2914,
+  "F1_Score": 0.4447,
+  "NDCG": 0.8794
+}

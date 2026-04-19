@@ -1,0 +1,9 @@
+{
+  "Model": "Sparce Coding",
+  "RMSE": 0.7795,
+  "MAE": 0.4829,
+  "Precision": 0.9907,
+  "Recall": 0.3146,
+  "F1_Score": 0.4776,
+  "NDCG": 0.9951
+}
