@@ -35,9 +35,9 @@ ga013701@ucf.edu}}
 \end{abstract}
 
 \section{\textbf{Introduction}}\indent Matrix factorization is essential for mitigating missing data effects in recommendation systems. This study compares three models: \textbf{Funk Singular Value Decomposition (Funk SVD)}, \textbf{Latent Factor Models (LFM-SGD)}, and \textbf{Sparse Coding}.\\
-\indent The primary objective is to predict user ratings despite the extreme sparsity of interactions. We leverage dimensionality reduction to map users and items into a shared latent space, and handling the problem of missing information. Performance is evaluated via \textbf{RMSE}, \textbf{MAE}, \textbf{Precision}, \textbf{Recall}, and \textbf{NDCG}.\\
-\indent While \textbf{SVD} and \textbf{LFM-SGD} are conventional models, we hypothesize that \textbf{Sparse Coding} is better suited for sparse data. By using an overcomplete dictionary and regularization, it focuses on the most important data and ignores errors, capturing subtle preferences that traditional global-variance methods may overlook.\\
-\indent Facing a 93.7\% sparsity rate, traditional models often falter. This study evaluates the resilience of \textbf{Sparse Coding} in extracting meaningful patterns from such a fragmented datasets.
+\indent The primary objective is to predict user ratings despite the extreme sparsity of interactions. We leverage dimensionality reduction to map users and items into a shared latent space, thereby addressing the problem of missing information. Performance is evaluated via \textbf{RMSE}, \textbf{MAE}, \textbf{Precision}, \textbf{Recall}, and \textbf{NDCG}.\\
+\indent While \textbf{SVD} and \textbf{LFM-SGD} are conventional models, we hypothesize that \textbf{Sparse Coding} is better suited for sparse data. By using an overcomplete dictionary and regularization, it focuses on the most important data and filters noise, capturing subtle preferences that traditional global-variance methods may overlook.\\
+\indent At 93.7\% sparsity, traditional models often falter. This study evaluates \textbf{Sparse Coding's} resilience in extracting patterns from fragmented data, validated via a multi-metric suite of predictive and ranking benchmarks.
 
 \subsection{\textbf{Dataset Structure}}
 \indent This study utilizes the \textbf{MovieLens 100K}\cite{harper2015movielens} dataset, which consists of 100,000 ratings ($R \in \{1, 2, 3, 4, 5\}$) provided by 943 users across 1,682 movies. The dataset exhibits a sparsity common in recommendation tasks, with a density of 6.304\%.\\ 
