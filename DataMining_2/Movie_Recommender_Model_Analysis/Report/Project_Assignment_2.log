@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  19 APR 2026 01:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  19 APR 2026 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -470,56 +470,48 @@ m Files (x86)/LaTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-<radar_profile.pdf, id=91, 252.945pt x 505.89pt>
-File: radar_profile.pdf Graphic file (type pdf)
-<use radar_profile.pdf>
-Package pdftex.def Info: radar_profile.pdf  used on input line 88.
-(pdftex.def)             Requested size: 189.70828pt x 379.41655pt.
-<error_comparison.pdf, id=93, 505.89pt x 505.89pt>
+<error_comparison.pdf, id=88, 361.35pt x 650.43pt>
 File: error_comparison.pdf Graphic file (type pdf)
 <use error_comparison.pdf>
-Package pdftex.def Info: error_comparison.pdf  used on input line 109.
-(pdftex.def)             Requested size: 303.53633pt x 303.53633pt.
-[2 <./radar_profile.pdf> <./error_comparison.pdf>]
-<ndcg_slope.pdf, id=117, 252.945pt x 361.35pt>
+Package pdftex.def Info: error_comparison.pdf  used on input line 140.
+(pdftex.def)             Requested size: 180.67456pt x 325.2142pt.
+ [2 <./error_comparison.pdf>]
+<ndcg_slope.pdf, id=107, 252.945pt x 361.35pt>
 File: ndcg_slope.pdf Graphic file (type pdf)
 <use ndcg_slope.pdf>
-Package pdftex.def Info: ndcg_slope.pdf  used on input line 123.
+Package pdftex.def Info: ndcg_slope.pdf  used on input line 157.
 (pdftex.def)             Requested size: 252.94438pt x 361.34912pt.
-<pr_scatter.pdf, id=119, 361.35pt x 361.35pt>
+<pr_scatter.pdf, id=109, 361.35pt x 361.35pt>
 File: pr_scatter.pdf Graphic file (type pdf)
 <use pr_scatter.pdf>
-Package pdftex.def Info: pr_scatter.pdf  used on input line 141.
+Package pdftex.def Info: pr_scatter.pdf  used on input line 175.
 (pdftex.def)             Requested size: 289.0804pt x 289.0804pt.
- [3 <./ndcg_slope.pdf> <./pr_scatter.pdf>]
-Underfull \hbox (badness 4060) in paragraph at lines 161--164
+
+[3 <./ndcg_slope.pdf> <./pr_scatter.pdf>]
+Underfull \hbox (badness 4060) in paragraph at lines 195--198
 []\OT1/ptm/m/n/10 For real-world sys-tems, where "top-$\OML/cmm/m/it/10 N$\OT1/
 ptm/m/n/10 " ac-cu-racy is
  []
 
 
-Underfull \hbox (badness 2941) in paragraph at lines 161--164
+Underfull \hbox (badness 2941) in paragraph at lines 195--198
 []\OT1/ptm/m/n/10 The su-pe-rior per-for-mance of \OT1/ptm/b/n/10 Sparse Cod-in
 g \OT1/ptm/m/n/10 across
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--177
+Underfull \hbox (badness 10000) in paragraph at lines 208--211
 []\OT1/ptm/m/n/8 Papers with Code. (2026).  Col-lab-o-ra-tive Fil-ter-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--177
+Underfull \hbox (badness 10000) in paragraph at lines 208--211
 \OT1/ptm/m/n/8 on Movie-Lens 100K.  [][]$https : / / paperswithcode . com / sot
 a /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 \OT1/ptm/m/n/8 Data-[]Science / tree / main / DataMining[]2 / Movie[]Recommende
 r[]Model[]
  []
@@ -545,12 +537,12 @@ Package rerunfilecheck Info: File `Project_Assignment_2.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  11357 strings out of 467871
- 175480 string characters out of 5426032
- 611883 words of memory out of 5000000
- 40057 multiletter control sequences out of 15000+600000
- 668014 words of font info for 116 fonts, out of 8000000 for 9000
+ 175439 string characters out of 5426032
+ 612871 words of memory out of 5000000
+ 40055 multiletter control sequences out of 15000+600000
+ 669738 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,644b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,644b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
 rogram Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
 Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x
@@ -563,9 +555,9 @@ fonts/cm/cmsy7.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/urw/courier/ucrr8a
  Files (x86)/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/La
 TeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on Project_Assignment_2.pdf (4 pages, 217928 bytes).
+Output written on Project_Assignment_2.pdf (4 pages, 209269 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 120 words of extra memory for PDF output out of 10000 (max. 10000000)
 

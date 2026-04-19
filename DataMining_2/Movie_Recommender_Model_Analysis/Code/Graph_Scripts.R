@@ -137,17 +137,17 @@ output_dir  <- "./Graphs"
 master_df <- load_paired_data(train_files, test_files)
 
 # Call whichever function you need
-p_radar  <- plot_radar_charts(master_df)
-ggsave(file.path(output_dir, "radar_profile.pdf"), p_radar, width = 3.5, height = 7, device = "pdf")
+#p_radar  <- plot_radar_charts(master_df)
+#ggsave(file.path(output_dir, "radar_profile.pdf"), p_radar, width = 3.5, height = 7, device = "pdf")
 
 p_error  <- plot_error_comparison(master_df)
-ggsave(file.path(output_dir, "error_comparison.pdf"), p_error, width = 7,  height = 7, device = "pdf")
+ggsave(file.path(output_dir, "error_comparison.pdf"), p_error, width = 5,  height = 9, device = "pdf")
 
-p_pr     <- plot_pr_scatter(master_df)
-ggsave(file.path(output_dir, "pr_scatter.pdf"), p_pr, width = 5,  height = 5, device = "pdf")
+#p_pr     <- plot_pr_scatter(master_df)
+#ggsave(file.path(output_dir, "pr_scatter.pdf"), p_pr, width = 5,  height = 5, device = "pdf")
 
-p_slope  <- plot_slope_chart(master_df)
-ggsave(file.path(output_dir, "ndcg_slope.pdf"), p_slope, width = 3.5,  height = 5, device = "pdf")
+#p_slope  <- plot_slope_chart(master_df)
+#ggsave(file.path(output_dir, "ndcg_slope.pdf"), p_slope, width = 3.5,  height = 5, device = "pdf")
 
 # View the combined data frame structure
 #print(head(master_df))

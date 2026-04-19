@@ -36,8 +36,8 @@ ga013701@ucf.edu}}
 
 \section{\textbf{Introduction}}\indent Matrix factorization is essential for mitigating missing data effects in recommendation systems. This study compares three models: \textbf{Funk Singular Value Decomposition (Funk SVD)}, \textbf{Latent Factor Models (LFM-SGD)}, and \textbf{Sparse Coding}.\\
 \indent The primary objective is to predict user ratings despite the extreme sparsity of interactions. We leverage dimensionality reduction to map users and items into a shared latent space, and handling the problem of missing information. Performance is evaluated via \textbf{RMSE}, \textbf{MAE}, \textbf{Precision}, \textbf{Recall}, and \textbf{NDCG}.\\
-\indent While SVD and LFM-SGD are benchmarks, we hypothesize that \textbf{Sparse Coding} is better suited for sparse data. By using an overcomplete dictionary and regularization, it focuses on the most important data and ignores errors, capturing subtle preferences that traditional global-variance methods may overlook.
-\indent While traditional methods provide a baseline, this study focuses on the comparative resilience of Sparse Coding when dealing with a dataset where 93.7\% of the ratings are missing.
+\indent While \textbf{SVD} and \textbf{LFM-SGD} are conventional models, we hypothesize that \textbf{Sparse Coding} is better suited for sparse data. By using an overcomplete dictionary and regularization, it focuses on the most important data and ignores errors, capturing subtle preferences that traditional global-variance methods may overlook.\\
+\indent Facing a 93.7\% sparsity rate, traditional models often falter. This study evaluates the resilience of \textbf{Sparse Coding} in extracting meaningful patterns from such a fragmented datasets.
 
 \subsection{\textbf{Dataset Structure}}
 \indent This study utilizes the \textbf{MovieLens 100K}\cite{harper2015movielens} dataset, which consists of 100,000 ratings ($R \in \{1, 2, 3, 4, 5\}$) provided by 943 users across 1,682 movies. The dataset exhibits a sparsity common in recommendation tasks, with a density of 6.304\%.\\ 
@@ -62,58 +62,92 @@ To identify which model best captures subtle preferences in sparse data, perform
 \end{equation} 
 Where $R_{ui}$ and $R'_{ui}$ represent the actual and predicted ratings for user $u$ and item $i$, respectively. 
 
-We complement RMSE with \textbf{Normalized Discounted Cumulative Gain (NDCG)}\cite{Jarvelin2002} to evaluate ranking quality, using logarithmic decay to reward models that surface relevant items.\\ 
-\indent To further assess relevance, \textbf{Precision}\cite{ISLR2} and \textbf{Recall}\cite{ISLR2} were calculated using a threshold of 3, where ratings $\ge 3$ are classified as ``good'' and others as irrelevant.\\
-\indent This multi-metric approach provides a robust benchmark framework.
+To assess ranking quality, we employ \textbf{Normalized Discounted Cumulative Gain (NDCG)} \cite{Jarvelin2002}, which measures the effectiveness of the model in placing highly-rated items at the top of the recommendation list.\\
+\indent Unlike binary metrics, our implementation of NDCG utilizes the raw rating values as the relevance score $rel_i$, allowing the metric to account for the relative preference between different levels of observed user interest:
+
+\begin{equation}
+	NDCG@k = \frac{1}{IDCG_{k}} \sum_{i=1}^{k} \frac{rel_i}{\log_2(i + 1)}.
+\end{equation}
+
+The score is normalized by the \textbf{Ideal DCG (IDCG)}, ensuring a result between $[0, 1]$. For this analysis, $k=10$ is used as the cutoff rank, and the metric is only computed for users with $\ge 2$ observed interactions to ensure a meaningful ranking evaluation.
+
+\indent To further assess relevance, \textbf{Precision} and \textbf{Recall} \cite{ISLR2} were calculated using a threshold of 3, where ratings $\ge 3$ are classified as ``good'' and others as irrelevant.\\
+\indent This multi-metric approach provides a robust evaluation framework by measuring point-prediction error, nuanced ranking order, and the binary accuracy of recommendations.
 
 \vspace{2mm}
 
 \subsection{\textbf{Matrix Factorization Models Used}}
 
 \begin{enumerate}
-	\item \textbf{Funk Singular Value Decomposition (Funk SVD)} \cite{funk2006}: A latent factor benchmark that factorizes the user-item matrix by optimizing solely over observed ratings via SGD. Configured with 50 latent factors ($k=50$), a learning rate ($\eta = 0.005$), and regularization ($\lambda = 0.02$) over 50 epochs, it extracts latent features without the bias of dense imputation.
-		
-	\item \textbf{Latent Factor Models (LFM-SGD)} \cite{koren2009}: A model utilizing Stochastic Gradient Descent to learn user/item embeddings ($k=20$ latent factors, 20 iterations). By optimizing only over observed entries, it scales efficiently to sparse matrices and captures nuanced patterns without requiring data imputation.
+	\item \textbf{Funk Singular Value Decomposition (Funk SVD)} \cite{funk2006}: A latent factor method that optimizes solely over observed ratings, mapping users and items into a joint latent space via $\hat{r}_{ui} = q_i^T p_u$. 
+	\begin{itemize}
+		\item \textbf{Params:} $k=50$, $\eta=0.005$, $\lambda=0.02$, 50 epochs.
+		\item \textbf{Uniqueness:} Focuses exclusively on pure user-item interactions without imputation or bias terms.
+	\end{itemize}
 	
-	\item \textbf{Sparse Coding} \cite{olshausen1996}: A generative framework that represents data as a sparse linear combination of atoms from an overcomplete dictionary. Utilizing Elastic Net regularization (with $\lambda = 0.01, \alpha = 0.01$), it isolates salient features by activating only the most relevant basis functions, effectively filtering noise.
+	\item \textbf{Latent Factor Models (LFM-SGD)} \cite{koren2009}: An extension of the matrix factorization method that integrates baseline predictors to account for systematic biases: $\hat{r}_{ui} = \mu + b_u + b_i + q_i^T p_u$. 
+	\begin{itemize}
+		\item \textbf{Params:} $k=20$, 20 SGD iterations.
+		\item \textbf{Uniqueness:} Disentangles general rating tendencies (global, user, and item effects) from specific user-item affinities.
+	\end{itemize}
+	
+	\item \textbf{Sparse Coding} \cite{olshausen1996}: A generative method representing data as a sparse linear combination of atoms from an overcomplete dictionary. It employs Elastic Net regularization to isolate salient features from noise.
+	\begin{itemize}
+		\item \textbf{Params:} $\lambda=0.01$, $\alpha=0.01$.
+		\item \textbf{Uniqueness:} Operates as a noise-filtering feature extraction method by enforcing structural sparsity rather than interaction-based factorization.
+	\end{itemize}
 \end{enumerate}
 
-\vspace{6mm}
+\vspace{2mm}
 
 \section{\textbf{Experimental Results and Metric Divergence}}
 
-The experimental results as shown in Figure \ref{graph_radar_profile} indicate a a big difference between a model's ability to rank movies correctly and its ability to guess the exact rating. While \textbf{Sparse Coding} achieves a near-optimal \textbf{NDCG of 0.99}, its \textbf{Norm\_Accuracy} remains low at \textbf{0.13}.\\
+The experimental results as shown in Table \ref{tab:model_profile_comparison} indicate a a big difference between a model's ability to rank movies correctly and its ability to guess the exact rating. 
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.75]{radar_profile.pdf}}
-	\caption{Models Profile By Measuring Metrics}
-	\label{graph_radar_profile}
-\end{figure}
+While \textbf{Sparse Coding} achieves a near-optimal \textbf{NDCG of 0.99}, its \textbf{Norm\_Accuracy} remains low at \textbf{0.13}.
 
+\begin{table}[h]
+	\centering
+	\caption{Model Profile Comparison}
+	\label{tab:model_profile_comparison}
+	\footnotesize 
+	\setlength{\tabcolsep}{2.5pt} 
+	\begin{tabular}{|l|ccccc|}
+		\hline
+		\textbf{Model} & \textbf{F1} & \textbf{Rec.} & \textbf{Prec.} & \textbf{N-Acc.} & \textbf{NDCG} \\ \hline
+		Funk SVD       & 0.64  & 0.51  & 0.86  & 0.05  & 0.89  \\
+		LFM-SGD        & 0.64  & 0.51  & 0.86  & 0.07  & 0.90  \\
+		Sparse Coding  & 0.67  & 0.53  & 0.90  & 0.13  & 0.99  \\ \hline
+	\end{tabular}
+\end{table}
+\vspace{8mm}
+While \textbf{Sparse Coding} achieves a near-optimal \textbf{NDCG of 0.99}, its \textbf{Norm\_Accuracy} remains low at \textbf{0.13}.
 \indent This divergence suggests that the model effectively captures relative preference hierarchies (ranking) despite high absolute error in point-wise rating prediction ($Norm\_Accuracy = 1 - RMSE_{test}$).
 
 Similarly, \textbf{LFM-SGD} and \textbf{Funk SVD} demonstrate robust ranking capabilities with \textbf{NDCG} values of \textbf{0.90} and \textbf{0.89} respectively, yet yield negligible \textbf{Norm\_Accuracy} scores ($\le 0.07$).\\
 \indent This gap shows that while models understand which movies a user likes more than others, they struggle to hit adequate \textbf{RMSE}.\\ 
 \indent Consequently, these models are highly effective for recommendation retrieval where item ordering is prioritized over exact rating accuracy.
 
-\vspace{6mm}
 
 \section{\textbf{Discussion}}
 
 \subsection{\textbf{Comparative Model Performance}}
 
 The performance analysis in Figure \ref{graph_error_comparison} reveals a consistent trend in generalization, with test error remaining comparable to training error across all models.\\
-\indent This stability suggests that underlying patterns were captured without significant overfitting; however, the \textbf{persistent magnitude of the RMSE} indicates that the models have reached a predictive floor.
+\indent This stability suggests that underlying patterns were captured without significant overfitting; however, \textbf{the persistent magnitude of the RMSE} indicates that the models have reached a predictive floor.
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.60]{error_comparison.pdf}}
+	\centerline{\includegraphics[scale=0.50]{error_comparison.pdf}}
 	\caption{Error Comparison by Model}
 	\label{graph_error_comparison}
 \end{figure} 
 
-Sparse Coding demonstrates the highest efficiency, achieving the lowest MAE and RMSE values. Its superior training and test results indicate it is the most capable model for mapping user features to ratings.
+\textbf{Sparse Coding} demonstrates the greatest predictive accuracy, achieving the lowest MAE and RMSE values on the test set.\\
+\indent Despite a higher training error relative to \textbf{LFM-SGD}, its superior performance on unseen data indicates a high capacity for generalizing user features to ratings without overfitting.
 
-In contrast, \textbf{LFM-SGD} and \textbf{Funk SVD} exhibit higher baseline error rates. While their training and test metrics are closely aligned, their higher values indicate less precision in predicting exact ratings compared to \textbf{Sparse Coding}.
+In contrast, \textbf{LFM-SGD} and \textbf{Funk SVD} exhibit higher baseline error rates. Although their training and test metrics are closely aligned---suggesting stability---their higher absolute values reflect lower precision in predicting exact ratings compared to \textbf{Sparse Coding}.
+
+\newpage
 
 \subsection{\textbf{Model Generalization}}
 
@@ -127,7 +161,7 @@ Observing the slope graph in Figure \ref{graph_ndcg_slope} \textbf{Sparse Coding
 
 \textbf{Funk SVD} exhibited a unique upward trend, with its \text{NDCG} rising from $0.88$ during training to $0.89$ in the testing phase. This slight improvement suggests the model is highly robust and effectively avoids overfitting.
 
-\textbf{LFM-SGD} proved to be the weakest model in generalization. Its \text{NDCG} dropped sharply from $0.94$ on the training set to below $0.90$ on the test set.\\
+\textbf{LFM-SGD} proved to be the weakest model in generalization. Its \text{NDCG} dropped sharply from $0.94$ on the training set to around $0.90$ on the test set.\\
 \indent This significant decline represents the largest generalization gap in the analysis, indicating substantial overfitting.
 
 \newpage
@@ -135,7 +169,7 @@ Observing the slope graph in Figure \ref{graph_ndcg_slope} \textbf{Sparse Coding
 \subsection{\textbf{Evaluating Model Recommendation Efficacy}}
 
 The visualization highlights shown in Figure \ref{graph_precision_vs_cecall} the trade-off between \textbf{Precision (the quality of recommendations)} and \textbf{Recall (the breadth of recommendations)}.\\
-\indent \textbf{Sparse Coding} emerges as the superior model, occupying the top-right position with a \textbf{Precision} $\approx 0.90$ and \textbf{Recall} $\approx 0.54$, effectively maximizing relevance while minimizing noise.
+\indent \textbf{Sparse Coding} emerges as the superior model, occupying the top-right position with a \textbf{Precision} $\approx 0.904$ and \textbf{Recall} $\approx 0.534$, effectively maximizing relevance while minimizing noise.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=.80]{pr_scatter.pdf}}
@@ -143,8 +177,8 @@ The visualization highlights shown in Figure \ref{graph_precision_vs_cecall} the
 	\label{graph_precision_vs_cecall}
 \end{figure}
 
-\textbf{LFM-SGD} occupies the middle tier, yielding a \textbf{Precision} $\approx 0.86$ and \textbf{Recall} $\approx 0.51$.\\
-\indent Finally, \textbf{Funk SVD} is the least performant model, sitting at the base of the cluster with a \textbf{Precision} of 0.85 and the lowest \textbf{Recall} at 0.50, capturing the smallest portion of relevant items.
+\textbf{LFM-SGD} occupies the middle tier, yielding a \textbf{Precision} $\approx 0.864$ and \textbf{Recall} $\approx 0.512$.\\
+\indent Finally, \textbf{Funk SVD} is the least performant model, sitting at the base of the cluster with a \textbf{Precision} of  $\approx 0.858$ and the lowest \textbf{Recall} at $\approx 0.51$, capturing the smallest portion of relevant items.
 
 \vspace{10mm}
 
@@ -159,7 +193,7 @@ The inclusion of \textbf{NDCG} was essential for this evaluation. While \textbf{
 \indent \textbf{Sparse Coding} achieved a near-perfect \textbf{NDCG} of 0.99, demonstrating that it effectively find and recommend the right movies even when absolute predictions contain noise. 
 
 For real-world systems, where "top-$N$" accuracy is paramount, ranking proficiency is a more vital indicator of user satisfaction than \textbf{RMSE}.\\
-\indent The superior performance of \textbf{Sparse Coding} across \textbf{Precision-Recall}, \textbf{NDCG}, and \textbf{RMSE}---relative to both \textbf{Funk SVD} and \textbf{LFM-SGD}---confirms its enhanced ability to isolate salient features within sparse matrices.\\
+\indent The superior performance of \textbf{Sparse Coding} across \textbf{Precision-Recall}, \textbf{NDCG}, and \textbf{RMSE}---relative to both \textbf{Funk SVD} and \textbf{LFM-SGD}---confirms its enhanced ability to separate the useful information from the random noise within sparse matrices.\\
 \indent Because \textbf{Sparse Coding} achieves high NDCG and Precision, it ensures that the 'highest predicted ratings' generated by the model truly correspond to the items the user is most likely to enjoy.
 
 \begin{thebibliography}{9} % '9' is for formatting the numbering (up to 9 items)
