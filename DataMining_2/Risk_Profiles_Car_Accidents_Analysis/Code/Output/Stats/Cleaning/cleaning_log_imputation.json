@@ -1,0 +1,17 @@
+{
+  "initial_rows": [881605],
+  "initial_cols": [46],
+  "steps": {
+    "column_removal": {
+      "remaining_cols": [29]
+    },
+    "numeric_imputation": {
+      "rows_changed": [44050],
+      "imputed_columns": ["Temperature(F)", "Humidity(%)", "Pressure(in)", "Visibility(mi)", "Wind_Speed(mph)"]
+    },
+    "character_imputation": {
+      "rows_changed": [19199],
+      "imputed_columns": ["Wind_Direction", "Weather_Condition", "Sunrise_Sunset", "Civil_Twilight", "Nautical_Twilight", "Astronomical_Twilight"]
+    }
+  }
+}

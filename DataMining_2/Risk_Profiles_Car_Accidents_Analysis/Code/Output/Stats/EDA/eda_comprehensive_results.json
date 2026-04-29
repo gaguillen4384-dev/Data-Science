@@ -1,0 +1,2049 @@
+{
+  "metrics_no_imputation": {
+    "data_integrity": {
+      "dimensions": [837555, 27],
+      "duplicates": [15058],
+      "missing_values": {
+        "Severity": [0],
+        "Start_Time": [0],
+        "End_Time": [0],
+        "Distance(mi)": [0],
+        "Temperature(F)": [0],
+        "Pressure(in)": [0],
+        "Visibility(mi)": [0],
+        "Wind_Direction": [1],
+        "Wind_Speed(mph)": [0],
+        "Weather_Condition": [1179],
+        "Amenity": [0],
+        "Bump": [0],
+        "Crossing": [0],
+        "Give_Way": [0],
+        "Junction": [0],
+        "No_Exit": [0],
+        "Railway": [0],
+        "Roundabout": [0],
+        "Station": [0],
+        "Stop": [0],
+        "Traffic_Calming": [0],
+        "Traffic_Signal": [0],
+        "Turning_Loop": [0],
+        "Sunrise_Sunset": [4342],
+        "Civil_Twilight": [4342],
+        "Nautical_Twilight": [4342],
+        "Astronomical_Twilight": [4342]
+      }
+    },
+    "categorical_cardinality": [
+      {
+        "Variable": "Wind_Direction",
+        "Unique_Values": 24
+      },
+      {
+        "Variable": "Weather_Condition",
+        "Unique_Values": 61
+      },
+      {
+        "Variable": "Sunrise_Sunset",
+        "Unique_Values": 3
+      },
+      {
+        "Variable": "Civil_Twilight",
+        "Unique_Values": 3
+      },
+      {
+        "Variable": "Nautical_Twilight",
+        "Unique_Values": 3
+      },
+      {
+        "Variable": "Astronomical_Twilight",
+        "Unique_Values": 3
+      }
+    ],
+    "outlier_counts": {
+      "Severity": [114144],
+      "Distance(mi)": [106304],
+      "Temperature(F)": [25913],
+      "Pressure(in)": [18818],
+      "Visibility(mi)": [83004],
+      "Wind_Speed(mph)": [4939]
+    },
+    "severity_distribution": [
+      {
+        "Severity": 1,
+        "count": 6633
+      },
+      {
+        "Severity": 2,
+        "count": 723411
+      },
+      {
+        "Severity": 3,
+        "count": 95325
+      },
+      {
+        "Severity": 4,
+        "count": 12186
+      }
+    ],
+    "weather_distribution": [
+      {
+        "Weather_Condition": "Fair",
+        "count": 310496
+      },
+      {
+        "Weather_Condition": "Mostly Cloudy",
+        "count": 156664
+      },
+      {
+        "Weather_Condition": "Partly Cloudy",
+        "count": 117448
+      },
+      {
+        "Weather_Condition": "Cloudy",
+        "count": 67513
+      },
+      {
+        "Weather_Condition": "Clear",
+        "count": 48495
+      },
+      {
+        "Weather_Condition": "Light Rain",
+        "count": 33973
+      },
+      {
+        "Weather_Condition": "Scattered Clouds",
+        "count": 25921
+      },
+      {
+        "Weather_Condition": "Overcast",
+        "count": 14320
+      },
+      {
+        "Weather_Condition": "Thunder in the Vicinity",
+        "count": 7810
+      },
+      {
+        "Weather_Condition": "Fog",
+        "count": 7252
+      },
+      {
+        "Weather_Condition": "Rain",
+        "count": 6840
+      },
+      {
+        "Weather_Condition": "Thunder",
+        "count": 6607
+      },
+      {
+        "Weather_Condition": "T-Storm",
+        "count": 4722
+      },
+      {
+        "Weather_Condition": "Heavy Rain",
+        "count": 4481
+      },
+      {
+        "Weather_Condition": "Light Rain with Thunder",
+        "count": 4299
+      }
+    ],
+    "temporal_distributions": {
+      "hourly": [
+        {
+          "hour": 0,
+          "count": 9773
+        },
+        {
+          "hour": 1,
+          "count": 7844
+        },
+        {
+          "hour": 2,
+          "count": 7754
+        },
+        {
+          "hour": 3,
+          "count": 8018
+        },
+        {
+          "hour": 4,
+          "count": 16541
+        },
+        {
+          "hour": 5,
+          "count": 20796
+        },
+        {
+          "hour": 6,
+          "count": 41065
+        },
+        {
+          "hour": 7,
+          "count": 60126
+        },
+        {
+          "hour": 8,
+          "count": 62634
+        },
+        {
+          "hour": 9,
+          "count": 36141
+        },
+        {
+          "hour": 10,
+          "count": 31951
+        },
+        {
+          "hour": 11,
+          "count": 36050
+        },
+        {
+          "hour": 12,
+          "count": 45453
+        },
+        {
+          "hour": 13,
+          "count": 53426
+        },
+        {
+          "hour": 14,
+          "count": 60698
+        },
+        {
+          "hour": 15,
+          "count": 65085
+        },
+        {
+          "hour": 16,
+          "count": 68840
+        },
+        {
+          "hour": 17,
+          "count": 63698
+        },
+        {
+          "hour": 18,
+          "count": 44823
+        },
+        {
+          "hour": 19,
+          "count": 29468
+        },
+        {
+          "hour": 20,
+          "count": 22697
+        },
+        {
+          "hour": 21,
+          "count": 18296
+        },
+        {
+          "hour": 22,
+          "count": 15690
+        },
+        {
+          "hour": 23,
+          "count": 10688
+        }
+      ],
+      "daily_seasonal": [
+        {
+          "weekday": "Sun",
+          "count": 50039
+        },
+        {
+          "weekday": "Mon",
+          "count": 134584
+        },
+        {
+          "weekday": "Tue",
+          "count": 142134
+        },
+        {
+          "weekday": "Wed",
+          "count": 145450
+        },
+        {
+          "weekday": "Thu",
+          "count": 144972
+        },
+        {
+          "weekday": "Fri",
+          "count": 150598
+        },
+        {
+          "weekday": "Sat",
+          "count": 69778
+        }
+      ]
+    },
+    "correlation_matrix": [
+      {
+        "Severity": 1,
+        "Temperature(F)": -0,
+        "Visibility(mi)": -0.0282,
+        "Weather_Condition_Cloudy": -0.0413,
+        "Weather_Condition_Fair": -0.1242,
+        "Weather_Condition_Fog": -0.0101,
+        "Weather_Condition_Heavy Rain": 0.0164,
+        "Weather_Condition_Light Rain": 0.022,
+        "Weather_Condition_Light Rain with Thunder": -0.0051,
+        "Weather_Condition_Mostly Cloudy": 0.019,
+        "Weather_Condition_Other": 0.0162,
+        "Weather_Condition_Overcast": 0.0876,
+        "Weather_Condition_Partly Cloudy": 3.0001e-06,
+        "Weather_Condition_Rain": 0.0162,
+        "Weather_Condition_Scattered Clouds": 0.1174,
+        "Weather_Condition_T-Storm": -0.0037,
+        "Weather_Condition_Thunder": -0.0092,
+        "Weather_Condition_Thunder in the Vicinity": -0.0135,
+        "_row": "Severity"
+      },
+      {
+        "Severity": -0,
+        "Temperature(F)": 1,
+        "Visibility(mi)": 0.1431,
+        "Weather_Condition_Cloudy": -0.1201,
+        "Weather_Condition_Fair": -0.1231,
+        "Weather_Condition_Fog": -0.1037,
+        "Weather_Condition_Heavy Rain": -0.0156,
+        "Weather_Condition_Light Rain": -0.0409,
+        "Weather_Condition_Light Rain with Thunder": 0.0146,
+        "Weather_Condition_Mostly Cloudy": 0.1328,
+        "Weather_Condition_Other": 0.0021,
+        "Weather_Condition_Overcast": -0.0556,
+        "Weather_Condition_Partly Cloudy": 0.1602,
+        "Weather_Condition_Rain": -0.0264,
+        "Weather_Condition_Scattered Clouds": 0.0753,
+        "Weather_Condition_T-Storm": 0.0073,
+        "Weather_Condition_Thunder": 0.0673,
+        "Weather_Condition_Thunder in the Vicinity": 0.0771,
+        "_row": "Temperature(F)"
+      },
+      {
+        "Severity": -0.0282,
+        "Temperature(F)": 0.1431,
+        "Visibility(mi)": 1,
+        "Weather_Condition_Cloudy": 0.0086,
+        "Weather_Condition_Fair": 0.1673,
+        "Weather_Condition_Fog": -0.4897,
+        "Weather_Condition_Heavy Rain": -0.3078,
+        "Weather_Condition_Light Rain": -0.1594,
+        "Weather_Condition_Light Rain with Thunder": -0.0854,
+        "Weather_Condition_Mostly Cloudy": 0.1001,
+        "Weather_Condition_Other": -0.2097,
+        "Weather_Condition_Overcast": -0.0224,
+        "Weather_Condition_Partly Cloudy": 0.0843,
+        "Weather_Condition_Rain": -0.2414,
+        "Weather_Condition_Scattered Clouds": 0.0357,
+        "Weather_Condition_T-Storm": -0.1399,
+        "Weather_Condition_Thunder": 0.006,
+        "Weather_Condition_Thunder in the Vicinity": 0.02,
+        "_row": "Visibility(mi)"
+      },
+      {
+        "Severity": -0.0413,
+        "Temperature(F)": -0.1201,
+        "Visibility(mi)": 0.0086,
+        "Weather_Condition_Cloudy": 1,
+        "Weather_Condition_Fair": -0.2273,
+        "Weather_Condition_Fog": -0.0277,
+        "Weather_Condition_Heavy Rain": -0.0217,
+        "Weather_Condition_Light Rain": -0.0609,
+        "Weather_Condition_Light Rain with Thunder": -0.0213,
+        "Weather_Condition_Mostly Cloudy": -0.142,
+        "Weather_Condition_Other": -0.0472,
+        "Weather_Condition_Overcast": -0.0391,
+        "Weather_Condition_Partly Cloudy": -0.1196,
+        "Weather_Condition_Rain": -0.0269,
+        "Weather_Condition_Scattered Clouds": -0.0529,
+        "Weather_Condition_T-Storm": -0.0223,
+        "Weather_Condition_Thunder": -0.0264,
+        "Weather_Condition_Thunder in the Vicinity": -0.0287,
+        "_row": "Weather_Condition_Cloudy"
+      },
+      {
+        "Severity": -0.1242,
+        "Temperature(F)": -0.1231,
+        "Visibility(mi)": 0.1673,
+        "Weather_Condition_Cloudy": -0.2273,
+        "Weather_Condition_Fair": 1,
+        "Weather_Condition_Fog": -0.0717,
+        "Weather_Condition_Heavy Rain": -0.0563,
+        "Weather_Condition_Light Rain": -0.1578,
+        "Weather_Condition_Light Rain with Thunder": -0.0551,
+        "Weather_Condition_Mostly Cloudy": -0.3682,
+        "Weather_Condition_Other": -0.1222,
+        "Weather_Condition_Overcast": -0.1012,
+        "Weather_Condition_Partly Cloudy": -0.31,
+        "Weather_Condition_Rain": -0.0696,
+        "Weather_Condition_Scattered Clouds": -0.1372,
+        "Weather_Condition_T-Storm": -0.0578,
+        "Weather_Condition_Thunder": -0.0684,
+        "Weather_Condition_Thunder in the Vicinity": -0.0745,
+        "_row": "Weather_Condition_Fair"
+      },
+      {
+        "Severity": -0.0101,
+        "Temperature(F)": -0.1037,
+        "Visibility(mi)": -0.4897,
+        "Weather_Condition_Cloudy": -0.0277,
+        "Weather_Condition_Fair": -0.0717,
+        "Weather_Condition_Fog": 1,
+        "Weather_Condition_Heavy Rain": -0.0069,
+        "Weather_Condition_Light Rain": -0.0192,
+        "Weather_Condition_Light Rain with Thunder": -0.0067,
+        "Weather_Condition_Mostly Cloudy": -0.0448,
+        "Weather_Condition_Other": -0.0149,
+        "Weather_Condition_Overcast": -0.0123,
+        "Weather_Condition_Partly Cloudy": -0.0377,
+        "Weather_Condition_Rain": -0.0085,
+        "Weather_Condition_Scattered Clouds": -0.0167,
+        "Weather_Condition_T-Storm": -0.007,
+        "Weather_Condition_Thunder": -0.0083,
+        "Weather_Condition_Thunder in the Vicinity": -0.0091,
+        "_row": "Weather_Condition_Fog"
+      },
+      {
+        "Severity": 0.0164,
+        "Temperature(F)": -0.0156,
+        "Visibility(mi)": -0.3078,
+        "Weather_Condition_Cloudy": -0.0217,
+        "Weather_Condition_Fair": -0.0563,
+        "Weather_Condition_Fog": -0.0069,
+        "Weather_Condition_Heavy Rain": 1,
+        "Weather_Condition_Light Rain": -0.0151,
+        "Weather_Condition_Light Rain with Thunder": -0.0053,
+        "Weather_Condition_Mostly Cloudy": -0.0352,
+        "Weather_Condition_Other": -0.0117,
+        "Weather_Condition_Overcast": -0.0097,
+        "Weather_Condition_Partly Cloudy": -0.0296,
+        "Weather_Condition_Rain": -0.0067,
+        "Weather_Condition_Scattered Clouds": -0.0131,
+        "Weather_Condition_T-Storm": -0.0055,
+        "Weather_Condition_Thunder": -0.0065,
+        "Weather_Condition_Thunder in the Vicinity": -0.0071,
+        "_row": "Weather_Condition_Heavy Rain"
+      },
+      {
+        "Severity": 0.022,
+        "Temperature(F)": -0.0409,
+        "Visibility(mi)": -0.1594,
+        "Weather_Condition_Cloudy": -0.0609,
+        "Weather_Condition_Fair": -0.1578,
+        "Weather_Condition_Fog": -0.0192,
+        "Weather_Condition_Heavy Rain": -0.0151,
+        "Weather_Condition_Light Rain": 1,
+        "Weather_Condition_Light Rain with Thunder": -0.0148,
+        "Weather_Condition_Mostly Cloudy": -0.0986,
+        "Weather_Condition_Other": -0.0327,
+        "Weather_Condition_Overcast": -0.0271,
+        "Weather_Condition_Partly Cloudy": -0.083,
+        "Weather_Condition_Rain": -0.0187,
+        "Weather_Condition_Scattered Clouds": -0.0367,
+        "Weather_Condition_T-Storm": -0.0155,
+        "Weather_Condition_Thunder": -0.0183,
+        "Weather_Condition_Thunder in the Vicinity": -0.0199,
+        "_row": "Weather_Condition_Light Rain"
+      },
+      {
+        "Severity": -0.0051,
+        "Temperature(F)": 0.0146,
+        "Visibility(mi)": -0.0854,
+        "Weather_Condition_Cloudy": -0.0213,
+        "Weather_Condition_Fair": -0.0551,
+        "Weather_Condition_Fog": -0.0067,
+        "Weather_Condition_Heavy Rain": -0.0053,
+        "Weather_Condition_Light Rain": -0.0148,
+        "Weather_Condition_Light Rain with Thunder": 1,
+        "Weather_Condition_Mostly Cloudy": -0.0345,
+        "Weather_Condition_Other": -0.0114,
+        "Weather_Condition_Overcast": -0.0095,
+        "Weather_Condition_Partly Cloudy": -0.029,
+        "Weather_Condition_Rain": -0.0065,
+        "Weather_Condition_Scattered Clouds": -0.0128,
+        "Weather_Condition_T-Storm": -0.0054,
+        "Weather_Condition_Thunder": -0.0064,
+        "Weather_Condition_Thunder in the Vicinity": -0.007,
+        "_row": "Weather_Condition_Light Rain with Thunder"
+      },
+      {
+        "Severity": 0.019,
+        "Temperature(F)": 0.1328,
+        "Visibility(mi)": 0.1001,
+        "Weather_Condition_Cloudy": -0.142,
+        "Weather_Condition_Fair": -0.3682,
+        "Weather_Condition_Fog": -0.0448,
+        "Weather_Condition_Heavy Rain": -0.0352,
+        "Weather_Condition_Light Rain": -0.0986,
+        "Weather_Condition_Light Rain with Thunder": -0.0345,
+        "Weather_Condition_Mostly Cloudy": 1,
+        "Weather_Condition_Other": -0.0764,
+        "Weather_Condition_Overcast": -0.0633,
+        "Weather_Condition_Partly Cloudy": -0.1937,
+        "Weather_Condition_Rain": -0.0435,
+        "Weather_Condition_Scattered Clouds": -0.0857,
+        "Weather_Condition_T-Storm": -0.0361,
+        "Weather_Condition_Thunder": -0.0428,
+        "Weather_Condition_Thunder in the Vicinity": -0.0465,
+        "_row": "Weather_Condition_Mostly Cloudy"
+      },
+      {
+        "Severity": 0.0162,
+        "Temperature(F)": 0.0021,
+        "Visibility(mi)": -0.2097,
+        "Weather_Condition_Cloudy": -0.0472,
+        "Weather_Condition_Fair": -0.1222,
+        "Weather_Condition_Fog": -0.0149,
+        "Weather_Condition_Heavy Rain": -0.0117,
+        "Weather_Condition_Light Rain": -0.0327,
+        "Weather_Condition_Light Rain with Thunder": -0.0114,
+        "Weather_Condition_Mostly Cloudy": -0.0764,
+        "Weather_Condition_Other": 1,
+        "Weather_Condition_Overcast": -0.021,
+        "Weather_Condition_Partly Cloudy": -0.0643,
+        "Weather_Condition_Rain": -0.0144,
+        "Weather_Condition_Scattered Clouds": -0.0285,
+        "Weather_Condition_T-Storm": -0.012,
+        "Weather_Condition_Thunder": -0.0142,
+        "Weather_Condition_Thunder in the Vicinity": -0.0154,
+        "_row": "Weather_Condition_Other"
+      },
+      {
+        "Severity": 0.0876,
+        "Temperature(F)": -0.0556,
+        "Visibility(mi)": -0.0224,
+        "Weather_Condition_Cloudy": -0.0391,
+        "Weather_Condition_Fair": -0.1012,
+        "Weather_Condition_Fog": -0.0123,
+        "Weather_Condition_Heavy Rain": -0.0097,
+        "Weather_Condition_Light Rain": -0.0271,
+        "Weather_Condition_Light Rain with Thunder": -0.0095,
+        "Weather_Condition_Mostly Cloudy": -0.0633,
+        "Weather_Condition_Other": -0.021,
+        "Weather_Condition_Overcast": 1,
+        "Weather_Condition_Partly Cloudy": -0.0533,
+        "Weather_Condition_Rain": -0.012,
+        "Weather_Condition_Scattered Clouds": -0.0236,
+        "Weather_Condition_T-Storm": -0.0099,
+        "Weather_Condition_Thunder": -0.0118,
+        "Weather_Condition_Thunder in the Vicinity": -0.0128,
+        "_row": "Weather_Condition_Overcast"
+      },
+      {
+        "Severity": 3.0001e-06,
+        "Temperature(F)": 0.1602,
+        "Visibility(mi)": 0.0843,
+        "Weather_Condition_Cloudy": -0.1196,
+        "Weather_Condition_Fair": -0.31,
+        "Weather_Condition_Fog": -0.0377,
+        "Weather_Condition_Heavy Rain": -0.0296,
+        "Weather_Condition_Light Rain": -0.083,
+        "Weather_Condition_Light Rain with Thunder": -0.029,
+        "Weather_Condition_Mostly Cloudy": -0.1937,
+        "Weather_Condition_Other": -0.0643,
+        "Weather_Condition_Overcast": -0.0533,
+        "Weather_Condition_Partly Cloudy": 1,
+        "Weather_Condition_Rain": -0.0366,
+        "Weather_Condition_Scattered Clouds": -0.0722,
+        "Weather_Condition_T-Storm": -0.0304,
+        "Weather_Condition_Thunder": -0.036,
+        "Weather_Condition_Thunder in the Vicinity": -0.0392,
+        "_row": "Weather_Condition_Partly Cloudy"
+      },
+      {
+        "Severity": 0.0162,
+        "Temperature(F)": -0.0264,
+        "Visibility(mi)": -0.2414,
+        "Weather_Condition_Cloudy": -0.0269,
+        "Weather_Condition_Fair": -0.0696,
+        "Weather_Condition_Fog": -0.0085,
+        "Weather_Condition_Heavy Rain": -0.0067,
+        "Weather_Condition_Light Rain": -0.0187,
+        "Weather_Condition_Light Rain with Thunder": -0.0065,
+        "Weather_Condition_Mostly Cloudy": -0.0435,
+        "Weather_Condition_Other": -0.0144,
+        "Weather_Condition_Overcast": -0.012,
+        "Weather_Condition_Partly Cloudy": -0.0366,
+        "Weather_Condition_Rain": 1,
+        "Weather_Condition_Scattered Clouds": -0.0162,
+        "Weather_Condition_T-Storm": -0.0068,
+        "Weather_Condition_Thunder": -0.0081,
+        "Weather_Condition_Thunder in the Vicinity": -0.0088,
+        "_row": "Weather_Condition_Rain"
+      },
+      {
+        "Severity": 0.1174,
+        "Temperature(F)": 0.0753,
+        "Visibility(mi)": 0.0357,
+        "Weather_Condition_Cloudy": -0.0529,
+        "Weather_Condition_Fair": -0.1372,
+        "Weather_Condition_Fog": -0.0167,
+        "Weather_Condition_Heavy Rain": -0.0131,
+        "Weather_Condition_Light Rain": -0.0367,
+        "Weather_Condition_Light Rain with Thunder": -0.0128,
+        "Weather_Condition_Mostly Cloudy": -0.0857,
+        "Weather_Condition_Other": -0.0285,
+        "Weather_Condition_Overcast": -0.0236,
+        "Weather_Condition_Partly Cloudy": -0.0722,
+        "Weather_Condition_Rain": -0.0162,
+        "Weather_Condition_Scattered Clouds": 1,
+        "Weather_Condition_T-Storm": -0.0135,
+        "Weather_Condition_Thunder": -0.0159,
+        "Weather_Condition_Thunder in the Vicinity": -0.0173,
+        "_row": "Weather_Condition_Scattered Clouds"
+      },
+      {
+        "Severity": -0.0037,
+        "Temperature(F)": 0.0073,
+        "Visibility(mi)": -0.1399,
+        "Weather_Condition_Cloudy": -0.0223,
+        "Weather_Condition_Fair": -0.0578,
+        "Weather_Condition_Fog": -0.007,
+        "Weather_Condition_Heavy Rain": -0.0055,
+        "Weather_Condition_Light Rain": -0.0155,
+        "Weather_Condition_Light Rain with Thunder": -0.0054,
+        "Weather_Condition_Mostly Cloudy": -0.0361,
+        "Weather_Condition_Other": -0.012,
+        "Weather_Condition_Overcast": -0.0099,
+        "Weather_Condition_Partly Cloudy": -0.0304,
+        "Weather_Condition_Rain": -0.0068,
+        "Weather_Condition_Scattered Clouds": -0.0135,
+        "Weather_Condition_T-Storm": 1,
+        "Weather_Condition_Thunder": -0.0067,
+        "Weather_Condition_Thunder in the Vicinity": -0.0073,
+        "_row": "Weather_Condition_T-Storm"
+      },
+      {
+        "Severity": -0.0092,
+        "Temperature(F)": 0.0673,
+        "Visibility(mi)": 0.006,
+        "Weather_Condition_Cloudy": -0.0264,
+        "Weather_Condition_Fair": -0.0684,
+        "Weather_Condition_Fog": -0.0083,
+        "Weather_Condition_Heavy Rain": -0.0065,
+        "Weather_Condition_Light Rain": -0.0183,
+        "Weather_Condition_Light Rain with Thunder": -0.0064,
+        "Weather_Condition_Mostly Cloudy": -0.0428,
+        "Weather_Condition_Other": -0.0142,
+        "Weather_Condition_Overcast": -0.0118,
+        "Weather_Condition_Partly Cloudy": -0.036,
+        "Weather_Condition_Rain": -0.0081,
+        "Weather_Condition_Scattered Clouds": -0.0159,
+        "Weather_Condition_T-Storm": -0.0067,
+        "Weather_Condition_Thunder": 1,
+        "Weather_Condition_Thunder in the Vicinity": -0.0087,
+        "_row": "Weather_Condition_Thunder"
+      },
+      {
+        "Severity": -0.0135,
+        "Temperature(F)": 0.0771,
+        "Visibility(mi)": 0.02,
+        "Weather_Condition_Cloudy": -0.0287,
+        "Weather_Condition_Fair": -0.0745,
+        "Weather_Condition_Fog": -0.0091,
+        "Weather_Condition_Heavy Rain": -0.0071,
+        "Weather_Condition_Light Rain": -0.0199,
+        "Weather_Condition_Light Rain with Thunder": -0.007,
+        "Weather_Condition_Mostly Cloudy": -0.0465,
+        "Weather_Condition_Other": -0.0154,
+        "Weather_Condition_Overcast": -0.0128,
+        "Weather_Condition_Partly Cloudy": -0.0392,
+        "Weather_Condition_Rain": -0.0088,
+        "Weather_Condition_Scattered Clouds": -0.0173,
+        "Weather_Condition_T-Storm": -0.0073,
+        "Weather_Condition_Thunder": -0.0087,
+        "Weather_Condition_Thunder in the Vicinity": 1,
+        "_row": "Weather_Condition_Thunder in the Vicinity"
+      }
+    ]
+  },
+  "metrics_with_imputation": {
+    "data_integrity": {
+      "dimensions": [881605, 27],
+      "duplicates": [15872],
+      "missing_values": {
+        "Severity": [0],
+        "Start_Time": [0],
+        "End_Time": [0],
+        "Distance(mi)": [0],
+        "Temperature(F)": [0],
+        "Pressure(in)": [0],
+        "Visibility(mi)": [0],
+        "Wind_Direction": [0],
+        "Wind_Speed(mph)": [0],
+        "Weather_Condition": [0],
+        "Amenity": [0],
+        "Bump": [0],
+        "Crossing": [0],
+        "Give_Way": [0],
+        "Junction": [0],
+        "No_Exit": [0],
+        "Railway": [0],
+        "Roundabout": [0],
+        "Station": [0],
+        "Stop": [0],
+        "Traffic_Calming": [0],
+        "Traffic_Signal": [0],
+        "Turning_Loop": [0],
+        "Sunrise_Sunset": [0],
+        "Civil_Twilight": [0],
+        "Nautical_Twilight": [0],
+        "Astronomical_Twilight": [0]
+      }
+    },
+    "categorical_cardinality": [
+      {
+        "Variable": "Wind_Direction",
+        "Unique_Values": 24
+      },
+      {
+        "Variable": "Weather_Condition",
+        "Unique_Values": 63
+      },
+      {
+        "Variable": "Sunrise_Sunset",
+        "Unique_Values": 2
+      },
+      {
+        "Variable": "Civil_Twilight",
+        "Unique_Values": 2
+      },
+      {
+        "Variable": "Nautical_Twilight",
+        "Unique_Values": 2
+      },
+      {
+        "Variable": "Astronomical_Twilight",
+        "Unique_Values": 2
+      }
+    ],
+    "outlier_counts": {
+      "Severity": [124839],
+      "Distance(mi)": [112295],
+      "Temperature(F)": [28084],
+      "Pressure(in)": [19533],
+      "Visibility(mi)": [89641],
+      "Wind_Speed(mph)": [5022]
+    },
+    "severity_distribution": [
+      {
+        "Severity": 1,
+        "count": 7083
+      },
+      {
+        "Severity": 2,
+        "count": 756766
+      },
+      {
+        "Severity": 3,
+        "count": 104349
+      },
+      {
+        "Severity": 4,
+        "count": 13407
+      }
+    ],
+    "weather_distribution": [
+      {
+        "Weather_Condition": "Fair",
+        "count": 326756
+      },
+      {
+        "Weather_Condition": "Mostly Cloudy",
+        "count": 160920
+      },
+      {
+        "Weather_Condition": "Partly Cloudy",
+        "count": 121326
+      },
+      {
+        "Weather_Condition": "Cloudy",
+        "count": 68910
+      },
+      {
+        "Weather_Condition": "Clear",
+        "count": 59335
+      },
+      {
+        "Weather_Condition": "Light Rain",
+        "count": 35126
+      },
+      {
+        "Weather_Condition": "Scattered Clouds",
+        "count": 28747
+      },
+      {
+        "Weather_Condition": "Overcast",
+        "count": 15950
+      },
+      {
+        "Weather_Condition": "Fog",
+        "count": 8085
+      },
+      {
+        "Weather_Condition": "Thunder in the Vicinity",
+        "count": 7977
+      },
+      {
+        "Weather_Condition": "Rain",
+        "count": 7166
+      },
+      {
+        "Weather_Condition": "Thunder",
+        "count": 6726
+      },
+      {
+        "Weather_Condition": "T-Storm",
+        "count": 4841
+      },
+      {
+        "Weather_Condition": "Heavy Rain",
+        "count": 4688
+      },
+      {
+        "Weather_Condition": "Light Rain with Thunder",
+        "count": 4347
+      }
+    ],
+    "temporal_distributions": {
+      "hourly": [
+        {
+          "hour": 0,
+          "count": 10423
+        },
+        {
+          "hour": 1,
+          "count": 8406
+        },
+        {
+          "hour": 2,
+          "count": 8336
+        },
+        {
+          "hour": 3,
+          "count": 8639
+        },
+        {
+          "hour": 4,
+          "count": 18191
+        },
+        {
+          "hour": 5,
+          "count": 23022
+        },
+        {
+          "hour": 6,
+          "count": 45604
+        },
+        {
+          "hour": 7,
+          "count": 66141
+        },
+        {
+          "hour": 8,
+          "count": 67378
+        },
+        {
+          "hour": 9,
+          "count": 38152
+        },
+        {
+          "hour": 10,
+          "count": 33487
+        },
+        {
+          "hour": 11,
+          "count": 37533
+        },
+        {
+          "hour": 12,
+          "count": 47104
+        },
+        {
+          "hour": 13,
+          "count": 55447
+        },
+        {
+          "hour": 14,
+          "count": 62404
+        },
+        {
+          "hour": 15,
+          "count": 66802
+        },
+        {
+          "hour": 16,
+          "count": 70578
+        },
+        {
+          "hour": 17,
+          "count": 65507
+        },
+        {
+          "hour": 18,
+          "count": 46285
+        },
+        {
+          "hour": 19,
+          "count": 30783
+        },
+        {
+          "hour": 20,
+          "count": 24080
+        },
+        {
+          "hour": 21,
+          "count": 19288
+        },
+        {
+          "hour": 22,
+          "count": 16670
+        },
+        {
+          "hour": 23,
+          "count": 11345
+        }
+      ],
+      "daily_seasonal": [
+        {
+          "weekday": "Sun",
+          "count": 53147
+        },
+        {
+          "weekday": "Mon",
+          "count": 141876
+        },
+        {
+          "weekday": "Tue",
+          "count": 149999
+        },
+        {
+          "weekday": "Wed",
+          "count": 152837
+        },
+        {
+          "weekday": "Thu",
+          "count": 152667
+        },
+        {
+          "weekday": "Fri",
+          "count": 158372
+        },
+        {
+          "weekday": "Sat",
+          "count": 72707
+        }
+      ]
+    },
+    "correlation_matrix": [
+      {
+        "Severity": 1,
+        "Temperature(F)": -0.0037,
+        "Visibility(mi)": -0.0296,
+        "Weather_Condition_Cloudy": -0.0444,
+        "Weather_Condition_Fair": -0.1282,
+        "Weather_Condition_Fog": -0.0092,
+        "Weather_Condition_Heavy Rain": 0.0154,
+        "Weather_Condition_Light Rain": 0.0214,
+        "Weather_Condition_Light Rain with Thunder": -0.0057,
+        "Weather_Condition_Mostly Cloudy": 0.0166,
+        "Weather_Condition_Other": 0.0136,
+        "Weather_Condition_Overcast": 0.0877,
+        "Weather_Condition_Partly Cloudy": -0.0016,
+        "Weather_Condition_Rain": 0.0162,
+        "Weather_Condition_Scattered Clouds": 0.1172,
+        "Weather_Condition_T-Storm": -0.0044,
+        "Weather_Condition_Thunder": -0.0099,
+        "Weather_Condition_Thunder in the Vicinity": -0.0144,
+        "_row": "Severity"
+      },
+      {
+        "Severity": -0.0037,
+        "Temperature(F)": 1,
+        "Visibility(mi)": 0.1463,
+        "Weather_Condition_Cloudy": -0.1149,
+        "Weather_Condition_Fair": -0.1107,
+        "Weather_Condition_Fog": -0.1042,
+        "Weather_Condition_Heavy Rain": -0.0145,
+        "Weather_Condition_Light Rain": -0.0376,
+        "Weather_Condition_Light Rain with Thunder": 0.015,
+        "Weather_Condition_Mostly Cloudy": 0.1315,
+        "Weather_Condition_Other": 0.0005,
+        "Weather_Condition_Overcast": -0.0554,
+        "Weather_Condition_Partly Cloudy": 0.1566,
+        "Weather_Condition_Rain": -0.0247,
+        "Weather_Condition_Scattered Clouds": 0.0739,
+        "Weather_Condition_T-Storm": 0.0085,
+        "Weather_Condition_Thunder": 0.0661,
+        "Weather_Condition_Thunder in the Vicinity": 0.0759,
+        "_row": "Temperature(F)"
+      },
+      {
+        "Severity": -0.0296,
+        "Temperature(F)": 0.1463,
+        "Visibility(mi)": 1,
+        "Weather_Condition_Cloudy": 0.0101,
+        "Weather_Condition_Fair": 0.1704,
+        "Weather_Condition_Fog": -0.4963,
+        "Weather_Condition_Heavy Rain": -0.3008,
+        "Weather_Condition_Light Rain": -0.1535,
+        "Weather_Condition_Light Rain with Thunder": -0.0818,
+        "Weather_Condition_Mostly Cloudy": 0.0985,
+        "Weather_Condition_Other": -0.2154,
+        "Weather_Condition_Overcast": -0.0262,
+        "Weather_Condition_Partly Cloudy": 0.0832,
+        "Weather_Condition_Rain": -0.2352,
+        "Weather_Condition_Scattered Clouds": 0.0337,
+        "Weather_Condition_T-Storm": -0.1343,
+        "Weather_Condition_Thunder": 0.0058,
+        "Weather_Condition_Thunder in the Vicinity": 0.0202,
+        "_row": "Visibility(mi)"
+      },
+      {
+        "Severity": -0.0444,
+        "Temperature(F)": -0.1149,
+        "Visibility(mi)": 0.0101,
+        "Weather_Condition_Cloudy": 1,
+        "Weather_Condition_Fair": -0.2235,
+        "Weather_Condition_Fog": -0.028,
+        "Weather_Condition_Heavy Rain": -0.0213,
+        "Weather_Condition_Light Rain": -0.0593,
+        "Weather_Condition_Light Rain with Thunder": -0.0205,
+        "Weather_Condition_Mostly Cloudy": -0.1376,
+        "Weather_Condition_Other": -0.0452,
+        "Weather_Condition_Overcast": -0.0395,
+        "Weather_Condition_Partly Cloudy": -0.1163,
+        "Weather_Condition_Rain": -0.0264,
+        "Weather_Condition_Scattered Clouds": -0.0535,
+        "Weather_Condition_T-Storm": -0.0216,
+        "Weather_Condition_Thunder": -0.0255,
+        "Weather_Condition_Thunder in the Vicinity": -0.0278,
+        "_row": "Weather_Condition_Cloudy"
+      },
+      {
+        "Severity": -0.1282,
+        "Temperature(F)": -0.1107,
+        "Visibility(mi)": 0.1704,
+        "Weather_Condition_Cloudy": -0.2235,
+        "Weather_Condition_Fair": 1,
+        "Weather_Condition_Fog": -0.0738,
+        "Weather_Condition_Heavy Rain": -0.0561,
+        "Weather_Condition_Light Rain": -0.1563,
+        "Weather_Condition_Light Rain with Thunder": -0.054,
+        "Weather_Condition_Mostly Cloudy": -0.3626,
+        "Weather_Condition_Other": -0.119,
+        "Weather_Condition_Overcast": -0.1042,
+        "Weather_Condition_Partly Cloudy": -0.3066,
+        "Weather_Condition_Rain": -0.0695,
+        "Weather_Condition_Scattered Clouds": -0.1409,
+        "Weather_Condition_T-Storm": -0.057,
+        "Weather_Condition_Thunder": -0.0673,
+        "Weather_Condition_Thunder in the Vicinity": -0.0733,
+        "_row": "Weather_Condition_Fair"
+      },
+      {
+        "Severity": -0.0092,
+        "Temperature(F)": -0.1042,
+        "Visibility(mi)": -0.4963,
+        "Weather_Condition_Cloudy": -0.028,
+        "Weather_Condition_Fair": -0.0738,
+        "Weather_Condition_Fog": 1,
+        "Weather_Condition_Heavy Rain": -0.007,
+        "Weather_Condition_Light Rain": -0.0196,
+        "Weather_Condition_Light Rain with Thunder": -0.0068,
+        "Weather_Condition_Mostly Cloudy": -0.0455,
+        "Weather_Condition_Other": -0.0149,
+        "Weather_Condition_Overcast": -0.0131,
+        "Weather_Condition_Partly Cloudy": -0.0384,
+        "Weather_Condition_Rain": -0.0087,
+        "Weather_Condition_Scattered Clouds": -0.0177,
+        "Weather_Condition_T-Storm": -0.0071,
+        "Weather_Condition_Thunder": -0.0084,
+        "Weather_Condition_Thunder in the Vicinity": -0.0092,
+        "_row": "Weather_Condition_Fog"
+      },
+      {
+        "Severity": 0.0154,
+        "Temperature(F)": -0.0145,
+        "Visibility(mi)": -0.3008,
+        "Weather_Condition_Cloudy": -0.0213,
+        "Weather_Condition_Fair": -0.0561,
+        "Weather_Condition_Fog": -0.007,
+        "Weather_Condition_Heavy Rain": 1,
+        "Weather_Condition_Light Rain": -0.0149,
+        "Weather_Condition_Light Rain with Thunder": -0.0051,
+        "Weather_Condition_Mostly Cloudy": -0.0345,
+        "Weather_Condition_Other": -0.0113,
+        "Weather_Condition_Overcast": -0.0099,
+        "Weather_Condition_Partly Cloudy": -0.0292,
+        "Weather_Condition_Rain": -0.0066,
+        "Weather_Condition_Scattered Clouds": -0.0134,
+        "Weather_Condition_T-Storm": -0.0054,
+        "Weather_Condition_Thunder": -0.0064,
+        "Weather_Condition_Thunder in the Vicinity": -0.007,
+        "_row": "Weather_Condition_Heavy Rain"
+      },
+      {
+        "Severity": 0.0214,
+        "Temperature(F)": -0.0376,
+        "Visibility(mi)": -0.1535,
+        "Weather_Condition_Cloudy": -0.0593,
+        "Weather_Condition_Fair": -0.1563,
+        "Weather_Condition_Fog": -0.0196,
+        "Weather_Condition_Heavy Rain": -0.0149,
+        "Weather_Condition_Light Rain": 1,
+        "Weather_Condition_Light Rain with Thunder": -0.0143,
+        "Weather_Condition_Mostly Cloudy": -0.0963,
+        "Weather_Condition_Other": -0.0316,
+        "Weather_Condition_Overcast": -0.0277,
+        "Weather_Condition_Partly Cloudy": -0.0814,
+        "Weather_Condition_Rain": -0.0184,
+        "Weather_Condition_Scattered Clouds": -0.0374,
+        "Weather_Condition_T-Storm": -0.0151,
+        "Weather_Condition_Thunder": -0.0179,
+        "Weather_Condition_Thunder in the Vicinity": -0.0195,
+        "_row": "Weather_Condition_Light Rain"
+      },
+      {
+        "Severity": -0.0057,
+        "Temperature(F)": 0.015,
+        "Visibility(mi)": -0.0818,
+        "Weather_Condition_Cloudy": -0.0205,
+        "Weather_Condition_Fair": -0.054,
+        "Weather_Condition_Fog": -0.0068,
+        "Weather_Condition_Heavy Rain": -0.0051,
+        "Weather_Condition_Light Rain": -0.0143,
+        "Weather_Condition_Light Rain with Thunder": 1,
+        "Weather_Condition_Mostly Cloudy": -0.0333,
+        "Weather_Condition_Other": -0.0109,
+        "Weather_Condition_Overcast": -0.0096,
+        "Weather_Condition_Partly Cloudy": -0.0281,
+        "Weather_Condition_Rain": -0.0064,
+        "Weather_Condition_Scattered Clouds": -0.0129,
+        "Weather_Condition_T-Storm": -0.0052,
+        "Weather_Condition_Thunder": -0.0062,
+        "Weather_Condition_Thunder in the Vicinity": -0.0067,
+        "_row": "Weather_Condition_Light Rain with Thunder"
+      },
+      {
+        "Severity": 0.0166,
+        "Temperature(F)": 0.1315,
+        "Visibility(mi)": 0.0985,
+        "Weather_Condition_Cloudy": -0.1376,
+        "Weather_Condition_Fair": -0.3626,
+        "Weather_Condition_Fog": -0.0455,
+        "Weather_Condition_Heavy Rain": -0.0345,
+        "Weather_Condition_Light Rain": -0.0963,
+        "Weather_Condition_Light Rain with Thunder": -0.0333,
+        "Weather_Condition_Mostly Cloudy": 1,
+        "Weather_Condition_Other": -0.0733,
+        "Weather_Condition_Overcast": -0.0641,
+        "Weather_Condition_Partly Cloudy": -0.1888,
+        "Weather_Condition_Rain": -0.0428,
+        "Weather_Condition_Scattered Clouds": -0.0868,
+        "Weather_Condition_T-Storm": -0.0351,
+        "Weather_Condition_Thunder": -0.0414,
+        "Weather_Condition_Thunder in the Vicinity": -0.0452,
+        "_row": "Weather_Condition_Mostly Cloudy"
+      },
+      {
+        "Severity": 0.0136,
+        "Temperature(F)": 0.0005,
+        "Visibility(mi)": -0.2154,
+        "Weather_Condition_Cloudy": -0.0452,
+        "Weather_Condition_Fair": -0.119,
+        "Weather_Condition_Fog": -0.0149,
+        "Weather_Condition_Heavy Rain": -0.0113,
+        "Weather_Condition_Light Rain": -0.0316,
+        "Weather_Condition_Light Rain with Thunder": -0.0109,
+        "Weather_Condition_Mostly Cloudy": -0.0733,
+        "Weather_Condition_Other": 1,
+        "Weather_Condition_Overcast": -0.0211,
+        "Weather_Condition_Partly Cloudy": -0.062,
+        "Weather_Condition_Rain": -0.014,
+        "Weather_Condition_Scattered Clouds": -0.0285,
+        "Weather_Condition_T-Storm": -0.0115,
+        "Weather_Condition_Thunder": -0.0136,
+        "Weather_Condition_Thunder in the Vicinity": -0.0148,
+        "_row": "Weather_Condition_Other"
+      },
+      {
+        "Severity": 0.0877,
+        "Temperature(F)": -0.0554,
+        "Visibility(mi)": -0.0262,
+        "Weather_Condition_Cloudy": -0.0395,
+        "Weather_Condition_Fair": -0.1042,
+        "Weather_Condition_Fog": -0.0131,
+        "Weather_Condition_Heavy Rain": -0.0099,
+        "Weather_Condition_Light Rain": -0.0277,
+        "Weather_Condition_Light Rain with Thunder": -0.0096,
+        "Weather_Condition_Mostly Cloudy": -0.0641,
+        "Weather_Condition_Other": -0.0211,
+        "Weather_Condition_Overcast": 1,
+        "Weather_Condition_Partly Cloudy": -0.0542,
+        "Weather_Condition_Rain": -0.0123,
+        "Weather_Condition_Scattered Clouds": -0.0249,
+        "Weather_Condition_T-Storm": -0.0101,
+        "Weather_Condition_Thunder": -0.0119,
+        "Weather_Condition_Thunder in the Vicinity": -0.013,
+        "_row": "Weather_Condition_Overcast"
+      },
+      {
+        "Severity": -0.0016,
+        "Temperature(F)": 0.1566,
+        "Visibility(mi)": 0.0832,
+        "Weather_Condition_Cloudy": -0.1163,
+        "Weather_Condition_Fair": -0.3066,
+        "Weather_Condition_Fog": -0.0384,
+        "Weather_Condition_Heavy Rain": -0.0292,
+        "Weather_Condition_Light Rain": -0.0814,
+        "Weather_Condition_Light Rain with Thunder": -0.0281,
+        "Weather_Condition_Mostly Cloudy": -0.1888,
+        "Weather_Condition_Other": -0.062,
+        "Weather_Condition_Overcast": -0.0542,
+        "Weather_Condition_Partly Cloudy": 1,
+        "Weather_Condition_Rain": -0.0362,
+        "Weather_Condition_Scattered Clouds": -0.0733,
+        "Weather_Condition_T-Storm": -0.0297,
+        "Weather_Condition_Thunder": -0.035,
+        "Weather_Condition_Thunder in the Vicinity": -0.0382,
+        "_row": "Weather_Condition_Partly Cloudy"
+      },
+      {
+        "Severity": 0.0162,
+        "Temperature(F)": -0.0247,
+        "Visibility(mi)": -0.2352,
+        "Weather_Condition_Cloudy": -0.0264,
+        "Weather_Condition_Fair": -0.0695,
+        "Weather_Condition_Fog": -0.0087,
+        "Weather_Condition_Heavy Rain": -0.0066,
+        "Weather_Condition_Light Rain": -0.0184,
+        "Weather_Condition_Light Rain with Thunder": -0.0064,
+        "Weather_Condition_Mostly Cloudy": -0.0428,
+        "Weather_Condition_Other": -0.014,
+        "Weather_Condition_Overcast": -0.0123,
+        "Weather_Condition_Partly Cloudy": -0.0362,
+        "Weather_Condition_Rain": 1,
+        "Weather_Condition_Scattered Clouds": -0.0166,
+        "Weather_Condition_T-Storm": -0.0067,
+        "Weather_Condition_Thunder": -0.0079,
+        "Weather_Condition_Thunder in the Vicinity": -0.0087,
+        "_row": "Weather_Condition_Rain"
+      },
+      {
+        "Severity": 0.1172,
+        "Temperature(F)": 0.0739,
+        "Visibility(mi)": 0.0337,
+        "Weather_Condition_Cloudy": -0.0535,
+        "Weather_Condition_Fair": -0.1409,
+        "Weather_Condition_Fog": -0.0177,
+        "Weather_Condition_Heavy Rain": -0.0134,
+        "Weather_Condition_Light Rain": -0.0374,
+        "Weather_Condition_Light Rain with Thunder": -0.0129,
+        "Weather_Condition_Mostly Cloudy": -0.0868,
+        "Weather_Condition_Other": -0.0285,
+        "Weather_Condition_Overcast": -0.0249,
+        "Weather_Condition_Partly Cloudy": -0.0733,
+        "Weather_Condition_Rain": -0.0166,
+        "Weather_Condition_Scattered Clouds": 1,
+        "Weather_Condition_T-Storm": -0.0136,
+        "Weather_Condition_Thunder": -0.0161,
+        "Weather_Condition_Thunder in the Vicinity": -0.0175,
+        "_row": "Weather_Condition_Scattered Clouds"
+      },
+      {
+        "Severity": -0.0044,
+        "Temperature(F)": 0.0085,
+        "Visibility(mi)": -0.1343,
+        "Weather_Condition_Cloudy": -0.0216,
+        "Weather_Condition_Fair": -0.057,
+        "Weather_Condition_Fog": -0.0071,
+        "Weather_Condition_Heavy Rain": -0.0054,
+        "Weather_Condition_Light Rain": -0.0151,
+        "Weather_Condition_Light Rain with Thunder": -0.0052,
+        "Weather_Condition_Mostly Cloudy": -0.0351,
+        "Weather_Condition_Other": -0.0115,
+        "Weather_Condition_Overcast": -0.0101,
+        "Weather_Condition_Partly Cloudy": -0.0297,
+        "Weather_Condition_Rain": -0.0067,
+        "Weather_Condition_Scattered Clouds": -0.0136,
+        "Weather_Condition_T-Storm": 1,
+        "Weather_Condition_Thunder": -0.0065,
+        "Weather_Condition_Thunder in the Vicinity": -0.0071,
+        "_row": "Weather_Condition_T-Storm"
+      },
+      {
+        "Severity": -0.0099,
+        "Temperature(F)": 0.0661,
+        "Visibility(mi)": 0.0058,
+        "Weather_Condition_Cloudy": -0.0255,
+        "Weather_Condition_Fair": -0.0673,
+        "Weather_Condition_Fog": -0.0084,
+        "Weather_Condition_Heavy Rain": -0.0064,
+        "Weather_Condition_Light Rain": -0.0179,
+        "Weather_Condition_Light Rain with Thunder": -0.0062,
+        "Weather_Condition_Mostly Cloudy": -0.0414,
+        "Weather_Condition_Other": -0.0136,
+        "Weather_Condition_Overcast": -0.0119,
+        "Weather_Condition_Partly Cloudy": -0.035,
+        "Weather_Condition_Rain": -0.0079,
+        "Weather_Condition_Scattered Clouds": -0.0161,
+        "Weather_Condition_T-Storm": -0.0065,
+        "Weather_Condition_Thunder": 1,
+        "Weather_Condition_Thunder in the Vicinity": -0.0084,
+        "_row": "Weather_Condition_Thunder"
+      },
+      {
+        "Severity": -0.0144,
+        "Temperature(F)": 0.0759,
+        "Visibility(mi)": 0.0202,
+        "Weather_Condition_Cloudy": -0.0278,
+        "Weather_Condition_Fair": -0.0733,
+        "Weather_Condition_Fog": -0.0092,
+        "Weather_Condition_Heavy Rain": -0.007,
+        "Weather_Condition_Light Rain": -0.0195,
+        "Weather_Condition_Light Rain with Thunder": -0.0067,
+        "Weather_Condition_Mostly Cloudy": -0.0452,
+        "Weather_Condition_Other": -0.0148,
+        "Weather_Condition_Overcast": -0.013,
+        "Weather_Condition_Partly Cloudy": -0.0382,
+        "Weather_Condition_Rain": -0.0087,
+        "Weather_Condition_Scattered Clouds": -0.0175,
+        "Weather_Condition_T-Storm": -0.0071,
+        "Weather_Condition_Thunder": -0.0084,
+        "Weather_Condition_Thunder in the Vicinity": 1,
+        "_row": "Weather_Condition_Thunder in the Vicinity"
+      }
+    ]
+  },
+  "sensitivity_comparison": {
+    "numeric": [
+      {
+        "Variable": "Severity",
+        "Mean_Dropped": 2.135,
+        "Mean_Imputed": 2.1407,
+        "Pct_Change": 0.2693,
+        "_row": "Severity"
+      },
+      {
+        "Variable": "Distance(mi)",
+        "Mean_Dropped": 0.5305,
+        "Mean_Imputed": 0.5333,
+        "Pct_Change": 0.5284,
+        "_row": "Distance(mi)"
+      },
+      {
+        "Variable": "Temperature(F)",
+        "Mean_Dropped": 75.5024,
+        "Mean_Imputed": 75.3895,
+        "Pct_Change": -0.1495,
+        "_row": "Temperature(F)"
+      },
+      {
+        "Variable": "Pressure(in)",
+        "Mean_Dropped": 30.0144,
+        "Mean_Imputed": 30.0159,
+        "Pct_Change": 0.005,
+        "_row": "Pressure(in)"
+      },
+      {
+        "Variable": "Visibility(mi)",
+        "Mean_Dropped": 9.5327,
+        "Mean_Imputed": 9.518,
+        "Pct_Change": -0.1539,
+        "_row": "Visibility(mi)"
+      },
+      {
+        "Variable": "Wind_Speed(mph)",
+        "Mean_Dropped": 8.5057,
+        "Mean_Imputed": 8.4609,
+        "Pct_Change": -0.5275,
+        "_row": "Wind_Speed(mph)"
+      }
+    ],
+    "categorical": [
+      {
+        "Category": "CALM",
+        "prop_dropped": 0.0938,
+        "prop_imputed": 0.092,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0018
+      },
+      {
+        "Category": "E",
+        "prop_dropped": 0.1018,
+        "prop_imputed": 0.1116,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0098
+      },
+      {
+        "Category": "ENE",
+        "prop_dropped": 0.0806,
+        "prop_imputed": 0.0772,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0034
+      },
+      {
+        "Category": "ESE",
+        "prop_dropped": 0.0819,
+        "prop_imputed": 0.0784,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0035
+      },
+      {
+        "Category": "East",
+        "prop_dropped": 0.0248,
+        "prop_imputed": 0.0238,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.001
+      },
+      {
+        "Category": "N",
+        "prop_dropped": 0.0523,
+        "prop_imputed": 0.0503,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0021
+      },
+      {
+        "Category": "NE",
+        "prop_dropped": 0.0586,
+        "prop_imputed": 0.0564,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0023
+      },
+      {
+        "Category": "NNE",
+        "prop_dropped": 0.0441,
+        "prop_imputed": 0.0423,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0018
+      },
+      {
+        "Category": "NNW",
+        "prop_dropped": 0.0422,
+        "prop_imputed": 0.0406,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0016
+      },
+      {
+        "Category": "NW",
+        "prop_dropped": 0.0353,
+        "prop_imputed": 0.0339,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0014
+      },
+      {
+        "Category": "North",
+        "prop_dropped": 0.0133,
+        "prop_imputed": 0.0138,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0005
+      },
+      {
+        "Category": "S",
+        "prop_dropped": 0.0467,
+        "prop_imputed": 0.045,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0017
+      },
+      {
+        "Category": "SE",
+        "prop_dropped": 0.0661,
+        "prop_imputed": 0.0633,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0027
+      },
+      {
+        "Category": "SSE",
+        "prop_dropped": 0.048,
+        "prop_imputed": 0.0461,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0019
+      },
+      {
+        "Category": "SSW",
+        "prop_dropped": 0.0322,
+        "prop_imputed": 0.031,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0012
+      },
+      {
+        "Category": "SW",
+        "prop_dropped": 0.0307,
+        "prop_imputed": 0.0295,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0011
+      },
+      {
+        "Category": "South",
+        "prop_dropped": 0.0118,
+        "prop_imputed": 0.0114,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0004
+      },
+      {
+        "Category": "VAR",
+        "prop_dropped": 0.0241,
+        "prop_imputed": 0.023,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0011
+      },
+      {
+        "Category": "Variable",
+        "prop_dropped": 0.0062,
+        "prop_imputed": 0.0059,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0003
+      },
+      {
+        "Category": "W",
+        "prop_dropped": 0.0352,
+        "prop_imputed": 0.0337,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0015
+      },
+      {
+        "Category": "WNW",
+        "prop_dropped": 0.0323,
+        "prop_imputed": 0.031,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0013
+      },
+      {
+        "Category": "WSW",
+        "prop_dropped": 0.029,
+        "prop_imputed": 0.0279,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0011
+      },
+      {
+        "Category": "West",
+        "prop_dropped": 0.0091,
+        "prop_imputed": 0.0087,
+        "Variable": "Wind_Direction",
+        "Abs_Diff": 0.0004
+      },
+      {
+        "prop_dropped": 1.194e-06,
+        "Variable": "Wind_Direction"
+      },
+      {
+        "Category": "Calm",
+        "prop_imputed": 0.0231,
+        "Variable": "Wind_Direction"
+      },
+      {
+        "Category": "Clear",
+        "prop_dropped": 0.0579,
+        "prop_imputed": 0.0673,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0094
+      },
+      {
+        "Category": "Cloudy",
+        "prop_dropped": 0.0806,
+        "prop_imputed": 0.0782,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0024
+      },
+      {
+        "Category": "Cloudy / Windy",
+        "prop_dropped": 0.0014,
+        "prop_imputed": 0.0014,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Drizzle",
+        "prop_dropped": 0.0002,
+        "prop_imputed": 0.0002,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.276e-06
+      },
+      {
+        "Category": "Drizzle / Windy",
+        "prop_dropped": 1.194e-06,
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.9657e-08
+      },
+      {
+        "Category": "Drizzle and Fog",
+        "prop_dropped": 1.194e-06,
+        "prop_imputed": 3.4029e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.2089e-06
+      },
+      {
+        "Category": "Fair",
+        "prop_dropped": 0.3707,
+        "prop_imputed": 0.3706,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Fair / Windy",
+        "prop_dropped": 0.0026,
+        "prop_imputed": 0.0025,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Fog",
+        "prop_dropped": 0.0087,
+        "prop_imputed": 0.0092,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0005
+      },
+      {
+        "Category": "Fog / Windy",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 1.0738e-06
+      },
+      {
+        "Category": "Funnel Cloud",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 7.1588e-07
+      },
+      {
+        "Category": "Haze",
+        "prop_dropped": 0.0013,
+        "prop_imputed": 0.0014,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Haze / Windy",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 9.5451e-07
+      },
+      {
+        "Category": "Heavy Drizzle",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 6.5622e-07
+      },
+      {
+        "Category": "Heavy Rain",
+        "prop_dropped": 0.0054,
+        "prop_imputed": 0.0053,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Heavy Rain / Windy",
+        "prop_dropped": 0.0004,
+        "prop_imputed": 0.0004,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 9.3595e-06
+      },
+      {
+        "Category": "Heavy Rain Shower / Windy",
+        "prop_dropped": 1.194e-06,
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.9657e-08
+      },
+      {
+        "Category": "Heavy T-Storm",
+        "prop_dropped": 0.0036,
+        "prop_imputed": 0.0035,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Heavy T-Storm / Windy",
+        "prop_dropped": 0.0004,
+        "prop_imputed": 0.0004,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Heavy Thunderstorms and Rain",
+        "prop_dropped": 0.0007,
+        "prop_imputed": 0.0007,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.3545e-06
+      },
+      {
+        "Category": "Light Drizzle",
+        "prop_dropped": 0.001,
+        "prop_imputed": 0.001,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.2311e-06
+      },
+      {
+        "Category": "Light Drizzle / Windy",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.3691e-07
+      },
+      {
+        "Category": "Light Freezing Rain / Windy",
+        "prop_dropped": 2.3879e-06,
+        "prop_imputed": 2.2686e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 1.1931e-07
+      },
+      {
+        "Category": "Light Rain",
+        "prop_dropped": 0.0406,
+        "prop_imputed": 0.0398,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0007
+      },
+      {
+        "Category": "Light Rain / Windy",
+        "prop_dropped": 0.0009,
+        "prop_imputed": 0.0009,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Light Rain Shower",
+        "prop_dropped": 7.1637e-06,
+        "prop_imputed": 6.8058e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 3.5794e-07
+      },
+      {
+        "Category": "Light Rain Showers",
+        "prop_dropped": 5.9698e-06,
+        "prop_imputed": 5.6715e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.9828e-07
+      },
+      {
+        "Category": "Light Rain with Thunder",
+        "prop_dropped": 0.0051,
+        "prop_imputed": 0.0049,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0002
+      },
+      {
+        "Category": "Light Snow",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 4.1842e-07
+      },
+      {
+        "Category": "Light Snow and Sleet",
+        "prop_dropped": 1.194e-06,
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.9657e-08
+      },
+      {
+        "Category": "Light Thunderstorms and Rain",
+        "prop_dropped": 0.0012,
+        "prop_imputed": 0.0013,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Mist",
+        "prop_dropped": 0.0001,
+        "prop_imputed": 0.0003,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Mostly Cloudy",
+        "prop_dropped": 0.187,
+        "prop_imputed": 0.1825,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0045
+      },
+      {
+        "Category": "Mostly Cloudy / Windy",
+        "prop_dropped": 0.0029,
+        "prop_imputed": 0.0027,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "N/A Precipitation",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.4484e-06
+      },
+      {
+        "Category": "Overcast",
+        "prop_dropped": 0.0171,
+        "prop_imputed": 0.0181,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.001
+      },
+      {
+        "Category": "Partly Cloudy",
+        "prop_dropped": 0.1402,
+        "prop_imputed": 0.1376,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0026
+      },
+      {
+        "Category": "Partly Cloudy / Windy",
+        "prop_dropped": 0.0018,
+        "prop_imputed": 0.0018,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Patches of Fog",
+        "prop_dropped": 0.0003,
+        "prop_imputed": 0.0005,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0002
+      },
+      {
+        "Category": "Rain",
+        "prop_dropped": 0.0082,
+        "prop_imputed": 0.0081,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Rain / Windy",
+        "prop_dropped": 0.0003,
+        "prop_imputed": 0.0003,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 8.5276e-06
+      },
+      {
+        "Category": "Rain Shower",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.3691e-07
+      },
+      {
+        "Category": "Rain Showers",
+        "prop_dropped": 7.1637e-06,
+        "prop_imputed": 7.9401e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 7.7636e-07
+      },
+      {
+        "Category": "Scattered Clouds",
+        "prop_dropped": 0.0309,
+        "prop_imputed": 0.0326,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0017
+      },
+      {
+        "Category": "Shallow Fog",
+        "prop_dropped": 0.0003,
+        "prop_imputed": 0.0004,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Showers in the Vicinity",
+        "prop_dropped": 0.0006,
+        "prop_imputed": 0.0006,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Smoke",
+        "prop_dropped": 0.0003,
+        "prop_imputed": 0.0003,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.4369e-06
+      },
+      {
+        "Category": "Snow",
+        "prop_dropped": 1.194e-06,
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.9657e-08
+      },
+      {
+        "Category": "Squalls / Windy",
+        "prop_dropped": 5.9698e-06,
+        "prop_imputed": 5.6715e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.9828e-07
+      },
+      {
+        "Category": "T-Storm",
+        "prop_dropped": 0.0056,
+        "prop_imputed": 0.0055,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "T-Storm / Windy",
+        "prop_dropped": 0.0002,
+        "prop_imputed": 0.0002,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 2.1567e-06
+      },
+      {
+        "Category": "Thunder",
+        "prop_dropped": 0.0079,
+        "prop_imputed": 0.0076,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0003
+      },
+      {
+        "Category": "Thunder / Windy",
+        "prop_dropped": 0.0002,
+        "prop_imputed": 0.0002,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Thunder in the Vicinity",
+        "prop_dropped": 0.0093,
+        "prop_imputed": 0.009,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0003
+      },
+      {
+        "Category": "Thunderstorm",
+        "prop_dropped": 0.0017,
+        "prop_imputed": 0.0017,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0.0001
+      },
+      {
+        "Category": "Thunderstorms and Rain",
+        "prop_dropped": 0.0006,
+        "prop_imputed": 0.0006,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 0
+      },
+      {
+        "Category": "Tornado",
+        "prop_dropped": 0,
+        "prop_imputed": 0,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.3691e-07
+      },
+      {
+        "Category": "Widespread Dust",
+        "prop_dropped": 7.1637e-06,
+        "prop_imputed": 6.8058e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 3.5794e-07
+      },
+      {
+        "Category": "Widespread Dust / Windy",
+        "prop_dropped": 1.194e-06,
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 5.9657e-08
+      },
+      {
+        "Category": "Wintry Mix",
+        "prop_dropped": 3.5819e-06,
+        "prop_imputed": 3.4029e-06,
+        "Variable": "Weather_Condition",
+        "Abs_Diff": 1.7897e-07
+      },
+      {
+        "prop_dropped": 0.0014,
+        "Variable": "Weather_Condition"
+      },
+      {
+        "Category": "Light Freezing Fog",
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition"
+      },
+      {
+        "Category": "Mist / Windy",
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition"
+      },
+      {
+        "Category": "Volcanic Ash",
+        "prop_imputed": 1.1343e-06,
+        "Variable": "Weather_Condition"
+      },
+      {
+        "Category": "Day",
+        "prop_dropped": 0.7298,
+        "prop_imputed": 0.7296,
+        "Variable": "Sunrise_Sunset",
+        "Abs_Diff": 0.0002
+      },
+      {
+        "Category": "Night",
+        "prop_dropped": 0.265,
+        "prop_imputed": 0.2704,
+        "Variable": "Sunrise_Sunset",
+        "Abs_Diff": 0.0054
+      },
+      {
+        "prop_dropped": 0.0052,
+        "Variable": "Sunrise_Sunset"
+      },
+      {
+        "Category": "Day",
+        "prop_dropped": 0.7707,
+        "prop_imputed": 0.7716,
+        "Variable": "Civil_Twilight",
+        "Abs_Diff": 0.0009
+      },
+      {
+        "Category": "Night",
+        "prop_dropped": 0.2241,
+        "prop_imputed": 0.2284,
+        "Variable": "Civil_Twilight",
+        "Abs_Diff": 0.0043
+      },
+      {
+        "prop_dropped": 0.0052,
+        "Variable": "Civil_Twilight"
+      },
+      {
+        "Category": "Day",
+        "prop_dropped": 0.8113,
+        "prop_imputed": 0.8131,
+        "Variable": "Nautical_Twilight",
+        "Abs_Diff": 0.0018
+      },
+      {
+        "Category": "Night",
+        "prop_dropped": 0.1835,
+        "prop_imputed": 0.1869,
+        "Variable": "Nautical_Twilight",
+        "Abs_Diff": 0.0034
+      },
+      {
+        "prop_dropped": 0.0052,
+        "Variable": "Nautical_Twilight"
+      },
+      {
+        "Category": "Day",
+        "prop_dropped": 0.8439,
+        "prop_imputed": 0.8464,
+        "Variable": "Astronomical_Twilight",
+        "Abs_Diff": 0.0025
+      },
+      {
+        "Category": "Night",
+        "prop_dropped": 0.1509,
+        "prop_imputed": 0.1536,
+        "Variable": "Astronomical_Twilight",
+        "Abs_Diff": 0.0027
+      },
+      {
+        "prop_dropped": 0.0052,
+        "Variable": "Astronomical_Twilight"
+      }
+    ]
+  }
+}

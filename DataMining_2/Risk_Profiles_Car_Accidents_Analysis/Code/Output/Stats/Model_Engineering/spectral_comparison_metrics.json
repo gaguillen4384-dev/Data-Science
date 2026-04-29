@@ -1,0 +1,10 @@
+{
+  "model_type": "Spectral_Clustering_Linear",
+  "timestamp": "2026-04-26 23:44:03",
+  "metrics": {
+    "avg_silhouette_sampled": 0.1884,
+    "davies_bouldin_sampled": 1.5871,
+    "calinski_harabasz_sampled": 1428.9544,
+    "cluster_sizes": [142232, 178951, 82140, 51440, 82025, 121402, 145427, 77988]
+  }
+}

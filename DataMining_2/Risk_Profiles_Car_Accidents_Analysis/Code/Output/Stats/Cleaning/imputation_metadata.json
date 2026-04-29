@@ -1,0 +1,5 @@
+{
+  "imputed_numeric_columns": ["Temperature(F)", "Humidity(%)", "Pressure(in)", "Visibility(mi)", "Wind_Speed(mph)"],
+  "imputed_categorical_columns": ["Wind_Direction", "Weather_Condition", "Sunrise_Sunset", "Civil_Twilight", "Nautical_Twilight", "Astronomical_Twilight"],
+  "total_unique_columns": [11]
+}

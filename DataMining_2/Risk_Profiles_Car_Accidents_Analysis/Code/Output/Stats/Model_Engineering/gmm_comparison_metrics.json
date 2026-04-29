@@ -1,0 +1,10 @@
+{
+  "model_type": "GMM_Optimized",
+  "timestamp": "2026-04-26 19:54:14",
+  "metrics": {
+    "avg_silhouette_sampled": 0.1369,
+    "davies_bouldin_sampled": 2.2598,
+    "calinski_harabasz_sampled": 1393.8054,
+    "cluster_sizes": [149273, 177693, 223283, 283064, 48292]
+  }
+}

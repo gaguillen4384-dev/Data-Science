@@ -1,0 +1,122 @@
+[
+  {
+    "Cluster": [1],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Afternoon"],
+    "Top_PC_Alignment": ["PC1", "PC4", "PC3"],
+    "Weather": ["Mostly.Cloudy"],
+    "Wind": ["SE"],
+    "Main_Drivers": {
+      "Temperature.F.": [0.8579],
+      "Distance.mi.": [0.2221],
+      "Wind_Speed.mph.": [0.4381],
+      "Junction": [0.0827],
+      "Roundabout": [0.0002]
+    }
+  },
+  {
+    "Cluster": [2],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Midday"],
+    "Top_PC_Alignment": ["PC1", "PC2", "PC3"],
+    "Weather": ["Fair"],
+    "Wind": ["CALM"],
+    "Main_Drivers": {
+      "Duration_Min": [187.0976],
+      "Humidity...": [0.5821],
+      "Roundabout": [0.0002],
+      "Visibility.mi.": [0.1436],
+      "Junction": [0.0624]
+    }
+  },
+  {
+    "Cluster": [3],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Morning"],
+    "Top_PC_Alignment": ["PC8", "PC1", "PC6"],
+    "Weather": ["Cloudy"],
+    "Wind": ["N"],
+    "Main_Drivers": {
+      "Duration_Min": [195.0984],
+      "Bump": [0.001],
+      "Wind_Speed.mph.": [0.3132],
+      "Humidity...": [0.3267],
+      "Distance.mi.": [0.0863]
+    }
+  },
+  {
+    "Cluster": [4],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Morning"],
+    "Top_PC_Alignment": ["PC2", "PC3", "PC8"],
+    "Weather": ["Fog"],
+    "Wind": ["W"],
+    "Main_Drivers": {
+      "Humidity...": [1.2796],
+      "Distance.mi.": [0.1492],
+      "Wind_Speed.mph.": [0.1802],
+      "Junction": [0.0555],
+      "Stop": [0.0177]
+    }
+  },
+  {
+    "Cluster": [5],
+    "Severity_Level": [3],
+    "Time_of_Day": ["Morning"],
+    "Top_PC_Alignment": ["PC5", "PC3", "PC1"],
+    "Weather": ["Scattered.Clouds"],
+    "Wind": ["East"],
+    "Main_Drivers": {
+      "Pressure.in.": [0.8232],
+      "Roundabout": [0.0004],
+      "Junction": [0.1144],
+      "Traffic_Signal": [0.2603],
+      "Temperature.F.": [0.1151]
+    }
+  },
+  {
+    "Cluster": [6],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Midday"],
+    "Top_PC_Alignment": ["PC4", "PC1", "PC3"],
+    "Weather": ["Mostly.Cloudy"],
+    "Wind": ["ESE"],
+    "Main_Drivers": {
+      "Crossing": [0.7036],
+      "Railway": [0.0235],
+      "Traffic_Calming": [0.0077],
+      "Amenity": [0.033],
+      "No_Exit": [0.012]
+    }
+  },
+  {
+    "Cluster": [7],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Afternoon"],
+    "Top_PC_Alignment": ["PC1", "PC4", "PC3"],
+    "Weather": ["Fair"],
+    "Wind": ["E"],
+    "Main_Drivers": {
+      "Distance.mi.": [0.1644],
+      "Pressure.in.": [0.2303],
+      "Duration_Min": [162.5547],
+      "Visibility.mi.": [0.3087],
+      "Wind_Speed.mph.": [0.2419]
+    }
+  },
+  {
+    "Cluster": [8],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Morning"],
+    "Top_PC_Alignment": ["PC3", "PC4", "PC2"],
+    "Weather": ["Fair"],
+    "Wind": ["CALM"],
+    "Main_Drivers": {
+      "Humidity...": [0.4065],
+      "Distance.mi.": [0.0972],
+      "Visibility.mi.": [0.0264],
+      "Duration_Min": [144.5269],
+      "Bump": [0.0004]
+    }
+  }
+]

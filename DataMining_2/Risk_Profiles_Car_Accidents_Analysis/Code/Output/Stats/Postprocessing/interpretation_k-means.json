@@ -1,0 +1,32 @@
+[
+  {
+    "Cluster": ["Cluster_1"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Midday"],
+    "Top_PC_Alignment": ["PC1", "PC2", "PC3"],
+    "Weather": ["Partly Cloudy"],
+    "Wind": ["VAR"],
+    "Main_Drivers": {
+      "Temperature(F)": [77.3948],
+      "Wind_Speed(mph)": [9.1234],
+      "Crossing": [0.2252],
+      "Station": [0.0691],
+      "Visibility(mi)": [9.5446]
+    }
+  },
+  {
+    "Cluster": ["Cluster_2"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Midday"],
+    "Top_PC_Alignment": ["PC1", "PC2", "PC3"],
+    "Weather": ["Fair"],
+    "Wind": ["CALM"],
+    "Main_Drivers": {
+      "Humidity(%)": [83.3168],
+      "Junction": [0.062],
+      "Duration_Min": [179.0615],
+      "Distance(mi)": [0.5675],
+      "Pressure(in)": [30.0176]
+    }
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "Cluster": ["GMM_Cluster_1"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Afternoon"],
+    "Top_PC_Alignment": ["PC1", "PC3", "PC2"],
+    "Weather": ["Fair"],
+    "Wind": ["E"],
+    "Main_Drivers": {
+      "Station": [0.0945],
+      "Distance(mi)": [0.6201],
+      "Pressure(in)": [30.0448],
+      "Amenity": [0.0134],
+      "Visibility(mi)": [10.0703]
+    }
+  },
+  {
+    "Cluster": ["GMM_Cluster_2"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Midday"],
+    "Top_PC_Alignment": ["PC1", "PC2", "PC3"],
+    "Weather": ["Fair"],
+    "Wind": ["CALM"],
+    "Main_Drivers": {
+      "Roundabout": [0.0002],
+      "Duration_Min": [187.5473],
+      "Junction": [0.0601],
+      "Humidity(%)": [81.7233],
+      "Distance(mi)": [0.5712]
+    }
+  },
+  {
+    "Cluster": ["GMM_Cluster_3"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Afternoon"],
+    "Top_PC_Alignment": ["PC1", "PC6", "PC3"],
+    "Weather": ["Mostly Cloudy"],
+    "Wind": ["ESE"],
+    "Main_Drivers": {
+      "Temperature(F)": [83.7139],
+      "Railway": [0.0067],
+      "Crossing": [0.268],
+      "Amenity": [0.0138],
+      "Station": [0.0858]
+    }
+  },
+  {
+    "Cluster": ["GMM_Cluster_4"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Morning"],
+    "Top_PC_Alignment": ["PC2", "PC8", "PC5"],
+    "Weather": ["Cloudy"],
+    "Wind": ["CALM"],
+    "Main_Drivers": {
+      "Pressure(in)": [30.0308],
+      "Traffic_Signal": [0.1902],
+      "Humidity(%)": [75.7598],
+      "Visibility(mi)": [9.4211],
+      "Distance(mi)": [0.5532]
+    }
+  },
+  {
+    "Cluster": ["GMM_Cluster_5"],
+    "Severity_Level": [2],
+    "Time_of_Day": ["Midday"],
+    "Top_PC_Alignment": ["PC2", "PC8", "PC4"],
+    "Weather": ["Fog"],
+    "Wind": ["East"],
+    "Main_Drivers": {
+      "Traffic_Calming": [0.0184],
+      "Bump": [0.0082],
+      "Stop": [0.0379],
+      "Humidity(%)": [84.9843],
+      "Traffic_Signal": [0.221]
+    }
+  }
+]

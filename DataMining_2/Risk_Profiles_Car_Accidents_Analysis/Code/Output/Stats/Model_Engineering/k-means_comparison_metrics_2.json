@@ -1,0 +1,20 @@
+{
+  "model_type": "K-Means",
+  "timestamp": "2026-04-26 19:29:59",
+  "obs_count": 881605,
+  "parameters": {
+    "k": 2,
+    "nstart": 25,
+    "max_iter": 20
+  },
+  "metrics": {
+    "totss": 13756034.3212,
+    "tot_withinss": 10636259.1659,
+    "betweenss": 3119775.1553,
+    "ratio_bss_tss": 22.6793,
+    "avg_silhouette_sampled": 0.334,
+    "davies_bouldin": 1.641,
+    "calinski_harabasz": 2849.2485
+  },
+  "cluster_sizes": [689963, 191642]
+}

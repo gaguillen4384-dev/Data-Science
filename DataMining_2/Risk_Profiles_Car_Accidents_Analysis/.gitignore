@@ -1,0 +1,16 @@
+﻿# Ignore R history
+Code/.Rhistory
+
+# Ignore all files inside Models and its subdirectories
+Code/Models/**
+# But don't ignore the directories themselves
+!Code/Models/**/
+
+# Ignore all files inside Datasets and its subdirectories
+Code/Datasets/**
+# But don't ignore the directories themselves
+!Code/Datasets/**/
+
+# Specifically ignore .rds files everywhere (optional safety)
+*.rds
+*.uwot
