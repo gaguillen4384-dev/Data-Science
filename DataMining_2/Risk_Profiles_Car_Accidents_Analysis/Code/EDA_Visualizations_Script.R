@@ -246,12 +246,12 @@ plot_correlation_severity_focused <- function(data) {
 
 eda_data <- fromJSON("./Output/Stats/EDA/eda_comprehensive_results.json")
 
-ggsave("./Output/Graphs/EDA/severity_detailed.pdf", plot_enhanced_severity(eda_data), width = 6, height = 6)
-ggsave("./Output/Graphs/EDA/temporal_analysis.pdf", plot_temporal_trends(eda_data), width = 6, height = 6)
+#ggsave("./Output/Graphs/EDA/severity_detailed.pdf", plot_enhanced_severity(eda_data), width = 6, height = 6)
+ggsave("./Output/Graphs/EDA/temporal_analysis.pdf", plot_temporal_trends(eda_data), width = 4, height = 6)
 # broken -> ggsave("./Output/Graphs/EDA/correlation_shift.pdf", plot_correlation_delta(eda_data), width = 6, height = 8)
-ggsave("./Output/Graphs/EDA/categorical_sensitivity.pdf", plot_cat_sensitivity(eda_data), width = 6, height = 5)
+#ggsave("./Output/Graphs/EDA/categorical_sensitivity.pdf", plot_cat_sensitivity(eda_data), width = 6, height = 5)
 # broken -> plot_combined_sensitivity(eda_data, "./Output/Graphs/EDA/combined_sensitivity_analysis.pdf")
-ggsave("./Output/Graphs/EDA/categorical_distribution_weather.pdf", plot_environmental_tail(eda_data), width = 6, height = 5)
-plot_correlation_severity_focused(eda_data)
+#ggsave("./Output/Graphs/EDA/categorical_distribution_weather.pdf", plot_environmental_tail(eda_data), width = 6, height = 5)
+#plot_correlation_severity_focused(eda_data)
 
 message("Enhanced EDA Visualizations generated successfully.")

@@ -22,20 +22,23 @@
 }
 \begin{document}
 
-\title{Characterizing High-Risk Environmental Signatures: An Unsupervised Approach to Predicting Crash Probability}
+\title{Characterizing High-Risk Environmental Signatures: An Unsupervised Approach to Predicting Traffic Accident Probability}
 
-
-
+\author{\IEEEauthorblockN{Gabriel Guillen}
+	\IEEEauthorblockA{\textit{dept. of Statistics \& Data Science} \\
+		\textit{University of Central Florida}\\
+		Orlando, United States of America \\
+		ga013701@ucf.edu}}
 
 \maketitle
 \renewcommand{\abstractname}{Summary}
 \begin{abstract}
-This analysis maps the "Perfect Storm" of Florida road safety by identifying the precise moments when environmental hazards and infrastructure vulnerabilities converge into car accidents events. Utilizing an unsupervised learning framework—including PCA, K-Means, Gaussian Mixture Models, and Spectral Clustering—the study moves from broad trends to isolate three distinct dimensions of danger: macro-risk profiles, nuanced visibility triggers, and the "Vulnerable Junctions" where structural gaps are most critical. Rather than offering design suggestions, these clusters define the specific situational signatures and non-linear interactions that cause a road environment to transition from manageable to high-risk. The result is a data-driven map of the specific driving windows and atmospheric thresholds that maximize crash probability across the state.
+This analysis maps the ``Perfect Storm" of Florida road safety by identifying the precise moments when environmental hazards and infrastructure vulnerabilities converge into car accident events. Utilizing an unsupervised learning framework—including PCA, K-Means, Gaussian Mixture Models, and Spectral Clustering—the study moves from broad trends to isolate three distinct dimensions of danger: macro-risk profiles, nuanced visibility triggers, and the ``Vulnerable Junctions" where structural gaps are most critical. Rather than offering design suggestions, these clusters define the specific situational signatures and non-linear interactions that cause a road environment to transition from manageable to high-risk. The result is a data-driven map of the specific driving windows and atmospheric thresholds that maximize crash probability across the state.
 \end{abstract}
 
 \section{\textbf{Introduction}}
 Traffic safety is an emergent property, not a solo act. Factors like weather or visibility rarely cause crashes in isolation; instead, accidents spring from the complex, non-linear friction between drivers and their surroundings.\\
-\indent This report seeks to move beyond traditional univariate analysis by characterizing the "Perfect Storm": \textbf{a high-risk environmental signature where specific temporal, environmental, and situational factors converge to maximize crash probability.}\\
+\indent This report seeks to move beyond traditional univariate analysis by characterizing the ``Perfect Storm": \textbf{a high-risk environmental signature where specific temporal, environmental, and situational factors converge to maximize crash probability.}\\
 \indent The target of this analysis is to identify these latent, multi-dimensional patterns within a Florida-specific dataset of 881,605 traffic records. By applying an unsupervised learning framework—utilizing \textbf{Principal Component Analysis (PCA)} for dimensionality reduction followed by \textbf{K-Means}, \textbf{Gaussian Mixture Models (GMM)}, and \textbf{Spectral Clustering}—this study aims to pinpoint the exact intersections of visibility impairment, atmospheric conditions, and infrastructure vulnerability that define the most hazardous road environments in the state.\\
 \indent Rather than general trends, this analysis isolates the "Perfect Storm" signatures—the precise moments where environmental hazards and design failures align. These profiles map the transition from manageable to high-risk, identifying the situational triggers that define Florida’s most dangerous driving windows.
 
@@ -49,26 +52,29 @@ Traffic safety is an emergent property, not a solo act. Factors like weather or 
 
 \subsection{\textbf{Data Preprocessing}}
 
-To prevent feature redundancy and correlation ``bleeding,'' the dataset was trimmed from 46 to 28 variables by removing geographic and descriptive identifiers. Missing data was handled via hybrid imputation: numeric values were filled using the median (44,050 rows) and categorical gaps using the mode (19,199 rows).
+To prevent feature redundancy and correlation ``bleeding'', the dataset was trimmed from 46 to 28 variables by removing geographic and descriptive identifiers. Missing data was handled via hybrid imputation: numeric values were filled using the median (44,050 rows) and categorical gaps using the mode (19,199 rows).
 
-\subsubsection*{\textbf{Sensitivity Analysis}}
-\indent This process yielded a 5\% unique row-level manipulation rate, retaining 881,605 records compared to the 837,555 that would have remained under listwise deletion.
+\subsubsection*{\textbf{Sensitivity Analysis}} 
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.50]{temporal_analysis.pdf}}
+	\centerline{\includegraphics[scale=0.4]{temporal_analysis.pdf}}
 	\caption{Time Features with Imputation}
 	\label{temporal_analysis}
 \end{figure}
+
+\indent This process yielded a 5\% unique row-level manipulation rate, retaining 881,605 records compared to the 837,555 that would have remained under listwise deletion.
+
  
 The 5\% imputation rate proved statistically non-significant, as variable distributions remained stable. The mean shift in temporal data was a negligible $-0.1342\%$ (displayed example in Figure \ref{temporal_analysis}). 
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.50]{categorical_sensitivity.pdf}}
+	\centerline{\includegraphics[scale=0.35]{categorical_sensitivity.pdf}}
 	\caption{Categorical Sensitivity}
 	\label{categorical_sensitivity}
 \end{figure} 
 
 While categorical proportions shifted by a maximum of only $\sim$0.04. This confirms that mode-based imputation preserved the underlying frequency of environmental conditions (Figure \ref{categorical_sensitivity}).
+
 \subsubsection*{\textbf{Normalization}}
 \indent Following feature engineering of temporal variables and the conversion of logical indicators into binary format, the analysis performed a zero-variance check to drop columns providing no discriminative power.\\
 \indent The remaining features underwent \textbf{Z-score Normalization} \cite{ISLR2} (zero mean, unit variance) to ensure feature magnitude did not bias subsequent dimensionality reduction or clustering algorithms.
@@ -78,7 +84,7 @@ While categorical proportions shifted by a maximum of only $\sim$0.04. This conf
 \subsection{\textbf{Exploratory Data Analysis (EDA)}}
 With the dataset stabilized and standardized, the exploratory analysis focused on uncovering the underlying environmental and temporal patterns that characterize Florida's traffic risk.
 
-\subsubsection*{\textbf{Temporal and Distributional Trends:}} As shown in Figure \ref{temporal_analysis}, temporal data revealed a ``double-peak'' profile corresponding to morning (7:00--8:00 AM) and evening (3:00--5:00 PM) commutes. Incident volume peaked on Fridays (158,372), suggesting that high-density commuter cycles, rather than recreational travel, are the primary drivers of accidents frequency. 
+\subsubsection*{\textbf{Temporal and Distributional Trends}} As shown in Figure \ref{temporal_analysis}, temporal data revealed a ``double-peak'' profile corresponding to morning (7:00--8:00 AM) and evening (3:00--5:00 PM) commutes. Incident volume peaked on Fridays (158,372), suggesting that high-density commuter cycles, rather than recreational travel, are the primary drivers of accidents frequency. 
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.40]{categorical_distribution_weather.pdf}}
@@ -88,7 +94,7 @@ With the dataset stabilized and standardized, the exploratory analysis focused o
 
 \textbf{Weather:} Analysis of weather signatures, shown in Figure \ref{categorical_distribution_weather}, reveals a counterintuitive distribution: conditions typically associated with high risk—such as Heavy Rain or Fog—appear lower in the accident frequency distribution than expected. 
 
-\textbf{Severity:} Where the severity of most accidents are mostly in Level 2 and 3, with low-impact and high-impact be in minority grouping of the accident's distribution, shown in Figure \ref{severity_detailed}.
+\textbf{Severity:} Where the severity of most accidents are mostly in Level 2 and 3, with low-impact and high-impact being in the minority of the accident's distribution, shown in Figure \ref{severity_detailed}.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.35]{severity_detailed.pdf}}
@@ -141,10 +147,10 @@ Because the \textbf{UMAP} projection suggests that non-linear manifold structure
 \vspace{2mm}
 
 \subsection{\textbf{Clustering Framework}}
-To identify the distinct environmental signatures associated with accidents probability, the first eight Principal Components ($PC_1$--$PC_8$) are utilized as the input feature space. This ensures that the clustering algorithms operate on the most significant variance in the dataset while mitigating the impact of collinearity among raw environmental variables. Three distinct models are evaluated to identify the "Perfect Storm" clusters:
+To identify the distinct environmental signatures associated with accident probability, the first eight Principal Components ($PC_1$--$PC_8$) are utilized as the input feature space. This ensures that the clustering algorithms operate on the most significant variance in the dataset while mitigating the impact of collinearity among raw environmental variables. Three distinct models are evaluated to identify the ``Perfect Storm" clusters:
 
 \begin{itemize}
-	\item \textbf{K-Means Clustering \cite{MacQueen1967}:} A centroid-based algorithm that partitions the PC-space into $k$ clusters by minimizing the squared Euclidean distance between data points and their respective cluster centers. This model should provides a clear, geometric partitioning of environmental risk profiles.
+	\item \textbf{K-Means Clustering \cite{MacQueen1967}:} A centroid-based algorithm that partitions the PC-space into $k$ clusters by minimizing the squared Euclidean distance between data points and their respective cluster centers. This model provides a clear, geometric partitioning of environmental risk profiles.
 	
 	\item \textbf{Gaussian Mixture Models (GMM) \cite{Dempster1977}:} A probabilistic approach that models the $PC$ distributions as a mixture of $K$ multivariate Gaussian distributions. Unlike the hard boundaries of \textbf{K-Means}, \textbf{GMM} allows for elliptical cluster shapes and provides "soft" assignment probabilities for each traffic incident.
 	
@@ -232,6 +238,7 @@ The optimal number of clusters was determined using the Eigengap Heuristic (Figu
 While the largest gap is observed at $k=1$, a secondary prominent eigengap occurs at $k=8$, followed by a descent of eigenvalues toward zero. Consequently, $k=8$ was chosen to partition the data.
 
 The resulting eight clusters are visualized using a \textbf{PCA} projection of $PC_1$ vs. $PC_2$ (Figure \ref{spectral_pca_PC1_PC2}).
+This visualization is essential for interpreting how \textbf{Spectral Clustering} aligns with the primary dimensions of variance. Notably, where the \textbf{GMM} (Figure \ref{gmm_pca_PC1_PC2}) identified three overlapping clusters in the central population, the \textbf{Spectral Clustering} model concentrates the majority of its eight clusters within that middle structure. Only two clusters are positioned on the periphery, appearing distinct enough to be isolated from the dense central concentration.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.35]{spectral_pca_PC1_PC2.pdf}}
@@ -239,14 +246,11 @@ The resulting eight clusters are visualized using a \textbf{PCA} projection of $
 	\label{spectral_pca_PC1_PC2}
 \end{figure} 
 
-This visualization is essential for interpreting how \textbf{Spectral Clustering} aligns with the primary dimensions of variance. Notably, where the \textbf{GMM} (Figure \ref{gmm_pca_PC1_PC2}) identified three overlapping clusters in the central population, the \textbf{Spectral Clustering} model concentrates the majority of its eight clusters within that middle structure.\\
-\indent Only two clusters are positioned on the periphery, appearing distinct enough to be isolated from the dense central concentration.
 
 \subsection{\textbf{Overall}}
 The models reveal diverging interpretations of the dataset's structure. While \textbf{K-means} and \textbf{GMM} favor broader partitions ($k=2, 5$), \textbf{Spectral Clustering} identifies a higher granularity ($k=8$) within the central population.\\
 \indent These varying results regarding spatial density and cluster stability provide the empirical basis for the comparative analysis to follow.
 
-\vspace{4mm}
 
 \section{\textbf{Discussion}}
 
@@ -273,15 +277,12 @@ The models reveal diverging interpretations of the dataset's structure. While \t
 	\item \textbf{Spectral Clustering ($k=8$):} Provides the best (lowest) Davies-Bouldin Index ($1.5871$), suggesting that its granular clusters are highly compact and well-defined compared to the other models.
 \end{itemize}
 
-\indent The convergence of these metrics provide a case for valid interpretability. The high global scores of \textbf{K-Means} confirm a strong fundamental structure in the data, while the low Davies-Bouldin index for the \textbf{Spectral Clustering} model validates that even at a high granularity ($k=8$), the clusters remain compact and distinct.\\
+\indent The convergence of these metrics provides a case for valid interpretability. The high global scores of \textbf{K-Means} confirm a strong fundamental structure in the data, while the low Davies-Bouldin index for the \textbf{Spectral Clustering} model validates that even at a high granularity ($k=8$), the clusters remain compact and distinct.\\
 \indent Additionally, the \textbf{GMM} metrics confirm that the density-based groupings are statistically grounded, successfully capturing the probabilistic overlaps and environmental nuances inherent in the dataset.\\
 \indent Together, these results provide a robust statistical foundation, ensuring that the subsequent profiles are not artifacts of noise but represent meaningful, reproducible patterns within the dataset.
 
 \subsection{\textbf{Comparative Analysis of Clustering Profiles}}
 
-To understand the underlying patterns of the dataset, we compare the centroids of the unsupervised models.\\
-\indent It is important to note that all values presented in Tables \ref{tab:combined_clusters} are \textbf{normalized (Z-score standardized)}, where $0$ represents the mean, positive values indicate features above the average, while negative values represent features below the average.\\
-\indent To ensure interpretability, we mapped the Principal Components back to the original features using the rotation matrices saved during preprocessing. This allows for the analysis of clusters in terms of physical variables rather than abstract components.
 \begin{table}[ht]
 	\centering
 	\caption{Comparative Profile Centroids across Clustering Models}
@@ -293,7 +294,7 @@ To understand the underlying patterns of the dataset, we compare the centroids o
 	\resizebox{\columnwidth}{!}{
 		\begin{tabular}{l|c|cc|ccc|c}
 			\hline
-			\textbf{Cluster} & \textbf{Sev.} & \textbf{Temp} & \textbf{Hum.} & \textbf{Cross.} & \textbf{Junct.} & \textbf{Sign.} & \textbf{Hour} \\ \hline
+			\textbf{Cluster} & \textbf{Severity} & \textbf{Temperature} & \textbf{Humidity} & \textbf{Crossing} & \textbf{Junction} & \textbf{Signal} & \textbf{Hour} \\ \hline
 			Cluster 1 & -0.017 & 0.193 & -0.194 & 0.021 & -0.024 & 0.006 & 0.021 \\
 			Cluster 2 & 0.062 & -0.695 & 0.697 & -0.076 & 0.087 & -0.021 & -0.075 \\ \hline
 		\end{tabular}
@@ -307,7 +308,7 @@ To understand the underlying patterns of the dataset, we compare the centroids o
 	\resizebox{\columnwidth}{!}{
 		\begin{tabular}{l|c|cc|ccc|c}
 			\hline
-			\textbf{Cluster} & \textbf{Sev.} & \textbf{Temp.} & \textbf{Vis.} & \textbf{Cross.} & \textbf{Junct.} & \textbf{Sign.} & \textbf{Hour} \\ \hline
+			\textbf{Cluster} & \textbf{Severity} & \textbf{Temperature} & \textbf{Visibility} & \textbf{Crossing} & \textbf{Junction} & \textbf{Signal} & \textbf{Hour} \\ \hline
 			Cluster 1 & -0.320 & 0.240 & 0.328 & -0.007 & -0.137 & -0.170 & 0.352 \\
 			Cluster 2 & 0.023 & -0.651 & 0.144 & -0.075 & 0.078 & -0.037 & -0.033 \\
 			Cluster 3 & 0.060 & 0.801 & 0.329 & 0.125 & -0.000 & 0.071 & 0.354 \\
@@ -324,7 +325,7 @@ To understand the underlying patterns of the dataset, we compare the centroids o
 	\resizebox{\columnwidth}{!}{
 		\begin{tabular}{l|c|cc|ccc|c}
 			\hline
-			\textbf{Cluster} & \textbf{Sev.} & \textbf{Temp.} & \textbf{Vis.} & \textbf{Cross.} & \textbf{Junct.} & \textbf{Sign.} & \textbf{Hour} \\ \hline
+			\textbf{Cluster} & \textbf{Severity} & \textbf{Temperature} & \textbf{Visibility} & \textbf{Crossing} & \textbf{Junction} & \textbf{Signal} & \textbf{Hour} \\ \hline
 			Cluster 1 & 0.161 & 0.858 & 0.288 & -0.349 & 0.188 & -0.396 & 0.395 \\
 			Cluster 2 & 0.047 & -0.633 & 0.144 & -0.079 & 0.089 & -0.043 & 0.007 \\
 			Cluster 3 & -0.100 & -0.608 & 0.094 & -0.168 & 0.024 & -0.137 & -0.456 \\
@@ -337,31 +338,33 @@ To understand the underlying patterns of the dataset, we compare the centroids o
 	}
 \end{table}
 
-\vspace{4mm}
+To understand the underlying patterns of the dataset, we compare the centroids of the unsupervised models.\\
+\indent It is important to note that all values presented in Tables \ref{tab:combined_clusters} are \textbf{normalized (Z-score standardized)}, where $0$ represents the mean, positive values indicate features above the average, while negative values represent features below the average.\\
+\indent To ensure interpretability, we mapped the Principal Components back to the original features using the rotation matrices saved during preprocessing. This allows for the analysis of clusters in terms of physical variables rather than abstract components.
 
 \subsubsection*{\textbf{Discussion of Comparative Flow}}
-To characterize the "Perfect Storm" for traffic incidents in Florida, we examine the evolution of cluster signatures across three models.\\
+To characterize the ``Perfect Storm" for traffic incidents in Florida, we examine the evolution of cluster signatures across three models.\\
 \indent The transition from global to local patterns reveals how temporal, environmental, and situational factors converge to create high-risk signatures.
 
 \begin{itemize}
 	\item \textbf{K-Means (The Atmospheric Baseline):} 
-	Establishes the macro-level environmental split. \textbf{Cluster 1} represents the "Fair Weather" baseline (high temperature, low humidity), while \textbf{Cluster 2} isolates the "Adverse Weather" state ($0.697$ humidity). This confirms that Florida's dataset is fundamentally divided by climate, though the minimal severity delta between these clusters suggests that weather alone is a precursor, not a singular cause, of high-risk events.
+	Establishes the macro-level environmental split. \textbf{Cluster 1} represents the ``Fair Weather" baseline (high temperature, low humidity), while \textbf{Cluster 2} isolates the ``Adverse Weather" state ($0.697$ humidity). This confirms that Florida's dataset is fundamentally divided by climate, though the minimal severity delta between these clusters suggests that weather alone is a precursor, not a singular cause, of high-risk events.
 	
 	\item \textbf{GMM (The Visibility Trigger):} 
-	Refines the risk profile by isolating density-based outliers. \textbf{Cluster 5} identifies a critical "Environmental Signature" where extreme low visibility ($-2.551$) directly correlates with a spike in Severity ($0.267$). This suggests that the "Perfect Storm" is not merely a "rain event" but specifically a \textit{visibility-deprivation event}, often occurring in the early morning or late evening.
+	Refines the risk profile by isolating density-based outliers. \textbf{Cluster 5} identifies a critical ``Environmental Signature" where extreme low visibility ($-2.551$) directly correlates with a spike in Severity ($0.267$). This suggests that the "Perfect Storm" is not merely a "rain event" but specifically a \textit{visibility-deprivation event}, often occurring in the early morning or late evening.
 	
 	\item \textbf{Spectral Clustering (The Infrastructure Catalyst):} 
-	Provides a granular view of the physical road environment. \textbf{Cluster 6} (The "Protected Urban" signature) reveals that despite high infrastructure complexity (Signals $0.977$), severity is significantly lower ($-0.543$). Conversely, \textbf{Cluster 5} (The "Vulnerable Junction" signature) identifies the highest severity in the study ($1.041$), occurring at junctions ($0.343$) that lack the mitigating presence of traffic signals or crossings.
+	Provides a granular view of the physical road environment. \textbf{Cluster 6} (The ``Protected Urban" signature) reveals that despite high infrastructure complexity (Signals $0.977$), severity is significantly lower ($-0.543$). Conversely, \textbf{Cluster 5} (The ``Vulnerable Junction" signature) identifies the highest severity in the study ($1.041$), occurring at junctions ($0.343$) that lack the mitigating presence of traffic signals or crossings.
 \end{itemize}
 
 \vspace{8mm}
 
 \subsubsection*{\textbf{Synthesizing the 'Perfect Storm' Signature}}
 
-The convergence of these models allows us to define the "Perfect Storm" not as a single variable, but as a hierarchical intersection.\\
+The convergence of these models allows us to define the ``Perfect Storm" not as a single variable, but as a hierarchical intersection.\\
 \indent While \textbf{K-Means} identifies the humid atmospheric backdrop and \textbf{GMM} isolates the visibility trigger, \textbf{Spectral Clustering} pinpoints the structural failure. 
 
-Ultimately, the highest probability of a high-severity incident—the "Perfect Storm"—is characterized by the \textbf{simultaneous occurrence of extreme visibility impairment ($Z < -2.5$) and the absence of traffic control measures at complex junctions.}\\
+Ultimately, the highest probability of a high-severity incident—the ``Perfect Storm"—is characterized by the \textbf{simultaneous occurrence of extreme visibility impairment ($Z < -2.5$) and the absence of traffic control measures at complex junctions.}\\
 \indent This multi-model approach confirms that infrastructure is the decisive moderator: it determines whether a hazardous environment remains a signature or escalates into a high-risk event.
 
 \vspace{8mm}
@@ -379,7 +382,7 @@ The analysis explicitly identifies the highest-risk environmental signature as t
 \end{itemize}
 
 By moving beyond univariate analysis, this study confirms that infrastructure acts as the decisive moderator of environmental danger.\\
-\indent The "Perfect Storm" is realized when these spatial gaps meet temporal instability, creating a specific, multi-dimensional window where crash probability is maximized.
+\indent The ``Perfect Storm" is realized when these spatial gaps meet temporal instability, creating a specific, multi-dimensional window where crash probability is maximized.
 
 \begin{thebibliography}{9}
 	
@@ -449,7 +452,7 @@ Communications in Statistics-Theory and Methods, 3(1), 1–27.
 
 \section*{Appendix A: Supplementary Materials and Software Usage}
 \subsection*{Source Code Repository \label{app:code}}
-The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: \url{https://github.com/gaguillen4384-dev/Data-Science/tree/main/DataMining_2/Movie_Recommender_Model_Analysis}).
+The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: \url{https://github.com/gaguillen4384-dev/Data-Science/tree/main/DataMining_2/Risk_Profiles_Car_Accidents_Analysis}).
 
 \subsection*{Software Usage Acknowledgment}
 \begin{enumerate}

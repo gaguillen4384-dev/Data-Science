@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  28 APR 2026 22:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  28 APR 2026 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -494,138 +494,135 @@ Package hyperref Info: Link coloring ON on input line 23.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-
-LaTeX Warning: No \author given.
-
-
-LaTeX Warning: No \author given.
-
-
-LaTeX Warning: No \author given.
-
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
-4.
+7.
+
 (C:\Program Files (x86)\LaTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 43--45
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 []\OT1/ptm/m/n/10 The struc-ture in-cor-po-rates 46 mul-ti-di-men-sional
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 43--45
+Underfull \hbox (badness 3029) in paragraph at lines 46--48
 \OT1/ptm/m/n/10 fea-tures|including nu-meric en-vi-ron-men-tal met-rics (e.g.,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--45
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 \OT1/pcr/m/n/10 Temperature(F)\OT1/ptm/m/n/10 , \OT1/pcr/m/n/10 Visibility(mi)\
 OT1/ptm/m/n/10 ), cat-e-gor-i-cal
  []
 
 
-Underfull \hbox (badness 4403) in paragraph at lines 43--45
+Underfull \hbox (badness 4403) in paragraph at lines 46--48
 \OT1/ptm/m/n/10 weather de-scrip-tors, and boolean road at-tributes (e.g.,
  []
 
 <temporal_analysis.pdf, id=77, 433.62pt x 433.62pt>
 File: temporal_analysis.pdf Graphic file (type pdf)
 <use temporal_analysis.pdf>
-Package pdftex.def Info: temporal_analysis.pdf  used on input line 58.
-(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+Package pdftex.def Info: temporal_analysis.pdf  used on input line 60.
+(pdftex.def)             Requested size: 173.44492pt x 173.44492pt.
+[1{C:/Users/Gabriel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Progra
+m Files (x86)/LaTeX/fonts/enc/dvips/base/8r.enc}
+
+
+ <./temporal_analysis.pdf>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+
 
 (C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
 
 
 (C:\Program Files (x86)\LaTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<categorical_sensitivity.pdf, id=79, 433.62pt x 361.35pt>
+<categorical_sensitivity.pdf, id=100, 433.62pt x 361.35pt>
 File: categorical_sensitivity.pdf Graphic file (type pdf)
 <use categorical_sensitivity.pdf>
-Package pdftex.def Info: categorical_sensitivity.pdf  used on input line 66.
-(pdftex.def)             Requested size: 216.80946pt x 180.67456pt.
- [1{C:/Users/Gabriel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Progr
-am Files (x86)/LaTeX/fonts/enc/dvips/base/8r.enc}
-
-
- <./temporal_analysis.pdf>]
-<categorical_distribution_weather.pdf, id=108, 433.62pt x 361.35pt>
+Package pdftex.def Info: categorical_sensitivity.pdf  used on input line 71.
+(pdftex.def)             Requested size: 151.76927pt x 126.4744pt.
+<categorical_distribution_weather.pdf, id=104, 433.62pt x 361.35pt>
 File: categorical_distribution_weather.pdf Graphic file (type pdf)
 <use categorical_distribution_weather.pdf>
 Package pdftex.def Info: categorical_distribution_weather.pdf  used on input li
-ne 84.
+ne 90.
 (pdftex.def)             Requested size: 173.44492pt x 144.53743pt.
-<severity_detailed.pdf, id=111, 433.62pt x 433.62pt>
+<severity_detailed.pdf, id=107, 433.62pt x 433.62pt>
 File: severity_detailed.pdf Graphic file (type pdf)
 <use severity_detailed.pdf>
-Package pdftex.def Info: severity_detailed.pdf  used on input line 94.
+Package pdftex.def Info: severity_detailed.pdf  used on input line 100.
 (pdftex.def)             Requested size: 151.76927pt x 151.76927pt.
-<Linear_Correlation.pdf, id=112, 505.89pt x 505.89pt>
+<Linear_Correlation.pdf, id=108, 505.89pt x 505.89pt>
 File: Linear_Correlation.pdf Graphic file (type pdf)
 <use Linear_Correlation.pdf>
-Package pdftex.def Info: Linear_Correlation.pdf  used on input line 100.
+Package pdftex.def Info: Linear_Correlation.pdf  used on input line 106.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
  [2 <./categorical_sensitivity.pdf> <./categorical_distribution_weather.pdf> <.
 /severity_detailed.pdf> <./Linear_Correlation.pdf>]
 <PCA_Combined_Scree_Plot.pdf, id=151, 361.35pt x 361.35pt>
 File: PCA_Combined_Scree_Plot.pdf Graphic file (type pdf)
 <use PCA_Combined_Scree_Plot.pdf>
-Package pdftex.def Info: PCA_Combined_Scree_Plot.pdf  used on input line 123.
+Package pdftex.def Info: PCA_Combined_Scree_Plot.pdf  used on input line 129.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
 <UMAP_Density_Map.pdf, id=154, 361.35pt x 361.35pt>
 File: UMAP_Density_Map.pdf Graphic file (type pdf)
 <use UMAP_Density_Map.pdf>
-Package pdftex.def Info: UMAP_Density_Map.pdf  used on input line 133.
+Package pdftex.def Info: UMAP_Density_Map.pdf  used on input line 139.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
  [3 <./PCA_Combined_Scree_Plot.pdf> <./UMAP_Density_Map.pdf>]
 <k-means_diagnostic_plots.pdf, id=193, 794.97pt x 614.295pt>
 File: k-means_diagnostic_plots.pdf Graphic file (type pdf)
 <use k-means_diagnostic_plots.pdf>
-Package pdftex.def Info: k-means_diagnostic_plots.pdf  used on input line 179.
+Package pdftex.def Info: k-means_diagnostic_plots.pdf  used on input line 185.
 (pdftex.def)             Requested size: 238.49284pt x 184.28992pt.
 <k-means_pca_PC1_PC2_k.pdf, id=196, 722.7pt x 505.89pt>
 File: k-means_pca_PC1_PC2_k.pdf Graphic file (type pdf)
 <use k-means_pca_PC1_PC2_k.pdf>
-Package pdftex.def Info: k-means_pca_PC1_PC2_k.pdf  used on input line 191.
+Package pdftex.def Info: k-means_pca_PC1_PC2_k.pdf  used on input line 197.
 (pdftex.def)             Requested size: 252.94878pt x 177.06415pt.
 <gmm_bic_selection_plot.pdf, id=198, 309.155pt x 417.56pt>
 File: gmm_bic_selection_plot.pdf Graphic file (type pdf)
 <use gmm_bic_selection_plot.pdf>
-Package pdftex.def Info: gmm_bic_selection_plot.pdf  used on input line 203.
+Package pdftex.def Info: gmm_bic_selection_plot.pdf  used on input line 209.
 (pdftex.def)             Requested size: 154.57712pt x 208.77948pt.
- [4 <./k-means_diagnostic_plots.pdf> <./k-means_pca_PC1_PC2_k.pdf> <./gmm_bic_s
-election_plot.pdf>]
-<gmm_pca_PC1_PC2.pdf, id=231, 722.7pt x 505.89pt>
+<gmm_pca_PC1_PC2.pdf, id=201, 722.7pt x 505.89pt>
 File: gmm_pca_PC1_PC2.pdf Graphic file (type pdf)
 <use gmm_pca_PC1_PC2.pdf>
-Package pdftex.def Info: gmm_pca_PC1_PC2.pdf  used on input line 215.
+Package pdftex.def Info: gmm_pca_PC1_PC2.pdf  used on input line 221.
 (pdftex.def)             Requested size: 252.94878pt x 177.06415pt.
-<spectral_eigengap_plot.pdf, id=233, 578.16pt x 433.62pt>
+<spectral_eigengap_plot.pdf, id=203, 578.16pt x 433.62pt>
 File: spectral_eigengap_plot.pdf Graphic file (type pdf)
 <use spectral_eigengap_plot.pdf>
-Package pdftex.def Info: spectral_eigengap_plot.pdf  used on input line 228.
+Package pdftex.def Info: spectral_eigengap_plot.pdf  used on input line 234.
 (pdftex.def)             Requested size: 260.16959pt x 195.1272pt.
-<spectral_pca_PC1_PC2.pdf, id=235, 722.7pt x 505.89pt>
+
+Underfull \vbox (badness 2932) has occurred while \output is active []
+
+ [4 <./k-means_diagnostic_plots.pdf> <./k-means_pca_PC1_PC2_k.pdf>]
+<spectral_pca_PC1_PC2.pdf, id=232, 722.7pt x 505.89pt>
 File: spectral_pca_PC1_PC2.pdf Graphic file (type pdf)
 <use spectral_pca_PC1_PC2.pdf>
-Package pdftex.def Info: spectral_pca_PC1_PC2.pdf  used on input line 237.
+Package pdftex.def Info: spectral_pca_PC1_PC2.pdf  used on input line 244.
 (pdftex.def)             Requested size: 252.94878pt x 177.06415pt.
- [5 <./gmm_pca_PC1_PC2.pdf> <./spectral_eigengap_plot.pdf> <./spectral_pca_PC1_
-PC2.pdf>] [6]
-Underfull \hbox (badness 3291) in paragraph at lines 381--383
-[]\OT1/ptm/m/n/10 The "Per-fect Storm" is re-al-ized when these spa-tial
+ [5 <./gmm_bic_selection_plot.pdf> <./gmm_pca_PC1_PC2.pdf> <./spectral_eigengap
+_plot.pdf> <./spectral_pca_PC1_PC2.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+Underfull \hbox (badness 3291) in paragraph at lines 384--386
+[]\OT1/ptm/m/n/10 The ``Per-fect Storm" is re-al-ized when these spa-tial
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
-\OT1/ptm/m/n/8 Data-[]Science / tree / main / DataMining[]2 / Movie[]Recommende
-r[]Model[]
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
+\OT1/ptm/m/n/8 Data-[]Science / tree / main / DataMining[]2 / Risk[]Pro^^Lles[]
+Car[]Accidents[]
  []
 
 
@@ -648,13 +645,13 @@ Package rerunfilecheck Info: File `Project_Assignment_3.out' has not changed.
 (rerunfilecheck)             Checksum: A455729F785F7D3DB5BD40168E7C27BB;2740.
  ) 
 Here is how much of TeX's memory you used:
- 12957 strings out of 467871
- 207493 string characters out of 5426032
+ 12958 strings out of 467871
+ 207499 string characters out of 5426032
  647893 words of memory out of 5000000
  41617 multiletter control sequences out of 15000+600000
- 666936 words of font info for 115 fonts, out of 8000000 for 9000
+ 668014 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,906b,528s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,907b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
 rogram Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
 Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x
@@ -669,7 +666,7 @@ Files (x86)/LaTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/LaTe
 X/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/u
 rw/times/utmr8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on Project_Assignment_3.pdf (7 pages, 2077870 bytes).
+Output written on Project_Assignment_3.pdf (7 pages, 2078416 bytes).
 PDF statistics:
  373 PDF objects out of 1000 (max. 8388607)
  68 named destinations out of 1000 (max. 500000)
