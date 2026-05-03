@@ -1,0 +1,12 @@
+{
+  "observation_count": 140860,
+  "eps": 0.35,
+  "minPts": 50,
+  "total_clusters": 573,
+  "largest_cluster_id": 216,
+  "largest_cluster_size": 1151,
+  "noise_points_count": 30434,
+  "noise_percentage": 21.6058,
+  "density_contrast_ratio": 10.03,
+  "shadow_sil_score": 0.8334
+}

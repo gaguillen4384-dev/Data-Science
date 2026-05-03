@@ -1,3 +1,5 @@
-﻿Code/Models/*.rds
+﻿*.rds
 Code/.Rhistory
 Code/Datasets/
+Code/Datasets/
+Code/Output/Graphs/orange_county_map_files/

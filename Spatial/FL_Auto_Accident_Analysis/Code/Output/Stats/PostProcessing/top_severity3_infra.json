@@ -1,0 +1,57 @@
+[
+  {
+    "Cluster": 79,
+    "Total_Infra": 0,
+    "Avg_Severity": 3,
+    "Frequency": 144,
+    "Peak_Hour_Raw": 8,
+    "Peak_Hour_Civilian": "08 AM",
+    "Primary_Day": "Thursday",
+    "Priority_Score": 1.2,
+    "Label": "High-Severity Rural Link"
+  },
+  {
+    "Cluster": 181,
+    "Total_Infra": 0,
+    "Avg_Severity": 3,
+    "Frequency": 125,
+    "Peak_Hour_Raw": 8,
+    "Peak_Hour_Civilian": "08 AM",
+    "Primary_Day": "Tuesday",
+    "Priority_Score": 1.2,
+    "Label": "High-Severity / Low-Infra"
+  },
+  {
+    "Cluster": 62,
+    "Total_Infra": 0,
+    "Avg_Severity": 3,
+    "Frequency": 124,
+    "Peak_Hour_Raw": 8,
+    "Peak_Hour_Civilian": "08 AM",
+    "Primary_Day": "Wednesday",
+    "Priority_Score": 1.2,
+    "Label": "High-Severity / Low-Infra"
+  },
+  {
+    "Cluster": 263,
+    "Total_Infra": 0,
+    "Avg_Severity": 3,
+    "Frequency": 115,
+    "Peak_Hour_Raw": 7,
+    "Peak_Hour_Civilian": "07 AM",
+    "Primary_Day": "Tuesday",
+    "Priority_Score": 1.2,
+    "Label": "High-Severity / Low-Infra"
+  },
+  {
+    "Cluster": 57,
+    "Total_Infra": 0,
+    "Avg_Severity": 3,
+    "Frequency": 111,
+    "Peak_Hour_Raw": 7,
+    "Peak_Hour_Civilian": "07 AM",
+    "Primary_Day": "Wednesday",
+    "Priority_Score": 1.2,
+    "Label": "High-Severity / Low-Infra"
+  }
+]

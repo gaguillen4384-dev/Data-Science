@@ -1,0 +1,62 @@
+[
+  {
+    "Cluster": 1,
+    "Infra_Presence": 2,
+    "Total_Infra": 574,
+    "Avg_Severity": 2,
+    "Frequency": 287,
+    "Peak_Hour_Raw": 17,
+    "Peak_Hour_Civilian": "05 PM",
+    "Primary_Day": "Wednesday",
+    "Priority_Score": 2.2,
+    "Label": "Evening Commuter Intersection"
+  },
+  {
+    "Cluster": 4,
+    "Infra_Presence": 2,
+    "Total_Infra": 240,
+    "Avg_Severity": 2,
+    "Frequency": 120,
+    "Peak_Hour_Raw": 20,
+    "Peak_Hour_Civilian": "08 PM",
+    "Primary_Day": "Wednesday",
+    "Priority_Score": 2.2,
+    "Label": "Late-Night Signalized Zone"
+  },
+  {
+    "Cluster": 6,
+    "Infra_Presence": 2,
+    "Total_Infra": 772,
+    "Avg_Severity": 2,
+    "Frequency": 386,
+    "Peak_Hour_Raw": 7,
+    "Peak_Hour_Civilian": "07 AM",
+    "Primary_Day": "Thursday",
+    "Priority_Score": 2.2,
+    "Label": "Early Morning Signalized Crossing"
+  },
+  {
+    "Cluster": 7,
+    "Infra_Presence": 2,
+    "Total_Infra": 892,
+    "Avg_Severity": 2,
+    "Frequency": 446,
+    "Peak_Hour_Raw": 8,
+    "Peak_Hour_Civilian": "08 AM",
+    "Primary_Day": "Thursday",
+    "Priority_Score": 2.2,
+    "Label": "Morning Multi-Modal Hub"
+  },
+  {
+    "Cluster": 9,
+    "Infra_Presence": 2,
+    "Total_Infra": 478,
+    "Avg_Severity": 2,
+    "Frequency": 239,
+    "Peak_Hour_Raw": 9,
+    "Peak_Hour_Civilian": "09 AM",
+    "Primary_Day": "Thursday",
+    "Priority_Score": 2.2,
+    "Label": "Mid-Morning Transit Point"
+  }
+]

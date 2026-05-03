@@ -1,6 +1,6 @@
 library(data.table)
 
-df <- fread("./Datasets/Florida_Combined_Data.csv")
+df <- fread("./Datasets/State_Roads_TDA.csv")
 
 # a seed for reproducibility 
 set.seed(42)

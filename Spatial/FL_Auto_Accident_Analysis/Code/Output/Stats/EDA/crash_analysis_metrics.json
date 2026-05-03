@@ -1,0 +1,71 @@
+{
+  "csi_summary": {
+    "Total_Crashes": [140860],
+    "Total_CSI_Score": [295220],
+    "Avg_CSI_per_Crash": [2.0958]
+  },
+  "infra_ratios": {
+    "Amenity": [0.0051],
+    "Bump": [0.0002],
+    "Crossing": [0.3741],
+    "Give_Way": [0.0002],
+    "Junction": [0.0197],
+    "No_Exit": [0.0013],
+    "Railway": [0.0042],
+    "Roundabout": [0.0001],
+    "Station": [0.0829],
+    "Stop": [0.0117],
+    "Traffic_Calming": [0.0004],
+    "Traffic_Signal": [0.2132]
+  },
+  "binary_counts": [
+    {
+      "Infra_Feature": "Amenity",
+      "N": 712
+    },
+    {
+      "Infra_Feature": "Bump",
+      "N": 24
+    },
+    {
+      "Infra_Feature": "Crossing",
+      "N": 52700
+    },
+    {
+      "Infra_Feature": "Give_Way",
+      "N": 23
+    },
+    {
+      "Infra_Feature": "Junction",
+      "N": 2771
+    },
+    {
+      "Infra_Feature": "No_Exit",
+      "N": 180
+    },
+    {
+      "Infra_Feature": "Railway",
+      "N": 594
+    },
+    {
+      "Infra_Feature": "Roundabout",
+      "N": 13
+    },
+    {
+      "Infra_Feature": "Station",
+      "N": 11677
+    },
+    {
+      "Infra_Feature": "Stop",
+      "N": 1652
+    },
+    {
+      "Infra_Feature": "Traffic_Calming",
+      "N": 57
+    },
+    {
+      "Infra_Feature": "Traffic_Signal",
+      "N": 30031
+    }
+  ]
+}

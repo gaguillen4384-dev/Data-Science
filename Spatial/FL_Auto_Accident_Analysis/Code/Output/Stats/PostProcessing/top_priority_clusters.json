@@ -1,0 +1,62 @@
+[
+  {
+    "Cluster": 228,
+    "Frequency": 1151,
+    "Total_Infra": 0,
+    "Total_Severity": 2302,
+    "Avg_Severity": 2,
+    "Peak_Hour_Raw": 16,
+    "Peak_Hour_Civilian": "04 PM",
+    "Primary_Day": "Tuesday",
+    "Priority_Score": 1841.6,
+    "Label": "Afternoon Transit Throughway"
+  },
+  {
+    "Cluster": 320,
+    "Frequency": 1146,
+    "Total_Infra": 0,
+    "Total_Severity": 2292,
+    "Avg_Severity": 2,
+    "Peak_Hour_Raw": 17,
+    "Peak_Hour_Civilian": "05 PM",
+    "Primary_Day": "Wednesday",
+    "Priority_Score": 1833.6,
+    "Label": "Evening Commuter Corridor"
+  },
+  {
+    "Cluster": 137,
+    "Frequency": 1133,
+    "Total_Infra": 0,
+    "Total_Severity": 2266,
+    "Avg_Severity": 2,
+    "Peak_Hour_Raw": 17,
+    "Peak_Hour_Civilian": "05 PM",
+    "Primary_Day": "Thursday",
+    "Priority_Score": 1812.8,
+    "Label": "Peak Hour Transit Link"
+  },
+  {
+    "Cluster": 290,
+    "Frequency": 1101,
+    "Total_Infra": 0,
+    "Total_Severity": 2202,
+    "Avg_Severity": 2,
+    "Peak_Hour_Raw": 17,
+    "Peak_Hour_Civilian": "05 PM",
+    "Primary_Day": "Tuesday",
+    "Priority_Score": 1761.6,
+    "Label": "Late-Day Commute Zone"
+  },
+  {
+    "Cluster": 150,
+    "Frequency": 1092,
+    "Total_Infra": 0,
+    "Total_Severity": 2184,
+    "Avg_Severity": 2,
+    "Peak_Hour_Raw": 16,
+    "Peak_Hour_Civilian": "04 PM",
+    "Primary_Day": "Friday",
+    "Priority_Score": 1747.2,
+    "Label": "Weekend Activity Hub"
+  }
+]
