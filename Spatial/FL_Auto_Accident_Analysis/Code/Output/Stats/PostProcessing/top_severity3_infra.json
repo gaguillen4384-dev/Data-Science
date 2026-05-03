@@ -1,8 +1,10 @@
 [
   {
     "Cluster": 79,
+    "Infra_Presence": 0,
     "Total_Infra": 0,
     "Avg_Severity": 3,
+    "Total_Severity": 432,
     "Frequency": 144,
     "Peak_Hour_Raw": 8,
     "Peak_Hour_Civilian": "08 AM",
@@ -12,8 +14,10 @@
   },
   {
     "Cluster": 181,
+    "Infra_Presence": 0,
     "Total_Infra": 0,
     "Avg_Severity": 3,
+    "Total_Severity": 375,
     "Frequency": 125,
     "Peak_Hour_Raw": 8,
     "Peak_Hour_Civilian": "08 AM",
@@ -23,8 +27,10 @@
   },
   {
     "Cluster": 62,
+    "Infra_Presence": 0,
     "Total_Infra": 0,
     "Avg_Severity": 3,
+    "Total_Severity": 372,
     "Frequency": 124,
     "Peak_Hour_Raw": 8,
     "Peak_Hour_Civilian": "08 AM",
@@ -34,8 +40,10 @@
   },
   {
     "Cluster": 263,
+    "Infra_Presence": 0,
     "Total_Infra": 0,
     "Avg_Severity": 3,
+    "Total_Severity": 345,
     "Frequency": 115,
     "Peak_Hour_Raw": 7,
     "Peak_Hour_Civilian": "07 AM",
@@ -45,8 +53,10 @@
   },
   {
     "Cluster": 57,
+    "Infra_Presence": 0,
     "Total_Infra": 0,
     "Avg_Severity": 3,
+    "Total_Severity": 333,
     "Frequency": 111,
     "Peak_Hour_Raw": 7,
     "Peak_Hour_Civilian": "07 AM",

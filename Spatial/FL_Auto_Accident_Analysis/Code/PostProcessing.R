@@ -45,7 +45,7 @@ get_top_clusters <- function(df, n = 5, weight_freq = 0.4, weight_sev = 0.6, jso
     ) %>%
     # Weighted Score
     mutate(
-      Priority_Score = (Frequency * weight_freq) + (Total_Severity * weight_sev)
+      Priority_Score = (Frequency * weight_freq) + (Avg_Severity * weight_sev)
     ) %>%
     arrange(desc(Priority_Score)) %>%
     head(n)
@@ -90,6 +90,7 @@ get_top_infra_clusters <- function(df, n = 5, weight_infra = 0.7, weight_sev = 0
       Infra_Presence = mean(rowSums(across(all_of(infra_cols)), na.rm = TRUE)),
       Total_Infra = sum(across(all_of(infra_cols)), na.rm = TRUE),
       Avg_Severity = mean(.data[[sev_col]], na.rm = TRUE),
+      Total_Severity = sum(.data[[sev_col]], na.rm = TRUE),
       Frequency = n(),
       Peak_Hour_Raw = as.numeric(names(sort(table(Hour), decreasing = TRUE)[1])),
       Peak_Hour_Civilian = format(as.POSIXct(paste(Peak_Hour_Raw, ":00", sep=""), format="%H:%M"), "%I %p"),
@@ -100,7 +101,7 @@ get_top_infra_clusters <- function(df, n = 5, weight_infra = 0.7, weight_sev = 0
     # Weighted Score: Normalizing high severity incidents at high-infra locations
     mutate(
       # scale both to 0-1 range (optional but recommended) to ensure weights are meaningful
-      Priority_Score = (Infra_Presence * weight_infra) + (Avg_Severity * weight_sev)
+      Priority_Score = (Total_Infra * weight_infra) + (Avg_Severity * weight_sev)
     ) %>%
     arrange(desc(Priority_Score)) %>%
     head(n)
@@ -189,8 +190,10 @@ get_top_fatal_infra_clusters <- function(df, n = 5, weight_infra = 0.7, weight_s
     filter(.data[[sev_col]] == 3) %>%
     group_by(Cluster) %>%
     summarise(
+      Infra_Presence = mean(rowSums(across(all_of(infra_cols)), na.rm = TRUE)),
       Total_Infra = sum(across(all_of(infra_cols)), na.rm = TRUE),
       Avg_Severity = mean(.data[[sev_col]], na.rm = TRUE),
+      Total_Severity = sum(.data[[sev_col]], na.rm = TRUE),
       Frequency = n(),
       Peak_Hour_Raw = as.numeric(names(sort(table(Hour), decreasing = TRUE)[1])),
       Peak_Hour_Civilian = format(as.POSIXct(paste(Peak_Hour_Raw, ":00", sep=""), format="%H:%M"), "%I %p"),
@@ -347,7 +350,7 @@ plot_academic_detailed_map <- function(cluster_df, top_cluster_number = 5) {
     
     labs(
       title = "DBSCAN Cluster Analysis: Orange County, FL",
-      subtitle = paste0("Top ", top_cluster_number, " Clusters | Infrastructure Markers: OSM Node Data"),
+      subtitle = paste0("Top ", top_cluster_number, " Frequency Clusters"),
       x = "Longitude", y = "Latitude"
     ) +
     
@@ -579,8 +582,7 @@ plot_infrastructure_priority_map <- function(cluster_df, top_cluster_number = 5)
     road_markers <- road_markers %>%
       filter(if_any(any_of(c("highway", "place")), ~ !is.na(.)))
   }
-  
-  # Labels synchronized with top_severity3_infra_2.json metadata
+
   top_5_labels <- c(
     "228" = "Afternoon Transit Throughway",
     "320" = "Evening Commuter Corridor",
@@ -641,7 +643,7 @@ plot_infrastructure_priority_map <- function(cluster_df, top_cluster_number = 5)
     
     labs(
       title = "Infrastructure Priority Analysis: Orange County, FL",
-      subtitle = "High-Severity Level 3 Incidents | Source: top_severity3_infra_2.json",
+      subtitle = "High-Severity Level 3 Incidents",
       x = "Longitude", y = "Latitude"
     ) +
     
@@ -664,21 +666,21 @@ full_data <- prepare_cluster_data(clean_cfl_path, cluster_mappings_path)
 
 # Extract top clusters
 
-#get_top_infra_clusters(full_data, n = top_cluster_number)
+#top_clusters <- get_top_infra_clusters(full_data, n = top_cluster_number)
 #get_top_severity_clusters(full_data, n = top_cluster_number)
 
 # --- TOP 5 By Frequency ---
-top_clusters <- get_top_clusters(full_data, n = top_cluster_number)
+#top_clusters <- get_top_clusters(full_data, n = top_cluster_number)
 #final_plot <- plot_academic_detailed_map(top_clusters, top_cluster_number)
 #ggsave("./Output/Graphs/PostProcessing/Academic_Cluster_Map.pdf", final_plot, width = 8, height = 8, device = cairo_pdf)
 
-zoom_map <- plot_downtown_zoom_map(top_clusters, top_cluster_number)
-ggsave("./Output/Graphs/PostProcessing/Zoom_Map.pdf", zoom_map, width = 5, height = 6, device = cairo_pdf)
+#zoom_map <- plot_downtown_zoom_map(top_clusters, top_cluster_number)
+#ggsave("./Output/Graphs/PostProcessing/Zoom_Map.pdf", zoom_map, width = 5, height = 6, device = cairo_pdf)
 
 # --- TOP 5 By Severity ---
-top_clusters <- get_top_fatal_infra_clusters(full_data, n = top_cluster_number)
-zoom_map <- plot_high_severity_clusters(top_clusters, top_cluster_number)
-ggsave("./Output/Graphs/PostProcessing/Zoom_Map_Severity.pdf", zoom_map, width = 5, height = 6, device = cairo_pdf)
+#top_clusters <- get_top_fatal_infra_clusters(full_data, n = top_cluster_number)
+#zoom_map <- plot_high_severity_clusters(top_clusters, top_cluster_number)
+#ggsave("./Output/Graphs/PostProcessing/Zoom_Map_Severity.pdf", zoom_map, width = 5, height = 6, device = cairo_pdf)
 
 #final_plot <- plot_infrastructure_priority_map(top_clusters, top_cluster_number)
 #ggsave("./Output/Graphs/PostProcessing/Severity_Cluster_Map.pdf", final_plot, width = 8, height = 8, device = cairo_pdf)

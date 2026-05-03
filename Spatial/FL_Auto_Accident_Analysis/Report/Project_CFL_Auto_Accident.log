@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  3 MAY 2026 02:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  3 MAY 2026 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -514,12 +514,21 @@ Package hyperref Info: Link coloring ON on input line 24.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+
+Underfull \hbox (badness 1533) in paragraph at lines 48--49
+[]\OT1/ptm/m/n/10 The goal of this anal-y-sis is to dif-fer-en-ti-ate be-tween
+ []
+
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
 2.
-
 (C:\Program Files (x86)\LaTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+Underfull \hbox (badness 5119) in paragraph at lines 51--53
+\OT1/ptm/m/n/10 law en-force-ment agen-cies and Florida De-part-ment of
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 51--53
 []\OT1/ptm/m/n/10 The struc-ture in-cor-po-rates 46 mul-ti-di-men-sional
  []
@@ -579,11 +588,11 @@ Underfull \hbox (badness 1360) in paragraph at lines 123--125
  []
 
 [2 <./plot_temporal_hour.pdf> <./plot_temporal_day.pdf>]
-<west_cfl_overview.png, id=107, 853.68938pt x 511.9125pt>
-File: west_cfl_overview.png Graphic file (type png)
-<use west_cfl_overview.png>
-Package pdftex.def Info: west_cfl_overview.png  used on input line 156.
-(pdftex.def)             Requested size: 213.42181pt x 127.97781pt.
+<west_cfl_overview.pdf, id=107, 853.7787pt x 511.96571pt>
+File: west_cfl_overview.pdf Graphic file (type pdf)
+<use west_cfl_overview.pdf>
+Package pdftex.def Info: west_cfl_overview.pdf  used on input line 156.
+(pdftex.def)             Requested size: 213.44415pt x 127.9911pt.
 
 Underfull \hbox (badness 1715) in paragraph at lines 182--184
 []\OT1/ptm/m/n/10 Unlike centroid-based meth-ods, \OT1/ptm/b/n/10 DB-SCAN \OT1/
@@ -595,37 +604,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
-<k_distance_elbow.pdf, id=112, 578.16pt x 433.62pt>
+<k_distance_elbow.pdf, id=111, 578.16pt x 433.62pt>
 File: k_distance_elbow.pdf Graphic file (type pdf)
 <use k_distance_elbow.pdf>
 Package pdftex.def Info: k_distance_elbow.pdf  used on input line 188.
 (pdftex.def)             Requested size: 144.53964pt x 108.40472pt.
 
-LaTeX Warning: Reference `table:dbscan_results' on page 3 undefined on input li
-ne 198.
-
-
 Overfull \hbox (6.05319pt too wide) in paragraph at lines 202--212
  [][] 
  []
 
-[3 <./west_cfl_overview.png> <./k_distance_elbow.pdf>]
-Underfull \hbox (badness 3849) in paragraph at lines 279--280
-[]\OT1/ptm/b/n/10 Threshold Con-sis-tency: \OT1/ptm/m/n/10 Un-like frequency-we
-ighted
+[3 <./west_cfl_overview.pdf> <./k_distance_elbow.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+[]\OT1/ptm/b/n/10 Ranking Cri-te-ria: \OT1/ptm/m/n/10 Un-der this rel-a-tive ma
+rker,
  []
 
 
 
 pdfTeX warning: pdflatex.exe (file ./Severity_Cluster_Map.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<Severity_Cluster_Map.pdf, id=144, 578.16pt x 578.16pt>
+<Severity_Cluster_Map.pdf, id=148, 578.16pt x 578.16pt>
 File: Severity_Cluster_Map.pdf Graphic file (type pdf)
 <use Severity_Cluster_Map.pdf>
-Package pdftex.def Info: Severity_Cluster_Map.pdf  used on input line 285.
+Package pdftex.def Info: Severity_Cluster_Map.pdf  used on input line 292.
 (pdftex.def)             Requested size: 260.16959pt x 260.16959pt.
 [4 <./Severity_Cluster_Map.pdf>]
-Underfull \hbox (badness 7012) in paragraph at lines 327--331
+Underfull \hbox (badness 3849) in paragraph at lines 300--301
+[]\OT1/ptm/b/n/10 Threshold Con-sis-tency: \OT1/ptm/m/n/10 Un-like frequency-we
+ighted
+ []
+
+
+Underfull \hbox (badness 7012) in paragraph at lines 332--336
 []\OT1/ptm/m/n/10 This in-di-cates that the morn-ing pro-fes-sional com-
  []
 
@@ -633,33 +644,21 @@ Underfull \hbox (badness 7012) in paragraph at lines 327--331
 
 pdfTeX warning: pdflatex.exe (file ./Zoom_Map.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<Zoom_Map.pdf, id=184, 361.35pt x 433.62pt>
+<Zoom_Map.pdf, id=185, 361.35pt x 433.62pt>
 File: Zoom_Map.pdf Graphic file (type pdf)
 <use Zoom_Map.pdf>
-Package pdftex.def Info: Zoom_Map.pdf  used on input line 345.
-(pdftex.def)             Requested size: 234.87471pt x 281.84966pt.
+Package pdftex.def Info: Zoom_Map.pdf  used on input line 348.
+(pdftex.def)             Requested size: 180.67456pt x 216.80946pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./Zoom_Map_Severity.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<Zoom_Map_Severity.pdf, id=185, 361.35pt x 433.62pt>
+<Zoom_Map_Severity.pdf, id=188, 361.35pt x 433.62pt>
 File: Zoom_Map_Severity.pdf Graphic file (type pdf)
 <use Zoom_Map_Severity.pdf>
-Package pdftex.def Info: Zoom_Map_Severity.pdf  used on input line 351.
+Package pdftex.def Info: Zoom_Map_Severity.pdf  used on input line 356.
 (pdftex.def)             Requested size: 162.60599pt x 195.1272pt.
-
-Underfull \vbox (badness 1005) has occurred while \output is active []
-
- [5 <./Zoom_Map.pdf> <./Zoom_Map_Severity.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Zoom_Map_Severity.pdf): PDF inclusion: mul
-tiple pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) in paragraph at lines 427--428
-\OT1/ptm/m/n/8 Data-[]Science / tree / main / DataMining[]2 / Risk[]Pro^^Lles[]
-Car[]Accidents[]
- []
-
+[5 <./Zoom_Map.pdf>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -671,27 +670,23 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (Project_CFL_Auto_Accident.aux)
+[6 <./Zoom_Map_Severity.pdf>] (Project_CFL_Auto_Accident.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `Project_CFL_Auto_Accident.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: 35C59D8624C906191575620D23E71038;1722.
  ) 
 Here is how much of TeX's memory you used:
- 12986 strings out of 467871
- 206993 string characters out of 5426032
- 639568 words of memory out of 5000000
- 41643 multiletter control sequences out of 15000+600000
+ 12981 strings out of 467871
+ 206890 string characters out of 5426032
+ 640705 words of memory out of 5000000
+ 41639 multiletter control sequences out of 15000+600000
  670637 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,603b,528s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,603b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/P
 rogram Files (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program F
 iles (x86)/LaTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x8
@@ -704,9 +699,9 @@ pfb><C:/Program Files (x86)/LaTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program
 Files (x86)/LaTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/LaT
 eX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/LaTeX/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on Project_CFL_Auto_Accident.pdf (6 pages, 2165870 bytes).
+Output written on Project_CFL_Auto_Accident.pdf (6 pages, 2177228 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 61 named destinations out of 1000 (max. 500000)
+ 313 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
  137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

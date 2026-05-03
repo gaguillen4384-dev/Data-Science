@@ -8,7 +8,7 @@
     "Peak_Hour_Raw": 16,
     "Peak_Hour_Civilian": "04 PM",
     "Primary_Day": "Tuesday",
-    "Priority_Score": 1841.6,
+    "Priority_Score": 461.6,
     "Label": "Afternoon Transit Throughway"
   },
   {
@@ -20,7 +20,7 @@
     "Peak_Hour_Raw": 17,
     "Peak_Hour_Civilian": "05 PM",
     "Primary_Day": "Wednesday",
-    "Priority_Score": 1833.6,
+    "Priority_Score": 459.6,
     "Label": "Evening Commuter Corridor"
   },
   {
@@ -32,7 +32,7 @@
     "Peak_Hour_Raw": 17,
     "Peak_Hour_Civilian": "05 PM",
     "Primary_Day": "Thursday",
-    "Priority_Score": 1812.8,
+    "Priority_Score": 454.4,
     "Label": "Peak Hour Transit Link"
   },
   {
@@ -44,7 +44,7 @@
     "Peak_Hour_Raw": 17,
     "Peak_Hour_Civilian": "05 PM",
     "Primary_Day": "Tuesday",
-    "Priority_Score": 1761.6,
+    "Priority_Score": 441.6,
     "Label": "Late-Day Commute Zone"
   },
   {
@@ -56,7 +56,7 @@
     "Peak_Hour_Raw": 16,
     "Peak_Hour_Civilian": "04 PM",
     "Primary_Day": "Friday",
-    "Priority_Score": 1747.2,
+    "Priority_Score": 438,
     "Label": "Weekend Activity Hub"
   }
 ]

@@ -2,6 +2,7 @@ library(data.table)
 library(ggplot2)
 library(jsonlite)
 library(sf)
+library(magick)
 
 # --- METRIC FUNCTIONS  ---
 
@@ -138,6 +139,25 @@ plot_temporal <- function(dt) {
   invisible(dev.off())
 }
 
+save_map_as_pdf <- function(input_path, output_path, title_text) {
+  img <- image_read(input_path)
+  
+  # Add the title
+  img_with_title <- image_annotate(
+    img, 
+    text = title_text, 
+    size = 30, 
+    color = "black", 
+    boxcolor = "white",
+    gravity = "north", 
+    location = "+0"
+  )
+  
+  image_write(img_with_title, path = output_path, format = "pdf")
+  
+  message(paste("File saved successfully to:", output_path))
+}
+
 # --- EXECUTION FLOW ---
 message("Execution Flow Started")
 dt <- fread("./Datasets/Preprocessing/clean_enriched_cfl.csv")
@@ -151,7 +171,10 @@ all_metrics <- list(
 write_json(all_metrics, "./Output/Stats/EDA/crash_analysis_metrics.json", pretty = TRUE)
 
 # Generate SEPARATE PDFs
-plot_kde(dt)
-plot_cross_tab(dt)
-plot_temporal(dt)
+#plot_kde(dt)
+#plot_cross_tab(dt)
+#plot_temporal(dt)
+
+#crop a screenshot from leaflet of a zoom in area
+save_map_as_pdf("./Datasets/west_cfl_overview.png", "./Output/Graphs/EDA/west_cfl_overview.pdf", "West Central Florida Density")
 message("Execution Flow Completed")

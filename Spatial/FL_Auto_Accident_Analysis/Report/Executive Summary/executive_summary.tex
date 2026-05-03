@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry} % Narrower margins to guarantee one-page fit
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{\vspace{-4em}\textbf{Executive Summary: Orange County Traffic Risk Analysis}}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	\vspace{-4em}
+	
+	\section*{Overview}
+	This report investigates the "Severity-Infrastructure Paradox" in Orange County, Florida, using a dataset of 140,860 observations to identify high-density accident clusters.
+	
+	\section*{Key Findings}
+	The analysis reveals that Severity---the level of impact an accident has on traffic---is affected by:
+	
+	\begin{itemize}[nosep] % "nosep" removes extra vertical space between bullets
+		\item \textbf{The Severity-Infrastructure Paradox:} There is a stark inverse correlation between safety assets and accident lethality. While infrastructure-dense areas (crossings, signals) experience high accident frequency, they successfully moderate impacts to mid-level severity.
+		\item \textbf{The I-4 "Safety Vacuum":} The highest-severity (Level 3) accidents occur predominantly where regulatory infrastructure is absent. Paradoxically, the core features of a highway—controlled access and high velocity—are the specific factors that escalate accident severity on I-4 by removing natural speed moderators found in urban grids.
+		\item \textbf{Situational Risk Factors:} Lethality is driven by situational pressure rather than sheer volume.
+		\begin{itemize}[nosep]
+			\item \textbf{The Morning Rush (7:00 AM – 8:00 AM):} This is the exclusive "danger zone" for Level 3 outcomes due to high-speed transit on unmanaged segments.
+			\item \textbf{The Afternoon Rush (4:00 PM – 5:00 PM):} This period sees the highest incident count, but congestion acts as a natural speed moderator, keeping most accidents at Level 2 severity.
+		\end{itemize}
+	\end{itemize}
+	
+	\section*{Conclusion}
+	Orange County’s most lethal environments are not caused by traffic volume, but by the systemic friction between the professional commute and the unmanaged pipeline of the highway system. Addressing these risks requires time-sensitive interventions on high-velocity segments where infrastructure is currently absent.
+	
+	\section*{Data Source}
+	The underlying geographic and infrastructure data used in this analysis was sourced from \textbf{Kaggle}: 
+	\href{https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents}{US Accidents (2016 - 2023)} and \textbf{FDOT}:\href{https://gis-fdot.opendata.arcgis.com/datasets/d8ce6b8eee2646e6a0b534281e0391a0_0/explore?location=28.510591%2C-81.291546%2C10}{FDOT State Roads TDA}
+	
+\end{document}

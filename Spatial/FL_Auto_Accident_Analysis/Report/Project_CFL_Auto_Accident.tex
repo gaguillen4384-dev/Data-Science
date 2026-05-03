@@ -25,11 +25,11 @@
 
 \title{The Severity-Infrastructure Paradox: Spatial and Temporal Risk Profiles in Orange County, FL}
 
-\author{\IEEEauthorblockN{TBD}
+\author{\IEEEauthorblockN{Gabriel Guillen}
 	\IEEEauthorblockA{\textit{dept. of Statistics \& Data Science} \\
 		\textit{University of Central Florida}\\
 		Orlando, United States of America \\
-		TBD}}
+		ga013701@ucf.edu}}
 
 \maketitle
 \renewcommand{\abstractname}{Summary}
@@ -39,16 +39,16 @@ Traffic safety is an emergent property resulting from the complex, non-linear fr
 
 \section{\textbf{Introduction}}
 
-Traffic safety is an emergent property resulting from the non-linear friction between drivers and their environment.
+Safety isn't just a metric; it's a result of the non-linear dynamics between drivers and the road.  
 
-This report moves beyond univariate analysis to investigate whether accident severity correlates directly with roadway infrastructure or is driven by meta-aspects—the complex interplay of temporal, environmental, and situational variables.  
+This report investigates the "Severity-Infrastructure Paradox" by shifting the focus from single-variable analysis to "meta-aspects"—the overlapping environmental and temporal conditions that drive accident severity.  
 
-Utilizing a refined dataset for Orange County, Florida, this study applies the DBSCAN unsupervised learning framework to pinpoint high-density ``Black Spots" while isolating random noise. 
+Leveraging a refined Orange County dataset of 140,860 observations, DBSCAN unsupervised learning is used to distinguish 652 dense accident clusters ("Black Spots") from noise.  
 
-By evaluating these spatial clusters, the analysis distinguishes whether high-risk zones are products of infrastructure failure or broader, systemic meta-factors.
+The goal of this analysis is to differentiate between infrastructure-led risks and those driven by systemic environmental factors, such as the high-pressure professional commute.
 
 \subsection{\textbf{Dataset Structure}}
-\indent Derived from \cite{moosavi2019countrywide}, \cite{moosavi2019accident}, and \cite{fdot_geospatial}, the dataset was procured via streaming APIs from the US Department of Transportation and law enforcement agencies. For this analysis, the data was narrowed to 140,860 Florida-specific observations.\\
+\indent Derived from \cite{moosavi2019countrywide}, \cite{moosavi2019accident}, and \cite{fdot_geospatial}, the dataset was procured via streaming APIs from the US Department of Transportation, law enforcement agencies and Florida Department of Transportation. For this analysis, the data was narrowed to 140,860 Orange County-specific observations.\\
 \indent The structure incorporates 46 multidimensional features—including numeric environmental metrics (e.g., \texttt{Temperature(F)}, \texttt{Visibility(mi)}), categorical weather descriptors, and boolean road attributes (e.g., \texttt{Junction}, \texttt{Traffic\_Signal})—providing the necessary framework for unsupervised cluster analysis.
 
 \vspace{2mm}
@@ -70,7 +70,7 @@ With the dataset stabilized and standardized, the exploratory analysis focused o
 
 \subsubsection*{\textbf{Infrastructure Trends}}
 
-Within the infrastructure space, analysis of Figure \ref{plot_severity_infrastructure}, reveals that Crossings serve as the primary hotspot for accidents, with a sharp peak at Severity \textbf{Level 2}.
+Within the infrastructure space, analysis of Figure \ref{plot_severity_infrastructure}, reveals that Crossings serve as the primary hotspot for accidents, with a sharp peak at Severity (level of traffic impact) \textbf{Level 2}.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.30]{plot_severity_infrastructure.pdf}}
@@ -106,7 +106,7 @@ Figure \ref{plot_temporal_hour} reveals a strong correlation between peak commut
 \end{figure} 
 
 A bimodal distribution is evident, with significant spikes occurring during the morning rush (approximately 7:00 AM to 8:00 AM) and a much larger, sustained peak during the afternoon rush hour, reaching its maximum around 4:00 PM to 5:00 PM.\\
-\indent Throughout these periods, Severity Level 2 remains the dominant classification, consistently outnumbering more severe incidents.
+\indent Throughout these periods, Severity \textbf{Level 2} remains the dominant classification, consistently outnumbering more severe incidents.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.45]{plot_temporal_day.pdf}}
@@ -153,7 +153,7 @@ An \textbf{Avg. CSI of 2.0958} is statistically significant as it positions the 
 Spatial analysis (Figure \ref{west_cfl_overview}) reveals accident clusters at \textbf{I-4} and \textbf{408 Expressway} junctions. A color-coded hierarchy is shown to denote severity: blue dots represent \textbf{Level 2} incidents, while green and yellow signify the higher \textbf{Levels} 3 and 4, respectively.
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.25]{west_cfl_overview.png}}
+	\centerline{\includegraphics[scale=0.25]{west_cfl_overview.pdf}}
 	\caption{West Orlando Zoomed-In Raw Density}
 	\label{west_cfl_overview}
 \end{figure} 
@@ -195,7 +195,7 @@ To determine the optimal $\epsilon$, we generated a K-Distance Plot (see Figure 
 
 \subsubsection*{\textbf{Evaluation of Clustering Trials}} 
 
-With $\epsilon$ fixed at 0.35 based on the k-distance analysis, we conducted three trials varying the minPts threshold (40, 50, and 60) to optimize the balance between cluster granularity and noise reduction. The results of these trials are summarized in Table \ref{table:dbscan_results}.
+With $\epsilon$ fixed at 0.35 based on the k-distance analysis, we conducted three trials varying the minPts threshold (40, 50, and 60) to optimize the balance between cluster granularity and noise reduction. The results of these trials are summarized in Table \ref{dbscan_results}.
 
 \begin{table}[h!]
 	\centering
@@ -218,7 +218,9 @@ As shown in Table \ref{dbscan_results}, Trial 1 (minPts = 40) was selected as th
 	\item \textbf{Superior Density Capture:} It achieved the highest \textbf{Density Contrast Ratio (11.30)}, indicating a more distinct separation between the dense accident cores and the sparse surrounding noise.
 	\item \textbf{Metric Stability:} It maintained the highest \textbf{Shadow Silhouette Score (0.8336)}, suggesting the most cohesive internal cluster structure.
 	\item \textbf{Granularity:} By keeping the noise percentage at 19.11\%, it preserved a larger portion of the dataset for analysis compared to the more restrictive 50 and 60 minPts trials, which discarded significantly more data as noise (up to 24.57\%).
-\end{itemize}  This framework provides the spatial foundation required to test whether these 652 identified clusters exhibit severity patterns linked to engineering or the aforementioned meta-variables.
+\end{itemize} 
+
+Given that not all accidents are meant to be clustered, 19\% being outliers seems appropriate. This framework provides the spatial foundation required to test whether these 652 identified clusters exhibit severity patterns linked to engineering or the aforementioned meta-variables.
 
 \vspace{2mm}
 
@@ -226,7 +228,7 @@ As shown in Table \ref{dbscan_results}, Trial 1 (minPts = 40) was selected as th
 
 \subsection{\textbf{Clustering Exploration and Analysis}}
 
-The analysis of top clusters (Table \ref{cluster_analysis}) reveals three distinct risk profiles based on the interaction of frequency, severity, and infrastructure presence.\\
+The analysis of top clusters (Table \ref{cluster_analysis_refined}) reveals three distinct risk profiles based on the interaction of frequency, severity, and infrastructure presence.\\
 \indent Within this framework, \textbf{Severity}, \textbf{Peak Hour}, and \textbf{Day} are defined as the mean values of all observations within a given cluster for those respective features, representing the central tendency of the cluster's behavior.\\
 \indent In contrast, the \textbf{Infrastructure} metric represents the aggregate presence of infrastructure assets, calculated as the summation of all individual infrastructure features—including traffic signals, junctions, crossings, and stations—recorded across the cluster's observations.
 
@@ -238,27 +240,33 @@ The analysis of top clusters (Table \ref{cluster_analysis}) reveals three distin
 		\toprule
 		\textbf{Cat.} & \textbf{ID} & \textbf{Freq.} & \textbf{Infra} & \textbf{Sev.} & \textbf{Peak} & \textbf{Day} & \textbf{Score} \\ \midrule
 		\textit{Freq.} 
-		& 228 & 1,151 & 0 & 2 & 4PM & Tue & 1841.6 \\
-		& 320 & 1,146 & 0 & 2 & 5PM & Wed & 1833.6 \\
-		& 137 & 1,133 & 0 & 2 & 5PM & Thu & 1812.8 \\
-		& 290 & 1,101 & 0 & 2 & 5PM & Tue & 1761.6 \\
-		& 150 & 1,092 & 0 & 2 & 4PM & Fri & 1747.2 \\ \midrule
-		\textit{Sev.} 
-		& 79 & 144 & 0 & 3 & 8AM & Thu & 1.2 \\
-		& 181 & 125 & 0 & 3 & 8AM & Tue & 1.2 \\
-		& 62 & 124 & 0 & 3 & 8AM & Wed & 1.2 \\
-		& 263 & 115 & 0 & 3 & 7AM & Tue & 1.2 \\
-		& 57 & 111 & 0 & 3 & 7AM & Wed & 1.2 \\ \midrule
+		& 137 & 1,133 & 0   & 2 & 5PM & Thu & 454.4 \\
+		& 150 & 1,092 & 0   & 2 & 4PM & Fri & 438.0[ \\
+		& 228 & 1,151 & 0   & 2 & 4PM & Tue & 461.6 \\
+		& 290 & 1,101 & 0   & 2 & 5PM & Tue & 441.6 \\
+		& 320 & 1,146 & 0   & 2 & 5PM & Wed & 459.6 \\ \midrule
 		\textit{Infra} 
-		& 7 & 446 & 892 & 2 & 8AM & Thu & 2.2 \\
-		& 6 & 386 & 772 & 2 & 7AM & Thu & 2.2 \\
-		& 1 & 287 & 574 & 2 & 5PM & Wed & 2.2 \\
-		& 9 & 239 & 478 & 2 & 9AM & Thu & 2.2 \\
-		& 4 & 120 & 240 & 2 & 8PM & Wed & 2.2 \\ \bottomrule
+		& 7   & 446   & 892 & 2 & 8AM & Thu & 625.2 \\
+		& 46  & 425   & 850 & 2 & 9AM & Tue & 595.8 \\
+		& 61  & 402   & 804 & 2 & 7AM & Wed & 563.6 \\
+		& 64  & 399   & 798 & 2 & 8PM & Wed & 559.4 \\
+		& 159 & 430   & 860 & 2 & 5PM & Mon & 602.8 \\ \midrule
+		\textit{Sev.} 
+		& 57  & 111   & 0   & 3 & 7AM & Wed & 1.2 \\
+		& 62  & 124   & 0   & 3 & 8AM & Wed & 1.2 \\
+		& 79  & 144   & 0   & 3 & 8AM & Thu & 1.2 \\
+		& 181 & 125   & 0   & 3 & 8AM & Tue & 1.2 \\
+		& 263 & 115   & 0   & 3 & 7AM & Tue & 1.2 \\ \bottomrule
 	\end{tabular}
-	\caption{Top Clusters by Frequency, Severity, and Infra}
-	\label{cluster_analysis}
+	\caption{Top Clusters Grouped by Category and Ordered by ID Ascending}
+	\label{cluster_analysis_refined}
 \end{table}
+
+\textbf{Score} was calculated using these two formulas. This dual-priority formulas benchmark habitual accident patterns while using those frequencies as a relative marker to highlight systemic risk in high-asset zones.  
+\begin{itemize}
+	\item \textbf{$P_{freq} = (Frequency \times 0.4) + (Severity_{avg} \times 0.6)$}: Identifies high-volume hotspots to establish a baseline of habitual accident frequency.
+	\item \textbf{$P_{infra} = (Infra_{total} \times 0.7) + (Severity_{avg} \times 0.4)$}: Prioritizes complex hubs where high infrastructure density creates a greater risk for diverse transit types (pedestrians, cyclists, and vehicles).
+\end{itemize}  
 
 \subsection*{1. Frequency-Driven Clusters (High-Volume Peaks)}
 These clusters represent the highest operational load, dominated by sheer event volume.
@@ -266,19 +274,18 @@ These clusters represent the highest operational load, dominated by sheer event 
 \begin{itemize}
 	\item \textbf{Temporal Trend:} Activity peaks consistently during the evening rush hour (\textbf{4:00 PM -- 5:00 PM}), primarily on Tuesday through Thursday.
 	\item \textbf{Frequency-Based Priority:} 
-	Focuses on high-volume clusters by weighting frequency and total severity.
-	\begin{equation}
-		P_{freq} = (Frequency \times 0.4) + (Severity_{total} \times 0.6)
-	\end{equation}
-	\item \textbf{Impact Profile:} While individual severity is moderate (Level 2), the cumulative volume (Freq $> 1,000$) results in the highest overall Priority Scores ($\approx 1800$)
+	Focuses on high-volume clusters by weighting frequency and total severity, using $P_{freq}$.
+	\item \textbf{Impact Profile:} While these clusters maintain high cumulative volumes (Freq $> 1,000$) and moderate severity (\textbf{Level 2}), their priority scores ($\approx 440 \text{--} 460$) serve as a baseline for comparison. 
 \end{itemize}
 
-\subsection*{2. Severity-Driven Clusters (DBSCAN-Identified Maxima)}
-This category identifies dense spatial groupings where DBSCAN determined a 100\% concentration of maximum severity events, visualize in (Figure \ref{Severity_Cluster_Map}).
+
+\subsection*{2. Infrastructure-Driven Clusters (Asset-Dense Hubs)}
+These clusters are defined by high infrastructure presence (weighted at 70\% of the score).
+
 \begin{itemize}
-	\item \textbf{Threshold Consistency:} Unlike frequency-weighted clusters, these represent locations where the recorded severity is \textit{uniformly} at the maximum level (Level 3).
-	\item \textbf{Temporal Convergence:} These ``Severity Maxima" clusters peak sharply between \textbf{7:00 AM and 8:00 AM}, suggesting that early morning traffic conditions in these specific coordinates are prone to the most severe outcomes.
-	\item \textbf{Infrastructure Absence:} The consistent priority score of 1.2 is a direct result of the formula $(0 \times 0.7) + (3 \times 0.4)$, highlighting a significant gap in infrastructure at these high-risk spatial coordinates.
+	\item \textbf{Correlation:} There is a relative ratio between frequency and infrastructure ($Infra \approx 2 \times Freq$), indicating systematic asset allocation.
+	\item \textbf{Operational Window:} Unlike the other categories, these areas show activity across a wider temporal range (\textbf{7:00 AM to 8:00 PM}).
+	\item \textbf{Ranking Criteria:} Under this relative marker, infrastructure-dense hubs emerge as higher priorities, as their built-environment complexity results in significantly higher priority scores ($\approx 560 \text{--} 625$) despite having lower raw accident counts.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -287,30 +294,28 @@ This category identifies dense spatial groupings where DBSCAN determined a 100\%
 	\label{Severity_Cluster_Map}
 \end{figure} 
 
-
-\subsection*{3. Infrastructure-Driven Clusters (Asset-Dense Hubs)}
-These clusters are defined by high infrastructure presence (weighted at 70\% of the score).
-
+\subsection*{3. Severity-Driven Clusters (DBSCAN-Identified Maxima)}
+This category identifies dense spatial groupings where DBSCAN determined a 100\% concentration of maximum severity events, visualize in (Figure \ref{Severity_Cluster_Map}).
 \begin{itemize}
-	\item \textbf{Correlation:} There is a fixed ratio between frequency and infrastructure ($Infra = 2 \times Freq$), indicating systematic asset allocation.
-	\item \textbf{Operational Window:} Unlike the other categories, these areas show activity across a wider temporal range (\textbf{7:00 AM to 8:00 PM}).
-	\item \textbf{Strategy:} Focus on long-term asset maintenance and monitoring of high-density infrastructure zones.
-	\item \textbf{Ranking Criteria:} Clusters are ranked by prioritizing infrastructure density ($0.7$ weight) alongside average incident severity ($0.4$ weight):
-	\begin{equation*}
-		P_{infra} = 0.7(Infra_{pres}) + 0.4(Sev_{avg})
-	\end{equation*}
+	\item \textbf{Threshold Consistency:} Unlike frequency-weighted clusters, these represent locations where the recorded severity is \textit{uniformly} at the maximum level (Level 3).
+	\item \textbf{Temporal Convergence:} These ``Severity Maxima" clusters peak sharply between \textbf{7:00 AM and 8:00 AM}, suggesting that early morning traffic conditions in these specific coordinates are prone to the most severe outcomes.
+	\item \textbf{Infrastructure Absence:} The consistent priority score of 1.2 is a direct result of the Formula $P_{infra}$---($(0 \times 0.7) + (3 \times 0.4)$---highlighting a significant gap in infrastructure at these high-risk spatial coordinates.
 \end{itemize}
 
-\begin{table}[h]
+\begin{table}[htbp]
 	\centering
-	\begin{tabular}{@{}llll@{}}
-		\toprule
-		\textbf{Profile} & \textbf{Primary Driver} & \textbf{Peak Time} & \textbf{Severity Level} \\ \midrule
-		Congestion & Frequency & Late Afternoon & Level 2 (Moderate) \\
-		High Risk  & Severity  & Early Morning  & Level 3 (Critical) \\
-		Structural & Infra     & All Day        & Level 2 (Moderate) \\ \bottomrule
-	\end{tabular}
-		\caption{Summary of Regional Risk Profiles}
+	\label{tab:risk_profiles}
+	% Use \resizebox to scale the table to fit the column width exactly
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{@{}llll@{}}
+			\toprule
+			\textbf{Profile} & \textbf{Primary Driver} & \textbf{Peak Time} & \textbf{Severity Level} \\ \midrule
+			Congestion & Frequency & Late Afternoon & Level 2 (Moderate) \\
+			Structural & Infrastructure & Intermittent & Level 2 (Moderate) \\
+			High Risk & Severity & Early Morning & Level 3 (Critical) \\ \bottomrule
+		\end{tabular}%
+	}
+	\caption{Summary of Regional Risk Profiles}
 \end{table}
 
 \section{\textbf{Discussion}}
@@ -336,16 +341,16 @@ The data isolates these risks as products of the work-week cycle.\\
 
 \subsection*{\textbf{Revisiting: West Orlando Case Study}}
 
-The West Orlando corridor serves as the primary evidence for the \textit{Severity-Infrastructure Paradox}.\\
-\indent When comparing Figure \ref{Zoom_Map} and Figure \ref{Zoom_Map_Severity}, a clear spatial shift occurs: while frequency clusters are distributed across various surface-street junctions, the severity hotspots consolidate almost exclusively along the \textbf{I-4} unmanaged pipeline.
-
+The West Orlando corridor offers a granular perspective on the \textit{Severity-Infrastructure Paradox}, acting as a focal point to demonstrate how these macro patterns manifest locally.\\
 \vspace{-1.25em}
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.65]{Zoom_Map.pdf}}
+	\centerline{\includegraphics[scale=0.50]{Zoom_Map.pdf}}
 	\caption{Top 5 By Frequency: High-volume transit links and weekend activity hubs.}
 	\label{Zoom_Map}
 \end{figure}  
+
+When comparing Figure \ref{Zoom_Map} and Figure \ref{Zoom_Map_Severity}, a clear spatial shift occurs: while frequency clusters are distributed across various surface-street junctions, the severity hotspots consolidate almost exclusively along the \textbf{I-4} unmanaged pipeline.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.45]{Zoom_Map_Severity.pdf}}
@@ -353,11 +358,10 @@ The West Orlando corridor serves as the primary evidence for the \textit{Severit
 	\label{Zoom_Map_Severity}
 \end{figure}
 
-\vspace{.50em}  
+This visual transition confirms that risk in West Orlando is not a product of volume, but of situational vulnerability.\\
+\indent The morning rush transforms these low-infrastructure segments into ``Early Morning High-Risk" zones, where the absence of regulatory assets allows standard transit conflicts to escalate into \textbf{Level 3} outcomes.
 
-This visual transition confirms that risk in West Orlando is not a product of volume, but of situational vulnerability. The morning rush transforms these low-infrastructure segments into ``Early Morning High-Risk" zones, where the absence of regulatory assets allows standard transit conflicts to escalate into \textbf{Level 3} outcomes.
-
-
+\newpage
 \section{\textbf{Conclusion}}
 
 The analysis of Orange County’s traffic landscape confirms that accident severity is not merely a product of physical engineering, but an \textit{emergent property} of ``meta-aspects"—\textbf{specifically the volatile intersection of temporal pressure and infrastructure absence}. 
@@ -386,9 +390,9 @@ Moosavi, S., Samavatian, M. H., Parthasarathy, S., Teodorescu, R., \& Ramnath, R
 
 \bibitem{fdot_geospatial}
 Florida Department of Transportation (FDOT). 
-\newblock Florida Geospatial Open Data Portal. 
+\newblock Florida GIS Open Data Hub. 
 \newblock \textit{FDOT Transportation Data and Analytics Office}. 
-\newblock Available at: \url{https://www.floridagio.gov/maps/} (Accessed: May 2024).
+\newblock Available at: \url{https://gis-fdot.opendata.arcgis.com/} (Accessed: May 2026).
 
 % --- General ---
 
@@ -424,7 +428,7 @@ Zenodo. \url{https://doi.org/10.5281/zenodo.13881689}
 
 \section*{Appendix A: Supplementary Materials and Software Usage}
 \subsection*{Source Code Repository \label{app:code}}
-The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: \url{https://github.com/gaguillen4384-dev/Data-Science/tree/main/DataMining_2/Risk_Profiles_Car_Accidents_Analysis}).
+The source code, data, and detailed implementation scripts for this project are available on GitHub (URL: \url{https://github.com/gaguillen4384-dev/Data-Science/tree/main/Spatial/FL_Auto_Accident_Analysis}).
 
 \subsection*{Software Usage Acknowledgment}
 \begin{enumerate}
@@ -444,6 +448,7 @@ The source code, data, and detailed implementation scripts for this project are 
 	\item \textbf{tidyverse}: Employed as a meta-package to maintain a consistent data science workflow and dependency ecosystem.
 	\item \textbf{sf}: Used for the rapid creation of dummy variables from categorical infrastructure features like signage and junction types.
 	\item \textbf{cluster}: Used for basic clustering utilities and the computation of the Silhouette Profile.
+	\item \textbf{magick}: Used for image file manipulation on density graph in West Orlando Case Ctudy.
 
 \end{itemize}
 \end{enumerate}
